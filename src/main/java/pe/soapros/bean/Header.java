@@ -18,6 +18,9 @@ public class Header {
 	@JsonProperty("FlowID")
 	private String flowID;
 	
+	@JsonProperty("ThemeID")
+	private String themeID;
+	
 	
 	public String getEventIDGLOBAL() {
 		return this.eventIDGLOBAL;
@@ -42,6 +45,12 @@ public class Header {
 	}
 	public void setFlowID(String flowID) {
 		this.flowID = flowID;
+	}
+	public String getThemeID() {
+		return themeID;
+	}
+	public void setThemeID(String themeID) {
+		this.themeID = themeID;
 	}
 	
 	
