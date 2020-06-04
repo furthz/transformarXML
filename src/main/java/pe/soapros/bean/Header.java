@@ -15,6 +15,10 @@ public class Header {
 	@JsonProperty("FormCode")
 	private String formCode;
 	
+	@JsonProperty("FlowID")
+	private String flowID;
+	
+	
 	public String getEventIDGLOBAL() {
 		return this.eventIDGLOBAL;
 	}
@@ -32,6 +36,12 @@ public class Header {
 	}
 	public void setFormCode(String formCode) {
 		this.formCode = formCode;
+	}
+	public String getFlowID() {
+		return flowID;
+	}
+	public void setFlowID(String flowID) {
+		this.flowID = flowID;
 	}
 	
 	
