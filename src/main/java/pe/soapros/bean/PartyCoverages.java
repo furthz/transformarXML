@@ -1,5 +1,6 @@
 package pe.soapros.bean;
 
+import java.util.Collections;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -20,6 +21,20 @@ public class PartyCoverages {
 	public void setPartyCoverage(List<PartyCoverage> partyCoverage) {
 		this.partyCoverage = partyCoverage;
 	}
+	
+	
+	public String getCoverages() {
+		String valor = "";
+		
+		Collections.sort(partyCoverage);
+		
+		for(PartyCoverage party: this.partyCoverage) {
+			valor = valor + party.getCode();
+		}
+		
+		return valor;
+	}
+	
 	
 	
 }

@@ -4,13 +4,17 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
 @JacksonXmlRootElement(localName="Header")
-public class PartyCoverage {
+public class PartyCoverage implements Comparable<PartyCoverage>{
+	
 	@JsonProperty("Description")
 	private String description;
+	
 	@JsonProperty("Category")
 	private String category;
+	
 	@JsonProperty("CoverageTerms")
 	private CoverageTerms coverageTerms;
+	
 	@JsonProperty("Code")
 	private String code;
 	
@@ -31,6 +35,19 @@ public class PartyCoverage {
 	}
 	public void setCoverageTerms(CoverageTerms coverageTerms) {
 		this.coverageTerms = coverageTerms;
+	}
+	
+	
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
+	
+	@Override
+	public int compareTo(PartyCoverage arg0) {
+		return this.code.compareTo(arg0.getCode());
 	}
 	
 	

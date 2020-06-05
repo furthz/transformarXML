@@ -8,12 +8,16 @@ public class AAHParty {
 
 	@JsonProperty("PartyNumber")
 	private String partyNumber;
+	
 	@JsonProperty("NumberOfRelatedPeople")
 	private String numberOfRelatedPeople;
+	
 	@JsonProperty("InsuredType")
 	private InsuredType insuredType;
+	
 	@JsonProperty("CoveredPerson")
 	private CoveredPerson coveredPerson;
+	
 	@JsonProperty("PartyCoverages")
 	private PartyCoverages partyCoverages;
 	
