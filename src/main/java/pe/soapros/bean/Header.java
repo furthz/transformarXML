@@ -21,7 +21,6 @@ public class Header {
 	@JsonProperty("ThemeID")
 	private String themeID;
 	
-	
 	public String getEventIDGLOBAL() {
 		return this.eventIDGLOBAL;
 	}
