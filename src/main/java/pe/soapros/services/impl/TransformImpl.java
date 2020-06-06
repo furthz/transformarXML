@@ -1,6 +1,7 @@
 package pe.soapros.services.impl;
 
 import java.io.File;
+import java.net.URI;
 import java.util.Map;
 
 
@@ -23,7 +24,12 @@ public class TransformImpl implements Transform {
 		log.debug("Creando un proceso concurrente para transformar el xml");
 
 		String rutaXML = String.valueOf(parameters.get("inputXML"));
-
+		System.out.println(rutaXML);
+		
+		URI url = new URI(rutaXML);
+		
+		String path = url.resolve(".").toString();
+		
 		XmlMapper xmlMapper = new XmlMapper();
 		xmlMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
 		
@@ -31,11 +37,13 @@ public class TransformImpl implements Transform {
 		
 		try {
 			Document document = xmlMapper.readValue(xml, Document.class);
-
-			System.out.println(document);
-			
+		
 			// hacer la transformación usando el bean ya cargado
+			document.getContent().getPolicyPeriod().getAAHLine().getAAHPartys().generateNominados();
 			
+			xmlMapper.writeValue(new File(path + "\\resultante.xml"), document);
+			
+			System.out.println(document);		
 			
 			
 		} catch (Exception e) {

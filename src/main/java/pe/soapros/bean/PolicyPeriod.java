@@ -3,43 +3,60 @@ package pe.soapros.bean;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
-@JacksonXmlRootElement(localName="Header")
+@JacksonXmlRootElement(localName="PolicyPeriod")
 public class PolicyPeriod {
 	
 	@JsonProperty("OfferName")
 	private String offerName;
+	
 	@JsonProperty("PolicyNumber")
 	private String policyNumber;
+	
 	@JsonProperty("OfficialPolicyNumber")
 	private String officialPolicyNumber;
+	
 	@JsonProperty("PolicyChangeNumber")
 	private String policyChangeNumber;
+	
 	@JsonProperty("PeriodStart")
 	private String periodStart;
+	
 	@JsonProperty("CancellationDate")
 	private String cancellationDate;
+	
 	@JsonProperty("PeriodEnd")
 	private String periodEnd;
+	
 	@JsonProperty("PaymentFrequency")
 	private String paymentFrequency;
+	
 	@JsonProperty("SystemDate")
 	private String systemDate;
+
 	@JsonProperty("RamoCode")
 	private RamoCode ramoCode;
+	
 	@JsonProperty("Policy")
 	private Policy policy;
+	
 	@JsonProperty("Job")
 	private Job job;
+	
 	@JsonProperty("ReceiptInfo")
 	private ReceiptInfo receiptInfo;
+	
 	@JsonProperty("AAHLine")
 	private AAHLine AAHLine;
+	
 	@JsonProperty("PrimaryNamedInsured")
 	private PrimaryNamedInsured primaryNamedInsured;
+	
 	@JsonProperty("SancorInfo")
 	private SancorInfo sancorInfo;
+	
 	@JsonProperty("ProducerCode")
 	private ProducerCode ProducerCode;
+	
 	
 	public String getOfferName() {
 		return offerName;

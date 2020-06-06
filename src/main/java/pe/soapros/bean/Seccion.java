@@ -11,6 +11,7 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
 @JacksonXmlRootElement(localName="Header")
 public class Seccion {
+	
 	@JsonProperty("AAHParty")
 	@JacksonXmlElementWrapper(useWrapping = false)
 	private List<AAHParty> aAHParty;
@@ -23,7 +24,12 @@ public class Seccion {
 		this.aAHParty = aAHParty;
 	}
 
-
-
+	public Seccion () {
+		this.aAHParty = new ArrayList<AAHParty>();
+	}
+	
+	public void addAAHParty(AAHParty p) {
+		this.aAHParty.add(p);
+	}
 	
 }

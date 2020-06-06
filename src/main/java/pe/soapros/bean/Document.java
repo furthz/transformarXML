@@ -8,6 +8,7 @@ public class Document {
 	@JacksonXmlProperty(localName="Header")
     @JsonProperty("Header")
 	private Header header;
+	
     @JsonProperty("Content")
 	private Content content;
 

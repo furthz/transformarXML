@@ -14,6 +14,8 @@ public class PartyCoverages {
 	@JacksonXmlElementWrapper(useWrapping = false)
 	private List<PartyCoverage> partyCoverage;
 
+	private String coverages;
+	
 	public List<PartyCoverage> getPartyCoverage() {
 		return partyCoverage;
 	}
@@ -32,7 +34,9 @@ public class PartyCoverages {
 			valor = valor + party.getCode();
 		}
 		
-		return valor;
+		this.coverages = valor;
+		
+		return this.coverages;
 	}
 	
 	
