@@ -162,11 +162,12 @@ public class PolicyPeriod {
 		this.receiptInfo = receiptInfo;
 	}
 
-	public AAHLine getAAHLine() {
+
+	public AAHLine getaAHLine() {
 		return aAHLine;
 	}
 
-	public void setAAHLine(AAHLine aAHLine) {
+	public void setaAHLine(AAHLine aAHLine) {
 		this.aAHLine = aAHLine;
 	}
 

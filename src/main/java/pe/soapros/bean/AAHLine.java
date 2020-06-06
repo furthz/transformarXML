@@ -18,12 +18,13 @@ public class AAHLine {
 	public void setPolicyType(PolicyType policyType) {
 		this.policyType = policyType;
 	}
-	public AAHPartys getAAHPartys() {
+	public AAHPartys getaAHPartys() {
 		return aAHPartys;
 	}
-	public void setAAHPartys(AAHPartys aAHPartys) {
+	public void setaAHPartys(AAHPartys aAHPartys) {
 		this.aAHPartys = aAHPartys;
 	}
+
 
 	
 }

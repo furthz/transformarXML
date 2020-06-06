@@ -39,7 +39,7 @@ public class TransformImpl implements Transform {
 			Document document = xmlMapper.readValue(xml, Document.class);
 		
 			// hacer la transformación usando el bean ya cargado
-			document.getContent().getPolicyPeriod().getAAHLine().getAAHPartys().generateNominados();
+			document.getContent().getPolicyPeriod().getaAHLine().getaAHPartys().generateNominados();
 			
 			xmlMapper.writeValue(new File(path + "\\resultante.xml"), document);
 			
