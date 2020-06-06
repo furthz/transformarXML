@@ -3,7 +3,7 @@ package pe.soapros.bean;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
-@JacksonXmlRootElement(localName="Header")
+@JacksonXmlRootElement(localName="State")
 public class State {
 	@JsonProperty("DisplayName")
 	private String displayName;

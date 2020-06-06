@@ -3,7 +3,7 @@ package pe.soapros.bean;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
-@JacksonXmlRootElement(localName="Header")
+@JacksonXmlRootElement(localName="CoverageTerm")
 public class CoverageTerm {
 	@JsonProperty("ModelType")
 	private ModelType modelType;

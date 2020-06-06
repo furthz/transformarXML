@@ -19,7 +19,7 @@ public class AAHLine {
 		this.policyType = policyType;
 	}
 	public AAHPartys getAAHPartys() {
-		return this.aAHPartys;
+		return aAHPartys;
 	}
 	public void setAAHPartys(AAHPartys aAHPartys) {
 		this.aAHPartys = aAHPartys;

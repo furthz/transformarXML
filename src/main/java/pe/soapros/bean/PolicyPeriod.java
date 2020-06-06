@@ -46,7 +46,7 @@ public class PolicyPeriod {
 	private ReceiptInfo receiptInfo;
 	
 	@JsonProperty("AAHLine")
-	private AAHLine AAHLine;
+	private AAHLine aAHLine;
 	
 	@JsonProperty("PrimaryNamedInsured")
 	private PrimaryNamedInsured primaryNamedInsured;
@@ -55,7 +55,7 @@ public class PolicyPeriod {
 	private SancorInfo sancorInfo;
 	
 	@JsonProperty("ProducerCode")
-	private ProducerCode ProducerCode;
+	private ProducerCode producerCode;
 	
 	
 	public String getOfferName() {
@@ -163,11 +163,11 @@ public class PolicyPeriod {
 	}
 
 	public AAHLine getAAHLine() {
-		return AAHLine;
+		return aAHLine;
 	}
 
 	public void setAAHLine(AAHLine aAHLine) {
-		AAHLine = aAHLine;
+		this.aAHLine = aAHLine;
 	}
 
 	public PrimaryNamedInsured getPrimaryNamedInsured() {
@@ -187,11 +187,11 @@ public class PolicyPeriod {
 	}
 
 	public ProducerCode getProducerCode() {
-		return ProducerCode;
+		return producerCode;
 	}
 
 	public void setProducerCode(ProducerCode producerCode) {
-		ProducerCode = producerCode;
+		this.producerCode = producerCode;
 	}
 	
 	
