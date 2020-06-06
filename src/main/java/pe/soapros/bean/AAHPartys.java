@@ -45,12 +45,12 @@ public class AAHPartys {
 		this.seccionInnominados = seccionInnominados;
 	}
 
-	public List<AAHParty> getaahparty() {
+	public List<AAHParty> getAahpartys() {
 		return aahpartys;
 	}
 
-	public void setaahparty(List<AAHParty> aahparty) {
-		this.aahpartys = aahparty;
+	public void setAahpartys(List<AAHParty> aahpartys) {
+		this.aahpartys = aahpartys;
 	}
 
 	/**
