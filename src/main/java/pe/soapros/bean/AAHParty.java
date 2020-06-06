@@ -12,6 +12,9 @@ public class AAHParty {
 	@JsonProperty("NumberOfRelatedPeople")
 	private String numberOfRelatedPeople;
 	
+	@JsonProperty("AgeOrYearRange")
+	private String ageOrYearRange;
+	
 	@JsonProperty("InsuredType")
 	private InsuredType insuredType;
 	
@@ -59,6 +62,14 @@ public class AAHParty {
 
 	public void setPartyCoverages(PartyCoverages partyCoverages) {
 		this.partyCoverages = partyCoverages;
+	}
+
+	public String getAgeOrYearRange() {
+		return ageOrYearRange;
+	}
+
+	public void setAgeOrYearRange(String ageOrYearRange) {
+		this.ageOrYearRange = ageOrYearRange;
 	}
 	
 	

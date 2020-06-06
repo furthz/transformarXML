@@ -32,4 +32,8 @@ public class Seccion {
 		this.aAHParty.add(p);
 	}
 	
+	public int getSize() {
+		return this.aAHParty.size();
+	}
+	
 }

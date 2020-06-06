@@ -40,6 +40,8 @@ public class TransformImpl implements Transform {
 		
 			// hacer la transformación usando el bean ya cargado
 			document.getContent().getPolicyPeriod().getaAHLine().getaAHPartys().generateNominados();
+			document.getContent().getPolicyPeriod().sumAlllParties();
+
 			
 			xmlMapper.writeValue(new File(path + "\\resultante.xml"), document);
 			

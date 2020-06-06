@@ -57,6 +57,8 @@ public class PolicyPeriod {
 	@JsonProperty("ProducerCode")
 	private ProducerCode producerCode;
 	
+	@JsonProperty("TotalParties")
+	private String totalParties;
 	
 	public String getOfferName() {
 		return offerName;
@@ -194,6 +196,21 @@ public class PolicyPeriod {
 	public void setProducerCode(ProducerCode producerCode) {
 		this.producerCode = producerCode;
 	}
+
+	public String getTotalParties() {
+		return totalParties;
+	}
+
+	public void setTotalParties(String totalParties) {
+		this.totalParties = totalParties;
+	}
 	
+	public void sumAlllParties() {
+		int cantidadNominados, cantidadInnominados;
+		cantidadInnominados = this.aAHLine.getaAHPartys().getSeccionInnominados().getSize();
+		cantidadNominados = this.aAHLine.getaAHPartys().getSeccionInnominados().getSize();
+
+		this.totalParties = String.valueOf(cantidadNominados + cantidadInnominados);
+	}
 	
 }

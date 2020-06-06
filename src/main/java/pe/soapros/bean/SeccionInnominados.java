@@ -28,4 +28,13 @@ public class SeccionInnominados {
 	public void addSeccion(Seccion sec) {
 		this.seccion.add(sec);
 	}
+	
+	public int getSize() {
+		int subtotal = 0;
+		
+		for (Seccion seccion : this.seccion) {
+			subtotal = subtotal + seccion.getSize();
+		}
+		return subtotal;
+	}
 }
