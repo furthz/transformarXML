@@ -25,6 +25,13 @@ public class CoveredPerson {
 	public void setDateOfBirth(String dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
+	public OfficialIDs getOfficialIDs() {
+		return officialIDs;
+	}
+	public void setOfficialIDs(OfficialIDs officialIDs) {
+		this.officialIDs = officialIDs;
+	}
+	
 	
 	
 }

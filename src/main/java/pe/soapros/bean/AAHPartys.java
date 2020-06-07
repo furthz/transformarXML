@@ -96,9 +96,18 @@ public class AAHPartys {
 
 			String key = mentry.getKey().toString();
 			Seccion secTemp = new Seccion();
+			int elementosSeccion = 0;
+
 
 			for (AAHParty party : nominados) {
 				if (party.getPartyCoverages().getCoverages().toLowerCase().equals(key.toLowerCase())) {
+					elementosSeccion++;
+					//Según necesidad se coloca la descripcion vacia a partir del segundo elemento de cada seccion
+					if(elementosSeccion > 1) {
+						for (PartyCoverage coverage : party.getPartyCoverages().getPartyCoverage()) {
+							coverage.setDescription("");
+						}
+					}
 					secTemp.addAAHParty(party);
 				}
 			}
@@ -115,9 +124,17 @@ public class AAHPartys {
 
 			String key = mentry.getKey().toString();
 			Seccion secTemp = new Seccion();
+			int elementosSeccion = 0;
 
 			for (AAHParty party : no_nominados) {
 				if (party.getPartyCoverages().getCoverages().toLowerCase().equals(key.toLowerCase())) {
+					elementosSeccion++;
+					//Según necesidad se coloca la descripcion vacia a partir del segundo elemento de cada seccion
+					if(elementosSeccion > 1) {
+						for (PartyCoverage coverage : party.getPartyCoverages().getPartyCoverage()) {
+							coverage.setDescription("");
+						}
+					}
 					secTemp.addAAHParty(party);
 				}
 			}
@@ -130,6 +147,30 @@ public class AAHPartys {
 		
 		//System.out.println("hola");
 
+	}
+	
+	public void descartarOfficialID() {
+		for (AAHParty party : this.aahpartys) {
+			if(!party.getCoveredPersonExistence()) {
+			party.getCoveredPerson().getOfficialIDs().discardOfficialID();
+			}
+		}
+	}
+	
+	public void descartarCoverageTerms() {
+		for (AAHParty party : this.aahpartys) {
+			for (PartyCoverage partyCov : party.getPartyCoverages().getPartyCoverage()) {
+				partyCov.getCoverageTerms().discardCoverageTerms();
+			}
+		}
+	}
+	
+	public void calcularDetuctibleValue() {
+		for (AAHParty party : this.aahpartys) {
+			for (PartyCoverage partyCov : party.getPartyCoverages().getPartyCoverage()) {
+				partyCov.calculateDetuctibleValue();
+			}
+		}
 	}
 
 }

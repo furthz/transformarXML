@@ -38,5 +38,9 @@ public class Contact {
 	public void setOfficialIDs(OfficialIDs officialIDs) {
 		this.officialIDs = officialIDs;
 	}
+	
+	public void descartarOfficialID() {
+		this.officialIDs.discardOfficialID();
+	}
 
 }

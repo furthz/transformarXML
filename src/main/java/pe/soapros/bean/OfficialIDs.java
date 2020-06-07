@@ -11,5 +11,23 @@ public class OfficialIDs {
 	@JsonProperty("OfficialID")
 	@JacksonXmlElementWrapper(useWrapping = false)
 	private List<OfficialID> officialID;
+
+	public List<OfficialID> getOfficialID() {
+		return officialID;
+	}
+
+	public void setOfficialID(List<OfficialID> officialID) {
+		this.officialID = officialID;
+	}
 	
+	public void discardOfficialID() {
+		for (OfficialID officialid : this.officialID) {
+			if(officialid.getPrimary().equals("true" )) {
+				this.officialID.clear();
+				this.officialID.add(officialid);
+				break;
+			}
+		}
+
+	}
 }

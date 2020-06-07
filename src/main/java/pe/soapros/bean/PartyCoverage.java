@@ -18,6 +18,9 @@ public class PartyCoverage implements Comparable<PartyCoverage>{
 	@JsonProperty("Code")
 	private String code;
 	
+	@JsonProperty("DetuctibleValue")
+	private String detuctibleValue;
+	
 	public String getDescription() {
 		return description;
 	}
@@ -36,8 +39,12 @@ public class PartyCoverage implements Comparable<PartyCoverage>{
 	public void setCoverageTerms(CoverageTerms coverageTerms) {
 		this.coverageTerms = coverageTerms;
 	}
-	
-	
+	public String getDetuctibleValue() {
+		return detuctibleValue;
+	}
+	public void setDetuctibleValue(String detuctibleValue) {
+		this.detuctibleValue = detuctibleValue;
+	}
 	public String getCode() {
 		return code;
 	}
@@ -45,9 +52,19 @@ public class PartyCoverage implements Comparable<PartyCoverage>{
 		this.code = code;
 	}
 	
+	
+	
 	@Override
 	public int compareTo(PartyCoverage arg0) {
 		return this.code.compareTo(arg0.getCode());
+	}
+	
+	public void calculateDetuctibleValue() {
+		for (CoverageTerm coTerm : coverageTerms.getCoverageTerm()) {
+			if(coTerm.getModelType().getCode().equalsIgnoreCase("Deductible") && !coTerm.getValue().equalsIgnoreCase("0")) {
+				this.detuctibleValue = coTerm.getValue();
+			}
+		}
 	}
 	
 	

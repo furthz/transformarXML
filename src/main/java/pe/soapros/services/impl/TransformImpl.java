@@ -38,10 +38,17 @@ public class TransformImpl implements Transform {
 		try {
 			Document document = xmlMapper.readValue(xml, Document.class);
 		
+			// Se deja solo OfficialId con value true
+			document.getContent().getPolicyPeriod().getaAHLine().getaAHPartys().descartarOfficialID();
+			document.getContent().getPolicyPeriod().getPrimaryNamedInsured().getContact().descartarOfficialID();
+			// Se dejan solo los coverageTerms con valores amount_limit_GSS y Detuctible en el nodo Code
+			document.getContent().getPolicyPeriod().getaAHLine().getaAHPartys().descartarCoverageTerms();
+			// En los casos que se tenga Detuctible y valor distinto a 0, se coloca el valor un par de jerarquias mayores
+			document.getContent().getPolicyPeriod().getaAHLine().getaAHPartys().calcularDetuctibleValue();
 			// hacer la transformación usando el bean ya cargado
 			document.getContent().getPolicyPeriod().getaAHLine().getaAHPartys().generateNominados();
+			// Obtener conteo de AAHPartys
 			document.getContent().getPolicyPeriod().sumAlllParties();
-
 			
 			xmlMapper.writeValue(new File(path + "\\resultante.xml"), document);
 			

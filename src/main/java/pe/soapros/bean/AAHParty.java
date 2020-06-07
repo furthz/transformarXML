@@ -72,6 +72,8 @@ public class AAHParty {
 		this.ageOrYearRange = ageOrYearRange;
 	}
 	
-	
+	public boolean getCoveredPersonExistence() {
+		return coveredPerson == null;
+	}
 	
 }
