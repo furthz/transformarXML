@@ -21,6 +21,36 @@ public class Header {
 	@JsonProperty("ThemeID")
 	private String themeID;
 	
+	@JsonProperty("SourceSystem")
+	private String sourceSystem;
+	
+	@JsonProperty("Environment")
+	private String environment;
+	
+	@JsonProperty("MultDownID")
+	private String multDownID;
+	
+	@JsonProperty("UserName")
+	private String userName;
+	
+	@JsonProperty("OcurrenceDate")
+	private String ocurrenceDate;
+	
+	@JsonProperty("BusinessID")
+	private String businessID;
+	
+	@JsonProperty("ForPrint")
+	private String forPrint;
+	
+	@JsonProperty("ExternalChannel")
+	private String externalChannel;
+	
+	@JsonProperty("GroupQuantity")
+	private String groupQuantity;
+	
+	@JsonProperty("GeneralEnvironment")
+	private String generalEnvironment;
+	
 	public String getEventIDGLOBAL() {
 		return this.eventIDGLOBAL;
 	}
@@ -50,6 +80,66 @@ public class Header {
 	}
 	public void setThemeID(String themeID) {
 		this.themeID = themeID;
+	}
+	public String getSourceSystem() {
+		return sourceSystem;
+	}
+	public void setSourceSystem(String sourceSystem) {
+		this.sourceSystem = sourceSystem;
+	}
+	public String getEnvironment() {
+		return environment;
+	}
+	public void setEnvironment(String environment) {
+		this.environment = environment;
+	}
+	public String getMultDownID() {
+		return multDownID;
+	}
+	public void setMultDownID(String multDownID) {
+		this.multDownID = multDownID;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public String getOcurrenceDate() {
+		return ocurrenceDate;
+	}
+	public void setOcurrenceDate(String ocurrenceDate) {
+		this.ocurrenceDate = ocurrenceDate;
+	}
+	public String getBusinessID() {
+		return businessID;
+	}
+	public void setBusinessID(String businessID) {
+		this.businessID = businessID;
+	}
+	public String getForPrint() {
+		return forPrint;
+	}
+	public void setForPrint(String forPrint) {
+		this.forPrint = forPrint;
+	}
+	public String getExternalChannel() {
+		return externalChannel;
+	}
+	public void setExternalChannel(String externalChannel) {
+		this.externalChannel = externalChannel;
+	}
+	public String getGroupQuantity() {
+		return groupQuantity;
+	}
+	public void setGroupQuantity(String groupQuantity) {
+		this.groupQuantity = groupQuantity;
+	}
+	public String getGeneralEnvironment() {
+		return generalEnvironment;
+	}
+	public void setGeneralEnvironment(String generalEnvironment) {
+		this.generalEnvironment = generalEnvironment;
 	}
 	
 	

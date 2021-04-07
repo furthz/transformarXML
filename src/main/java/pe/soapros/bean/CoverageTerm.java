@@ -7,21 +7,31 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 public class CoverageTerm {
 	@JsonProperty("ModelType")
 	private ModelType modelType;
-	@JsonProperty("Value")
-	private String value;
-	
+	@JsonProperty("DisplayValue")
+	private String displayValue;
+	@JsonProperty("DisplayName")
+	private String displayName;
+	@JsonProperty("AggregationModelList")
+	private AggregationModelList aggregationModelList;
+	@JsonProperty("ValueType")
+	private ValueType valueType;
+	public String getDisplayName() {
+		return displayName;
+	}
+	public void setDisplayName(String displayName) {
+		this.displayName = displayName;
+	}
+	public String getDisplayValue() {
+		return displayValue;
+	}
+	public void setDisplayValue(String displayValue) {
+		this.displayValue = displayValue;
+	}
 	public ModelType getModelType() {
 		return modelType;
 	}
 	public void setModelType(ModelType modelType) {
 		this.modelType = modelType;
 	}
-	public String getValue() {
-		return value;
-	}
-	public void setValue(String value) {
-		this.value = value;
-	}
-	
 	
 }

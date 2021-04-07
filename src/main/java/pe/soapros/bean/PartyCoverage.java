@@ -61,8 +61,10 @@ public class PartyCoverage implements Comparable<PartyCoverage>{
 	
 	public void calculateDetuctibleValue() {
 		for (CoverageTerm coTerm : coverageTerms.getCoverageTerm()) {
-			if(coTerm.getModelType().getCode().equalsIgnoreCase("Deductible") && !coTerm.getValue().equalsIgnoreCase("0")) {
-				this.detuctibleValue = coTerm.getValue();
+			// System.out.println("coTerm.getModelType().getCode() "+coTerm.getModelType().getCode());
+			// System.out.println("coTerm.getDisplayValue() "+coTerm.getDisplayValue());
+			if(coTerm.getModelType().getCode().equalsIgnoreCase("Deductible") && !coTerm.getDisplayValue().equalsIgnoreCase("0")) {
+				this.detuctibleValue = coTerm.getDisplayValue();
 			}
 		}
 	}

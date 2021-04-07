@@ -1,6 +1,7 @@
 package pe.soapros.services.impl;
 
 import java.io.File;
+import java.net.URI;
 import java.util.Map;
 
 
@@ -24,16 +25,16 @@ public class TransformImpl implements Transform {
 
 		String rutaXML = String.valueOf(parameters.get("inputXML"));
 		System.out.println(rutaXML);
+		rutaXML=rutaXML.replace("\\","/");
 		
-		File xml = new File(rutaXML);
+		URI url = new URI(rutaXML);
 		
-		String path = xml.getParent();
-		
+		String path = url.resolve(".").toString();
+		System.out.println(path);
 		XmlMapper xmlMapper = new XmlMapper();
 		xmlMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
 		
-		
-		System.out.println("ruta: " + xml.getParent());
+		File xml = new File(rutaXML);
 		
 		try {
 			Document document = xmlMapper.readValue(xml, Document.class);
