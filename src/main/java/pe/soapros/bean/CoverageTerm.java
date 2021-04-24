@@ -2,7 +2,9 @@ package pe.soapros.bean;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import lombok.Data;
 
+@Data
 @JacksonXmlRootElement(localName="CoverageTerm")
 public class CoverageTerm {
 	@JsonProperty("ModelType")
@@ -11,10 +13,16 @@ public class CoverageTerm {
 	private String displayValue;
 	@JsonProperty("DisplayName")
 	private String displayName;
+	@JsonProperty("DisplayAmount")
+	private String displayAmount;
+	@JsonProperty("CodeIdentifier")
+	private String codeIdentifier;
 	@JsonProperty("AggregationModelList")
 	private AggregationModelList aggregationModelList;
 	@JsonProperty("ValueType")
 	private ValueType valueType;
+
+
 	public String getDisplayName() {
 		return displayName;
 	}

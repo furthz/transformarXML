@@ -5,8 +5,8 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import lombok.Data;
 
 @Data
-@JacksonXmlRootElement(localName="Delivery")
-public class Delivery {
-    @JsonProperty("Notificacion1")
-    private String notificacion1;
+@JacksonXmlRootElement(localName="Clasification")
+public class Clasification {
+    @JsonProperty("DisplayName")
+    private String displayName;
 }

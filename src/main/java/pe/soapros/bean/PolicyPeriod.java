@@ -2,7 +2,9 @@ package pe.soapros.bean;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import lombok.Data;
 
+@Data
 @JacksonXmlRootElement(localName="PolicyPeriod")
 public class PolicyPeriod {
 	
@@ -59,7 +61,7 @@ public class PolicyPeriod {
 	
 	@JsonProperty("TotalParties")
 	private String totalParties;
-	
+	/*
 	public String getOfferName() {
 		return offerName;
 	}
@@ -204,12 +206,14 @@ public class PolicyPeriod {
 	public void setTotalParties(String totalParties) {
 		this.totalParties = totalParties;
 	}
-	
+	*/
 	public void sumAlllParties() {
+		System.out.println("sumAlllParties");
 		int cantidadNominados, cantidadInnominados;
-		cantidadInnominados = this.aAHLine.getaAHPartys().getSeccionInnominados().getSize();
-		cantidadNominados = this.aAHLine.getaAHPartys().getSeccionInnominados().getSize();
-
+		cantidadInnominados = this.aAHLine.getAAHPartys().getSeccionInnominados().getSize();
+		cantidadNominados = this.aAHLine.getAAHPartys().getSeccionNominados().getSize();
+		System.out.println(cantidadInnominados);
+		System.out.println(cantidadNominados);
 		this.totalParties = String.valueOf(cantidadNominados + cantidadInnominados);
 	}
 	

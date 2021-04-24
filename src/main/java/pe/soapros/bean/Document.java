@@ -2,16 +2,25 @@ package pe.soapros.bean;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import lombok.Data;
 
+@Data
 public class Document {
 	
 	@JacksonXmlProperty(localName="Header")
     @JsonProperty("Header")
 	private Header header;
-	
+
+	@JsonProperty("Metadata")
+	private Metadata metadata;
+
     @JsonProperty("Content")
 	private Content content;
 
+	@JsonProperty("Delivery")
+	private Delivery delivery;
+
+	/*
 	public Header getHeader() {
 		return header;
 	}
@@ -27,6 +36,6 @@ public class Document {
 	public void setContent(Content content) {
 		this.content = content;
 	}
-	
+	*/
 	
 }

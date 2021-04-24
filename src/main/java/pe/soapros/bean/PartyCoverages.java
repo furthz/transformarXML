@@ -31,6 +31,8 @@ public class PartyCoverages {
 		Collections.sort(partyCoverage);
 		
 		for(PartyCoverage party: this.partyCoverage) {
+			System.out.println("VALOR ************************************");
+			System.out.println(valor);
 			valor = valor + party.getCode();
 		}
 		

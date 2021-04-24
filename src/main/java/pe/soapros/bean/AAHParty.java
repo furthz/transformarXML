@@ -2,7 +2,9 @@ package pe.soapros.bean;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import lombok.Data;
 
+@Data
 @JacksonXmlRootElement(localName="AAHParty")
 public class AAHParty {
 
@@ -20,10 +22,41 @@ public class AAHParty {
 	
 	@JsonProperty("CoveredPerson")
 	private CoveredPerson coveredPerson;
-	
+
 	@JsonProperty("PartyCoverages")
 	private PartyCoverages partyCoverages;
-	
+
+	@JsonProperty("Activity")
+	private Activity activity;
+
+	@JsonProperty("Clasification")
+	private Clasification clasification;
+
+	@JsonProperty("InsurableGroup")
+	private InsurableGroup insurableGroup;
+
+	@JsonProperty("RiskCategory")
+	private String RiskCategory;
+
+	@JsonProperty("CoveredEvent")
+	private CoveredEvent coveredEvent;
+
+	@JsonProperty("ContractType")
+	private ContractType contractType;
+
+	@JsonProperty("AAHRiskCategory")
+	private AAHRiskCategory aAHRiskCategory;
+
+	@JsonProperty("EventStartDate")
+	private String EventStartDate;
+
+	@JsonProperty("EventEndDate")
+	private String EventEndDate;
+
+	@JsonProperty("LocationEvent")
+	private String LocationEvent;
+
+	/*
 	public String getPartyNumber() {
 		return partyNumber;
 	}
@@ -71,9 +104,10 @@ public class AAHParty {
 	public void setAgeOrYearRange(String ageOrYearRange) {
 		this.ageOrYearRange = ageOrYearRange;
 	}
-	
+	*/
+
 	public boolean getCoveredPersonExistence() {
 		return coveredPerson == null;
 	}
-	
+
 }
