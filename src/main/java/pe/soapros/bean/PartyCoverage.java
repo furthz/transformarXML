@@ -120,9 +120,23 @@ public class PartyCoverage implements Comparable<PartyCoverage>{
 	
 	public void calculateDetuctibleValue() {
 		for (CoverageTerm coTerm : coverageTerms.getCoverageTerm()) {
-			// System.out.println("coTerm.getModelType().getCode() "+coTerm.getModelType().getCode());
-			// System.out.println("coTerm.getDisplayValue() "+coTerm.getDisplayValue());
-			if(coTerm.getModelType().getCode().equalsIgnoreCase("Deductible") && !coTerm.getDisplayValue().equalsIgnoreCase("0")) {
+			System.out.println("coTerm.getModelType().getCode() "+coTerm.getModelType().getCode());
+			System.out.println("coTerm.getDisplayValue() "+coTerm.getDisplayValue());
+
+			String currentDisplayValue = "";
+
+			try {
+				coTerm.getDisplayValue();
+
+			} catch (NullPointerException e) {
+				currentDisplayValue = null;
+			}
+			if (currentDisplayValue != null) {
+				currentDisplayValue = coTerm.getDisplayValue();
+			}
+			System.out.println("--------------------------------------------------");
+			//System.out.println(currentDisplayValue.equalsIgnoreCase("0"));
+			if(coTerm.getModelType().getCode().equalsIgnoreCase("Deductible") && currentDisplayValue != null && !currentDisplayValue.equalsIgnoreCase("0")) {
 				this.detuctibleValue = coTerm.getDisplayValue();
 			}
 		}
@@ -140,7 +154,22 @@ public class PartyCoverage implements Comparable<PartyCoverage>{
 
 	public void calculateDedValor() {
 		for (CoverageTerm coTerm : coverageTerms.getCoverageTerm()) {
-			if(coTerm.getModelType().getCode().equalsIgnoreCase("Deductible") && coTerm.getValueType().getCode().equalsIgnoreCase("percent")) {
+
+			String currentDedValor = "";
+
+			try {
+				coTerm.getValueType().getCode();
+
+			} catch (NullPointerException e) {
+				currentDedValor = null;
+			}
+			if (currentDedValor != null) {
+				currentDedValor	 = coTerm.getValueType().getCode();
+			}
+			System.out.println("coTerm.getModelType().getCode() "+coTerm.getModelType().getCode());
+			System.out.println("currentDedValor "+currentDedValor);
+			System.out.println("--------------------------------------------------");
+			if(coTerm.getModelType().getCode().equalsIgnoreCase("Deductible") && currentDedValor != null && currentDedValor.equalsIgnoreCase("percent")) {
 				this.dedValor = coTerm.getDisplayValue();
 			}
 		}
@@ -178,7 +207,21 @@ public class PartyCoverage implements Comparable<PartyCoverage>{
 
 	public void calculateDedNombre() {
 		for (CoverageTerm coTerm : coverageTerms.getCoverageTerm()) {
-			if (coTerm.getModelType().getCode().equalsIgnoreCase("Deductible") && !coTerm.getValueType().getCode().equalsIgnoreCase("percent")) {
+			String currentDedNombre = "";
+
+			try {
+				coTerm.getValueType().getCode();
+
+			} catch (NullPointerException e) {
+				currentDedNombre = null;
+			}
+			if (currentDedNombre != null) {
+				currentDedNombre = coTerm.getValueType().getCode();
+			}
+			System.out.println("coTerm.getModelType().getCode() "+coTerm.getModelType().getCode());
+			System.out.println("currentDedValor "+currentDedNombre);
+			System.out.println("--------------------------------------------------");
+			if (coTerm.getModelType().getCode().equalsIgnoreCase("Deductible") && currentDedNombre != null && !currentDedNombre.equalsIgnoreCase("percent")) {
 				this.dedNombre = coTerm.getDisplayName();
 			}
 		}
@@ -262,9 +305,21 @@ public class PartyCoverage implements Comparable<PartyCoverage>{
 
 	public void calculateSubNombre() {
 		for (CoverageTerm coTerm : coverageTerms.getCoverageTerm()) {
+			String currentDisplayValue = "";
+
+			try {
+				coTerm.getDisplayValue();
+			}catch (NullPointerException e) {
+				currentDisplayValue = null;
+			}
+			if (currentDisplayValue != null) {
+				currentDisplayValue = coTerm.getDisplayValue();
+			}
+			System.out.println("currentDisplayValue "+currentDisplayValue);
+			System.out.println("--------------------------------------------------");
 			if (coTerm.getModelType().getCode().equalsIgnoreCase("Limit") && coTerm.getValueType().getCode().equalsIgnoreCase("percent") && !coTerm.getCodeIdentifier().equalsIgnoreCase("AAHAdditionalOfDeathDueTrafficAccidentRateLim")) {
 				this.subNombre = coTerm.getDisplayName();
-			} else if (coTerm.getDisplayValue().equalsIgnoreCase("") || coTerm.getDisplayValue().equalsIgnoreCase("0%") || coTerm.getDisplayValue().equalsIgnoreCase("100%") ) {
+			} else if ( currentDisplayValue != null && currentDisplayValue.equalsIgnoreCase("") || currentDisplayValue != null && currentDisplayValue.equalsIgnoreCase("0%") || currentDisplayValue != null && currentDisplayValue.equalsIgnoreCase("100%") ) {
 					if (code.equalsIgnoreCase("AHRefundExpensesPharmaceuticalMedicalAssistanceCov")) {
 						this.subNombre = "";
 					}
@@ -284,6 +339,19 @@ public class PartyCoverage implements Comparable<PartyCoverage>{
 
 	public void calculateSubModelo() {
 		for (CoverageTerm coTerm : coverageTerms.getCoverageTerm()) {
+			String currentDisplayValue = "";
+
+			try {
+				coTerm.getDisplayValue();
+			}catch (NullPointerException e) {
+				currentDisplayValue = null;
+			}
+			if (currentDisplayValue != null) {
+				currentDisplayValue = coTerm.getDisplayValue();
+			}
+			System.out.println("currentDisplayValue "+currentDisplayValue);
+			System.out.println("--------------------------------------------------");
+
 			if (coTerm.getModelType().getCode().equalsIgnoreCase("Limit") && coTerm.getValueType().getCode().equalsIgnoreCase("percent") && !coTerm.getCodeIdentifier().equalsIgnoreCase("AAHAdditionalOfDeathDueTrafficAccidentRateLim") && !coTerm.getCodeIdentifier().equalsIgnoreCase("AAHDeathOfTheSpouseByAccidentRateLim")) {
 				if (coTerm.getAggregationModelList().getAggregationModel().getCode().equalsIgnoreCase("pc")) {
 					this.subModelo = " por cada siniestro";
@@ -294,7 +362,7 @@ public class PartyCoverage implements Comparable<PartyCoverage>{
 				}  else if (coTerm.getAggregationModelList().getAggregationModel().getCode().equalsIgnoreCase("ppt_GSS")) {
 					this.subModelo = " por vigencia por póliza";
 				}
-			} else if (coTerm.getDisplayValue().equalsIgnoreCase("") || coTerm.getDisplayValue().equalsIgnoreCase("0%") || coTerm.getDisplayValue().equalsIgnoreCase("100%") ) {
+			} else if (currentDisplayValue != null && currentDisplayValue.equalsIgnoreCase("") || currentDisplayValue != null && currentDisplayValue.equalsIgnoreCase("0%") || currentDisplayValue != null && currentDisplayValue.equalsIgnoreCase("100%") ) {
 				if (code.equalsIgnoreCase("AHRefundExpensesPharmaceuticalMedicalAssistanceCov")) {
 					this.subModelo = "";
 				}

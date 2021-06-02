@@ -21,7 +21,8 @@ public class CoverageTerm {
 	private AggregationModelList aggregationModelList;
 	@JsonProperty("ValueType")
 	private ValueType valueType;
-
+	@JsonProperty("Value")
+	private String value;
 
 	public String getDisplayName() {
 		return displayName;
