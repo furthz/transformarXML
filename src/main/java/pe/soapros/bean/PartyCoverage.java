@@ -120,8 +120,8 @@ public class PartyCoverage implements Comparable<PartyCoverage>{
 	
 	public void calculateDetuctibleValue() {
 		for (CoverageTerm coTerm : coverageTerms.getCoverageTerm()) {
-			System.out.println("coTerm.getModelType().getCode() "+coTerm.getModelType().getCode());
-			System.out.println("coTerm.getDisplayValue() "+coTerm.getDisplayValue());
+			//System.out.println("coTerm.getModelType().getCode() "+coTerm.getModelType().getCode());
+			//System.out.println("coTerm.getDisplayValue() "+coTerm.getDisplayValue());
 
 			String currentDisplayValue = "";
 
@@ -134,7 +134,7 @@ public class PartyCoverage implements Comparable<PartyCoverage>{
 			if (currentDisplayValue != null) {
 				currentDisplayValue = coTerm.getDisplayValue();
 			}
-			System.out.println("--------------------------------------------------");
+			//System.out.println("--------------------------------------------------");
 			//System.out.println(currentDisplayValue.equalsIgnoreCase("0"));
 			if(coTerm.getModelType().getCode().equalsIgnoreCase("Deductible") && currentDisplayValue != null && !currentDisplayValue.equalsIgnoreCase("0")) {
 				this.detuctibleValue = coTerm.getDisplayValue();
@@ -166,9 +166,9 @@ public class PartyCoverage implements Comparable<PartyCoverage>{
 			if (currentDedValor != null) {
 				currentDedValor	 = coTerm.getValueType().getCode();
 			}
-			System.out.println("coTerm.getModelType().getCode() "+coTerm.getModelType().getCode());
-			System.out.println("currentDedValor "+currentDedValor);
-			System.out.println("--------------------------------------------------");
+			//System.out.println("coTerm.getModelType().getCode() "+coTerm.getModelType().getCode());
+			//System.out.println("currentDedValor "+currentDedValor);
+			//System.out.println("--------------------------------------------------");
 			if(coTerm.getModelType().getCode().equalsIgnoreCase("Deductible") && currentDedValor != null && currentDedValor.equalsIgnoreCase("percent")) {
 				this.dedValor = coTerm.getDisplayValue();
 			}
@@ -218,9 +218,9 @@ public class PartyCoverage implements Comparable<PartyCoverage>{
 			if (currentDedNombre != null) {
 				currentDedNombre = coTerm.getValueType().getCode();
 			}
-			System.out.println("coTerm.getModelType().getCode() "+coTerm.getModelType().getCode());
-			System.out.println("currentDedValor "+currentDedNombre);
-			System.out.println("--------------------------------------------------");
+			//System.out.println("coTerm.getModelType().getCode() "+coTerm.getModelType().getCode());
+			//System.out.println("currentDedValor "+currentDedNombre);
+			//System.out.println("--------------------------------------------------");
 			if (coTerm.getModelType().getCode().equalsIgnoreCase("Deductible") && currentDedNombre != null && !currentDedNombre.equalsIgnoreCase("percent")) {
 				this.dedNombre = coTerm.getDisplayName();
 			}
@@ -315,8 +315,8 @@ public class PartyCoverage implements Comparable<PartyCoverage>{
 			if (currentDisplayValue != null) {
 				currentDisplayValue = coTerm.getDisplayValue();
 			}
-			System.out.println("currentDisplayValue "+currentDisplayValue);
-			System.out.println("--------------------------------------------------");
+			//System.out.println("currentDisplayValue "+currentDisplayValue);
+			//System.out.println("--------------------------------------------------");
 			if (coTerm.getModelType().getCode().equalsIgnoreCase("Limit") && coTerm.getValueType().getCode().equalsIgnoreCase("percent") && !coTerm.getCodeIdentifier().equalsIgnoreCase("AAHAdditionalOfDeathDueTrafficAccidentRateLim")) {
 				this.subNombre = coTerm.getDisplayName();
 			} else if ( currentDisplayValue != null && currentDisplayValue.equalsIgnoreCase("") || currentDisplayValue != null && currentDisplayValue.equalsIgnoreCase("0%") || currentDisplayValue != null && currentDisplayValue.equalsIgnoreCase("100%") ) {
@@ -349,8 +349,8 @@ public class PartyCoverage implements Comparable<PartyCoverage>{
 			if (currentDisplayValue != null) {
 				currentDisplayValue = coTerm.getDisplayValue();
 			}
-			System.out.println("currentDisplayValue "+currentDisplayValue);
-			System.out.println("--------------------------------------------------");
+			//System.out.println("currentDisplayValue "+currentDisplayValue);
+			//System.out.println("--------------------------------------------------");
 
 			if (coTerm.getModelType().getCode().equalsIgnoreCase("Limit") && coTerm.getValueType().getCode().equalsIgnoreCase("percent") && !coTerm.getCodeIdentifier().equalsIgnoreCase("AAHAdditionalOfDeathDueTrafficAccidentRateLim") && !coTerm.getCodeIdentifier().equalsIgnoreCase("AAHDeathOfTheSpouseByAccidentRateLim")) {
 				if (coTerm.getAggregationModelList().getAggregationModel().getCode().equalsIgnoreCase("pc")) {

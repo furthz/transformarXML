@@ -32,7 +32,7 @@ public class StartProcessTransform {
 			
 			final Map<String, JobParameter> parameters = new HashMap<String, JobParameter>();
 					
-			parameters.put("inputXML", new JobParameter(args[0]));
+			parameters.put("inputXML", new JobParameter("D:\\Workspace\\java_apps\\transformarXML\\src\\main\\resources\\XMLdeentrada00600010000000039(5).xml"));
 			
 			final JobExecution jobExecution = jobLauncher.run(job, new JobParameters(parameters));
 			

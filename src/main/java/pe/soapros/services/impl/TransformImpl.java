@@ -87,7 +87,7 @@ public class TransformImpl implements Transform {
 
 			document.getContent().getPolicyPeriod().getAAHLine().getAAHPartys().calculateTipoDocum();
 
-			System.out.println("---------------------------Valor del Active----------------------");
+			//System.out.println("---------------------------Valor del Active----------------------");
 			//document.getContent().getPolicyPeriod().getAAHLine().getAAHPartys().calculateActiv();
 
 			//System.out.println("---------------------------Valor del Active----------------------");

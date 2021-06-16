@@ -224,12 +224,12 @@ public class PolicyPeriod {
 	}
 	*/
 	public void sumAlllParties() {
-		System.out.println("sumAlllParties");
+		//System.out.println("sumAlllParties");
 		int cantidadNominados, cantidadInnominados;
 		cantidadInnominados = this.aAHLine.getAAHPartys().getSeccionInnominados().getSize();
 		cantidadNominados = this.aAHLine.getAAHPartys().getSeccionNominados().getSize();
-		System.out.println(cantidadInnominados);
-		System.out.println(cantidadNominados);
+		//System.out.println(cantidadInnominados);
+		//System.out.println(cantidadNominados);
 		this.totalParties = String.valueOf(cantidadNominados + cantidadInnominados);
 	}
 	

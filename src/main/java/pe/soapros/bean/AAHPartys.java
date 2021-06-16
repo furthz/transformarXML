@@ -27,19 +27,19 @@ public class AAHPartys {
 
 
     public void calculateTipoDocum() {
-        System.out.println("calculateTipoDocum");
+        //System.out.println("calculateTipoDocum");
 
         //try {
         for (AAHParty party : aahpartys) {
-            System.out.println(party);
+            //System.out.println(party);
             CoveredPerson coveredP = party.getCoveredPerson();
-            System.out.println(coveredP);
+            //System.out.println(coveredP);
             if (coveredP != null) {
                 for (OfficialID officialID: coveredP.getOfficialIDs().getOfficialID()) {
-                    System.out.println("*******************************************************");
-                    System.out.println(officialID);
+                    //System.out.println("*******************************************************");
+                    //System.out.println(officialID);
                     if (officialID.getPrimary().equalsIgnoreCase("true")) {
-                        System.out.println(1);
+                        //System.out.println(1);
                         coveredP.setTipoDocum(officialID.getType().getUnlocalizedName());
                         //for (PartyCoverage partyCoverage: party.getPartyCoverages().getPartyCoverage()) {
                         //	partyCoverage.setTipoDocum(officialID.getType().getUnlocalizedName());
@@ -108,12 +108,12 @@ public class AAHPartys {
         // separado los nominados y los no nominados
         for (AAHParty party : this.aahpartys) {
             if (party.getInsuredType().getCode().equals(Constants.NOMINADOS)) {
-                System.out.println("NOMINADOS");
-                System.out.println(party.getPartyCoverages().getCoverages());
+                //System.out.println("NOMINADOS");
+                //System.out.println(party.getPartyCoverages().getCoverages());
                 nominados.add(party);
             } else if (party.getInsuredType().getCode().equals(Constants.NO_NOMINADOS)) {
-                System.out.println("NO_NOMINADOS");
-                System.out.println(party.getPartyCoverages().getCoverages());
+                //System.out.println("NO_NOMINADOS");
+                //System.out.println(party.getPartyCoverages().getCoverages());
                 no_nominados.add(party);
             } else {
                 log.error("No se reconoce tipo: " + party.getInsuredType().getCode());
@@ -146,15 +146,15 @@ public class AAHPartys {
             Seccion secTemp = new Seccion();
             int elementosSeccion = 0;
 
-            System.out.println("VALOR DEL KEY - NOMINADOS");
-            System.out.println(key);
+            //System.out.println("VALOR DEL KEY - NOMINADOS");
+            //System.out.println(key);
             for (AAHParty party : nominados) {
-                System.out.println("NOMINADOS");
+                //System.out.println("NOMINADOS");
                 if (party.getPartyCoverages().getCoverages().toLowerCase().equals(key.toLowerCase())) {
                     elementosSeccion++;
-                    System.out.println("elementosSeccion");
-                    System.out.println(elementosSeccion);
-                    System.out.println(party.getPartyCoverages().getCoverages());
+                    //System.out.println("elementosSeccion");
+                    //System.out.println(elementosSeccion);
+                    //System.out.println(party.getPartyCoverages().getCoverages());
                     //Según necesidad se coloca la descripcion vacia a partir del segundo elemento de cada seccion
                     if(elementosSeccion > 1) {
                         for (PartyCoverage coverage : party.getPartyCoverages().getPartyCoverage()) {
