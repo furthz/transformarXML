@@ -179,15 +179,15 @@ public class AAHPartys {
             Seccion secTemp = new Seccion();
             int elementosSeccion = 0;
 
-            System.out.println("VALOR DEL KEY - NO NOMINADOS");
-            System.out.println(key);
+            //System.out.println("VALOR DEL KEY - NO NOMINADOS");
+            //System.out.println(key);
             for (AAHParty party : no_nominados) {
-                System.out.println("NO NOMINADOS");
+                //System.out.println("NO NOMINADOS");
                 if (party.getPartyCoverages().getCoverages().toLowerCase().equals(key.toLowerCase())) {
                     elementosSeccion++;
-                    System.out.println("elementosSeccion");
-                    System.out.println(elementosSeccion);
-                    System.out.println(party.getPartyCoverages().getCoverages());
+                    //System.out.println("elementosSeccion");
+                    //System.out.println(elementosSeccion);
+                    //System.out.println(party.getPartyCoverages().getCoverages());
                     //Según necesidad se coloca la descripcion vacia a partir del segundo elemento de cada seccion
                     if(elementosSeccion > 1) {
                         for (PartyCoverage coverage : party.getPartyCoverages().getPartyCoverage()) {
