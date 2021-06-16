@@ -61,6 +61,22 @@ public class PolicyPeriod {
 	
 	@JsonProperty("TotalParties")
 	private String totalParties;
+
+	@JsonProperty("OfferCommercialName")
+	private String offerCommercialName;
+
+	@JsonProperty("EditEffectiveDate")
+	private String editEffectiveDate;
+
+	@JsonProperty("Commissions")
+	private Commissions commissions;
+
+	@JsonProperty("BusinessUnit")
+	private BusinessUnit businessUnit;
+
+	@JsonProperty("BranchOffice")
+	private BranchOffice branchOffice;
+
 	/*
 	public String getOfferName() {
 		return offerName;

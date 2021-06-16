@@ -2,7 +2,9 @@ package pe.soapros.bean;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import lombok.Data;
 
+@Data
 @JacksonXmlRootElement(localName="Intermediary")
 public class Intermediary {
 	
@@ -10,7 +12,9 @@ public class Intermediary {
 	private ProducerCodeRole producerCodeRole;
 	@JsonProperty("Code")
 	private String code;
-	
+	@JsonProperty("ProducerCodeID")
+	private ProducerCodeID producerCodeID;
+	/*
 	public ProducerCodeRole getProducerCodeRole() {
 		return producerCodeRole;
 	}
@@ -23,6 +27,6 @@ public class Intermediary {
 	public void setCode(String code) {
 		this.code = code;
 	}
-	
+	*/
 	
 }
