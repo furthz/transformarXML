@@ -217,13 +217,168 @@ public class AAHPartys {
 
         }
         LinkedHashMap<String, String> hmap = new LinkedHashMap<String, String>();
+        LinkedHashMap<String, String> hmap_no_nominados = new LinkedHashMap<String, String>();
         //HashMap<String, String> hmap = new HashMap<String, String>();
         String current = "";
         int conteo = 0;
+        int conteo_no_nominados = 0;
         String coverages = "";
         boolean isTrue = true;
-        for (AAHParty party : nominados) {
 
+        for (AAHParty party : no_nominados) {
+            String currentCoverage = party.getPartyCoverages().getCoverages().toLowerCase().replaceAll("\\s+","");
+            if (conteo_no_nominados == 0) {
+                //System.out.println(conteo);
+                coverages = currentCoverage;
+            }
+
+            if (!coverages.equals(currentCoverage) && conteo_no_nominados > 0) {
+                isTrue = false;
+            }
+
+            String activity = "";
+            String clasification = "";
+            String riskCategory = "";
+            String insurableGroup = "";
+            String coveredEvent = "";
+            String contractType = "";
+            String aAHRiskCategory = "";
+            String eventStartDate = "";
+            String eventEndDate = "";
+            String locationEvent = "";
+
+            //Try-Catch: Activity
+            try{
+                party.getActivity().getDisplayName();
+
+            } catch (NullPointerException n) {
+                //System.out.println("Asignando activity: null");
+                activity = null;
+            }
+
+            //Try-Catch: Clasification
+            try{
+                party.getClasification().getDisplayName();
+
+            } catch (NullPointerException n) {
+                //System.out.println("Asignando clasification: null");
+                clasification = null;
+                //System.out.println(party.getCoveredEvent().getDisplayName());
+            }
+
+            //RiskCategory
+            riskCategory = party.getRiskCategory();
+
+            //Try-Catch: insurableGroup
+            try{
+                party.getInsurableGroup().getDisplayName();
+
+            } catch (NullPointerException n) {
+                //System.out.println("Asignando insurableGroup: null");
+                insurableGroup = null;
+                //System.out.println(party.getCoveredEvent().getDisplayName());
+            }
+
+            //Try-Catch: coveredEvent
+            try{
+                party.getCoveredEvent().getDisplayName();
+
+            } catch (NullPointerException n) {
+                //System.out.println("Asignando coveredEvent: null");
+                coveredEvent = null;
+                //System.out.println(party.getCoveredEvent().getDisplayName());
+            }
+
+            //Try-Catch: ContractType
+            try{
+                party.getContractType().getDisplayName();
+
+            } catch (NullPointerException n) {
+                //System.out.println("Asignando contractType: null");
+                contractType = null;
+                //System.out.println(party.getContractType().getDisplayName());
+            }
+
+            //Try-Catch: AAHRiskCategory
+            try{
+                party.getAAHRiskCategory().getDisplayName();
+
+            } catch (NullPointerException n) {
+                //System.out.println("Asignando contractType: null");
+                aAHRiskCategory = null;
+                //System.out.println(party.getContractType().getDisplayName());
+            }
+
+            //EventStartDate
+            eventStartDate = party.getEventStartDate();
+
+            //EventEndDate
+            eventEndDate = party.getEventEndDate();
+
+            //LocationEvent
+            locationEvent = party.getLocationEvent();
+
+            if (activity != null) {
+                activity = party.getActivity().getDisplayName().toLowerCase().replaceAll("\\s+","");
+            }
+            if (clasification != null) {
+                clasification = party.getClasification().getDisplayName().toLowerCase().replaceAll("\\s+","");
+            }
+            if (riskCategory != null) {
+                riskCategory = party.getRiskCategory().toLowerCase().replaceAll("\\s+","");
+            }
+            if (insurableGroup != null) {
+                insurableGroup = party.getInsurableGroup().getDisplayName().toLowerCase().replaceAll("\\s+","");
+            }
+            if (coveredEvent != null) {
+                coveredEvent = party.getCoveredEvent().getDisplayName().toLowerCase().replaceAll("\\s+","");
+            }
+            if (contractType != null) {
+                contractType = party.getContractType().getDisplayName().toLowerCase().replaceAll("\\s+","");
+            }
+            if (aAHRiskCategory != null) {
+                aAHRiskCategory = party.getAAHRiskCategory().getDisplayName().toLowerCase().replaceAll("\\s+","");
+            }
+            if (eventStartDate != null) {
+                eventStartDate = party.getEventStartDate().toLowerCase().replaceAll("\\s+","");
+            }
+            if (eventEndDate != null) {
+                eventEndDate = party.getEventEndDate().toLowerCase().replaceAll("\\s+","");
+            }
+            if (locationEvent != null) {
+                locationEvent = party.getLocationEvent().toLowerCase().replaceAll("\\s+","");
+            }
+
+            //System.out.println(coveredEvent + " JEJEJE");
+            //coveredEvent = party.getCoveredEvent().getDisplayName().toLowerCase().replaceAll("\\s+","");
+
+            if (conteo_no_nominados == 0) {
+                hmap_no_nominados.put("activity", activity);
+                hmap_no_nominados.put("clasification", clasification);
+                hmap_no_nominados.put("riskcategory", riskCategory);
+                hmap_no_nominados.put("insurableGroup", insurableGroup);
+                hmap_no_nominados.put("coveredEvent", coveredEvent);
+                hmap_no_nominados.put("contractType", contractType);
+                hmap_no_nominados.put("aAHRiskCategory", aAHRiskCategory);
+                hmap_no_nominados.put("eventStartDate", eventStartDate);
+                hmap_no_nominados.put("eventEndDate", eventEndDate);
+                hmap_no_nominados.put("locationEvent", locationEvent);   //CREACION DE VALIDACION
+
+                //System.out.println("activity: "+activity);
+                //System.out.println("clasification: "+clasification);
+                //System.out.println("riskCategory: "+riskCategory);
+                //System.out.println("insurablegroup: "+insurableGroup);
+                //System.out.println("coveredEvent: "+coveredEvent);
+                //System.out.println("contractType: "+contractType);
+                //System.out.println("aAHRiskCategory: "+aAHRiskCategory);
+                //System.out.println("eventStartDate: "+eventStartDate);
+                //System.out.println("eventEndDate: "+eventEndDate);
+                //System.out.println("locationEvent: "+locationEvent);
+                conteo_no_nominados++;
+                continue;
+            }
+        }
+        for (AAHParty party : nominados) {
             //for (int i = 0, l = party.getPartyCoverages().getPartyCoverage().size(); i < l; i++) {
             //    System.out.println("PartyCoverages: "+party.getPartyCoverages().getCoverages());
             //}
@@ -388,13 +543,16 @@ public class AAHPartys {
         }
         //hmap.put(current, "");
         SeccionNominados secNo = new SeccionNominados();
+        SeccionInnominados secIn = new SeccionInnominados();
         //System.out.println(hmap);
         Set set = hmap.entrySet();
-        //System.out.println(set);
+        Set setIn = hmap_no_nominados.entrySet();
         //System.out.println(set.size());
         Iterator iterator = set.iterator();
+        Iterator iteratorIn = setIn.iterator();
         int conteoIterator = 0;
-        int elementosSeccion = 0;
+        int conteoIteratorIn = 0;
+
         boolean isEquals = false;
         boolean isEquals2= false;
         boolean isEquals3= false;
@@ -405,6 +563,17 @@ public class AAHPartys {
         boolean isEquals8= false;
         boolean isEquals9= false;
         boolean isEquals10= false;
+
+        boolean isEqualsIn = false;
+        boolean isEqualsIn2= false;
+        boolean isEqualsIn3= false;
+        boolean isEqualsIn4= false;
+        boolean isEqualsIn5= false;
+        boolean isEqualsIn6= false;
+        boolean isEqualsIn7= false;
+        boolean isEqualsIn8= false;
+        boolean isEqualsIn9= false;
+        boolean isEqualsIn10= false;
 
         boolean isDifferent = false;
         boolean isDifferent2 = false;
@@ -417,10 +586,23 @@ public class AAHPartys {
         boolean isDifferent9 = false;
         boolean isDifferent10 = false;
 
-        int identificador = 0;
+        boolean isDifferentIn = false;
+        boolean isDifferentIn2 = false;
+        boolean isDifferentIn3 = false;
+        boolean isDifferentIn4 = false;
+        boolean isDifferentIn5 = false;
+        boolean isDifferentIn6 = false;
+        boolean isDifferentIn7 = false;
+        boolean isDifferentIn8 = false;
+        boolean isDifferentIn9 = false;
+        boolean isDifferentIn10 = false;
+
         Seccion secTemp2 = new Seccion();
         Seccion secTemp3 = new Seccion();
+        Seccion secTemp2In = new Seccion();
+        Seccion secTemp3In = new Seccion();
         Seccion secCoverage = new Seccion();
+        Seccion secCoverageIn = new Seccion();
         while (iterator.hasNext()) {
             conteoIterator++;
             System.out.println("conteoIterator: "+conteoIterator);
@@ -578,13 +760,13 @@ public class AAHPartys {
                 //System.out.println("currentActivity: " +currentActivity);
                 //System.out.println("key: "+key);
 
-                if (nominados.size() == 1) {
-                    if (currentActivity.equals(key.toLowerCase())) {
-                        secTemp.addAAHParty(party);
-                    } else {
-                        secTemp1.addAAHParty(party);
-                    }
-                } else {
+                //if (nominados.size() == 1) {
+                //    if (currentActivity.equals(key.toLowerCase())) {
+                //        secTemp.addAAHParty(party);
+                //    } else {
+                //        secTemp1.addAAHParty(party);
+                //    }
+                //} else {
                     if (conteoIterator == 1) {
                         //System.out.println("===================================");
                         //System.out.println("CONTEO 1");
@@ -1803,7 +1985,7 @@ public class AAHPartys {
                             }
                         }
                     }
-                }
+                //}
             }
             //secNo.addSeccion(secTemp);
             //if (isDifferent) {
@@ -1823,12 +2005,1419 @@ public class AAHPartys {
             }
         }
 
+        while (iteratorIn.hasNext()) {
+            conteoIteratorIn++;
+            System.out.println("conteoIteratorIn: "+conteoIteratorIn);
+            Map.Entry mentry = (Map.Entry) iteratorIn.next();
+            String key = "";
+            System.out.println(mentry);
+            if (mentry.getValue() != null) {
+                key = mentry.getValue().toString();
+            } else {
+                key = null;
+            }
+            //key = mentry.getValue().toString();
+            System.out.println("Key: "+key);
+            Seccion secTemp = new Seccion();
+            Seccion secTemp1 = new Seccion();
+            Seccion secTemp4 = new Seccion();
+            Seccion secTemp5 = new Seccion();
+            Seccion secTemp6 = new Seccion();
+            Seccion secTemp7 = new Seccion();
+            Seccion secTemp8 = new Seccion();
+            Seccion secTemp9 = new Seccion();
+            Seccion secTemp10 = new Seccion();
+            Seccion secTemp11 = new Seccion();
+            Seccion secTemp12 = new Seccion();
+            Seccion secTemp13 = new Seccion();
+            Seccion secTemp14 = new Seccion();
+            Seccion secTemp15 = new Seccion();
+            Seccion secTemp16 = new Seccion();
+            Seccion secTemp17 = new Seccion();
+            Seccion secTemp18 = new Seccion();
+
+            int count = 0;
+
+            for (AAHParty party : no_nominados) {
+                count++;
+                //System.out.println(no_nominados.size());
+
+                String currentActivity = "";
+                String currentClasification = "";
+                String currentRiskCategory = "";
+                String currentInsurableGroup = "";
+                String currentCoveredEvent = "";
+                String currentContractType = "";
+                String currentAAHRiskCategory = "";
+                String currentEventStartDate = "";
+                String currentEventEndDate = "";
+                String currentLocalEvent = "";
+
+                //Try-Catch: Activity
+                try{
+                    party.getActivity().getDisplayName().toLowerCase().replaceAll("\\s+","");
+
+                } catch (NullPointerException n) {
+                    //System.out.println("Asignando activity: null");
+                    currentActivity = null;
+                    //System.out.println(party.getCoveredEvent().getDisplayName());
+                }
+                if (currentActivity != null) {
+                    currentActivity = party.getActivity().getDisplayName().toLowerCase().replaceAll("\\s+","");
+                }
+
+                //Try-Catch: Clasification
+                try{
+                    party.getClasification().getDisplayName().toLowerCase().replaceAll("\\s+","");
+
+                } catch (NullPointerException n) {
+                    //System.out.println("Asignando Clasification: null");
+                    currentClasification = null;
+                    //System.out.println(party.getCoveredEvent().getDisplayName());
+                }
+                if (currentClasification != null) {
+                    currentClasification = party.getClasification().getDisplayName().toLowerCase().replaceAll("\\s+","");
+                }
+
+                //RiskCategory
+                currentRiskCategory = party.getRiskCategory();
+                if (currentRiskCategory != null) {
+                    currentRiskCategory = party.getRiskCategory().toLowerCase().replaceAll("\\s+","");
+                }
+
+                //Try-Catch: currentInsurableGroup
+                try{
+                    party.getInsurableGroup().getDisplayName().toLowerCase().replaceAll("\\s+","");
+
+                } catch (NullPointerException n) {
+                    //System.out.println("Asignando Clasification: null");
+                    currentInsurableGroup = null;
+                    //System.out.println(party.getCoveredEvent().getDisplayName());
+                }
+                if (currentInsurableGroup != null) {
+                    currentInsurableGroup = party.getInsurableGroup().getDisplayName().toLowerCase().replaceAll("\\s+","");
+                }
+
+                //Try-Catch: currentCoveredEvent
+                try{
+                    party.getCoveredEvent().getDisplayName();
+                    //party.getInsurableGroup().getDisplayName().toLowerCase().replaceAll("\\s+","");
+
+                } catch (NullPointerException n) {
+                    //System.out.println("Asignando currentCoveredEvent: null");
+                    currentCoveredEvent = null;
+                }
+                if (currentCoveredEvent != null) {
+                    currentCoveredEvent = party.getCoveredEvent().getDisplayName().toLowerCase().replaceAll("\\s+","");
+                }
+
+                //Try-Catch: currentContractType
+                try{
+                    party.getContractType().getDisplayName();
+                    //party.getInsurableGroup().getDisplayName().toLowerCase().replaceAll("\\s+","");
+
+                } catch (NullPointerException n) {
+                    //System.out.println("Asignando currentCoveredEvent: null");
+                    currentContractType = null;
+                }
+                if (currentContractType != null) {
+                    currentContractType = party.getContractType().getDisplayName().toLowerCase().replaceAll("\\s+","");
+                }
+
+                //Try-Catch: currentAAHRiskCategory
+                try{
+                    party.getAAHRiskCategory().getDisplayName();
+                    //party.getInsurableGroup().getDisplayName().toLowerCase().replaceAll("\\s+","");
+
+                } catch (NullPointerException n) {
+                    //System.out.println("Asignando currentCoveredEvent: null");
+                    currentAAHRiskCategory = null;
+                }
+                if (currentAAHRiskCategory != null) {
+                    currentAAHRiskCategory = party.getAAHRiskCategory().getDisplayName().toLowerCase().replaceAll("\\s+","");
+                }
+
+                //EventStartDate
+                currentEventStartDate = party.getEventStartDate();
+                if (currentEventStartDate != null) {
+                    currentEventStartDate = party.getEventStartDate().toLowerCase().replaceAll("\\s+","");
+                }
+
+                //EventEndDate
+                currentEventEndDate = party.getEventEndDate();
+                if (currentEventEndDate != null) {
+                    currentEventEndDate = party.getEventEndDate().toLowerCase().replaceAll("\\s+","");
+                }
+
+                //LocalEvent
+                currentLocalEvent = party.getLocationEvent();
+                if (currentLocalEvent != null) {
+                    currentLocalEvent = party.getLocationEvent().toLowerCase().replaceAll("\\s+","");
+                }
+
+                //String currentActivity = party.getActivity().getDisplayName().toLowerCase().replaceAll("\\s+","");
+                //String currentClasification = party.getClasification().getDisplayName().toLowerCase().replaceAll("\\s+","");
+                //String currentRiskCategory = party.getRiskCategory().toLowerCase().replaceAll("\\s+","");
+                //String currentInsurableGroup = party.getInsurableGroup().getDisplayName().toLowerCase().replaceAll("\\s+","");
+                //String currentCoveredEvent = party.getCoveredEvent().getDisplayName().toLowerCase().replaceAll("\\s+","");
+                //System.out.println("currentActivity: " +currentActivity);
+                //System.out.println("key: "+key);
+
+                //if (no_nominados.size() == 1) {
+                //    if (currentActivity.equals(key.toLowerCase())) {
+                //        secTemp.addAAHParty(party);
+                //    } else {
+                //        secTemp1.addAAHParty(party);
+                //    }
+                //} else {
+                    if (conteoIteratorIn == 1) {
+                        //System.out.println("===================================");
+                        //System.out.println("CONTEO 1");
+                        //System.out.println("currentActivity: "+currentActivity);
+                        //System.out.println("key: "+key);
+                        if (currentActivity != null) {
+                            if (key != null) {
+                                if (currentActivity.equals(key.toLowerCase())) {
+                                    secTemp2In.addAAHParty(party);
+                                    if (count == no_nominados.size()) {
+                                        isEqualsIn = true;
+                                    }
+                                } else {
+                                    secTemp3In.addAAHParty(party);
+                                    isDifferentIn = true;
+                                }
+                            } else {
+                                secTemp3In.addAAHParty(party);
+                                isEqualsIn = false;
+                                isDifferentIn = true;
+                            }
+                        } else {
+                            if (key != null) {
+                                secTemp3In.addAAHParty(party);
+                                isDifferentIn = true;
+                            } else {
+                                secTemp2In.addAAHParty(party);
+                                if (count == no_nominados.size()) {
+                                    isEqualsIn = true;
+                                }
+                            }
+                        }
+                    } else if (conteoIteratorIn == 2) {
+                        //System.out.println("===================================");
+                        //System.out.println("CONTEO 2");
+                        //System.out.println("currentClasification: "+currentClasification);
+                        //System.out.println("key: "+key);
+                        if (currentClasification != null) {
+                            if (key != null) {
+                                if (currentClasification.equals(key.toLowerCase())) {
+                                    secTemp.addAAHParty(party);
+
+                                    //CASO 1: Activity !=
+                                    if (count == no_nominados.size() && isDifferentIn) {
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                        isEqualsIn2 = true;
+                                    }
+
+                                    if (count == no_nominados.size() && isEqualsIn) {
+                                        //secIn.addSeccion(secTemp2In);
+                                        isEqualsIn2 = true;
+                                    }
+                                } else {
+                                    secTemp1.addAAHParty(party);
+                                    if (count == no_nominados.size() && isDifferentIn) {
+                                        //secIn.addSeccion(secTemp3In);
+                                        isDifferentIn2 = true;
+                                    }
+
+                                    if (count == no_nominados.size() && isEqualsIn) {
+                                        //secIn.addSeccion(secTemp2In);
+                                        secTemp2In = secTemp;
+                                        secTemp3In = secTemp1;
+                                        isDifferentIn2 = true;
+                                    }
+                                    //if (count == no_nominados.size()) {
+                                    //    secIn.addSeccion(secTemp);
+                                    //    secIn.addSeccion(secTemp1);
+                                    //}
+                                }
+                            } else {
+                                if (count == no_nominados.size()) {
+                                    secTemp3In = new Seccion();
+                                    secTemp3In.addAAHParty(party);
+                                    isEqualsIn2 = false;
+                                    isDifferentIn2 = true;
+                                }
+                            }
+                        } else {
+                            if (key != null) {
+                                //secTemp.addAAHParty(party);
+                                secTemp1.addAAHParty(party);
+                                secTemp2In = secTemp;
+                                secTemp3In = secTemp1;
+                                isDifferentIn2 = true;
+                            } else {
+                                //secTemp.addAAHParty(party);
+                                secTemp.addAAHParty(party);
+                                secTemp2In = secTemp;
+                                if (count == no_nominados.size()) {
+                                    isEqualsIn2 = true;
+                                }
+                            }
+                        }
+
+                    } else if (conteoIteratorIn == 3) {
+                        //System.out.println("===================================");
+                        //System.out.println("CONTEO 3");
+                        //System.out.println("currentRiskCategory: "+currentRiskCategory);
+                        //System.out.println("key: "+key);
+                        if (currentRiskCategory != null) {
+                            if (key != null) {
+                                if (currentRiskCategory.equals(key.toLowerCase())) {
+                                    secTemp4.addAAHParty(party);
+
+                                    //CASO2: Clasification !=
+                                    if (count == no_nominados.size() && isEqualsIn && isDifferentIn2) {
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                        isEqualsIn3 = true;
+                                    }
+                                    //Activity != && Clasification !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2) {
+                                        isEqualsIn3 = true;
+                                    }
+
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2) {
+                                        //System.out.println("ENTRO AQUI");
+                                        isEqualsIn3 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                    }
+
+                                    if (count == no_nominados.size() && isDifferentIn && isEqualsIn2) {
+                                        isEqualsIn3 = true;
+                                    }
+
+                                } else {
+
+                                    secTemp1.addAAHParty(party);
+                                    //System.out.println("AQUI ENTRARA LA SEGUNDA VEZ");
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2) {
+                                        isDifferentIn3 = true;
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO3: RiskCategory !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2) {
+                                        secTemp2In = secTemp4;
+                                        secTemp3In = secTemp1;
+                                        isDifferentIn3 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                    }
+                                    //if (count == no_nominados.size()) {
+                                    //    secIn.addSeccion(secTemp4);
+                                    //    secIn.addSeccion(secTemp1);
+                                    //}
+                                }
+                            } else {
+                                if (count == no_nominados.size()) {
+                                    secTemp3In = new Seccion();
+                                    secTemp3In.addAAHParty(party);
+                                    isEqualsIn3 = false;
+                                    isDifferentIn3 = true;
+                                }
+                            }
+
+                        } else {
+                            //isEqualsIn3 = true;
+
+                            if (key != null) {
+                                //secTemp.addAAHParty(party);
+                                secTemp1.addAAHParty(party);
+                                secTemp2In = secTemp4;
+                                secTemp3In = secTemp1;
+                                isDifferentIn3 = true;
+                            } else {
+                                //secTemp.addAAHParty(party);
+                                //if (count == no_nominados.size()) {
+                                //    isEqualsIn3 = true;
+                                //}
+                                secTemp4.addAAHParty(party);
+                                secTemp2In = secTemp4;
+                                if (count == no_nominados.size()) {
+                                    isEqualsIn3 = true;
+                                }
+                            }
+                        }
+                    } else if (conteoIteratorIn == 4) {
+                        //System.out.println("===================================");
+                        //System.out.println("CONTEO 4");
+                        //System.out.println("currentInsurableGroup: "+currentInsurableGroup);
+                        //System.out.println("key: "+key);
+                        if (currentInsurableGroup != null) {
+                            if (key != null) {
+                                if (currentInsurableGroup.equals(key.toLowerCase())) {
+                                    secTemp5.addAAHParty(party);
+
+                                    //CASO1: Activity =!
+                                    if (count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3) {
+                                        //System.out.println("Llenando");
+                                        isEqualsIn4 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO2: Clasification !=
+                                    if (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3) {
+                                        //System.out.println("Llenando");
+                                        isEqualsIn4 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO3: RiskCategory !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3) {
+                                        //System.out.println("CASO2: RiskCategory =!");
+                                        isEqualsIn4 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3) {
+                                        isEqualsIn4 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3) {
+                                        isEqualsIn4 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3) {
+                                        isEqualsIn4 = true;
+                                        //secIn.addSeccion(secTemp5);
+                                    }
+
+
+
+                                } else {
+                                    secTemp6.addAAHParty(party);
+
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3) {
+                                        isDifferentIn4 = true;
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                            /*
+                            if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4) {
+                                secIn.addSeccion(secTemp5);
+                                secIn.addSeccion(secTemp6);
+                            }
+                            */
+
+                                    //CASO3: InsurableGroup !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3) {
+                                        secTemp2In = secTemp5;
+                                        secTemp3In = secTemp6;
+                                        isDifferentIn4 = true;
+                                        //secIn.addSeccion(secTemp5);
+                                        //secIn.addSeccion(secTemp6);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO4: Activity != && InsurableGroup =!
+                                    if (count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3) {
+                                        isDifferentIn4 = true;
+                                        //secIn.addSeccion(secTemp5);
+                                        //secIn.addSeccion(secTemp6);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO5: RiskCategory != && InsurableGroup !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3) {
+                                        isDifferentIn4 = true;
+                                        //secIn.addSeccion(secTemp5);
+                                        //secIn.addSeccion(secTemp6);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+                                }
+                            } else {
+                                if (count == no_nominados.size()) {
+                                    secTemp3In = new Seccion();
+                                    secTemp3In.addAAHParty(party);
+                                    isEqualsIn4 = false;
+                                    isDifferentIn4 = true;
+                                }
+                            }
+
+                        } else {
+                            //isEqualsIn4 = true;
+
+                            if (key != null) {
+                                //secTemp.addAAHParty(party);
+                                secTemp6.addAAHParty(party);
+                                secTemp2In = secTemp5;
+                                secTemp3In = secTemp6;
+                                isDifferentIn4 = true;
+                            } else {
+                                //secTemp.addAAHParty(party);
+                                secTemp5.addAAHParty(party);
+                                secTemp2In = secTemp5;
+                                if (count == no_nominados.size()) {
+                                    isEqualsIn4 = true;
+                                }
+                            }
+                        }
+                    } else if (conteoIteratorIn == 5) {   //isDifferentIn, isDifferentIn2, isDifferentIn3, isDifferentIn4, setTemp2, setTemp3
+                        //System.out.println("===================================");
+                        //System.out.println("CONTEO 5");
+                        //System.out.println("currentCoveredEvent: "+currentCoveredEvent);
+                        //System.out.println("key: "+key);
+                        if (currentCoveredEvent != null) {
+                            if (key != null) {
+                                if (currentCoveredEvent.equals(key.toLowerCase())) {
+                                    secTemp7.addAAHParty(party);
+
+                                    //CASO1: Activity !=
+                                    if (count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4) {
+                                        isEqualsIn5 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO2: Clasification !=
+                                    if (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4) {
+                                        isEqualsIn5 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO3: RiskCategory !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4) {
+                                        //System.out.println("CASO2: RiskCategory =!");
+                                        isEqualsIn5 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO4: InsurableGroup !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4) {
+                                        //System.out.println("CASO2: RiskCategory =!");
+                                        isEqualsIn5 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4) {
+                                        isEqualsIn5 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4) {
+                                        isEqualsIn5 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory != && InsurableGroup !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4) {
+                                        isEqualsIn5 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4) {
+                                        isEqualsIn5 = true;
+                                        //secIn.addSeccion(secTemp7);
+                                    }
+
+                                } else {
+                                    secTemp8.addAAHParty(party);
+
+                                    //CASO5: CoveredEvent !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4) {
+                                        secTemp2In = secTemp7;
+                                        secTemp3In = secTemp8;
+                                        isDifferentIn5 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4) {
+                                        isDifferentIn5 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                }
+                            } else {
+                                //isDifferentIn, isDifferentIn2, isDifferentIn3, isDifferentIn4, setTemp2, setTemp3, secTemp3In, secTemp3In, secTemp3In
+                                if (count == no_nominados.size()) {
+                                    secTemp3In = new Seccion();
+                                    secTemp3In.addAAHParty(party);
+                                    isEqualsIn5 = false;
+                                    isDifferentIn5 = true;
+                                }
+                                if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5) {
+                                    //secIn.addSeccion(secTemp2In);
+                                    //secIn.addSeccion(secTemp3In);
+                                }
+                                if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5) {
+                                    //secIn.addSeccion(secTemp2In);
+                                    //secIn.addSeccion(secTemp3In);
+                                }
+                            }
+
+                        } else {
+                            //isEqualsIn5 = true;
+
+                            if (key != null) {
+                                //secTemp.addAAHParty(party);
+                                secTemp8.addAAHParty(party);
+                                secTemp2In = secTemp7;
+                                secTemp3In = secTemp8;
+                                isDifferentIn5 = true;
+
+
+                            } else {
+                                //secTemp.addAAHParty(party);
+                                secTemp7.addAAHParty(party);
+                                secTemp2In = secTemp7;
+                                if (count == no_nominados.size()) {
+                                    isEqualsIn5 = true;
+                                }
+                            }
+                        }
+
+
+                    } else if (conteoIteratorIn == 6) {
+                        //System.out.println("===================================");
+                        //System.out.println("CONTEO 6");
+                        //System.out.println("currentContractType: "+currentContractType);
+                        //System.out.println("key: "+key);
+                        if (currentContractType != null) {
+                            if (key != null) {
+                                if (currentContractType.equals(key.toLowerCase())) {
+                                    secTemp9.addAAHParty(party);
+
+                                    //CASO1: Activity =!
+                                    if (count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5) {
+                                        isEqualsIn6 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO2: Clasification !=
+                                    if (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5) {
+                                        isEqualsIn6 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO3: RiskCategory !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5) {
+                                        isEqualsIn6 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO4: InsurableGroup !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4 && isEqualsIn5) {
+                                        isEqualsIn6 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO5: CoveredEvent !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5) {
+                                        isEqualsIn6 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5) {
+                                        isEqualsIn6 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5) {
+                                        isEqualsIn6 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory != && InsurableGroup !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isEqualsIn5) {
+                                        isEqualsIn6 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5) {
+                                        isEqualsIn6 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3&& isEqualsIn4 && isEqualsIn5) {
+                                        isEqualsIn6 = true;
+                                        //secIn.addSeccion(secTemp5);
+                                    }
+
+                                } else {
+                                    secTemp10.addAAHParty(party);
+
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5) {
+                                        isDifferentIn6 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO6: ContractType !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5) {
+                                        secTemp2In = secTemp9;
+                                        secTemp3In = secTemp10;
+                                        isDifferentIn6 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+                                }
+                            } else {
+                                if (count == no_nominados.size()) {
+                                    secTemp3In = new Seccion();
+                                    secTemp3In.addAAHParty(party);
+                                    isEqualsIn6 = false;
+                                    isDifferentIn6 = true;
+                                }
+                            }
+                        } else {
+                            if (key != null) {
+                                //secTemp.addAAHParty(party);
+                                secTemp10.addAAHParty(party);
+                                secTemp2In = secTemp9;
+                                secTemp3In = secTemp10;
+                                isDifferentIn6 = true;
+
+                            } else {
+                                //secTemp.addAAHParty(party);
+                                secTemp9.addAAHParty(party);
+                                secTemp2In = secTemp9;
+                                if (count == no_nominados.size()) {
+                                    isEqualsIn6 = true;
+                                }
+                            }
+                        }
+                    } else if (conteoIteratorIn == 7) {
+                        //System.out.println("===================================");
+                        //System.out.println("CONTEO 7");
+                        //System.out.println("currentAAHRiskCategory: "+currentAAHRiskCategory);
+                        //System.out.println("key: "+key);
+                        if (currentAAHRiskCategory != null) {
+                            if (key != null) {
+                                if (currentAAHRiskCategory.equals(key.toLowerCase())) {
+                                    secTemp11.addAAHParty(party);
+
+                                    //CASO1: Activity =!
+                                    if (count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) {
+                                        isEqualsIn7 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO2: Clasification !=
+                                    if (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) {
+                                        isEqualsIn7 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO3: RiskCategory !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) {
+                                        isEqualsIn7 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO4: InsurableGroup !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6) {
+                                        isEqualsIn7 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO5: CoveredEvent !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5 && isEqualsIn6) {
+                                        isEqualsIn7 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO6: AAHRiskCategory !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isDifferentIn6) {
+                                        isEqualsIn7 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) {
+                                        isEqualsIn7 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) {
+                                        isEqualsIn7 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory != && InsurableGroup !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6) {
+                                        isEqualsIn7 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isEqualsIn6) {
+                                        isEqualsIn7 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent != && ContractType !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6) {
+                                        isEqualsIn7 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3&& isEqualsIn4 && isEqualsIn5 && isEqualsIn6) {
+                                        isEqualsIn7 = true;
+                                        //secIn.addSeccion(secTemp5);
+                                    }
+
+                                } else {
+                                    secTemp12.addAAHParty(party);
+
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6) {
+                                        isDifferentIn7 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO7: AAHRiskCategory !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) {
+                                        secTemp2In = secTemp11;
+                                        secTemp3In = secTemp12;
+                                        isDifferentIn7 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+                                }
+                            } else {
+                                if (count == no_nominados.size()) {
+                                    secTemp3In = new Seccion();
+                                    secTemp3In.addAAHParty(party);
+                                    isEqualsIn7 = false;
+                                    isDifferentIn7 = true;
+                                }
+                            }
+                        } else {
+                            if (key != null) {
+                                //secTemp.addAAHParty(party);
+                                secTemp12.addAAHParty(party);
+                                secTemp2In = secTemp11;
+                                secTemp3In = secTemp12;
+                                isDifferentIn7 = true;
+
+                            } else {
+                                //secTemp.addAAHParty(party);
+                                secTemp11.addAAHParty(party);
+                                secTemp2In = secTemp11;
+                                if (count == no_nominados.size()) {
+                                    isEqualsIn7 = true;
+                                }
+                            }
+                        }
+                    } else if (conteoIteratorIn == 8) {
+                        //System.out.println("===================================");
+                        //System.out.println("CONTEO 8");
+                        //System.out.println("currentEventStartDate: "+currentEventStartDate);
+                        //System.out.println("key: "+key);
+                        if (currentEventStartDate != null) {
+                            if (key != null) {
+                                if (currentEventStartDate.equals(key.toLowerCase())) {
+                                    secTemp13.addAAHParty(party);
+
+                                    //CASO1: Activity =!
+                                    if (count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) {
+                                        isEqualsIn8 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO2: Clasification !=
+                                    if (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) {
+                                        isEqualsIn8 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO3: RiskCategory !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) {
+                                        isEqualsIn8 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO4: InsurableGroup !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) {
+                                        isEqualsIn8 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO5: CoveredEvent !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7) {
+                                        isEqualsIn8 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO6: ContractType !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isDifferentIn6 && isEqualsIn7) {
+                                        isEqualsIn8 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO7: AAHRiskCategory !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isDifferentIn7) {
+                                        isEqualsIn8 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) {
+                                        isEqualsIn8 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) {
+                                        isEqualsIn8 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory != && InsurableGroup !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) {
+                                        isEqualsIn8 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7) {
+                                        isEqualsIn8 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent != && ContractType !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isEqualsIn7) {
+                                        isEqualsIn8 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent != && ContractType != && AAHRiskCategory !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7) {
+                                        isEqualsIn8 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3&& isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) {
+                                        isEqualsIn8 = true;
+                                        //secIn.addSeccion(secTemp5);
+                                    }
+
+                                } else {
+                                    secTemp14.addAAHParty(party);
+
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7) {
+                                        isDifferentIn8 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO8: EventStartDate !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) {
+                                        secTemp2In = secTemp13;
+                                        secTemp3In = secTemp14;
+                                        isDifferentIn8 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+                                }
+                            } else {
+                                if (count == no_nominados.size()) {
+                                    secTemp3In = new Seccion();
+                                    secTemp3In.addAAHParty(party);
+                                    isEqualsIn8 = false;
+                                    isDifferentIn8 = true;
+                                }
+                            }
+                        } else {
+                            if (key != null) {
+                                //secTemp.addAAHParty(party);
+                                secTemp14.addAAHParty(party);
+                                secTemp2In = secTemp13;
+                                secTemp3In = secTemp14;
+                                isDifferentIn8 = true;
+
+                            } else {
+                                //secTemp.addAAHParty(party);
+                                secTemp13.addAAHParty(party);
+                                secTemp2In = secTemp13;
+                                if (count == no_nominados.size()) {
+                                    isEqualsIn8 = true;
+                                }
+                            }
+                        }
+                    } else if (conteoIteratorIn == 9) {
+                        //System.out.println("===================================");
+                        //System.out.println("CONTEO 9");
+                        //System.out.println("currentEventEndDate: "+currentEventEndDate);
+                        //System.out.println("key: "+key);
+                        if (currentEventEndDate != null) {
+                            if (key != null) {
+                                if (currentEventEndDate.equals(key.toLowerCase())) {
+                                    secTemp15.addAAHParty(party);
+
+                                    //CASO1: Activity =!
+                                    if (count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) {
+                                        isEqualsIn9 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO2: Clasification !=
+                                    if (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) {
+                                        isEqualsIn9 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO3: RiskCategory !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) {
+                                        isEqualsIn9 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO4: InsurableGroup !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) {
+                                        isEqualsIn9 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO5: CoveredEvent !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) {
+                                        isEqualsIn9 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO6: ContractType !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isDifferentIn6 && isEqualsIn7 && isEqualsIn8) {
+                                        isEqualsIn9 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO7: AAHRiskCategory !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isDifferentIn7 && isEqualsIn8) {
+                                        isEqualsIn9 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO8: EventStartDate !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isDifferentIn8) {
+                                        isEqualsIn9 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) {
+                                        isEqualsIn9 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) {
+                                        isEqualsIn9 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory != && InsurableGroup !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) {
+                                        isEqualsIn9 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) {
+                                        isEqualsIn9 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent != && ContractType !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isEqualsIn7 && isEqualsIn8) {
+                                        isEqualsIn9 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent != && ContractType != && AAHRiskCategory !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isEqualsIn8) {
+                                        isEqualsIn9 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent != && ContractType != && AAHRiskCategory != && EventStartDate !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isDifferentIn8) {
+                                        isEqualsIn9 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3&& isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) {
+                                        isEqualsIn9 = true;
+                                        //secIn.addSeccion(secTemp5);
+                                    }
+
+                                } else {
+                                    secTemp16.addAAHParty(party);
+
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isDifferentIn8) {
+                                        isDifferentIn9 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO9: EventEndDate !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) {
+                                        secTemp2In = secTemp15;
+                                        secTemp3In = secTemp16;
+                                        isDifferentIn9 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+                                }
+                            } else {
+                                if (count == no_nominados.size()) {
+                                    secTemp3In = new Seccion();
+                                    secTemp3In.addAAHParty(party);
+                                    isEqualsIn9 = false;
+                                    isDifferentIn9 = true;
+                                }
+                            }
+                        } else {
+                            if (key != null) {
+                                //secTemp.addAAHParty(party);
+                                secTemp16.addAAHParty(party);
+                                secTemp2In = secTemp15;
+                                secTemp3In = secTemp16;
+                                isDifferentIn9 = true;
+
+                            } else {
+                                //secTemp.addAAHParty(party);
+                                secTemp15.addAAHParty(party);
+                                secTemp2In = secTemp15;
+                                if (count == no_nominados.size()) {
+                                    isEqualsIn9 = true;
+                                }
+                            }
+                        }
+                    } else if (conteoIteratorIn == 10) {
+                        //System.out.println("===================================");
+                        //System.out.println("CONTEO 10");
+                        //System.out.println("currentLocalEvent: "+currentLocalEvent);
+                        //System.out.println("key: "+key);
+                        if (currentLocalEvent != null) {
+                            if (key != null) {
+                                if (currentLocalEvent.equals(key.toLowerCase())) {
+                                    if (isTrue) {
+                                        secTemp17.addAAHParty(party);
+
+                                        //CASO1: Activity =!
+                                        if (count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) {
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp2In);
+                                            secIn.addSeccion(secTemp3In);
+                                        }
+
+                                        //CASO2: Clasification !=
+                                        if (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) {
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp2In);
+                                            secIn.addSeccion(secTemp3In);
+                                        }
+
+                                        //CASO3: RiskCategory !=
+                                        if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) {
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp2In);
+                                            secIn.addSeccion(secTemp3In);
+                                        }
+
+                                        //CASO4: InsurableGroup !=
+                                        if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) {
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp2In);
+                                            secIn.addSeccion(secTemp3In);
+                                        }
+
+                                        //CASO5: CoveredEvent !=
+                                        if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) {
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp2In);
+                                            secIn.addSeccion(secTemp3In);
+                                        }
+
+                                        //CASO6: ContractType !=
+                                        if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isDifferentIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) {
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp2In);
+                                            secIn.addSeccion(secTemp3In);
+                                        }
+
+                                        //CASO7: AAHRiskCategory !=
+                                        if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isDifferentIn7 && isEqualsIn8 && isEqualsIn9) {
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp2In);
+                                            secIn.addSeccion(secTemp3In);
+                                        }
+
+                                        //CASO8: EventStartDate !=
+                                        if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isDifferentIn8 && isEqualsIn9) {
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp2In);
+                                            secIn.addSeccion(secTemp3In);
+                                        }
+
+                                        //CASO9: EventEndDate !=
+                                        if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isDifferentIn9) {
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp2In);
+                                            secIn.addSeccion(secTemp3In);
+                                        }
+
+                                        //Activity != && Clasification !=
+                                        if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) {
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp2In);
+                                            secIn.addSeccion(secTemp3In);
+                                        }
+
+                                        //Activity != && Clasification != && RiskCategory !=
+                                        if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) {
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp2In);
+                                            secIn.addSeccion(secTemp3In);
+                                        }
+
+                                        //Activity != && Clasification != && RiskCategory != && InsurableGroup !=
+                                        if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) {
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp2In);
+                                            secIn.addSeccion(secTemp3In);
+                                        }
+
+                                        //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent !=
+                                        if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) {
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp2In);
+                                            secIn.addSeccion(secTemp3In);
+                                        }
+
+                                        //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent != && ContractType !=
+                                        if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) {
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp2In);
+                                            secIn.addSeccion(secTemp3In);
+                                        }
+
+                                        //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent != && ContractType != && AAHRiskCategory !=
+                                        if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isEqualsIn8 && isEqualsIn9) {
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp2In);
+                                            secIn.addSeccion(secTemp3In);
+                                        }
+
+                                        //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent != && ContractType != && AAHRiskCategory != && EventStartDate !=
+                                        if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isDifferentIn8 && isEqualsIn9) {
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp2In);
+                                            secIn.addSeccion(secTemp3In);
+                                        }
+
+                                        //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent != && ContractType != && AAHRiskCategory != && EventStartDate != && EventEndDate !=
+                                        if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isDifferentIn8 && isDifferentIn9) {
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp2In);
+                                            secIn.addSeccion(secTemp3In);
+                                        }
+
+                                        if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3&& isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) {
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp17);
+                                        }
+                                    } else {
+
+                                        if (count != no_nominados.size() || count == no_nominados.size()) {
+                                            secCoverageIn = new Seccion();
+                                            secCoverageIn.addAAHParty(party);
+                                            secIn.addSeccion(secCoverageIn);
+                                        }
+                                    }
+
+
+                                } else {
+                                    secTemp18.addAAHParty(party);
+
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isDifferentIn8 && isDifferentIn9) {
+                                        isDifferentIn10 = true;
+                                        secIn.addSeccion(secTemp2In);
+                                        secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO10: LocalEvent !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) {
+                                        secTemp2In = secTemp17;
+                                        secTemp3In = secTemp18;
+                                        isDifferentIn10 = true;
+                                        secIn.addSeccion(secTemp2In);
+                                        secIn.addSeccion(secTemp3In);
+                                    }
+                                }
+                            } else {
+                                if (count == no_nominados.size()) {
+                                    secTemp3In = new Seccion();
+                                    secTemp3In.addAAHParty(party);
+                                    isEqualsIn10 = false;
+                                    isDifferentIn10 = true;
+                                }
+                                if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9 && isDifferentIn10) {
+                                    secIn.addSeccion(secTemp2In);
+                                    secIn.addSeccion(secTemp3In);
+                                }
+                                if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isDifferentIn8 && isDifferentIn9 && isDifferentIn10) {
+                                    secIn.addSeccion(secTemp2In);
+                                    secIn.addSeccion(secTemp3In);
+                                }
+                            }
+                        } else {
+                            if (key != null) {
+                                //secTemp.addAAHParty(party);
+                                secTemp18.addAAHParty(party);
+                                secTemp2In = secTemp17;
+                                secTemp3In = secTemp18;
+                                isDifferentIn10 = true;
+
+                            } else {
+                                if (isTrue) {
+                                    //secTemp.addAAHParty(party);
+                                    secTemp17.addAAHParty(party);
+                                    secTemp2In = secTemp17;
+                                    if (count == no_nominados.size()) {
+                                        isEqualsIn10 = true;
+                                    }
+                                } else {
+                                    if (count != no_nominados.size() || count == no_nominados.size()) {
+                                        secCoverageIn = new Seccion();
+                                        secCoverageIn.addAAHParty(party);
+                                        secIn.addSeccion(secCoverageIn);
+                                    }
+                                }
+
+                            }
+
+                            if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9 && isEqualsIn10) {
+                                secIn.addSeccion(secTemp2In);
+                            }
+
+                            if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9 && isDifferentIn10) {
+                                secIn.addSeccion(secTemp2In);
+                                secIn.addSeccion(secTemp3In);
+                            }
+
+                            if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isDifferentIn8 && isDifferentIn9 && isDifferentIn10) {
+                                secIn.addSeccion(secTemp2In);
+                                secIn.addSeccion(secTemp3In);
+                            }
+                        }
+                    }
+                //}
+            }
+            //secIn.addSeccion(secTemp);
+            //if (isDifferentIn) {
+            //secIn.addSeccion(secTemp1);
+            //}
+            XmlMapper xmlMapper = new XmlMapper();
+            //System.out.println("seccionNominados");
+            //System.out.println(xmlMapper.valueToTree(secIn));
+            // Eliminando Secciones vacias
+            int sizeASecciones = secIn.getSeccion().size();
+            //System.out.println(sizeASecciones);
+            for (int i = 0; i < sizeASecciones; i++) {
+                //System.out.println(secIn.getSeccion().get(i).getSize());
+                if (secIn.getSeccion().get(i).getSize() == 0) {
+                    //secIn.getSeccion().remove(0);
+                }
+            }
+        }
+
+
+
         XmlMapper xmlMapper = new XmlMapper();
         //System.out.println("seccionNominados");
         System.out.println("------------------------------------------------------------------------------------------");
         System.out.println(xmlMapper.valueToTree(secNo));
+        System.out.println(xmlMapper.valueToTree(secIn));
         //seccionNominados.getSeccion().get(0).getaAHParty().get(0).getActivity().getDisplayName();
         this.seccionNominados = secNo;
+        this.seccionInnominados = secIn;
     }
 
     public void descartarOfficialID() {
