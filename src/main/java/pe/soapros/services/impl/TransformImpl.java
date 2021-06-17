@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
+import pe.soapros.constants.Constants;
 import pe.soapros.log.Log;
 import pe.soapros.services.Transform;
 import pe.soapros.bean.Document;
@@ -87,14 +88,14 @@ public class TransformImpl implements Transform {
 
 			document.getContent().getPolicyPeriod().getAAHLine().getAAHPartys().calculateTipoDocum();
 
-			//System.out.println("---------------------------Valor del Active----------------------");
-			//document.getContent().getPolicyPeriod().getAAHLine().getAAHPartys().calculateActiv();
-
-			//System.out.println("---------------------------Valor del Active----------------------");
-			//System.out.println(active);
-
 			// hacer la transformación usando el bean ya cargado
 			document.getContent().getPolicyPeriod().getAAHLine().getAAHPartys().generateNominados();
+
+			// Validacion solo para los documentos PC70: "ARG_GW_PC_CotizacionAP_Colectiva"
+			if (document.getHeader().getThemeID().equals(Constants.PC70)) {
+				System.out.println("DOCUMENTO PC70: "+Constants.PC70 );
+				document.getContent().getPolicyPeriod().getAAHLine().getAAHPartys().calculateActiv();
+			}
 			// Obtener conteo de AAHPartys
 			document.getContent().getPolicyPeriod().sumAlllParties();
 			
