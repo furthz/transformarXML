@@ -28,7 +28,7 @@ public class PartyCoverages {
 	public String getCoverages() {
 		String valor = "";
 		
-		Collections.sort(partyCoverage);
+		//Collections.sort(partyCoverage);
 		
 		for(PartyCoverage party: this.partyCoverage) {
 			//System.out.println("VALOR ************************************");
