@@ -11,5 +11,5 @@ import java.util.List;
 public class Role {
 
     @JsonProperty("Code")
-    private List<String> code;
+    private String code;
 }

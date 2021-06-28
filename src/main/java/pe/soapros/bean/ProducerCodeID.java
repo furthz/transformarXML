@@ -11,7 +11,7 @@ import java.util.List;
 public class ProducerCodeID {
 
     @JsonProperty("Code")
-    private List<String> code;
+    private String code;
 
     @JsonProperty("Role")
     private Role role;
