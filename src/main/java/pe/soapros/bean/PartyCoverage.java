@@ -221,7 +221,7 @@ public class PartyCoverage implements Comparable<PartyCoverage>{
 			//System.out.println("coTerm.getModelType().getCode() "+coTerm.getModelType().getCode());
 			//System.out.println("currentDedValor "+currentDedNombre);
 			//System.out.println("--------------------------------------------------");
-			if (coTerm.getModelType().getCode().equalsIgnoreCase("Deductible") && currentDedNombre != null && !currentDedNombre.equalsIgnoreCase("percent")) {
+			if (coTerm.getModelType().getCode().equalsIgnoreCase("Deductible") && currentDedNombre != null && currentDedNombre.equalsIgnoreCase("percent")) {
 				this.dedNombre = coTerm.getDisplayName();
 			}
 		}
@@ -230,7 +230,12 @@ public class PartyCoverage implements Comparable<PartyCoverage>{
 	public void calculateSuma() {
 		for (CoverageTerm coTerm : coverageTerms.getCoverageTerm()) {
 			if (coTerm.getModelType().getCode().equalsIgnoreCase("amount_limit_GSS")) {
-				this.dedNombre = coTerm.getDisplayAmount();
+				if (coTerm.getDisplayAmount() != null) {
+					this.suma = coTerm.getDisplayAmount();
+				} else {
+					coTerm.setDisplayAmount(null);
+					this.suma = coTerm.getDisplayAmount();
+				}
 			}
 		}
 	}
@@ -238,7 +243,7 @@ public class PartyCoverage implements Comparable<PartyCoverage>{
 	public void calculateEdadMinCant() {
 		for (CoverageTerm coTerm : coverageTerms.getCoverageTerm()) {
 			if (coTerm.getModelType().getCode().equalsIgnoreCase("min_age_limit_GSS")) {
-				this.dedNombre = coTerm.getDisplayValue();
+				this.edadMinCant = coTerm.getDisplayValue();
 			}
 		}
 	}
@@ -246,7 +251,7 @@ public class PartyCoverage implements Comparable<PartyCoverage>{
 	public void calculateEdadMinUnid() {
 		for (CoverageTerm coTerm : coverageTerms.getCoverageTerm()) {
 			if (coTerm.getModelType().getCode().equalsIgnoreCase("min_age_type_limit_GSS")) {
-				this.dedNombre = coTerm.getDisplayValue();
+				this.edadMinUnid = coTerm.getDisplayValue();
 			}
 		}
 	}
@@ -254,7 +259,7 @@ public class PartyCoverage implements Comparable<PartyCoverage>{
 	public void calculateEdadMaxIng() {
 		for (CoverageTerm coTerm : coverageTerms.getCoverageTerm()) {
 			if (coTerm.getModelType().getCode().equalsIgnoreCase("max_age_limit_GSS")) {
-				this.dedNombre = coTerm.getDisplayValue() + " años";
+				this.edadMaxIng = coTerm.getDisplayValue() + " años";
 			}
 		}
 	}
@@ -262,13 +267,13 @@ public class PartyCoverage implements Comparable<PartyCoverage>{
 	public void calculateEdadMaxPerm() {
 		for (CoverageTerm coTerm : coverageTerms.getCoverageTerm()) {
 			if (coTerm.getModelType().getCode().equalsIgnoreCase("max_perm_age_limit_GSS")) {
-				this.dedNombre = coTerm.getDisplayValue() + " años";
+				this.edadMaxPerm = coTerm.getDisplayValue() + " años";
 			}
 		}
 	}
 
 	public void calculateDedModelo() {
-		/*
+
 		for (CoverageTerm coTerm : coverageTerms.getCoverageTerm()) {
 			if (coTerm.getModelType().getCode().equalsIgnoreCase("Deductible") && coTerm.getValueType().getCode().equalsIgnoreCase("percent")) {
 				if (coTerm.getAggregationModelList().getAggregationModel().getCode().equalsIgnoreCase("pc")) {
@@ -282,7 +287,7 @@ public class PartyCoverage implements Comparable<PartyCoverage>{
 				}
 			}
 		}
-		 */
+
 	}
 
 	public void calculateLimModelo() {
