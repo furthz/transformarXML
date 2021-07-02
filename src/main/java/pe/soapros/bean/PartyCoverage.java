@@ -234,7 +234,7 @@ public class PartyCoverage implements Comparable<PartyCoverage>{
 					this.suma = coTerm.getDisplayAmount();
 				} else {
 					coTerm.setDisplayAmount(null);
-					this.suma = coTerm.getDisplayAmount();
+					//this.suma = coTerm.getDisplayAmount();
 				}
 			}
 		}
