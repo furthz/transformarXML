@@ -1,25 +1,22 @@
 package pe.soapros.services.impl;
 
-import java.io.File;
-import java.net.URI;
-import java.util.Map;
-
-
-import org.springframework.stereotype.Component;
-
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-
+import org.springframework.stereotype.Component;
+import pe.soapros.bean.Document;
 import pe.soapros.constants.Constants;
 import pe.soapros.log.Log;
 import pe.soapros.services.Transform;
-import pe.soapros.bean.Document;
+
+import java.io.File;
+import java.net.URI;
+import java.util.Map;
 
 @Component(value = "TransformImpl")
 public class TransformImpl implements Transform {
 
 	private static final Log log = Log.getInstance(TransformImpl.class);
-
+	public static String ThemeVar;
 	@Override
 	public void createParallelProcess(Map<String, Object> parameters) throws Exception {
 		log.debug("Creando un proceso concurrente para transformar el xml");
@@ -91,6 +88,11 @@ public class TransformImpl implements Transform {
 			// hacer la transformación usando el bean ya cargado
 			document.getContent().getPolicyPeriod().getAAHLine().getAAHPartys().generateNominados();
 
+
+
+			String Theme = document.getHeader().getThemeID();
+
+			ThemeVar=Theme;
 			// Validacion solo para los documentos PC70: "ARG_GW_PC_CotizacionAP_Colectiva"
 			if (document.getHeader().getThemeID().equals(Constants.PC70)) {
 				System.out.println("DOCUMENTO PC70: "+Constants.PC70 );

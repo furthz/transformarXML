@@ -8,6 +8,8 @@ public class Policy {
 
 	@JsonProperty("ProductCode")
 	private String productCode;
+	@JsonProperty("FormattedCreation")
+	private String FormattedCreation;
 
 	public String getProductCode() {
 		return productCode;
@@ -17,4 +19,11 @@ public class Policy {
 		this.productCode = productCode;
 	}
 
+	public String getFormattedCreation() {
+		return FormattedCreation;
+	}
+
+	public void setFormattedCreation(String formattedCreation) {
+		FormattedCreation = formattedCreation;
+	}
 }

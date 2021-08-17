@@ -144,9 +144,7 @@ public class PartyCoverage implements Comparable<PartyCoverage>{
 
 	public void calculateLimNombre() {
 		for (CoverageTerm coTerm : coverageTerms.getCoverageTerm()) {
-			// System.out.println("coTerm.getModelType().getCode() "+coTerm.getModelType().getCode());
-			// System.out.println("coTerm.getDisplayValue() "+coTerm.getDisplayValue());
-				if(coTerm.getModelType().getCode().equalsIgnoreCase("Limit") && !coTerm.getValueType().getCode().equalsIgnoreCase("percent")) {
+			if(coTerm.getModelType().getCode().equalsIgnoreCase("Limit") && !coTerm.getValueType().getCode().equalsIgnoreCase("percent")) {
 				this.limNombre = coTerm.getDisplayName();
 			}
 		}
@@ -166,9 +164,6 @@ public class PartyCoverage implements Comparable<PartyCoverage>{
 			if (currentDedValor != null) {
 				currentDedValor	 = coTerm.getValueType().getCode();
 			}
-			//System.out.println("coTerm.getModelType().getCode() "+coTerm.getModelType().getCode());
-			//System.out.println("currentDedValor "+currentDedValor);
-			//System.out.println("--------------------------------------------------");
 			if(coTerm.getModelType().getCode().equalsIgnoreCase("Deductible") && currentDedValor != null && currentDedValor.equalsIgnoreCase("percent")) {
 				this.dedValor = coTerm.getDisplayValue();
 			}
