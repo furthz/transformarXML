@@ -1,11 +1,11 @@
 package pe.soapros.bean;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @JacksonXmlRootElement(localName="SeccionInnominados")
 public class SeccionInnominados {
@@ -34,6 +34,8 @@ public class SeccionInnominados {
 		
 		for (Seccion seccion : this.seccion) {
 			subtotal = subtotal + seccion.getSize();
+
+			System.out.println(seccion.getSize() + "*****");
 		}
 		return subtotal;
 	}

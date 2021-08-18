@@ -108,10 +108,11 @@ public class PartyCoverages {
 				}
 				if (description != null) {
 					description = party.getDescription().toLowerCase().replaceAll("\\s+", "");
+				//	System.out.println(description + " /////");
 				}
-				valor = valor  + LimNombre + DedValor + LimValorDV + LimValorDA + LimValor + DedNombre + Suma + EdadMinCant + EdadMinUnid + EdadMaxIng + EdadMaxPerm + DedModelo + LimModelo + SubNombre + SubValor + SubModelo + SubExcl;
+				valor = valor  +description+ LimNombre + DedValor + LimValorDV + LimValorDA + LimValor + DedNombre + Suma + EdadMinCant + EdadMinUnid + EdadMaxIng + EdadMaxPerm + DedModelo + LimModelo + SubNombre + SubValor + SubModelo + SubExcl;
 
-				//System.out.println("Se ejecuto PC70 party coverages");
+				//System.out.println(description + LimValor);
 
 			} else {
 				String description = party.getDescription();
@@ -136,7 +137,7 @@ public class PartyCoverages {
 					dedvalor = party.getDedValor().toLowerCase().replaceAll("\\s+", "");
 				}
 				valor = valor + description + suma + dedmodelo + dednombre + dedvalor;
-				System.out.println("PartyCoverages " + valor);
+				//System.out.println("PartyCoverages " + description);
 			}
 		}
 		this.coverages = valor;

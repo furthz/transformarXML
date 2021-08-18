@@ -12,7 +12,7 @@ import java.util.*;
 @Data
 @JacksonXmlRootElement(localName = "AAHPartys")
 public class AAHPartys {
-
+    public static int cantSeccion;
     private static final Log log = Log.getInstance(AAHPartys.class);
 
     @JsonProperty("SeccionNominados")
@@ -31,12 +31,25 @@ public class AAHPartys {
 
         //try {
         for (AAHParty party : aahpartys) {
-             CoveredPerson coveredP = party.getCoveredPerson();
+            //System.out.println(party);
+            CoveredPerson coveredP = party.getCoveredPerson();
+            //System.out.println(coveredP);
             if (coveredP != null) {
                 for (OfficialID officialID: coveredP.getOfficialIDs().getOfficialID()) {
+                    //System.out.println("*******************************************************");
+                    //System.out.println(officialID);
                     if (officialID.getPrimary().equalsIgnoreCase("true")) {
                         //System.out.println(1);
                         coveredP.setTipoDocum(officialID.getType().getUnlocalizedName());
+                        //for (PartyCoverage partyCoverage: party.getPartyCoverages().getPartyCoverage()) {
+                        //	partyCoverage.setTipoDocum(officialID.getType().getUnlocalizedName());
+                        //}
+                        //party.getPartyCoverages().set= officialID.getType().getUnlocalizedName();
+                        //} else {
+                        //for (PartyCoverage partyCoverage: party.getPartyCoverages().getPartyCoverage()) {
+                        //	partyCoverage.setTipoDocum("");
+                        //}
+                        //coveredP.setTipoDocum("");
                     } else {
                         System.out.println(2);
                         continue;
@@ -47,6 +60,9 @@ public class AAHPartys {
             }
 
         }
+        //} catch (Exception e) {
+        //	System.out.println(e);
+        //}
     }
 
 
@@ -75,7 +91,6 @@ public class AAHPartys {
         for (AAHParty party : nominados) {
             String covertura = party.getPartyCoverages().getCoverages();    // Valor concatenado de los Atributos <Code> de cada <PartyCoverage> por cada <AAHParty>
             hmap.put(covertura, "");                                        // Valores concatenados creados lo metemos dentro de un {}, si hay 2 properties con el mismo nombre creará uno
-            System.out.println(covertura);
         }
 
         HashMap<String, String> hmapNO = new HashMap<String, String>();
@@ -102,15 +117,13 @@ public class AAHPartys {
                 if (party.getPartyCoverages().getCoverages().toLowerCase().equals(key.toLowerCase())) {
                     elementosSeccion++;
                     //Según necesidad se coloca la descripcion vacia a partir del segundo elemento de cada seccion
-                    if(elementosSeccion > 1) {
+                  /* if(elementosSeccion > 1) {
                         for (PartyCoverage coverage : party.getPartyCoverages().getPartyCoverage()) {
                             coverage.setDescription("");
                         }
-                    }
+                    }*/
                     secTemp.addAAHParty(party);
-
                 }
-                System.out.println(party.getPartyCoverages().getCoverages());
             }
 
             secNo.addSeccion(secTemp);
@@ -128,24 +141,26 @@ public class AAHPartys {
             int elementosSeccion = 0;
 
             for (AAHParty party : no_nominados) {
-
+                //System.out.println("NO NOMINADOS");
                 if (party.getPartyCoverages().getCoverages().toLowerCase().equals(key.toLowerCase())) {
                     elementosSeccion++;
-
-                    if(elementosSeccion > 1) {
+                    //Según necesidad se coloca la descripcion vacia a partir del segundo elemento de cada seccion
+                  /*  if(elementosSeccion > 1) {
                         for (PartyCoverage coverage : party.getPartyCoverages().getPartyCoverage()) {
                             coverage.setDescription("");
                         }
-                    }
+                    }*/
                     secTemp.addAAHParty(party);
                 }
-
             }
+
             secIn.addSeccion(secTemp);
         }
 
         this.seccionNominados = secNo;
         this.seccionInnominados = secIn;
+
+        //System.out.println("hola");
 
     }
 
@@ -167,28 +182,22 @@ public class AAHPartys {
         LinkedHashMap<String, String> hmap = new LinkedHashMap<String, String>();
         LinkedHashMap<String, String> hmap_no_nominados = new LinkedHashMap<String, String>();
         //HashMap<String, String> hmap = new HashMap<String, String>();
-
-
         String current = "";
         int conteo = 0;
         int conteo_no_nominados = 0;
         String coverages = "";
         boolean isTrue = true;
 
-       for (AAHParty party : no_nominados) {
-            String currentCoverage = party.getPartyCoverages().getCoverages().toLowerCase().replaceAll("\\s+", "");
+        for (AAHParty party : no_nominados) {
+            String currentCoverage = party.getPartyCoverages().getCoverages().toLowerCase().replaceAll("\\s+","");
+           // System.out.println(currentCoverage);
             if (conteo_no_nominados == 0) {
+                //System.out.println(conteo);
                 coverages = currentCoverage;
             }
-            System.out.println(conteo_no_nominados + "#");
-            //System.out.println(coverages + "*");
-            System.out.println(currentCoverage + "+");
-            System.out.println(!coverages.equals(currentCoverage) +"....");
-            System.out.println("------------------------------------------------------");
-            // ISTRUE??
             if (!coverages.equals(currentCoverage) && conteo_no_nominados > 0) {
                 isTrue = false;
-                System.out.println("ENTRO FUNC");
+              //  System.out.println("entra function");
             }
 
             String activity = "";
@@ -203,7 +212,7 @@ public class AAHPartys {
             String locationEvent = "";
 
             //Try-Catch: Activity
-            try {
+            try{
                 party.getActivity().getDisplayName();
 
             } catch (NullPointerException n) {
@@ -212,7 +221,7 @@ public class AAHPartys {
             }
 
             //Try-Catch: Clasification
-            try {
+            try{
                 party.getClasification().getDisplayName();
 
             } catch (NullPointerException n) {
@@ -225,7 +234,7 @@ public class AAHPartys {
             riskCategory = party.getRiskCategory();
 
             //Try-Catch: insurableGroup
-            try {
+            try{
                 party.getInsurableGroup().getDisplayName();
 
             } catch (NullPointerException n) {
@@ -235,7 +244,7 @@ public class AAHPartys {
             }
 
             //Try-Catch: coveredEvent
-            try {
+            try{
                 party.getCoveredEvent().getDisplayName();
 
             } catch (NullPointerException n) {
@@ -245,7 +254,7 @@ public class AAHPartys {
             }
 
             //Try-Catch: ContractType
-            try {
+            try{
                 party.getContractType().getDisplayName();
 
             } catch (NullPointerException n) {
@@ -255,7 +264,7 @@ public class AAHPartys {
             }
 
             //Try-Catch: AAHRiskCategory
-            try {
+            try{
                 party.getAAHRiskCategory().getDisplayName();
 
             } catch (NullPointerException n) {
@@ -274,34 +283,34 @@ public class AAHPartys {
             locationEvent = party.getLocationEvent();
 
             if (activity != null) {
-                activity = party.getActivity().getDisplayName().toLowerCase().replaceAll("\\s+", "");
+                activity = party.getActivity().getDisplayName().toLowerCase().replaceAll("\\s+","");
             }
             if (clasification != null) {
-                clasification = party.getClasification().getDisplayName().toLowerCase().replaceAll("\\s+", "");
+                clasification = party.getClasification().getDisplayName().toLowerCase().replaceAll("\\s+","");
             }
             if (riskCategory != null) {
-                riskCategory = party.getRiskCategory().toLowerCase().replaceAll("\\s+", "");
+                riskCategory = party.getRiskCategory().toLowerCase().replaceAll("\\s+","");
             }
             if (insurableGroup != null) {
-                insurableGroup = party.getInsurableGroup().getDisplayName().toLowerCase().replaceAll("\\s+", "");
+                insurableGroup = party.getInsurableGroup().getDisplayName().toLowerCase().replaceAll("\\s+","");
             }
             if (coveredEvent != null) {
-                coveredEvent = party.getCoveredEvent().getDisplayName().toLowerCase().replaceAll("\\s+", "");
+                coveredEvent = party.getCoveredEvent().getDisplayName().toLowerCase().replaceAll("\\s+","");
             }
             if (contractType != null) {
-                contractType = party.getContractType().getDisplayName().toLowerCase().replaceAll("\\s+", "");
+                contractType = party.getContractType().getDisplayName().toLowerCase().replaceAll("\\s+","");
             }
             if (aAHRiskCategory != null) {
-                aAHRiskCategory = party.getAAHRiskCategory().getDisplayName().toLowerCase().replaceAll("\\s+", "");
+                aAHRiskCategory = party.getAAHRiskCategory().getDisplayName().toLowerCase().replaceAll("\\s+","");
             }
             if (eventStartDate != null) {
-                eventStartDate = party.getEventStartDate().toLowerCase().replaceAll("\\s+", "");
+                eventStartDate = party.getEventStartDate().toLowerCase().replaceAll("\\s+","");
             }
             if (eventEndDate != null) {
-                eventEndDate = party.getEventEndDate().toLowerCase().replaceAll("\\s+", "");
+                eventEndDate = party.getEventEndDate().toLowerCase().replaceAll("\\s+","");
             }
             if (locationEvent != null) {
-                locationEvent = party.getLocationEvent().toLowerCase().replaceAll("\\s+", "");
+                locationEvent = party.getLocationEvent().toLowerCase().replaceAll("\\s+","");
             }
 
             if (conteo_no_nominados == 0) {
@@ -323,12 +332,12 @@ public class AAHPartys {
         }
         for (AAHParty party : nominados) {
 
-            String currentCoverage = party.getPartyCoverages().getCoverages().toLowerCase().replaceAll("\\s+", "");
+            String currentCoverage = party.getPartyCoverages().getCoverages().toLowerCase().replaceAll("\\s+","");
             if (conteo == 0) {
                 //System.out.println(conteo);
                 coverages = currentCoverage;
             }
-            // ISTRUE??
+
             if (!coverages.equals(currentCoverage) && conteo > 0) {
                 isTrue = false;
             }
@@ -345,7 +354,7 @@ public class AAHPartys {
             String locationEvent = "";
 
             //Try-Catch: Activity
-            try {
+            try{
                 party.getActivity().getDisplayName();
 
             } catch (NullPointerException n) {
@@ -354,7 +363,7 @@ public class AAHPartys {
             }
 
             //Try-Catch: Clasification
-            try {
+            try{
                 party.getClasification().getDisplayName();
 
             } catch (NullPointerException n) {
@@ -367,7 +376,7 @@ public class AAHPartys {
             riskCategory = party.getRiskCategory();
 
             //Try-Catch: insurableGroup
-            try {
+            try{
                 party.getInsurableGroup().getDisplayName();
 
             } catch (NullPointerException n) {
@@ -377,7 +386,7 @@ public class AAHPartys {
             }
 
             //Try-Catch: coveredEvent
-            try {
+            try{
                 party.getCoveredEvent().getDisplayName();
 
             } catch (NullPointerException n) {
@@ -387,7 +396,7 @@ public class AAHPartys {
             }
 
             //Try-Catch: ContractType
-            try {
+            try{
                 party.getContractType().getDisplayName();
 
             } catch (NullPointerException n) {
@@ -397,7 +406,7 @@ public class AAHPartys {
             }
 
             //Try-Catch: AAHRiskCategory
-            try {
+            try{
                 party.getAAHRiskCategory().getDisplayName();
 
             } catch (NullPointerException n) {
@@ -416,34 +425,34 @@ public class AAHPartys {
             locationEvent = party.getLocationEvent();
 
             if (activity != null) {
-                activity = party.getActivity().getDisplayName().toLowerCase().replaceAll("\\s+", "");
+                activity = party.getActivity().getDisplayName().toLowerCase().replaceAll("\\s+","");
             }
             if (clasification != null) {
-                clasification = party.getClasification().getDisplayName().toLowerCase().replaceAll("\\s+", "");
+                clasification = party.getClasification().getDisplayName().toLowerCase().replaceAll("\\s+","");
             }
             if (riskCategory != null) {
-                riskCategory = party.getRiskCategory().toLowerCase().replaceAll("\\s+", "");
+                riskCategory = party.getRiskCategory().toLowerCase().replaceAll("\\s+","");
             }
             if (insurableGroup != null) {
-                insurableGroup = party.getInsurableGroup().getDisplayName().toLowerCase().replaceAll("\\s+", "");
+                insurableGroup = party.getInsurableGroup().getDisplayName().toLowerCase().replaceAll("\\s+","");
             }
             if (coveredEvent != null) {
-                coveredEvent = party.getCoveredEvent().getDisplayName().toLowerCase().replaceAll("\\s+", "");
+                coveredEvent = party.getCoveredEvent().getDisplayName().toLowerCase().replaceAll("\\s+","");
             }
             if (contractType != null) {
-                contractType = party.getContractType().getDisplayName().toLowerCase().replaceAll("\\s+", "");
+                contractType = party.getContractType().getDisplayName().toLowerCase().replaceAll("\\s+","");
             }
             if (aAHRiskCategory != null) {
-                aAHRiskCategory = party.getAAHRiskCategory().getDisplayName().toLowerCase().replaceAll("\\s+", "");
+                aAHRiskCategory = party.getAAHRiskCategory().getDisplayName().toLowerCase().replaceAll("\\s+","");
             }
             if (eventStartDate != null) {
-                eventStartDate = party.getEventStartDate().toLowerCase().replaceAll("\\s+", "");
+                eventStartDate = party.getEventStartDate().toLowerCase().replaceAll("\\s+","");
             }
             if (eventEndDate != null) {
-                eventEndDate = party.getEventEndDate().toLowerCase().replaceAll("\\s+", "");
+                eventEndDate = party.getEventEndDate().toLowerCase().replaceAll("\\s+","");
             }
             if (locationEvent != null) {
-                locationEvent = party.getLocationEvent().toLowerCase().replaceAll("\\s+", "");
+                locationEvent = party.getLocationEvent().toLowerCase().replaceAll("\\s+","");
             }
 
             if (conteo == 0) {
@@ -462,7 +471,7 @@ public class AAHPartys {
                 continue;
             }
         }
-
+        //hmap.put(current, "");
         SeccionNominados secNo = new SeccionNominados();
         SeccionInnominados secIn = new SeccionInnominados();
         //System.out.println(hmap);
@@ -475,26 +484,26 @@ public class AAHPartys {
         int conteoIteratorIn = 0;
 
         boolean isEquals = false;
-        boolean isEquals2 = false;
-        boolean isEquals3 = false;
-        boolean isEquals4 = false;
-        boolean isEquals5 = false;
-        boolean isEquals6 = false;
-        boolean isEquals7 = false;
-        boolean isEquals8 = false;
-        boolean isEquals9 = false;
-        boolean isEquals10 = false;
+        boolean isEquals2= false;
+        boolean isEquals3= false;
+        boolean isEquals4= false;
+        boolean isEquals5= false;
+        boolean isEquals6= false;
+        boolean isEquals7= false;
+        boolean isEquals8= false;
+        boolean isEquals9= false;
+        boolean isEquals10= false;
 
         boolean isEqualsIn = false;
-        boolean isEqualsIn2 = false;
-        boolean isEqualsIn3 = false;
-        boolean isEqualsIn4 = false;
-        boolean isEqualsIn5 = false;
-        boolean isEqualsIn6 = false;
-        boolean isEqualsIn7 = false;
-        boolean isEqualsIn8 = false;
-        boolean isEqualsIn9 = false;
-        boolean isEqualsIn10 = false;
+        boolean isEqualsIn2= false;
+        boolean isEqualsIn3= false;
+        boolean isEqualsIn4= false;
+        boolean isEqualsIn5= false;
+        boolean isEqualsIn6= false;
+        boolean isEqualsIn7= false;
+        boolean isEqualsIn8= false;
+        boolean isEqualsIn9= false;
+        boolean isEqualsIn10= false;
 
         boolean isDifferent = false;
         boolean isDifferent2 = false;
@@ -526,7 +535,7 @@ public class AAHPartys {
         Seccion secCoverageIn = new Seccion();
         while (iterator.hasNext()) {
             conteoIterator++;
-            System.out.println("conteoIterator: " + conteoIterator);
+            System.out.println("conteoIterator: "+conteoIterator);
             Map.Entry mentry = (Map.Entry) iterator.next();
             String key = "";
             if (mentry.getValue() != null) {
@@ -535,7 +544,7 @@ public class AAHPartys {
                 key = null;
             }
             //key = mentry.getValue().toString();
-            System.out.println("Key: " + key);
+            System.out.println("Key: "+key);
             Seccion secTemp = new Seccion();
             Seccion secTemp1 = new Seccion();
             Seccion secTemp4 = new Seccion();
@@ -557,6 +566,12 @@ public class AAHPartys {
             int count = 0;
 
             for (AAHParty party : nominados) {
+                //AGREGO COVERTURAS
+                String coverages3 = "";
+                String currentCoverage2 = party.getPartyCoverages().getCoverages().toLowerCase().replaceAll("\\s+", "");
+                if (conteo_no_nominados == 0) {
+                    coverages3 = currentCoverage2;
+                }
                 count++;
                 //System.out.println(nominados.size());
 
@@ -572,8 +587,8 @@ public class AAHPartys {
                 String currentLocalEvent = "";
 
                 //Try-Catch: Activity
-                try {
-                    party.getActivity().getDisplayName().toLowerCase().replaceAll("\\s+", "");
+                try{
+                    party.getActivity().getDisplayName().toLowerCase().replaceAll("\\s+","");
 
                 } catch (NullPointerException n) {
                     //System.out.println("Asignando activity: null");
@@ -581,12 +596,12 @@ public class AAHPartys {
                     //System.out.println(party.getCoveredEvent().getDisplayName());
                 }
                 if (currentActivity != null) {
-                    currentActivity = party.getActivity().getDisplayName().toLowerCase().replaceAll("\\s+", "");
+                    currentActivity = party.getActivity().getDisplayName().toLowerCase().replaceAll("\\s+","");
                 }
 
                 //Try-Catch: Clasification
-                try {
-                    party.getClasification().getDisplayName().toLowerCase().replaceAll("\\s+", "");
+                try{
+                    party.getClasification().getDisplayName().toLowerCase().replaceAll("\\s+","");
 
                 } catch (NullPointerException n) {
                     //System.out.println("Asignando Clasification: null");
@@ -594,18 +609,18 @@ public class AAHPartys {
                     //System.out.println(party.getCoveredEvent().getDisplayName());
                 }
                 if (currentClasification != null) {
-                    currentClasification = party.getClasification().getDisplayName().toLowerCase().replaceAll("\\s+", "");
+                    currentClasification = party.getClasification().getDisplayName().toLowerCase().replaceAll("\\s+","");
                 }
 
                 //RiskCategory
                 currentRiskCategory = party.getRiskCategory();
                 if (currentRiskCategory != null) {
-                    currentRiskCategory = party.getRiskCategory().toLowerCase().replaceAll("\\s+", "");
+                    currentRiskCategory = party.getRiskCategory().toLowerCase().replaceAll("\\s+","");
                 }
 
                 //Try-Catch: currentInsurableGroup
-                try {
-                    party.getInsurableGroup().getDisplayName().toLowerCase().replaceAll("\\s+", "");
+                try{
+                    party.getInsurableGroup().getDisplayName().toLowerCase().replaceAll("\\s+","");
 
                 } catch (NullPointerException n) {
                     //System.out.println("Asignando Clasification: null");
@@ -613,11 +628,11 @@ public class AAHPartys {
                     //System.out.println(party.getCoveredEvent().getDisplayName());
                 }
                 if (currentInsurableGroup != null) {
-                    currentInsurableGroup = party.getInsurableGroup().getDisplayName().toLowerCase().replaceAll("\\s+", "");
+                    currentInsurableGroup = party.getInsurableGroup().getDisplayName().toLowerCase().replaceAll("\\s+","");
                 }
 
                 //Try-Catch: currentCoveredEvent
-                try {
+                try{
                     party.getCoveredEvent().getDisplayName();
                     //party.getInsurableGroup().getDisplayName().toLowerCase().replaceAll("\\s+","");
 
@@ -626,11 +641,11 @@ public class AAHPartys {
                     currentCoveredEvent = null;
                 }
                 if (currentCoveredEvent != null) {
-                    currentCoveredEvent = party.getCoveredEvent().getDisplayName().toLowerCase().replaceAll("\\s+", "");
+                    currentCoveredEvent = party.getCoveredEvent().getDisplayName().toLowerCase().replaceAll("\\s+","");
                 }
 
                 //Try-Catch: currentContractType
-                try {
+                try{
                     party.getContractType().getDisplayName();
                     //party.getInsurableGroup().getDisplayName().toLowerCase().replaceAll("\\s+","");
 
@@ -639,11 +654,11 @@ public class AAHPartys {
                     currentContractType = null;
                 }
                 if (currentContractType != null) {
-                    currentContractType = party.getContractType().getDisplayName().toLowerCase().replaceAll("\\s+", "");
+                    currentContractType = party.getContractType().getDisplayName().toLowerCase().replaceAll("\\s+","");
                 }
 
                 //Try-Catch: currentAAHRiskCategory
-                try {
+                try{
                     party.getAAHRiskCategory().getDisplayName();
                     //party.getInsurableGroup().getDisplayName().toLowerCase().replaceAll("\\s+","");
 
@@ -652,25 +667,25 @@ public class AAHPartys {
                     currentAAHRiskCategory = null;
                 }
                 if (currentAAHRiskCategory != null) {
-                    currentAAHRiskCategory = party.getAAHRiskCategory().getDisplayName().toLowerCase().replaceAll("\\s+", "");
+                    currentAAHRiskCategory = party.getAAHRiskCategory().getDisplayName().toLowerCase().replaceAll("\\s+","");
                 }
 
                 //EventStartDate
                 currentEventStartDate = party.getEventStartDate();
                 if (currentEventStartDate != null) {
-                    currentEventStartDate = party.getEventStartDate().toLowerCase().replaceAll("\\s+", "");
+                    currentEventStartDate = party.getEventStartDate().toLowerCase().replaceAll("\\s+","");
                 }
 
                 //EventEndDate
                 currentEventEndDate = party.getEventEndDate();
                 if (currentEventEndDate != null) {
-                    currentEventEndDate = party.getEventEndDate().toLowerCase().replaceAll("\\s+", "");
+                    currentEventEndDate = party.getEventEndDate().toLowerCase().replaceAll("\\s+","");
                 }
 
                 //LocalEvent
                 currentLocalEvent = party.getLocationEvent();
                 if (currentLocalEvent != null) {
-                    currentLocalEvent = party.getLocationEvent().toLowerCase().replaceAll("\\s+", "");
+                    currentLocalEvent = party.getLocationEvent().toLowerCase().replaceAll("\\s+","");
                 }
 
                 if (conteoIterator == 1) {
@@ -678,377 +693,297 @@ public class AAHPartys {
                     if (currentActivity != null) {
                         if (key != null) {
                             if (currentActivity.equals(key.toLowerCase())) {
+                                secTemp2.addAAHParty(party);
                                 if (count == nominados.size()) {
                                     isEquals = true;
                                 }
                             } else {
+                                secTemp3.addAAHParty(party);
                                 isDifferent = true;
                             }
                         } else {
-                            isEquals = false;
+                            secTemp3.addAAHParty(party);
                             isDifferent = true;
                         }
                     } else {
                         if (key != null) {
+                            secTemp3.addAAHParty(party);
                             isDifferent = true;
                         } else {
+                            secTemp2.addAAHParty(party);
                             if (count == nominados.size()) {
                                 isEquals = true;
                             }
                         }
                     }
-                } else if (conteoIterator == 2) {
+                }else if (conteoIterator == 2) {
 
-                    if (currentClasification != null) {
-                        if (key != null) {
-                            if (currentClasification.equals(key.toLowerCase())) {
-                                // CASO 1: Activity !=    =>   isDifferent= True
-                                if ((count == nominados.size() && isEquals) || (count == nominados.size() && isDifferent)) {
-                                    isEquals2 = true;
-                                     /*   if(isDifferent==true){
-                                            secCoverage = new Seccion();
-                                            secCoverage.addAAHParty(party);
-                                            secNo.addSeccion(secCoverage);
-                                        }*/
-                                }
-                                        /*else{
-                                        secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);
-                                    }*/
-                            } else {
-                                if ((count == nominados.size() && isEquals) || (count == nominados.size() && isDifferent)) {
-                                    isDifferent2 = true;
-                                    //   secCoverage = new Seccion();
-                                    //   secCoverage.addAAHParty(party);
-                                    //   secNo.addSeccion(secCoverage);
-                                }
-                            }
-                        } else {
-                            if ((count == nominados.size() && isEquals) || (count == nominados.size() && isDifferent)) {
-                                isDifferent2 = true;
-                                //  secCoverage = new Seccion();
-                                //  secCoverage.addAAHParty(party);
-                                //  secNo.addSeccion(secCoverage);
-                            }
-                        }
-                    } else {
-                        if (key != null) {
-                            if ((count == nominados.size() && isEquals) || (count == nominados.size() && isDifferent)) {
-                                isDifferent2 = true;
-                                //  secCoverage = new Seccion();
-                                // secCoverage.addAAHParty(party);
-                                //  secNo.addSeccion(secCoverage);
-                            }
-                        } else {
-                            if ((count == nominados.size() && isEquals) || (count == nominados.size() && isDifferent)) {
-                                isEquals2 = true;
-                            }
-                        }
-                    }
+                        if (currentClasification != null) {
+                            if (key != null) {
+                                if (currentClasification.equals(key.toLowerCase())) {
+                                   secTemp.addAAHParty(party);
 
-                } else if (conteoIterator == 3) {
-
-                    if (currentRiskCategory != null) {
-                        if (key != null) {
-                            if (currentRiskCategory.equals(key.toLowerCase())) {
-                                //CASO2: Clasification != => isDifferent2= true || Activity!= =>isDifferent=true
-                                if ((count == nominados.size() && isEquals && isDifferent2) || (count == nominados.size() && isDifferent && isDifferent2) || (count == nominados.size() && isEquals && isEquals2) || (count == nominados.size() && isDifferent && isEquals2)) {
-                                    isEquals3 = true;
-                                      /*  if((isDifferent==true)||(isDifferent2==true)){
-                                            secCoverage = new Seccion();
-                                            secCoverage.addAAHParty(party);
-                                            secNo.addSeccion(secCoverage);
-                                        }*/
-                                }
-                                    /*else{
-                                        secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);
-                                    }*/
-                            } else {
-                                if ((count == nominados.size() && isEquals && isDifferent2) || (count == nominados.size() && isDifferent && isDifferent2) || (count == nominados.size() && isEquals && isEquals2) || (count == nominados.size() && isDifferent && isEquals2)) {
-                                    isDifferent3 = true;
-
-                                          /*  secCoverage = new Seccion();
-                                            secCoverage.addAAHParty(party);
-                                            secNo.addSeccion(secCoverage);*/
-                                }
-                            }
-                        } else {
-                            if ((count == nominados.size() && isEquals && isDifferent2) || (count == nominados.size() && isDifferent && isDifferent2) || (count == nominados.size() && isEquals && isEquals2) || (count == nominados.size() && isDifferent && isEquals2)) {
-                                isDifferent3 = true;
-                                 /*   if((isDifferent==true)||(isDifferent2==true)){
-                                        secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);
-                                    }*/
-                            }
-                        }
-
-                    } else {
-                        if (key != null) {
-
-                            if ((count == nominados.size() && isEquals && isDifferent2) || (count == nominados.size() && isDifferent && isDifferent2) || (count == nominados.size() && isEquals && isEquals2) || (count == nominados.size() && isDifferent && isEquals2)) {
-                                isDifferent3 = true;
-/*
-                                        secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);
-*/
-                            }
-                        } else {
-                            if ((count == nominados.size() && isEquals && isDifferent2) || (count == nominados.size() && isDifferent && isDifferent2) || (count == nominados.size() && isEquals && isEquals2) || (count == nominados.size() && isDifferent && isEquals2)) {
-                                isEquals3 = true;
-                            }
-                        }
-                    }
-                } else if (conteoIterator == 4) {
-
-                    if (currentInsurableGroup != null) {
-                        if (key != null) {
-                            if (currentInsurableGroup.equals(key.toLowerCase())) {
-                                /*    //CASO1: Activity =!
-                                    if (count == nominados.size() && isDifferent && isEquals2 && isEquals3) {
-                                        isEquals4 = true;
+                                    //CASO 1: Activity !=
+                                    if (count == nominados.size() && isDifferent) {
+                                        //secNo.addSeccion(secTemp2);
+                                        //secNo.addSeccion(secTemp3);
+                                        isEquals2 = true;
                                     }
+
+                                    if (count == nominados.size() && isEquals) {
+                                        //secNo.addSeccion(secTemp2);
+                                        isEquals2 = true;
+                                    }
+                                } else {
+                                    secTemp1.addAAHParty(party);
+                                    if (count == nominados.size() && isDifferent) {
+                                        //secNo.addSeccion(secTemp3);
+                                        isDifferent2 = true;
+                                    }
+
+                                    if (count == nominados.size() && isEquals) {
+                                        //secNo.addSeccion(secTemp2);
+                                       secTemp2 = secTemp;
+                                       secTemp3 = secTemp1;
+                                       isDifferent2 = true;
+                                    }
+
+                                }
+                            } else {
+                                if (count == nominados.size()) {
+                                    secTemp3 = new Seccion();
+                                    secTemp3.addAAHParty(party);
+                                    isEquals2 = false;
+                                    isDifferent2 = true;
+                                }
+                            }
+                        } else {
+                            if (key != null) {
+                                //secTemp.addAAHParty(party);
+                                secTemp1.addAAHParty(party);
+                                secTemp2 = secTemp;
+                                secTemp3 = secTemp1;
+                                isDifferent2 = true;
+                            } else {
+                                secTemp.addAAHParty(party);
+                                secTemp2 = secTemp;
+                                if (count == nominados.size()) {
+                                    isEquals2 = true;
+                                }
+                            }
+                        }
+
+                    } else if (conteoIterator == 3) {
+
+                        if (currentRiskCategory != null) {
+                            if (key != null) {
+                                if (currentRiskCategory.equals(key.toLowerCase())) {
+                                    secTemp4.addAAHParty(party);
 
                                     //CASO2: Clasification !=
-                                    if (count == nominados.size() && isEquals && isDifferent2 && isEquals3) {
-                                         isEquals4 = true;
-                                        }
+                                    if (count == nominados.size() && isEquals && isDifferent2) {
+                                        /*secNo.addSeccion(secTemp2);
+                                        secNo.addSeccion(secTemp3);*/
+                                        isEquals3 = true;
+                                    }
+                                    //Activity != && Clasification !=
+                                    if (count == nominados.size() && isDifferent && isDifferent2) {
+                                        isEquals3 = true;
+                                    }
+                                    if (count == nominados.size() && isEquals && isEquals2) {
+                                        isEquals3 = true;
+                                      }
+                                    if (count == nominados.size() && isDifferent && isEquals2) {
+                                        isEquals3 = true;
+                                    }
+                                } else {
+                                    secTemp1.addAAHParty(party);
+                                    if (count == nominados.size() && isDifferent && isDifferent2) {
+                                        isDifferent3 = true;
+                                        //secNo.addSeccion(secTemp3);
+                                    }
+                                    //CASO3: RiskCategory !=
+                                    if (count == nominados.size() && isEquals && isEquals2) {
+                                        secTemp2 = secTemp4;
+                                        secTemp3 = secTemp1;
+                                        isDifferent3 = true;
+                                        //secNo.addSeccion(secTemp2);
+                                    }
+                                }
+                            } else {
+                                if (count == nominados.size()) {
+                                    secTemp3 = new Seccion();
+                                    secTemp3.addAAHParty(party);
+                                    isEquals3 = false;
+                                    isDifferent3 = true;
+                                }
+                            }
 
+                        } else {
+                            //isEquals3 = true;
+
+                            if (key != null) {
+                                //secTemp.addAAHParty(party);
+                                secTemp1.addAAHParty(party);
+                                secTemp2 = secTemp4;
+                                secTemp3 = secTemp1;
+                                isDifferent3 = true;
+                            } else {
+                                secTemp4.addAAHParty(party);
+                                secTemp2 = secTemp4;
+                                if (count == nominados.size()) {
+                                    isEquals3 = true;
+                                }
+                            }
+                        }
+                    } else if (conteoIterator == 4) {
+
+                        if (currentInsurableGroup != null) {
+                            if (key != null) {
+                                if (currentInsurableGroup.equals(key.toLowerCase())) {
+                                    secTemp5.addAAHParty(party);
+                                    //CASO1: Activity =!
+                                    if (count == nominados.size() && isDifferent && isEquals2 && isEquals3) {
+                                        isEquals4 = true;
+                                        //secNo.addSeccion(secTemp2);
+                                        //secNo.addSeccion(secTemp3);
+                                    }
+                                    //CASO2: Clasification !=
+                                    if (count == nominados.size() && isEquals && isDifferent2 && isEquals3) {
+                                        isEquals4 = true;
+                                        /*secNo.addSeccion(secTemp2);
+                                        //secNo.addSeccion(secTemp3);*/
+                                    }
                                     //CASO3: RiskCategory !=
                                     if (count == nominados.size() && isEquals && isEquals2 && isDifferent3) {
-                                       isEquals4 = true;
+                                        isEquals4 = true;
+                                       /* //secNo.addSeccion(secTemp2);
+                                        //secNo.addSeccion(secTemp3);*/
                                     }
-
                                     //Activity != && Clasification !=
                                     if (count == nominados.size() && isDifferent && isDifferent2 && isEquals3) {
                                         isEquals4 = true;
                                     }
-
                                     //Activity != && Clasification != && RiskCategory !=
                                     if (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3) {
                                         isEquals4 = true;
-                                      }
+                                    }
+                                    //Activity !=  && RiskCategory !=
+                                    if (count == nominados.size() && isDifferent && isEquals2 && isDifferent3) {
+                                        isEquals4 = true;
+                                    }
 
                                     if (count == nominados.size() && isEquals && isEquals2 && isEquals3) {
                                         isEquals4 = true;
-                                    }*/
-
-                                if ((count == nominados.size() && isDifferent && isEquals2 && isEquals3) || (count == nominados.size() && isEquals && isDifferent2 && isEquals3) || (count == nominados.size() && isEquals && isEquals2 && isDifferent3) || (count == nominados.size() && isDifferent && isDifferent2 && isEquals3) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3) || (count == nominados.size() && isEquals && isEquals2 && isEquals3)) {
-                                    isEquals4 = true;
-                                       /* if((isDifferent==true)||(isDifferent2==true)||(isDifferent3==true)){
-                                            secCoverage = new Seccion();
-                                            secCoverage.addAAHParty(party);
-                                            secNo.addSeccion(secCoverage);
-                                        }*/
-                                }
-                                    /*else{
-                                        secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);
-                                    }*/
-
-                            } else {
-                                    /*
+                                    }
+                                 } else {
                                     secTemp6.addAAHParty(party);
                                     if (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3) {
                                         isDifferent4 = true;
+                                        //secNo.addSeccion(secTemp3);
                                     }
-
                                     //CASO3: InsurableGroup !=
                                     if (count == nominados.size() && isEquals && isEquals2 && isEquals3) {
+                                        secTemp2 = secTemp5;
+                                        secTemp3 = secTemp6;
                                         isDifferent4 = true;
                                     }
-
                                     //CASO4: Activity != && InsurableGroup =!
                                     if (count == nominados.size() && isDifferent && isEquals2 && isEquals3) {
                                         isDifferent4 = true;
                                     }
-
                                     //CASO5: RiskCategory != && InsurableGroup !=
                                     if (count == nominados.size() && isEquals && isEquals2 && isDifferent3) {
                                         isDifferent4 = true;
-                                    }*/
-                                if ((count == nominados.size() && isDifferent && isEquals2 && isEquals3) || (count == nominados.size() && isEquals && isDifferent2 && isEquals3) || (count == nominados.size() && isEquals && isEquals2 && isDifferent3) || (count == nominados.size() && isDifferent && isDifferent2 && isEquals3) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3) || (count == nominados.size() && isEquals && isEquals2 && isEquals3)) {
-                                    isDifferent4 = true;
-                                        /*secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);*/
+                                    }
+                                    //CASO6: Clasification != && InsurableGroup !=
+                                    if (count == nominados.size() && isEquals && isDifferent2 && isEquals3) {
+                                        isDifferent4 = true;
+                                    }
                                 }
-                            }
-                        } else {
-                               /* if (count == nominados.size()) {
+                            } else {
+                                if (count == nominados.size()) {
                                     secTemp3 = new Seccion();
                                     secTemp3.addAAHParty(party);
                                     isEquals4 = false;
                                     isDifferent4 = true;
-                                }*/
-                            if ((count == nominados.size() && isDifferent && isEquals2 && isEquals3) || (count == nominados.size() && isEquals && isDifferent2 && isEquals3) || (count == nominados.size() && isEquals && isEquals2 && isDifferent3) || (count == nominados.size() && isDifferent && isDifferent2 && isEquals3) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3) || (count == nominados.size() && isEquals && isEquals2 && isEquals3)) {
-                                isDifferent4 = true;
+                                }
+                            }
 
-                                        /*secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);
-                                        */
-                            }
-                        }
-                    } else {
-                        if (key != null) {
-                            //isDifferent4 = true;
-                            if ((count == nominados.size() && isDifferent && isEquals2 && isEquals3) || (count == nominados.size() && isEquals && isDifferent2 && isEquals3) || (count == nominados.size() && isEquals && isEquals2 && isDifferent3) || (count == nominados.size() && isDifferent && isDifferent2 && isEquals3) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3) || (count == nominados.size() && isEquals && isEquals2 && isEquals3)) {
-                                isDifferent4 = true;
-                                  /*  secCoverage = new Seccion();
-                                    secCoverage.addAAHParty(party);
-                                    secNo.addSeccion(secCoverage);*/
-                            }
                         } else {
-                              /*  //secTemp.addAAHParty(party);
+                            if (key != null) {
+                                secTemp6.addAAHParty(party);
+                                secTemp2 = secTemp5;
+                                secTemp3 = secTemp6;
+                                isDifferent4 = true;
+                            } else {
                                 secTemp5.addAAHParty(party);
                                 secTemp2 = secTemp5;
                                 if (count == nominados.size()) {
                                     isEquals4 = true;
-                                }*/
-                            if ((count == nominados.size() && isDifferent && isEquals2 && isEquals3) || (count == nominados.size() && isEquals && isDifferent2 && isEquals3) || (count == nominados.size() && isEquals && isEquals2 && isDifferent3) || (count == nominados.size() && isDifferent && isDifferent2 && isEquals3) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3) || (count == nominados.size() && isEquals && isEquals2 && isEquals3)) {
-                                isEquals4 = true;
+                                }
                             }
                         }
-                    }
-                } else if (conteoIterator == 5) {   //isDifferent, isDifferent2, isDifferent3, isDifferent4, setTemp2, setTemp3
-                       /* boolean val1 = (count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4);
-                        boolean val2 = (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4);
-                        boolean val3 = (count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4);
-                        boolean val4 = (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4);
-                        boolean val5 = (count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4);
-                        boolean val6 = (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4);
-                        boolean val7 = (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4);
-                        boolean val8 = (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4);
-*/
-                    if (currentCoveredEvent != null) {
-                        if (key != null) {
-                            if (currentCoveredEvent.equals(key.toLowerCase())) {
-                                /*   //CASO1: Activity !=
+                    } else if (conteoIterator == 5) {
+                         if (currentCoveredEvent != null) {
+                            if (key != null) {
+                                if (currentCoveredEvent.equals(key.toLowerCase())) {
+                                    secTemp7.addAAHParty(party);
+                                    //CASO1: Activity !=
                                     if (count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4) {
                                         isEquals5 = true;
-                                        //secNo.addSeccion(secTemp2);
-                                        //secNo.addSeccion(secTemp3);
                                     }
                                     //CASO2: Clasification !=
                                     if (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4) {
                                         isEquals5 = true;
-                                        //secNo.addSeccion(secTemp2);
-                                        //secNo.addSeccion(secTemp3);
                                     }
                                     //CASO3: RiskCategory !=
                                     if (count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4) {
-                                        //System.out.println("CASO2: RiskCategory =!");
-                                        isEquals5 = true;
-                                        //secNo.addSeccion(secTemp2);
-                                        //secNo.addSeccion(secTemp3);
+                                       isEquals5 = true;
                                     }
                                     //CASO4: InsurableGroup !=
                                     if (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4) {
-                                        //System.out.println("CASO2: RiskCategory =!");
                                         isEquals5 = true;
-                                        //secNo.addSeccion(secTemp2);
-                                        //secNo.addSeccion(secTemp3);
                                     }
                                     //Activity != && Clasification !=
                                     if (count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4) {
                                         isEquals5 = true;
-                                        //secNo.addSeccion(secTemp2);
-                                        //secNo.addSeccion(secTemp3);
+                                    }
+                                    //Activity !=  && RiskCategory !=
+                                    if (count == nominados.size() && isDifferent && isEquals2 && isDifferent3 && isEquals4) {
+                                        isEquals5 = true;
+                                    }
+                                    //Activity !=  && InsurableGroup !=
+                                    if (count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isDifferent4) {
+                                        isEquals5 = true;
                                     }
                                     //Activity != && Clasification != && RiskCategory !=
                                     if (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4) {
                                         isEquals5 = true;
-                                        //secNo.addSeccion(secTemp2);
-                                        //secNo.addSeccion(secTemp3);
                                     }
                                     //Activity != && Clasification != && RiskCategory != && InsurableGroup !=
                                     if (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4) {
                                         isEquals5 = true;
-                                        //secNo.addSeccion(secTemp2);
-                                        //secNo.addSeccion(secTemp3);
                                     }
                                     if (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4) {
                                         isEquals5 = true;
-                                        //secNo.addSeccion(secTemp7);
-                                    }*/
-                                if ((count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4) || (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4) || (count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4) || (count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4)) {
-                                    isEquals5 = true;
-                                      /*  if((isDifferent==true)||(isDifferent2==true)||(isDifferent3==true)||(isDifferent4==true)){
-                                            secCoverage = new Seccion();
-                                            secCoverage.addAAHParty(party);
-                                            secNo.addSeccion(secCoverage);
-                                        }*/
-                                }
-                                    /*else{
-                                        secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);
-                                    }*/
+                                    }
 
-                                  /*  if((count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4)||(count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4)){
-                                        isEquals5 = true;
-                                    }else{if((count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4)||(count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4)){
-                                        isEquals5 = true;
-                                    }else{if((count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4)||(count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4)){
-                                        isEquals5 = true;
-                                    }else{if((count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4)||(count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4)){
-                                        isEquals5 = true;*/
-
-                            } else {
-                                  /* //CASO5: CoveredEvent !=
+                                } else {
+                                    secTemp8.addAAHParty(party);
+                                    //CASO5: CoveredEvent !=
                                     if (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4) {
                                         secTemp2 = secTemp7;
                                         secTemp3 = secTemp8;
                                         isDifferent5 = true;
-                                        //secNo.addSeccion(secTemp2);
-                                        //secNo.addSeccion(secTemp3);
                                     }
-
                                     if (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4) {
                                         isDifferent5 = true;
-                                        //secNo.addSeccion(secTemp2);
-                                        //secNo.addSeccion(secTemp3);
-                                        //secNo.addSeccion(secTemp3);
-                                    }*/
-                                    /*if((count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4)||(count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4)){
-                                        isDifferent5 = true;
-                                        secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);
-                                    }else{if((count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4)||(count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4)){
-                                        isDifferent5 = true;
-                                        secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);
-                                    }else{if((count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4)||(count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4)){
-                                        isDifferent5 = true;
-                                        secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);
-                                    }else{if((count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4)||(count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4)){
-                                        isDifferent5 = true;
-                                        secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);
-                                          }
-                                       }
-                                     }
-                                    }*/
-                                if ((count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4) || (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4) || (count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4) || (count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4)) {
-                                    isDifferent5 = true;
-                                     /*   secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);*/
+                                    }
+
                                 }
-                            }
-                        } else {
-                              /*  //isDifferent, isDifferent2, isDifferent3, isDifferent4, setTemp2, setTemp3, secTemp3, secTemp3, secTemp3
+                            } else {
+                                //isDifferent, isDifferent2, isDifferent3, isDifferent4, setTemp2, setTemp3, secTemp3, secTemp3, secTemp3
                                 if (count == nominados.size()) {
                                     secTemp3 = new Seccion();
                                     secTemp3.addAAHParty(party);
@@ -1056,317 +991,126 @@ public class AAHPartys {
                                     isDifferent5 = true;
                                 }
                                 if (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isDifferent5) {
-                                    //secNo.addSeccion(secTemp2);
-                                    //secNo.addSeccion(secTemp3);
+                                  /*  //secNo.addSeccion(secTemp2);
+                                    //secNo.addSeccion(secTemp3);*/
+                                    isDifferent5 = true;
                                 }
                                 if (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5) {
-                                    //secNo.addSeccion(secTemp2);
-                                    //secNo.addSeccion(secTemp3);
-                                }*/
-                              /*  if((count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4)||(count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4)){
+                                  /*  //secNo.addSeccion(secTemp2);
+                                    //secNo.addSeccion(secTemp3);*/
                                     isDifferent5 = true;
-                                    secCoverage = new Seccion();
-                                    secCoverage.addAAHParty(party);
-                                    secNo.addSeccion(secCoverage);
-                                }else{if((count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4)||(count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4)){
-                                    isDifferent5 = true;
-                                    secCoverage = new Seccion();
-                                    secCoverage.addAAHParty(party);
-                                    secNo.addSeccion(secCoverage);
-                                }else{if((count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4)||(count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4)){
-                                    isDifferent5 = true;
-                                    secCoverage = new Seccion();
-                                    secCoverage.addAAHParty(party);
-                                    secNo.addSeccion(secCoverage);
-                                }else{if((count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4)||(count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4)){
-                                    isDifferent5 = true;
-                                    secCoverage = new Seccion();
-                                    secCoverage.addAAHParty(party);
-                                    secNo.addSeccion(secCoverage);
-                                        }
-                                    }
-                                  }
-                                }*/
-                            if ((count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4) || (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4) || (count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4) || (count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4)) {
-                                isDifferent5 = true;
-                                   /* secCoverage = new Seccion();
-                                    secCoverage.addAAHParty(party);
-                                    secNo.addSeccion(secCoverage);*/
+                                }
                             }
-                        }
-                    } else {
-                        if (key != null) {
-                               /* //secTemp.addAAHParty(party);
+
+                        } else {
+                            //isEquals5 = true;
+
+                            if (key != null) {
                                 secTemp8.addAAHParty(party);
                                 secTemp2 = secTemp7;
                                 secTemp3 = secTemp8;
                                 isDifferent5 = true;
-*/
-                               /* if((count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4)||(count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4)){
-                                    isDifferent5 = true;
-                                    secCoverage = new Seccion();
-                                    secCoverage.addAAHParty(party);
-                                    secNo.addSeccion(secCoverage);
-                                }else{if((count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4)||(count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4)){
-                                    isDifferent5 = true;
-                                    secCoverage = new Seccion();
-                                    secCoverage.addAAHParty(party);
-                                    secNo.addSeccion(secCoverage);
-                                }else{if((count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4)||(count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4)){
-                                    isDifferent5 = true;
-                                    secCoverage = new Seccion();
-                                    secCoverage.addAAHParty(party);
-                                    secNo.addSeccion(secCoverage);
-                                }else{if((count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4)||(count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4)){
-                                    isDifferent5 = true;
-                                    secCoverage = new Seccion();
-                                    secCoverage.addAAHParty(party);
-                                    secNo.addSeccion(secCoverage);
-                                        }
-                                      }
-                                   }
-                                }*/
-                            if ((count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4) || (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4) || (count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4) || (count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4)) {
-                                isDifferent5 = true;
-                                   /* secCoverage = new Seccion();
-                                    secCoverage.addAAHParty(party);
-                                    secNo.addSeccion(secCoverage);*/
-                            }
-                        } else {
-                               /* //secTemp.addAAHParty(party);
+                            } else {
                                 secTemp7.addAAHParty(party);
                                 secTemp2 = secTemp7;
                                 if (count == nominados.size()) {
                                     isEquals5 = true;
-                                }*/
-                             /*   if((count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4)||(count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4)){
-                                    isEquals5 = true;
-
-                                }else{if((count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4)||(count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4)){
-                                    isEquals5 = true;
-
-                                }else{if((count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4)||(count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4)){
-                                    isEquals5 = true;
-
-                                }else{if((count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4)||(count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4)){
-                                    isEquals5 = true;
-                                        }
-                                      }
-                                   }
-                                }*/
-                            if ((count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4) || (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4) || (count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4) || (count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4) || ((key == null && currentCoveredEvent == null))) {
-                                isEquals5 = true;
+                                }
                             }
-                                /*if(key==null && currentCoveredEvent==null){
-                                    secCoverage = new Seccion();
-                                    secCoverage.addAAHParty(party);
-                                    secNo.addSeccion(secCoverage);
-                                }*/
                         }
-                    }
-
-
-                } else if (conteoIterator == 6) {
-
-                    if (currentContractType != null) {
-                        if (key != null) {
-                            if (currentContractType.equals(key.toLowerCase())) {
-                                /*    secTemp9.addAAHParty(party);
-
+                    } else if (conteoIterator == 6) {
+                        if (currentContractType != null) {
+                            if (key != null) {
+                                if (currentContractType.equals(key.toLowerCase())) {
+                                    secTemp9.addAAHParty(party);
                                     //CASO1: Activity =!
                                     if (count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4 && isEquals5) {
                                         isEquals6 = true;
-                                        //secNo.addSeccion(secTemp2);
-                                        //secNo.addSeccion(secTemp3);
                                     }
-
                                     //CASO2: Clasification !=
                                     if (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4 && isEquals5) {
                                         isEquals6 = true;
-                                        //secNo.addSeccion(secTemp2);
-                                        //secNo.addSeccion(secTemp3);
                                     }
-
                                     //CASO3: RiskCategory !=
                                     if (count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4 && isEquals5) {
                                         isEquals6 = true;
-                                        //secNo.addSeccion(secTemp2);
-                                        //secNo.addSeccion(secTemp3);
                                     }
-
                                     //CASO4: InsurableGroup !=
                                     if (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4 && isEquals5) {
                                         isEquals6 = true;
-                                        //secNo.addSeccion(secTemp2);
-                                        //secNo.addSeccion(secTemp3);
                                     }
-
                                     //CASO5: CoveredEvent !=
                                     if (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isDifferent5) {
                                         isEquals6 = true;
-                                        //secNo.addSeccion(secTemp2);
-                                        //secNo.addSeccion(secTemp3);
                                     }
-
                                     //Activity != && Clasification !=
                                     if (count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4 && isEquals5) {
                                         isEquals6 = true;
-                                        //secNo.addSeccion(secTemp2);
-                                        //secNo.addSeccion(secTemp3);
                                     }
-
                                     //Activity != && Clasification != && RiskCategory !=
                                     if (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4 && isEquals5) {
                                         isEquals6 = true;
-                                        //secNo.addSeccion(secTemp2);
-                                        //secNo.addSeccion(secTemp3);
                                     }
-
                                     //Activity != && Clasification != && RiskCategory != && InsurableGroup !=
                                     if (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isEquals5) {
                                         isEquals6 = true;
-                                        //secNo.addSeccion(secTemp2);
-                                        //secNo.addSeccion(secTemp3);
                                     }
-
                                     //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent !=
                                     if (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5) {
                                         isEquals6 = true;
-                                        //secNo.addSeccion(secTemp2);
-                                        //secNo.addSeccion(secTemp3);
                                     }
-
                                     if (count == nominados.size() && isEquals && isEquals2 && isEquals3&& isEquals4 && isEquals5) {
                                         isEquals6 = true;
-                                        //secNo.addSeccion(secTemp5);
-                                    }*/
-                                if ((count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4 && isEquals5) || (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4 && isEquals5) || (count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4 && isEquals5) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4 && isEquals5) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isDifferent5)) {
-                                    isEquals6 = true;
-                                        /*if((isDifferent==true)||(isDifferent2==true)||(isDifferent3==true)||(isDifferent4==true)||(isDifferent5==true)){
-                                            secCoverage = new Seccion();
-                                            secCoverage.addAAHParty(party);
-                                            secNo.addSeccion(secCoverage);
-                                        }*/
-                                } else {
-                                    if ((count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4 && isEquals5) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4 && isEquals5) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isEquals5) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5)) {
-                                        isEquals6 = true;
-                                        /*if((isDifferent==true)||(isDifferent2==true)||(isDifferent3==true)||(isDifferent4==true)||(isDifferent5==true)){
-                                            secCoverage = new Seccion();
-                                            secCoverage.addAAHParty(party);
-                                            secNo.addSeccion(secCoverage);
-                                        }*/
                                     }
-                                    /*else{
-                                        secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);
-                                        }*/
-                                }
-
-                            } else {
-                                 /*   secTemp10.addAAHParty(party);
-
+                                } else {
+                                    secTemp10.addAAHParty(party);
                                     if (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5) {
                                         isDifferent6 = true;
-                                        //secNo.addSeccion(secTemp2);
-                                        //secNo.addSeccion(secTemp3);
-                                        //secNo.addSeccion(secTemp3);
                                     }
-
                                     //CASO6: ContractType !=
                                     if (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5) {
                                         secTemp2 = secTemp9;
                                         secTemp3 = secTemp10;
                                         isDifferent6 = true;
-                                        //secNo.addSeccion(secTemp2);
-                                        //secNo.addSeccion(secTemp3);
-                                    }*/
-                                if ((count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4 && isEquals5) || (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4 && isEquals5) || (count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4 && isEquals5) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4 && isEquals5) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isDifferent5)) {
-                                    isDifferent6 = true;
-                                        /* secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);*/
-                                } else {
-                                    if ((count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4 && isEquals5) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4 && isEquals5) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isEquals5) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5)) {
-                                        isDifferent6 = true;
-                                        /* secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);*/
                                     }
                                 }
-                            }
-                        } else {
-                              /*  if (count == nominados.size()) {
+                            } else {
+                                if (count == nominados.size()) {
                                     secTemp3 = new Seccion();
                                     secTemp3.addAAHParty(party);
                                     isEquals6 = false;
                                     isDifferent6 = true;
-                                }*/
-                            if ((count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4 && isEquals5) || (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4 && isEquals5) || (count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4 && isEquals5) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4 && isEquals5) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isDifferent5)) {
-                                isDifferent6 = true;
-                                    /* secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);*/
-                            } else {
-                                if ((count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4 && isEquals5) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4 && isEquals5) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isEquals5) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5)) {
-                                    isDifferent6 = true;
-                                    /* secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);*/
                                 }
                             }
-                        }
-                    } else {
-                        if (key != null) {
-                             /*   //secTemp.addAAHParty(party);
+                        } else {
+                            if (key != null) {
                                 secTemp10.addAAHParty(party);
                                 secTemp2 = secTemp9;
                                 secTemp3 = secTemp10;
-                                isDifferent6 = true; */
-                            if ((count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4 && isEquals5) || (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4 && isEquals5) || (count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4 && isEquals5) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4 && isEquals5) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isDifferent5)) {
                                 isDifferent6 = true;
-                                    /* secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);*/
-                            } else {
-                                if ((count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4 && isEquals5) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4 && isEquals5) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isEquals5) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5)) {
-                                    isDifferent6 = true;
-                                    /* secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);*/
-                                }
-                            }
 
-                        } else {
-                             /*   //secTemp.addAAHParty(party);
+                            } else {
                                 secTemp9.addAAHParty(party);
                                 secTemp2 = secTemp9;
                                 if (count == nominados.size()) {
                                     isEquals6 = true;
-                                }*/
-                            if ((count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4 && isEquals5) || (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4 && isEquals5) || (count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4 && isEquals5) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4 && isEquals5) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isDifferent5)) {
-                                isEquals6 = true;
-                            } else {
-                                if ((count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4 && isEquals5) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4 && isEquals5) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isEquals5) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5)) {
-                                    isEquals6 = true;
                                 }
                             }
                         }
-                    }
-                } else if (conteoIterator == 7) {
+                    } else if (conteoIterator == 7) {
 
-                    if (currentAAHRiskCategory != null) {
-                        if (key != null) {
-                            if (currentAAHRiskCategory.equals(key.toLowerCase())) {
-                                  /*  secTemp11.addAAHParty(party);
+                        if (currentAAHRiskCategory != null) {
+                            if (key != null) {
+                                if (currentAAHRiskCategory.equals(key.toLowerCase())) {
+                                    secTemp11.addAAHParty(party);
                                     //CASO1: Activity =!
                                     if (count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6) {
                                         isEquals7 = true;
-                                       }
+                                    }
                                     //CASO2: Clasification !=
                                     if (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6) {
                                         isEquals7 = true;
-                                      }
+                                    }
                                     //CASO3: RiskCategory !=
                                     if (count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6) {
                                         isEquals7 = true;
@@ -1374,7 +1118,7 @@ public class AAHPartys {
                                     //CASO4: InsurableGroup !=
                                     if (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4 && isEquals5 && isEquals6) {
                                         isEquals7 = true;
-                                     }
+                                    }
                                     //CASO5: CoveredEvent !=
                                     if (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isDifferent5 && isEquals6) {
                                         isEquals7 = true;
@@ -1386,127 +1130,71 @@ public class AAHPartys {
                                     //Activity != && Clasification !=
                                     if (count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6) {
                                         isEquals7 = true;
-                                      }
+                                    }
                                     //Activity != && Clasification != && RiskCategory !=
                                     if (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6) {
                                         isEquals7 = true;
-                                      }
+                                    }
                                     //Activity != && Clasification != && RiskCategory != && InsurableGroup !=
                                     if (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isEquals5 && isEquals6) {
                                         isEquals7 = true;
-                                      }
+                                    }
                                     //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent !=
                                     if (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isEquals6) {
                                         isEquals7 = true;
-                                      }
+                                    }
                                     //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent != && ContractType !=
                                     if (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6) {
                                         isEquals7 = true;
-                                      }
+                                    }
                                     if (count == nominados.size() && isEquals && isEquals2 && isEquals3&& isEquals4 && isEquals5 && isEquals6) {
                                         isEquals7 = true;
-                                      }*/
-                                if ((count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6) || (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6) || (count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4 && isEquals5 && isEquals6) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isDifferent5 && isEquals6) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isDifferent6)) {
-                                    isEquals7 = true;
-                                } else {
-                                    if ((count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isEquals5 && isEquals6) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isEquals6) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6)) {
-                                        isEquals7 = true;
                                     }
-                                    /*else{
-                                        secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);
-                                        }*/
-                                }
-                            } else {
-                                  /*  secTemp12.addAAHParty(party);
+
+                                } else {
+                                    secTemp12.addAAHParty(party);
 
                                     if (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6) {
                                         isDifferent7 = true;
-                                       }
+                                    }
                                     //CASO7: AAHRiskCategory !=
                                     if (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6) {
+                                        secTemp2 = secTemp11;
+                                        secTemp3 = secTemp12;
                                         isDifferent7 = true;
-                                     }*/
-                                if ((count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6) || (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6) || (count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4 && isEquals5 && isEquals6) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isDifferent5 && isEquals6) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isDifferent6)) {
-                                    isDifferent7 = true;
-                                        /* secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);*/
-                                } else {
-                                    if ((count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isEquals5 && isEquals6) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isEquals6) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6)) {
-                                        isDifferent7 = true;
-                                        /* secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);*/
                                     }
                                 }
-                            }
-                        } else {
-                                /*if (count == nominados.size()) {
+                            } else {
+                                if (count == nominados.size()) {
                                     secTemp3 = new Seccion();
                                     secTemp3.addAAHParty(party);
                                     isEquals7 = false;
                                     isDifferent7 = true;
-                                }*/
-                            if ((count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6) || (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6) || (count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4 && isEquals5 && isEquals6) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isDifferent5 && isEquals6) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isDifferent6)) {
-                                isDifferent7 = true;
-                                   /* secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);*/
-                            } else {
-                                if ((count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isEquals5 && isEquals6) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isEquals6) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6)) {
-                                    isDifferent7 = true;
-                                    /* secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);*/
-                                }
-                            }
-                        }
-                    } else {
-                        if (key != null) {
-                             /*   //secTemp.addAAHParty(party);
-                                secTemp12.addAAHParty(party);
-                                secTemp2 = secTemp11;
-                                secTemp3 = secTemp12;
-                                isDifferent7 = true;*/
-                            if ((count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6) || (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6) || (count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4 && isEquals5 && isEquals6) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isDifferent5 && isEquals6) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isDifferent6)) {
-                                isDifferent7 = true;
-                                    /* secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);*/
-                            } else {
-                                if ((count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isEquals5 && isEquals6) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isEquals6) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6)) {
-                                    isDifferent7 = true;
-                                   /* secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);*/
                                 }
                             }
                         } else {
-                               /* //secTemp.addAAHParty(party);
+                            if (key != null) {
+                                secTemp12.addAAHParty(party);
+                                secTemp2 = secTemp11;
+                                secTemp3 = secTemp12;
+                                isDifferent7 = true;
+
+                            } else {
                                 secTemp11.addAAHParty(party);
                                 secTemp2 = secTemp11;
                                 if (count == nominados.size()) {
                                     isEquals7 = true;
-                                }*/
-                            if ((count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6) || (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6) || (count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4 && isEquals5 && isEquals6) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isDifferent5 && isEquals6) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isDifferent6)) {
-                                isEquals7 = true;
-                            } else {
-                                if ((count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isEquals5 && isEquals6) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isEquals6) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6)) {
-                                    isEquals7 = true;
                                 }
                             }
                         }
-                    }
-                } else if (conteoIterator == 8) {
-
-                    if (currentEventStartDate != null) {
-                        if (key != null) {
-                            if (currentEventStartDate.equals(key.toLowerCase())) {
-                                   /* //CASO1: Activity =!
+                    } else if (conteoIterator == 8) {
+                        if (currentEventStartDate != null) {
+                            if (key != null) {
+                                if (currentEventStartDate.equals(key.toLowerCase())) {
+                                    secTemp13.addAAHParty(party);
+                                    //CASO1: Activity =!
                                     if (count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7) {
-                                        isEquals8 = true;;
+                                        isEquals8 = true;
                                     }
                                     //CASO2: Clasification !=
                                     if (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7) {
@@ -1558,140 +1246,58 @@ public class AAHPartys {
                                     }
                                     if (count == nominados.size() && isEquals && isEquals2 && isEquals3&& isEquals4 && isEquals5 && isEquals6 && isEquals7) {
                                         isEquals8 = true;
-                                    }*/
-                                if ((count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7) || (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7) || (count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6 && isEquals7) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4 && isEquals5 && isEquals6 && isEquals7) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isDifferent5 && isEquals6 && isEquals7)) {
-                                    isEquals8 = true;
-                                } else {
-                                    if ((count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isDifferent6 && isEquals7) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isDifferent7) || (count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6 && isEquals7) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isEquals5 && isEquals6 && isEquals7)) {
-                                        isEquals8 = true;
-                                    } else {
-                                        if ((count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isEquals6 && isEquals7) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isEquals7) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7)) {
-                                            isEquals8 = true;
-                                        }
-                                    /*else{
-                                        secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);
-                                             }*/
                                     }
-                                }
-                            } else {
-                                   /* secTemp14.addAAHParty(party);
+
+                                } else {
+                                    secTemp14.addAAHParty(party);
                                     if (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7) {
                                         isDifferent8 = true;
                                     }
                                     //CASO8: EventStartDate !=
                                     if (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7) {
+                                        secTemp2 = secTemp13;
+                                        secTemp3 = secTemp14;
                                         isDifferent8 = true;
-                                     }*/
-                                if ((count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7) || (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7) || (count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6 && isEquals7) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4 && isEquals5 && isEquals6 && isEquals7) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isDifferent5 && isEquals6 && isEquals7)) {
-                                    isDifferent8 = true;
-                                        /* secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);*/
-                                } else {
-                                    if ((count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isDifferent6 && isEquals7) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isDifferent7) || (count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6 && isEquals7) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isEquals5 && isEquals6 && isEquals7)) {
-                                        isDifferent8 = true;
-                                        /* secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);*/
-                                    } else {
-                                        if ((count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isEquals6 && isEquals7) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isEquals7) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7)) {
-                                            isDifferent8 = true;
-                                        /* secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);*/
-                                        }
                                     }
                                 }
-                            }
-                        } else {
-                                /*if (count == nominados.size()) {
+                            } else {
+                                if (count == nominados.size()) {
                                     secTemp3 = new Seccion();
                                     secTemp3.addAAHParty(party);
                                     isEquals8 = false;
                                     isDifferent8 = true;
-                                }*/
-                            if ((count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7) || (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7) || (count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6 && isEquals7) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4 && isEquals5 && isEquals6 && isEquals7) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isDifferent5 && isEquals6 && isEquals7)) {
-                                isDifferent8 = true;
-                                    /* secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);*/
-                            } else {
-                                if ((count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isDifferent6 && isEquals7) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isDifferent7) || (count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6 && isEquals7) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isEquals5 && isEquals6 && isEquals7)) {
-                                    isDifferent8 = true;
-                                    /* secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);*/
-                                } else {
-                                    if ((count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isEquals6 && isEquals7) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isEquals7) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7)) {
-                                        isDifferent8 = true;
-                                    /* secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);*/
-                                    }
-                                }
-                            }
-                        }
-                    } else {
-                        if (key != null) {
-                               /* //secTemp.addAAHParty(party);
-                                secTemp14.addAAHParty(party);
-                                secTemp2 = secTemp13;
-                                secTemp3 = secTemp14;
-                                isDifferent8 = true;*/
-                            if ((count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7) || (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7) || (count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6 && isEquals7) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4 && isEquals5 && isEquals6 && isEquals7) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isDifferent5 && isEquals6 && isEquals7)) {
-                                isDifferent8 = true;
-                                    /* secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);*/
-                            } else {
-                                if ((count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isDifferent6 && isEquals7) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isDifferent7) || (count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6 && isEquals7) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isEquals5 && isEquals6 && isEquals7)) {
-                                    isDifferent8 = true;
-                                    /* secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);*/
-                                } else {
-                                    if ((count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isEquals6 && isEquals7) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isEquals7) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7)) {
-                                        isDifferent8 = true;
-                                    /* secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);*/
-                                    }
                                 }
                             }
                         } else {
-                               /* //secTemp.addAAHParty(party);
+                            if (key != null) {
+                                secTemp14.addAAHParty(party);
+                                secTemp2 = secTemp13;
+                                secTemp3 = secTemp14;
+                                isDifferent8 = true;
+
+                            } else {
                                 secTemp13.addAAHParty(party);
                                 secTemp2 = secTemp13;
                                 if (count == nominados.size()) {
                                     isEquals8 = true;
-                                }*/
-                            if ((count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7) || (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7) || (count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6 && isEquals7) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4 && isEquals5 && isEquals6 && isEquals7) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isDifferent5 && isEquals6 && isEquals7)) {
-                                isEquals8 = true;
-                            } else {
-                                if ((count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isDifferent6 && isEquals7) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isDifferent7) || (count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6 && isEquals7) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isEquals5 && isEquals6 && isEquals7)) {
-                                    isEquals8 = true;
-                                } else {
-                                    if ((count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isEquals6 && isEquals7) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isEquals7) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7)) {
-                                        isEquals8 = true;
-                                    }
                                 }
                             }
                         }
-                    }
-                } else if (conteoIterator == 9) {
-                    if (currentEventEndDate != null) {
-                        if (key != null) {
-                            if (currentEventEndDate.equals(key.toLowerCase())) {
-                                  /*  //CASO1: Activity =!
+                    } else if (conteoIterator == 9) {
+
+                        if (currentEventEndDate != null) {
+                            if (key != null) {
+                                if (currentEventEndDate.equals(key.toLowerCase())) {
+                                    secTemp15.addAAHParty(party);
+                                    //CASO1: Activity =!
                                     if (count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8) {
                                         isEquals9 = true;
                                     }
                                     //CASO2: Clasification !=
                                     if (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8) {
                                         isEquals9 = true;
-                                    }//CASO3: RiskCategory !=
+                                    }
+                                    //CASO3: RiskCategory !=
                                     if (count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8) {
                                         isEquals9 = true;
                                     }
@@ -1745,431 +1351,230 @@ public class AAHPartys {
                                     }
                                     if (count == nominados.size() && isEquals && isEquals2 && isEquals3&& isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8) {
                                         isEquals9 = true;
-                                    }*/
-
-                                if ((count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8) || (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8) || (count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4 && isEquals5 && isEquals6 && isEquals7 && isEquals8) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isDifferent5 && isEquals6 && isEquals7 && isEquals8)) {
-                                    isEquals9 = true;
-                                } else {
-                                    if ((count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isDifferent6 && isEquals7 && isEquals8) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isDifferent7 && isEquals8) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isDifferent8) || (count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8)) {
-                                        isEquals9 = true;
-                                    } else {
-                                        if ((count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isEquals5 && isEquals6 && isEquals7 && isEquals8) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isEquals6 && isEquals7 && isEquals8) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isEquals7 && isEquals8) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7 && isEquals8) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7 && isDifferent8) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8)) {
-                                            isEquals9 = true;
-                                        }
-                                    /*else{
-                                        secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);
-                                        }*/
                                     }
-                                }
-                            } else {
-                                   /* secTemp16.addAAHParty(party);
+
+                                } else {
+                                    secTemp16.addAAHParty(party);
                                     if (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7 && isDifferent8) {
                                         isDifferent9 = true;
-                                        //secNo.addSeccion(secTemp2);
-                                        //secNo.addSeccion(secTemp3);
-                                        //secNo.addSeccion(secTemp3);
                                     }
                                     //CASO9: EventEndDate !=
                                     if (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8) {
                                         secTemp2 = secTemp15;
                                         secTemp3 = secTemp16;
                                         isDifferent9 = true;
-                                        //secNo.addSeccion(secTemp2);
-                                        //secNo.addSeccion(secTemp3);
-                                    }*/
-                                if ((count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8) || (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8) || (count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4 && isEquals5 && isEquals6 && isEquals7 && isEquals8) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isDifferent5 && isEquals6 && isEquals7 && isEquals8)) {
-                                    isDifferent9 = true;
-                                        /* secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);*/
-                                } else {
-                                    if ((count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isDifferent6 && isEquals7 && isEquals8) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isDifferent7 && isEquals8) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isDifferent8) || (count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8)) {
-                                        isDifferent9 = true;
-                                        /* secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);*/
-                                    } else {
-                                        if ((count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isEquals5 && isEquals6 && isEquals7 && isEquals8) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isEquals6 && isEquals7 && isEquals8) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isEquals7 && isEquals8) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7 && isEquals8) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7 && isDifferent8) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8)) {
-                                            isDifferent9 = true;
-                                       /* secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);*/
-                                        }
                                     }
                                 }
-                            }
-                        } else {
-                                /*if (count == nominados.size()) {
+                            } else {
+                                if (count == nominados.size()) {
                                     secTemp3 = new Seccion();
                                     secTemp3.addAAHParty(party);
                                     isEquals9 = false;
                                     isDifferent9 = true;
-                                }*/
-                            if ((count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8) || (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8) || (count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4 && isEquals5 && isEquals6 && isEquals7 && isEquals8) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isDifferent5 && isEquals6 && isEquals7 && isEquals8)) {
-                                isDifferent9 = true;
-                                   /* secCoverage = new Seccion();
-                                    secCoverage.addAAHParty(party);
-                                    secNo.addSeccion(secCoverage);*/
-                            } else {
-                                if ((count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isDifferent6 && isEquals7 && isEquals8) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isDifferent7 && isEquals8) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isDifferent8) || (count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8)) {
-                                    isDifferent9 = true;
-                                   /* secCoverage = new Seccion();
-                                    secCoverage.addAAHParty(party);
-                                    secNo.addSeccion(secCoverage);*/
-                                } else {
-                                    if ((count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isEquals5 && isEquals6 && isEquals7 && isEquals8) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isEquals6 && isEquals7 && isEquals8) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isEquals7 && isEquals8) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7 && isEquals8) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7 && isDifferent8) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8)) {
-                                        isDifferent9 = true;
-                                    /*secCoverage = new Seccion();
-                                    secCoverage.addAAHParty(party);
-                                    secNo.addSeccion(secCoverage);*/
-                                    }
                                 }
                             }
-                        }
-                    } else {
-                        if (key != null) {
-                               /* //secTemp.addAAHParty(party);
+                        } else {
+                            if (key != null) {
                                 secTemp16.addAAHParty(party);
                                 secTemp2 = secTemp15;
                                 secTemp3 = secTemp16;
-                                isDifferent9 = true;*/
-                            if ((count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8) || (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8) || (count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4 && isEquals5 && isEquals6 && isEquals7 && isEquals8) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isDifferent5 && isEquals6 && isEquals7 && isEquals8)) {
                                 isDifferent9 = true;
-                                    /*secCoverage = new Seccion();
-                                    secCoverage.addAAHParty(party);
-                                    secNo.addSeccion(secCoverage);*/
-                            } else {
-                                if ((count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isDifferent6 && isEquals7 && isEquals8) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isDifferent7 && isEquals8) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isDifferent8) || (count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8)) {
-                                    isDifferent9 = true;
-                                   /* secCoverage = new Seccion();
-                                    secCoverage.addAAHParty(party);
-                                    secNo.addSeccion(secCoverage);*/
-                                } else {
-                                    if ((count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isEquals5 && isEquals6 && isEquals7 && isEquals8) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isEquals6 && isEquals7 && isEquals8) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isEquals7 && isEquals8) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7 && isEquals8) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7 && isDifferent8) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8)) {
-                                        isDifferent9 = true;
-                                    /*secCoverage = new Seccion();
-                                    secCoverage.addAAHParty(party);
-                                    secNo.addSeccion(secCoverage);*/
-                                    }
-                                }
-                            }
 
-                        } else {
-                                /*//secTemp.addAAHParty(party);
+                            } else {
                                 secTemp15.addAAHParty(party);
                                 secTemp2 = secTemp15;
                                 if (count == nominados.size()) {
                                     isEquals9 = true;
-                                }*/
-                            if ((count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8) || (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8) || (count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4 && isEquals5 && isEquals6 && isEquals7 && isEquals8) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isDifferent5 && isEquals6 && isEquals7 && isEquals8)) {
-                                isEquals9 = true;
-                            } else {
-                                if ((count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isDifferent6 && isEquals7 && isEquals8) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isDifferent7 && isEquals8) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isDifferent8) || (count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8)) {
-                                    isEquals9 = true;
-                                } else {
-                                    if ((count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isEquals5 && isEquals6 && isEquals7 && isEquals8) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isEquals6 && isEquals7 && isEquals8) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isEquals7 && isEquals8) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7 && isEquals8) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7 && isDifferent8) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8)) {
-                                        isEquals9 = true;
-                                    }
                                 }
                             }
                         }
-                    }
-                } else if (conteoIterator == 10) {
+                    } else if (conteoIterator == 10) {
 
-                    if (currentLocalEvent != null) {
-                        if (key != null) {
-                            if (currentLocalEvent.equals(key.toLowerCase())) {
-                                   /* if (isTrue) {
-                                       //CASO1: Activity =!
+                        if (currentLocalEvent != null) {
+                            if (key != null) {
+                                if (currentLocalEvent.equals(key.toLowerCase())) {
+                                    if (isTrue) {
+                                  //  if (!coverages.equals(currentCoverage2)) {
+                                       secTemp17.addAAHParty(party);
+                                        //CASO1: Activity =!
                                         if (count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) {
                                             isEquals10 = true;
+                                            secNo.addSeccion(secTemp2);
+                                            secNo.addSeccion(secTemp3);
                                         }
                                         //CASO2: Clasification !=
                                         if (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) {
                                             isEquals10 = true;
+                                            secNo.addSeccion(secTemp2);
+                                            secNo.addSeccion(secTemp3);
                                         }
                                         //CASO3: RiskCategory !=
                                         if (count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) {
                                             isEquals10 = true;
-                                         }
+                                            secNo.addSeccion(secTemp2);
+                                            secNo.addSeccion(secTemp3);
+                                        }
                                         //CASO4: InsurableGroup !=
                                         if (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) {
                                             isEquals10 = true;
-                                         }
+                                            secNo.addSeccion(secTemp2);
+                                            secNo.addSeccion(secTemp3);
+                                        }
                                         //CASO5: CoveredEvent !=
                                         if (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isDifferent5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) {
                                             isEquals10 = true;
+                                            secNo.addSeccion(secTemp2);
+                                            secNo.addSeccion(secTemp3);
                                         }
                                         //CASO6: ContractType !=
                                         if (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isDifferent6 && isEquals7 && isEquals8 && isEquals9) {
                                             isEquals10 = true;
+                                            secNo.addSeccion(secTemp2);
+                                            secNo.addSeccion(secTemp3);
                                         }
                                         //CASO7: AAHRiskCategory !=
                                         if (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isDifferent7 && isEquals8 && isEquals9) {
                                             isEquals10 = true;
+                                            secNo.addSeccion(secTemp2);
+                                            secNo.addSeccion(secTemp3);
                                         }
                                         //CASO8: EventStartDate !=
                                         if (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isDifferent8 && isEquals9) {
                                             isEquals10 = true;
-                                         }
+                                            secNo.addSeccion(secTemp2);
+                                            secNo.addSeccion(secTemp3);
+                                        }
                                         //CASO9: EventEndDate !=
                                         if (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isDifferent9) {
                                             isEquals10 = true;
-                                         }
+                                            secNo.addSeccion(secTemp2);
+                                            secNo.addSeccion(secTemp3);
+                                        }
                                         //Activity != && Clasification !=
                                         if (count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) {
                                             isEquals10 = true;
+                                            secNo.addSeccion(secTemp2);
+                                            secNo.addSeccion(secTemp3);
                                         }
                                         //Activity != && Clasification != && RiskCategory !=
                                         if (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) {
                                             isEquals10 = true;
+                                            secNo.addSeccion(secTemp2);
+                                            secNo.addSeccion(secTemp3);
                                         }
                                         //Activity != && Clasification != && RiskCategory != && InsurableGroup !=
                                         if (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) {
                                             isEquals10 = true;
+                                            secNo.addSeccion(secTemp2);
+                                            secNo.addSeccion(secTemp3);
                                         }
                                         //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent !=
                                         if (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) {
                                             isEquals10 = true;
+                                            secNo.addSeccion(secTemp2);
+                                            secNo.addSeccion(secTemp3);
                                         }
                                         //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent != && ContractType !=
                                         if (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isEquals7 && isEquals8 && isEquals9) {
                                             isEquals10 = true;
+                                           secNo.addSeccion(secTemp2);
+                                           secNo.addSeccion(secTemp3);
                                         }
                                         //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent != && ContractType != && AAHRiskCategory !=
                                         if (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7 && isEquals8 && isEquals9) {
                                             isEquals10 = true;
-                                         }
+                                           secNo.addSeccion(secTemp2);
+                                           secNo.addSeccion(secTemp3);
+                                        }
                                         //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent != && ContractType != && AAHRiskCategory != && EventStartDate !=
                                         if (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7 && isDifferent8 && isEquals9) {
                                             isEquals10 = true;
+                                             secNo.addSeccion(secTemp2);
+                                             secNo.addSeccion(secTemp3);
                                         }
                                         //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent != && ContractType != && AAHRiskCategory != && EventStartDate != && EventEndDate !=
                                         if (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7 && isDifferent8 && isDifferent9) {
                                             isEquals10 = true;
+                                            secNo.addSeccion(secTemp2);
+                                            secNo.addSeccion(secTemp3);
                                         }
                                         if (count == nominados.size() && isEquals && isEquals2 && isEquals3&& isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) {
                                             isEquals10 = true;
+                                            secNo.addSeccion(secTemp17);
                                         }
-
                                     } else {
                                         if ( count == nominados.size() || count!= nominados.size() ) {
                                             secCoverage = new Seccion();
                                             secCoverage.addAAHParty(party);
                                             secNo.addSeccion(secCoverage);
                                         }
-
-                                    }
-                                */
-                                if ((count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isDifferent5 && isEquals6 && isEquals7 && isEquals8 && isEquals9)) {
-                                    isEquals10 = true;
-                                    if ((isDifferent == true) || (isDifferent2 == true) || (isDifferent3 == true) || (isDifferent4 == true) || (isDifferent5 == true) || (isDifferent6 == true) || (isDifferent7 == true) || (isDifferent8 == true) || (isDifferent9 == true) ) {
-                                        secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);
                                     }
                                 } else {
-                                    if ((count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isDifferent6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isDifferent7 && isEquals8 && isEquals9) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isDifferent8 && isEquals9) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isDifferent9) || (count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9)) {
-                                        isEquals10 = true;
-                                        if ((isDifferent == true) || (isDifferent2 == true) || (isDifferent3 == true) || (isDifferent4 == true) || (isDifferent5 == true) || (isDifferent6 == true) || (isDifferent7 == true) || (isDifferent8 == true) || (isDifferent9 == true)) {
-                                            secCoverage = new Seccion();
-                                            secCoverage.addAAHParty(party);
-                                            secNo.addSeccion(secCoverage);
-                                        }
-                                    } else {
-                                        if ((count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7 && isEquals8 && isEquals9)) {
-                                            isEquals10 = true;
-                                            if ((isDifferent == true) || (isDifferent2 == true) || (isDifferent3 == true) || (isDifferent4 == true) || (isDifferent5 == true) || (isDifferent6 == true) || (isDifferent7 == true) || (isDifferent8 == true) || (isDifferent9 == true)) {
-                                                secCoverage = new Seccion();
-                                                secCoverage.addAAHParty(party);
-                                                secNo.addSeccion(secCoverage);
-                                            }
-                                        } else {
-                                            if ((count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7 && isDifferent8 && isEquals9) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7 && isDifferent8 && isDifferent9) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9)) {
-                                                isEquals10 = true;
-                                                if ((isDifferent == true) || (isDifferent2 == true) || (isDifferent3 == true) || (isDifferent4 == true) || (isDifferent5 == true) || (isDifferent6 == true) || (isDifferent7 == true) || (isDifferent8 == true) || (isDifferent9 == true)) {
-                                                    secCoverage = new Seccion();
-                                                    secCoverage.addAAHParty(party);
-                                                    secNo.addSeccion(secCoverage);
-                                                }
-                                            } else {
-                                                secCoverage = new Seccion();
-                                                secCoverage.addAAHParty(party);
-                                                secNo.addSeccion(secCoverage);
-                                            }
-                                        }
-                                    }
-                                }
-
-                            } else {
-                                  /*  //secTemp18.addAAHParty(party);
+                                    secTemp18.addAAHParty(party);
 
                                     if (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7 && isDifferent8 && isDifferent9) {
                                         isDifferent10 = true;
-                                       // secNo.addSeccion(secTemp2);
-                                       // secNo.addSeccion(secTemp3);
+                                       secNo.addSeccion(secTemp2);
+                                       secNo.addSeccion(secTemp3);
                                     }
-
                                     //CASO10: LocalEvent !=
                                     if (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) {
-                                       // secTemp2 = secTemp17;
-                                        //secTemp3 = secTemp18;
+                                        secTemp2 = secTemp17;
+                                        secTemp3 = secTemp18;
                                         isDifferent10 = true;
-                                       // secNo.addSeccion(secTemp2);
-                                      //  secNo.addSeccion(secTemp3);
+                                        secNo.addSeccion(secTemp2);
+                                        secNo.addSeccion(secTemp3);
                                     }
-                                    secCoverage = new Seccion();
+                                    /*secCoverage = new Seccion();
                                     secCoverage.addAAHParty(party);
                                     secNo.addSeccion(secCoverage);*/
-                                if ((count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isDifferent5 && isEquals6 && isEquals7 && isEquals8 && isEquals9)) {
-                                    isDifferent10 = true;
-                                    secCoverage = new Seccion();
-                                    secCoverage.addAAHParty(party);
-                                    secNo.addSeccion(secCoverage);
-                                } else {
-                                    if ((count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isDifferent6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isDifferent7 && isEquals8 && isEquals9) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isDifferent8 && isEquals9) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isDifferent9) || (count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9)) {
-                                        isDifferent10 = true;
-                                        secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);
-                                    } else {
-                                        if ((count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7 && isEquals8 && isEquals9)) {
-                                            isDifferent10 = true;
-                                            secCoverage = new Seccion();
-                                            secCoverage.addAAHParty(party);
-                                            secNo.addSeccion(secCoverage);
-                                        } else {
-                                            if ((count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7 && isDifferent8 && isEquals9) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7 && isDifferent8 && isDifferent9) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) ) {
-                                                isDifferent10 = true;
-                                                secCoverage = new Seccion();
-                                                secCoverage.addAAHParty(party);
-                                                secNo.addSeccion(secCoverage);
-                                            }
-                                        }
-                                    }
                                 }
-
-                            }
-                        } else {
-                              /*  if (count == nominados.size()) {
-                                   // secTemp3 = new Seccion();
-                                  //  secTemp3.addAAHParty(party);
+                            } else {
+                                if (count == nominados.size()) {
+                                    secTemp3 = new Seccion();
+                                    secTemp3.addAAHParty(party);
                                     isEquals10 = false;
                                     isDifferent10 = true;
 
                                 }
                                 if (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9 && isDifferent10) {
-                                    //secNo.addSeccion(secTemp2);
-                                   // secNo.addSeccion(secTemp3);
+                                    secNo.addSeccion(secTemp2);
+                                    secNo.addSeccion(secTemp3);
                                     isDifferent10 = true;
                                 }
                                 if (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7 && isDifferent8 && isDifferent9 && isDifferent10) {
-                                   // secNo.addSeccion(secTemp2);
-                                   // secNo.addSeccion(secTemp3);
+                                    secNo.addSeccion(secTemp2);
+                                    secNo.addSeccion(secTemp3);
                                     isDifferent10 = true;
-                                }*/
-                            if ((count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isDifferent5 && isEquals6 && isEquals7 && isEquals8 && isEquals9)) {
-                                isDifferent10 = true;
-                                secCoverage = new Seccion();
-                                secCoverage.addAAHParty(party);
-                                secNo.addSeccion(secCoverage);
-                            } else {
-                                if ((count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isDifferent6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isDifferent7 && isEquals8 && isEquals9) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isDifferent8 && isEquals9) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isDifferent9) || (count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9)) {
-                                    isDifferent10 = true;
-                                    secCoverage = new Seccion();
-                                    secCoverage.addAAHParty(party);
-                                    secNo.addSeccion(secCoverage);
-                                } else {
-                                    if ((count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7 && isEquals8 && isEquals9)) {
-                                        isDifferent10 = true;
-                                        secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);
-                                    } else {
-                                        if ((count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7 && isDifferent8 && isEquals9) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7 && isDifferent8 && isDifferent9) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9)) {
-                                            isDifferent10 = true;
-                                            secCoverage = new Seccion();
-                                            secCoverage.addAAHParty(party);
-                                            secNo.addSeccion(secCoverage);
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    } else {
-                        if (key != null) {
-                                /*isDifferent10 = true;
-                                secCoverage = new Seccion();
-                                secCoverage.addAAHParty(party);
-                                secNo.addSeccion(secCoverage);*/
-                            if ((count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isDifferent5 && isEquals6 && isEquals7 && isEquals8 && isEquals9)) {
-                                isDifferent10 = true;
-                                secCoverage = new Seccion();
-                                secCoverage.addAAHParty(party);
-                                secNo.addSeccion(secCoverage);
-                            } else {
-                                if ((count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isDifferent6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isDifferent7 && isEquals8 && isEquals9) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isDifferent8 && isEquals9) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isDifferent9) || (count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9)) {
-                                    isDifferent10 = true;
-                                    secCoverage = new Seccion();
-                                    secCoverage.addAAHParty(party);
-                                    secNo.addSeccion(secCoverage);
-                                } else {
-                                    if ((count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7 && isEquals8 && isEquals9)) {
-                                        isDifferent10 = true;
-                                        secCoverage = new Seccion();
-                                        secCoverage.addAAHParty(party);
-                                        secNo.addSeccion(secCoverage);
-                                    } else {
-                                        if ((count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7 && isDifferent8 && isEquals9) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7 && isDifferent8 && isDifferent9) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9)) {
-                                            isDifferent10 = true;
-                                            secCoverage = new Seccion();
-                                            secCoverage.addAAHParty(party);
-                                            secNo.addSeccion(secCoverage);
-                                        }
-                                    }
                                 }
                             }
                         } else {
-                                /*if (isTrue) {
+                            if (key != null) {
+                                secTemp18.addAAHParty(party);
+                                secTemp2 = secTemp17;
+                                secTemp3 = secTemp18;
+                                isDifferent10 = true;
+
+                            } else {
+                                if (isTrue) {
+                                //if (!coverages.equals(currentCoverage2)) {
                                     //secTemp.addAAHParty(party);
-                                    //secTemp17.addAAHParty(party);
-                                   // secTemp2 = secTemp17;
+                                  secTemp17.addAAHParty(party);
+                                  secTemp2 = secTemp17;
                                     if (count == nominados.size()) {
                                         isEquals10 = true;
                                     }
                                 } else {
-                                    //CSMBIE
                                     if ( count == nominados.size() || count!= nominados.size() ) {
                                         secCoverage = new Seccion();
                                         secCoverage.addAAHParty(party);
                                         secNo.addSeccion(secCoverage);
                                     }
-                                }*/
-                            if ((count == nominados.size() && isDifferent && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isEquals && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isEquals && isEquals2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isDifferent4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isDifferent5 && isEquals6 && isEquals7 && isEquals8 && isEquals9)) {
-                                isEquals10 = true;
-
-                            } else {
-                                if ((count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isDifferent6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isDifferent7 && isEquals8 && isEquals9) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isDifferent8 && isEquals9) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isDifferent9) || (count == nominados.size() && isDifferent && isDifferent2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9)) {
-                                    isEquals10 = true;
-
-                                } else {
-                                    if ((count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isEquals6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isEquals7 && isEquals8 && isEquals9) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7 && isEquals8 && isEquals9)) {
-                                        isEquals10 = true;
-
-                                    } else {
-                                        if ((count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7 && isDifferent8 && isEquals9) || (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7 && isDifferent8 && isDifferent9) || (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9)) {
-                                            isEquals10 = true;
-
-                                        }
-                                    }
                                 }
+
                             }
 
-                        }
-
-                           /* if (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9 && isEquals10) {
+                            if (count == nominados.size() && isEquals && isEquals2 && isEquals3 && isEquals4 && isEquals5 && isEquals6 && isEquals7 && isEquals8 && isEquals9 && isEquals10) {
                                 secNo.addSeccion(secTemp2);
                             }
 
@@ -2181,10 +1586,10 @@ public class AAHPartys {
                             if (count == nominados.size() && isDifferent && isDifferent2 && isDifferent3 && isDifferent4 && isDifferent5 && isDifferent6 && isDifferent7 && isDifferent8 && isDifferent9 && isDifferent10) {
                                 secNo.addSeccion(secTemp2);
                                 secNo.addSeccion(secTemp3);
-                            }*/
+                            }
 
+                        }
                     }
-                }
                 //}
             }
 
@@ -2192,6 +1597,8 @@ public class AAHPartys {
 
             // Eliminando Secciones vacias
             int sizeASecciones = secNo.getSeccion().size();
+           // int sizeASecciones1 = secNo.size();
+          System.out.println(sizeASecciones);
             //System.out.println(sizeASecciones);
             for (int i = 0; i < sizeASecciones; i++) {
                 //System.out.println(secNo.getSeccion().get(i).getSize());
@@ -2203,7 +1610,7 @@ public class AAHPartys {
 
         while (iteratorIn.hasNext()) {
             conteoIteratorIn++;
-            System.out.println("conteoIteratorIn: " + conteoIteratorIn);
+            System.out.println("conteoIteratorIn: "+conteoIteratorIn);
             Map.Entry mentry = (Map.Entry) iteratorIn.next();
             String key = "";
             System.out.println(mentry);
@@ -2213,7 +1620,7 @@ public class AAHPartys {
                 key = null;
             }
             //key = mentry.getValue().toString();
-            System.out.println("Key: " + key);
+            System.out.println("Key: "+key);
             Seccion secTemp = new Seccion();
             Seccion secTemp1 = new Seccion();
             Seccion secTemp4 = new Seccion();
@@ -2235,17 +1642,13 @@ public class AAHPartys {
             int count = 0;
 
             for (AAHParty party : no_nominados) {
-               //AGREGO COVERTURAS
+                //AGREGO COVERTURAS
                 String coverages1 = "";
                 String currentCoverage1 = party.getPartyCoverages().getCoverages().toLowerCase().replaceAll("\\s+", "");
                 if (conteo_no_nominados == 0) {
                     coverages1 = currentCoverage1;
-                }
-              /*  if (!coverages1.equals(currentCoverage1)) {
-                     boolean isTrueIN = false;
 
-                  System.out.println(currentCoverage1 + "5555555555");
-                }*/
+                }
                 count++;
                 //System.out.println(no_nominados.size());
 
@@ -2261,8 +1664,8 @@ public class AAHPartys {
                 String currentLocalEvent = "";
 
                 //Try-Catch: Activity
-                try {
-                    party.getActivity().getDisplayName().toLowerCase().replaceAll("\\s+", "");
+                try{
+                    party.getActivity().getDisplayName().toLowerCase().replaceAll("\\s+","");
 
                 } catch (NullPointerException n) {
                     //System.out.println("Asignando activity: null");
@@ -2270,12 +1673,12 @@ public class AAHPartys {
                     //System.out.println(party.getCoveredEvent().getDisplayName());
                 }
                 if (currentActivity != null) {
-                    currentActivity = party.getActivity().getDisplayName().toLowerCase().replaceAll("\\s+", "");
+                    currentActivity = party.getActivity().getDisplayName().toLowerCase().replaceAll("\\s+","");
                 }
 
                 //Try-Catch: Clasification
-                try {
-                    party.getClasification().getDisplayName().toLowerCase().replaceAll("\\s+", "");
+                try{
+                    party.getClasification().getDisplayName().toLowerCase().replaceAll("\\s+","");
 
                 } catch (NullPointerException n) {
                     //System.out.println("Asignando Clasification: null");
@@ -2283,18 +1686,18 @@ public class AAHPartys {
                     //System.out.println(party.getCoveredEvent().getDisplayName());
                 }
                 if (currentClasification != null) {
-                    currentClasification = party.getClasification().getDisplayName().toLowerCase().replaceAll("\\s+", "");
+                    currentClasification = party.getClasification().getDisplayName().toLowerCase().replaceAll("\\s+","");
                 }
 
                 //RiskCategory
                 currentRiskCategory = party.getRiskCategory();
                 if (currentRiskCategory != null) {
-                    currentRiskCategory = party.getRiskCategory().toLowerCase().replaceAll("\\s+", "");
+                    currentRiskCategory = party.getRiskCategory().toLowerCase().replaceAll("\\s+","");
                 }
 
                 //Try-Catch: currentInsurableGroup
-                try {
-                    party.getInsurableGroup().getDisplayName().toLowerCase().replaceAll("\\s+", "");
+                try{
+                    party.getInsurableGroup().getDisplayName().toLowerCase().replaceAll("\\s+","");
 
                 } catch (NullPointerException n) {
                     //System.out.println("Asignando Clasification: null");
@@ -2302,11 +1705,11 @@ public class AAHPartys {
                     //System.out.println(party.getCoveredEvent().getDisplayName());
                 }
                 if (currentInsurableGroup != null) {
-                    currentInsurableGroup = party.getInsurableGroup().getDisplayName().toLowerCase().replaceAll("\\s+", "");
+                    currentInsurableGroup = party.getInsurableGroup().getDisplayName().toLowerCase().replaceAll("\\s+","");
                 }
 
                 //Try-Catch: currentCoveredEvent
-                try {
+                try{
                     party.getCoveredEvent().getDisplayName();
                     //party.getInsurableGroup().getDisplayName().toLowerCase().replaceAll("\\s+","");
 
@@ -2315,11 +1718,11 @@ public class AAHPartys {
                     currentCoveredEvent = null;
                 }
                 if (currentCoveredEvent != null) {
-                    currentCoveredEvent = party.getCoveredEvent().getDisplayName().toLowerCase().replaceAll("\\s+", "");
+                    currentCoveredEvent = party.getCoveredEvent().getDisplayName().toLowerCase().replaceAll("\\s+","");
                 }
 
                 //Try-Catch: currentContractType
-                try {
+                try{
                     party.getContractType().getDisplayName();
                     //party.getInsurableGroup().getDisplayName().toLowerCase().replaceAll("\\s+","");
 
@@ -2328,11 +1731,11 @@ public class AAHPartys {
                     currentContractType = null;
                 }
                 if (currentContractType != null) {
-                    currentContractType = party.getContractType().getDisplayName().toLowerCase().replaceAll("\\s+", "");
+                    currentContractType = party.getContractType().getDisplayName().toLowerCase().replaceAll("\\s+","");
                 }
 
                 //Try-Catch: currentAAHRiskCategory
-                try {
+                try{
                     party.getAAHRiskCategory().getDisplayName();
                     //party.getInsurableGroup().getDisplayName().toLowerCase().replaceAll("\\s+","");
 
@@ -2341,649 +1744,1250 @@ public class AAHPartys {
                     currentAAHRiskCategory = null;
                 }
                 if (currentAAHRiskCategory != null) {
-                    currentAAHRiskCategory = party.getAAHRiskCategory().getDisplayName().toLowerCase().replaceAll("\\s+", "");
+                    currentAAHRiskCategory = party.getAAHRiskCategory().getDisplayName().toLowerCase().replaceAll("\\s+","");
                 }
 
                 //EventStartDate
                 currentEventStartDate = party.getEventStartDate();
                 if (currentEventStartDate != null) {
-                    currentEventStartDate = party.getEventStartDate().toLowerCase().replaceAll("\\s+", "");
+                    currentEventStartDate = party.getEventStartDate().toLowerCase().replaceAll("\\s+","");
                 }
 
                 //EventEndDate
                 currentEventEndDate = party.getEventEndDate();
                 if (currentEventEndDate != null) {
-                    currentEventEndDate = party.getEventEndDate().toLowerCase().replaceAll("\\s+", "");
+                    currentEventEndDate = party.getEventEndDate().toLowerCase().replaceAll("\\s+","");
                 }
 
                 //LocalEvent
                 currentLocalEvent = party.getLocationEvent();
                 if (currentLocalEvent != null) {
-                    currentLocalEvent = party.getLocationEvent().toLowerCase().replaceAll("\\s+", "");
+                    currentLocalEvent = party.getLocationEvent().toLowerCase().replaceAll("\\s+","");
                 }
 
-                if (conteoIteratorIn == 1) {
-                    if (currentActivity != null) {
-                        if (key != null) {
-                            if (currentActivity.equals(key.toLowerCase())) {
-                                if (count == no_nominados.size()) {
-                                    isEqualsIn = true;
+                    if (conteoIteratorIn == 1) {
+                       if (currentActivity != null) {
+                            if (key != null) {
+                                if (currentActivity.equals(key.toLowerCase())) {
+                                    secTemp2In.addAAHParty(party);
+                                    if (count == no_nominados.size()) {
+                                        isEqualsIn = true;
+                                    }
+                                } else {
+                                    secTemp3In.addAAHParty(party);
+                                    isDifferentIn = true;
                                 }
                             } else {
+                                secTemp3In.addAAHParty(party);
+                                isEqualsIn = false;
                                 isDifferentIn = true;
                             }
                         } else {
-                            isEqualsIn = false;
-                            isDifferentIn = true;
-                        }
-                    } else {
-                        if (key != null) {
-                            isDifferentIn = true;
-                        } else {
-                            if (count == no_nominados.size()) {
-                                isEqualsIn = true;
+                            if (key != null) {
+                                secTemp3In.addAAHParty(party);
+                                isDifferentIn = true;
+                            } else {
+                                secTemp2In.addAAHParty(party);
+                                if (count == no_nominados.size()) {
+                                    isEqualsIn = true;
+                                }
                             }
                         }
-                    }
-                } else if (conteoIteratorIn == 2) {
-                    if (currentClasification != null) {
-                        if (key != null) {
-                            if (currentClasification.equals(key.toLowerCase())) {
+                    } else if (conteoIteratorIn == 2) {
+                       if (currentClasification != null) {
+                            if (key != null) {
+                                if (currentClasification.equals(key.toLowerCase())) {
+                                    secTemp.addAAHParty(party);
 
-                                if ((count == no_nominados.size() && isEqualsIn) || (count == no_nominados.size() && isDifferentIn)) {
-                                    isEqualsIn2 = true;
-                                 /*   if(isDifferent==true){
-                                        secCoverageIn = new Seccion();
-                                        secCoverageIn.addAAHParty(party);
-                                        secIn.addSeccion(secCoverageIn);
-                                    }*/
+                                    //CASO 1: Activity !=
+                                    if (count == no_nominados.size() && isDifferentIn) {
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                        isEqualsIn2 = true;
+                                    }
+
+                                    if (count == no_nominados.size() && isEqualsIn) {
+                                        //secIn.addSeccion(secTemp2In);
+                                        isEqualsIn2 = true;
+                                    }
+                                } else {
+                                    secTemp1.addAAHParty(party);
+                                    if (count == no_nominados.size() && isDifferentIn) {
+                                        //secIn.addSeccion(secTemp3In);
+                                        isDifferentIn2 = true;
+                                    }
+
+                                    if (count == no_nominados.size() && isEqualsIn) {
+                                        //secIn.addSeccion(secTemp2In);
+                                        secTemp2In = secTemp;
+                                        secTemp3In = secTemp1;
+                                        isDifferentIn2 = true;
+                                    }
+                                    //if (count == no_nominados.size()) {
+                                    //    secIn.addSeccion(secTemp);
+                                    //    secIn.addSeccion(secTemp1);
+                                    //}
                                 }
-
                             } else {
-
-                                if ((count == no_nominados.size() && isEqualsIn) || (count == no_nominados.size() && isDifferentIn)) {
+                                if (count == no_nominados.size()) {
+                                    secTemp3In = new Seccion();
+                                    secTemp3In.addAAHParty(party);
+                                    isEqualsIn2 = false;
                                     isDifferentIn2 = true;
-                                   /* secCoverageIn = new Seccion();
-                                    secCoverageIn.addAAHParty(party);
-                                    secIn.addSeccion(secCoverageIn);*/
                                 }
                             }
                         } else {
-
-                            if ((count == no_nominados.size() && isEqualsIn) || (count == no_nominados.size() && isDifferentIn)) {
+                            if (key != null) {
+                                //secTemp.addAAHParty(party);
+                                secTemp1.addAAHParty(party);
+                                secTemp2In = secTemp;
+                                secTemp3In = secTemp1;
                                 isDifferentIn2 = true;
-                              /*  secCoverageIn = new Seccion();
-                                secCoverageIn.addAAHParty(party);
-                                secIn.addSeccion(secCoverageIn);*/
-                            }
-                        }
-                    } else {
-                        if (key != null) {
-
-                            if ((count == no_nominados.size() && isEqualsIn) || (count == no_nominados.size() && isDifferentIn)) {
-                                isDifferentIn2 = true;
-                            /*    secCoverageIn = new Seccion();
-                                secCoverageIn.addAAHParty(party);
-                                secIn.addSeccion(secCoverageIn);*/
-                            }
-                        } else {
-
-                            if ((count == no_nominados.size() && isEqualsIn) || (count == no_nominados.size() && isDifferentIn)) {
-                                isEqualsIn2 = true;
-                            }
-                        }
-                    }
-
-                } else if (conteoIteratorIn == 3) {
-                    if (currentRiskCategory != null) {
-                        if (key != null) {
-                            if (currentRiskCategory.equals(key.toLowerCase())) {
-
-                                if ((count == no_nominados.size() && isEqualsIn && isDifferentIn2) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2) || (count == no_nominados.size() && isDifferentIn && isEqualsIn2)) {
-                                    isEqualsIn3 = true;
-                                }
-
                             } else {
+                                //secTemp.addAAHParty(party);
+                                secTemp.addAAHParty(party);
+                                secTemp2In = secTemp;
+                                if (count == no_nominados.size()) {
+                                    isEqualsIn2 = true;
+                                }
+                            }
+                        }
 
-                                if ((count == no_nominados.size() && isEqualsIn && isDifferentIn2) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2) || (count == no_nominados.size() && isDifferentIn && isEqualsIn2)) {
+                    } else if (conteoIteratorIn == 3) {
+                        if (currentRiskCategory != null) {
+                            if (key != null) {
+                                if (currentRiskCategory.equals(key.toLowerCase())) {
+                                    secTemp4.addAAHParty(party);
+
+                                    //CASO2: Clasification !=
+                                    if (count == no_nominados.size() && isEqualsIn && isDifferentIn2) {
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                        isEqualsIn3 = true;
+                                    }
+                                    //Activity != && Clasification !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2) {
+                                        isEqualsIn3 = true;
+                                    }
+
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2) {
+                                        //System.out.println("ENTRO AQUI");
+                                        isEqualsIn3 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                    }
+
+                                    if (count == no_nominados.size() && isDifferentIn && isEqualsIn2) {
+                                        isEqualsIn3 = true;
+                                    }
+
+                                } else {
+
+                                    secTemp1.addAAHParty(party);
+                                    //System.out.println("AQUI ENTRARA LA SEGUNDA VEZ");
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2) {
+                                        isDifferentIn3 = true;
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO3: RiskCategory !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2) {
+                                        secTemp2In = secTemp4;
+                                        secTemp3In = secTemp1;
+                                        isDifferentIn3 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                    }
+                                    //if (count == no_nominados.size()) {
+                                    //    secIn.addSeccion(secTemp4);
+                                    //    secIn.addSeccion(secTemp1);
+                                    //}
+                                }
+                            } else {
+                                if (count == no_nominados.size()) {
+                                    secTemp3In = new Seccion();
+                                    secTemp3In.addAAHParty(party);
+                                    isEqualsIn3 = false;
                                     isDifferentIn3 = true;
                                 }
-
                             }
-                        } else {
 
-                            if ((count == no_nominados.size() && isEqualsIn && isDifferentIn2) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2) || (count == no_nominados.size() && isDifferentIn && isEqualsIn2)) {
+                        } else {
+                            //isEqualsIn3 = true;
+
+                            if (key != null) {
+                                //secTemp.addAAHParty(party);
+                                secTemp1.addAAHParty(party);
+                                secTemp2In = secTemp4;
+                                secTemp3In = secTemp1;
                                 isDifferentIn3 = true;
+                            } else {
+                                //secTemp.addAAHParty(party);
+                                //if (count == no_nominados.size()) {
+                                //    isEqualsIn3 = true;
+                                //}
+                                secTemp4.addAAHParty(party);
+                                secTemp2In = secTemp4;
+                                if (count == no_nominados.size()) {
+                                    isEqualsIn3 = true;
+                                }
                             }
                         }
+                    } else if (conteoIteratorIn == 4) {
+                        if (currentInsurableGroup != null) {
+                            if (key != null) {
+                                if (currentInsurableGroup.equals(key.toLowerCase())) {
+                                    secTemp5.addAAHParty(party);
 
-                    } else {
-                        if (key != null) {
+                                    //CASO1: Activity =!
+                                    if (count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3) {
+                                        //System.out.println("Llenando");
+                                        isEqualsIn4 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
 
-                            if ((count == no_nominados.size() && isEqualsIn && isDifferentIn2) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2) || (count == no_nominados.size() && isDifferentIn && isEqualsIn2)) {
-                                isDifferentIn3 = true;
+                                    //CASO2: Clasification !=
+                                    if (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3) {
+                                        //System.out.println("Llenando");
+                                        isEqualsIn4 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO3: RiskCategory !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3) {
+                                        //System.out.println("CASO2: RiskCategory =!");
+                                        isEqualsIn4 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3) {
+                                        isEqualsIn4 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3) {
+                                        isEqualsIn4 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3) {
+                                        isEqualsIn4 = true;
+                                        //secIn.addSeccion(secTemp5);
+                                    }
+
+
+
+                                } else {
+                                    secTemp6.addAAHParty(party);
+
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3) {
+                                        isDifferentIn4 = true;
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                            /*
+                            if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4) {
+                                secIn.addSeccion(secTemp5);
+                                secIn.addSeccion(secTemp6);
                             }
-                        } else {
+                            */
 
-                            if ((count == no_nominados.size() && isEqualsIn && isDifferentIn2) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2) || (count == no_nominados.size() && isDifferentIn && isEqualsIn2)) {
-                                isEqualsIn3 = true;
-                            }
-                        }
-                    }
-                } else if (conteoIteratorIn == 4) {
-                    if (currentInsurableGroup != null) {
-                        if (key != null) {
-                            if (currentInsurableGroup.equals(key.toLowerCase())) {
+                                    //CASO3: InsurableGroup !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3) {
+                                        secTemp2In = secTemp5;
+                                        secTemp3In = secTemp6;
+                                        isDifferentIn4 = true;
+                                        //secIn.addSeccion(secTemp5);
+                                        //secIn.addSeccion(secTemp6);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
 
-                                if ((count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3) || (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3)) {
-                                    isEqualsIn4 = true;
+                                    //CASO4: Activity != && InsurableGroup =!
+                                    if (count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3) {
+                                        isDifferentIn4 = true;
+                                        //secIn.addSeccion(secTemp5);
+                                        //secIn.addSeccion(secTemp6);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO5: RiskCategory != && InsurableGroup !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3) {
+                                        isDifferentIn4 = true;
+                                        //secIn.addSeccion(secTemp5);
+                                        //secIn.addSeccion(secTemp6);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
                                 }
                             } else {
-
-                                if ((count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3) || (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3)) {
+                                if (count == no_nominados.size()) {
+                                    secTemp3In = new Seccion();
+                                    secTemp3In.addAAHParty(party);
+                                    isEqualsIn4 = false;
                                     isDifferentIn4 = true;
                                 }
                             }
-                        } else {
 
-                            if ((count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3) || (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3)) {
+                        } else {
+                            //isEqualsIn4 = true;
+
+                            if (key != null) {
+                                //secTemp.addAAHParty(party);
+                                secTemp6.addAAHParty(party);
+                                secTemp2In = secTemp5;
+                                secTemp3In = secTemp6;
                                 isDifferentIn4 = true;
+                            } else {
+                                //secTemp.addAAHParty(party);
+                                secTemp5.addAAHParty(party);
+                                secTemp2In = secTemp5;
+                                if (count == no_nominados.size()) {
+                                    isEqualsIn4 = true;
+                                }
                             }
                         }
+                    } else if (conteoIteratorIn == 5) {   //isDifferentIn, isDifferentIn2, isDifferentIn3, isDifferentIn4, setTemp2, setTemp3
+                         if (currentCoveredEvent != null) {
+                            if (key != null) {
+                                if (currentCoveredEvent.equals(key.toLowerCase())) {
+                                    secTemp7.addAAHParty(party);
 
-                    } else {
-                        if (key != null) {
+                                    //CASO1: Activity !=
+                                    if (count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4) {
+                                        isEqualsIn5 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
 
-                            if ((count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3) || (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3)) {
-                                isDifferentIn4 = true;
-                            }
-                        } else {
+                                    //CASO2: Clasification !=
+                                    if (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4) {
+                                        isEqualsIn5 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
 
-                            if ((count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3) || (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3)) {
-                                isEqualsIn4 = true;
-                            }
-                        }
-                    }
-                } else if (conteoIteratorIn == 5) {   //isDifferentIn, isDifferentIn2, isDifferentIn3, isDifferentIn4, setTemp2, setTemp3
-                    if (currentCoveredEvent != null) {
-                        if (key != null) {
-                            if (currentCoveredEvent.equals(key.toLowerCase())) {
+                                    //CASO3: RiskCategory !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4) {
+                                        //System.out.println("CASO2: RiskCategory =!");
+                                        isEqualsIn5 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
 
-                                if ((count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4) || (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4)) {
-                                    isEqualsIn5 = true;
+                                    //CASO4: InsurableGroup !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4) {
+                                        //System.out.println("CASO2: RiskCategory =!");
+                                        isEqualsIn5 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4) {
+                                        isEqualsIn5 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4) {
+                                        isEqualsIn5 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory != && InsurableGroup !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4) {
+                                        isEqualsIn5 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4) {
+                                        isEqualsIn5 = true;
+                                        //secIn.addSeccion(secTemp7);
+                                    }
+
+                                } else {
+                                    secTemp8.addAAHParty(party);
+
+                                    //CASO5: CoveredEvent !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4) {
+                                        secTemp2In = secTemp7;
+                                        secTemp3In = secTemp8;
+                                        isDifferentIn5 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4) {
+                                        isDifferentIn5 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
                                 }
                             } else {
-
-                                if ((count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4) || (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4)) {
+                                //isDifferentIn, isDifferentIn2, isDifferentIn3, isDifferentIn4, setTemp2, setTemp3, secTemp3In, secTemp3In, secTemp3In
+                                if (count == no_nominados.size()) {
+                                    secTemp3In = new Seccion();
+                                    secTemp3In.addAAHParty(party);
+                                    isEqualsIn5 = false;
                                     isDifferentIn5 = true;
                                 }
-
+                                if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5) {
+                                    //secIn.addSeccion(secTemp2In);
+                                    //secIn.addSeccion(secTemp3In);
+                                }
+                                if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5) {
+                                    //secIn.addSeccion(secTemp2In);
+                                    //secIn.addSeccion(secTemp3In);
+                                }
                             }
-                        } else {
 
-                            if ((count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4) || (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4)) {
+                        } else {
+                            //isEqualsIn5 = true;
+
+                            if (key != null) {
+                                //secTemp.addAAHParty(party);
+                                secTemp8.addAAHParty(party);
+                                secTemp2In = secTemp7;
+                                secTemp3In = secTemp8;
                                 isDifferentIn5 = true;
+
+
+                            } else {
+                                //secTemp.addAAHParty(party);
+                                secTemp7.addAAHParty(party);
+                                secTemp2In = secTemp7;
+                                if (count == no_nominados.size()) {
+                                    isEqualsIn5 = true;
+                                }
                             }
                         }
 
-                    } else {
-                        if (key != null) {
 
-                            if ((count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4) || (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4)) {
-                                isDifferentIn5 = true;
-                            }
-                        } else {
+                    } else if (conteoIteratorIn == 6) {
+                        if (currentContractType != null) {
+                            if (key != null) {
+                                if (currentContractType.equals(key.toLowerCase())) {
+                                    secTemp9.addAAHParty(party);
 
-                            if ((count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4) || (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4)) {
-                                isEqualsIn5 = true;
-                            }
-                        }
-                    }
-                } else if (conteoIteratorIn == 6) {
-                    if (currentContractType != null) {
-                        if (key != null) {
-                            if (currentContractType.equals(key.toLowerCase())) {
-
-                                if ((count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5) || (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4 && isEqualsIn5) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5)) {
-                                    isEqualsIn6 = true;
-
-                                } else {
-                                    if ((count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isEqualsIn5) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5)) {
+                                    //CASO1: Activity =!
+                                    if (count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5) {
                                         isEqualsIn6 = true;
-
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
                                     }
-                                }
-                            } else {
 
-                                if ((count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5) || (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4 && isEqualsIn5) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5)) {
-                                    isDifferentIn6 = true;
+                                    //CASO2: Clasification !=
+                                    if (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5) {
+                                        isEqualsIn6 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO3: RiskCategory !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5) {
+                                        isEqualsIn6 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO4: InsurableGroup !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4 && isEqualsIn5) {
+                                        isEqualsIn6 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO5: CoveredEvent !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5) {
+                                        isEqualsIn6 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5) {
+                                        isEqualsIn6 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5) {
+                                        isEqualsIn6 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory != && InsurableGroup !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isEqualsIn5) {
+                                        isEqualsIn6 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5) {
+                                        isEqualsIn6 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3&& isEqualsIn4 && isEqualsIn5) {
+                                        isEqualsIn6 = true;
+                                        //secIn.addSeccion(secTemp5);
+                                    }
+
                                 } else {
-                                    if ((count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isEqualsIn5) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5)) {
+                                    secTemp10.addAAHParty(party);
+
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5) {
                                         isDifferentIn6 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO6: ContractType !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5) {
+                                        secTemp2In = secTemp9;
+                                        secTemp3In = secTemp10;
+                                        isDifferentIn6 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
                                     }
                                 }
-                            }
-                        } else {
-
-                            if ((count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5) || (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4 && isEqualsIn5) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5)) {
-                                isDifferentIn6 = true;
                             } else {
-                                if ((count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isEqualsIn5) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5)) {
-                                    isDifferentIn6 = true;
-                                }
-                            }
-                        }
-                    } else {
-                        if (key != null) {
-
-                            if ((count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5) || (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4 && isEqualsIn5) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5)) {
-                                isDifferentIn6 = true;
-                            } else {
-                                if ((count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isEqualsIn5) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5)) {
+                                if (count == no_nominados.size()) {
+                                    secTemp3In = new Seccion();
+                                    secTemp3In.addAAHParty(party);
+                                    isEqualsIn6 = false;
                                     isDifferentIn6 = true;
                                 }
                             }
                         } else {
+                            if (key != null) {
+                                //secTemp.addAAHParty(party);
+                                secTemp10.addAAHParty(party);
+                                secTemp2In = secTemp9;
+                                secTemp3In = secTemp10;
+                                isDifferentIn6 = true;
 
-                            if ((count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5) || (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4 && isEqualsIn5) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5)) {
-                                isEqualsIn6 = true;
                             } else {
-                                if ((count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isEqualsIn5) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5)) {
+                                //secTemp.addAAHParty(party);
+                                secTemp9.addAAHParty(party);
+                                secTemp2In = secTemp9;
+                                if (count == no_nominados.size()) {
                                     isEqualsIn6 = true;
                                 }
                             }
                         }
-                    }
-                } else if (conteoIteratorIn == 7) {
-                    if (currentAAHRiskCategory != null) {
-                        if (key != null) {
-                            if (currentAAHRiskCategory.equals(key.toLowerCase())) {
+                    } else if (conteoIteratorIn == 7) {
+                       if (currentAAHRiskCategory != null) {
+                            if (key != null) {
+                                if (currentAAHRiskCategory.equals(key.toLowerCase())) {
+                                    secTemp11.addAAHParty(party);
 
-                                if ((count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) || (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5 && isEqualsIn6) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isDifferentIn6)) {
-                                    isEqualsIn7 = true;
-                                } else {
-                                    if ((count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isEqualsIn6) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6)) {
+                                    //CASO1: Activity =!
+                                    if (count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) {
                                         isEqualsIn7 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
                                     }
-                                }
-                            } else {
 
-                                if ((count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) || (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5 && isEqualsIn6) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isDifferentIn6)) {
-                                    isDifferentIn7 = true;
+                                    //CASO2: Clasification !=
+                                    if (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) {
+                                        isEqualsIn7 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO3: RiskCategory !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) {
+                                        isEqualsIn7 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO4: InsurableGroup !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6) {
+                                        isEqualsIn7 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO5: CoveredEvent !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5 && isEqualsIn6) {
+                                        isEqualsIn7 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO6: AAHRiskCategory !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isDifferentIn6) {
+                                        isEqualsIn7 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) {
+                                        isEqualsIn7 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) {
+                                        isEqualsIn7 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory != && InsurableGroup !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6) {
+                                        isEqualsIn7 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isEqualsIn6) {
+                                        isEqualsIn7 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent != && ContractType !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6) {
+                                        isEqualsIn7 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3&& isEqualsIn4 && isEqualsIn5 && isEqualsIn6) {
+                                        isEqualsIn7 = true;
+                                        //secIn.addSeccion(secTemp5);
+                                    }
+
                                 } else {
-                                    if ((count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isEqualsIn6) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6)) {
+                                    secTemp12.addAAHParty(party);
+
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6) {
                                         isDifferentIn7 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO7: AAHRiskCategory !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) {
+                                        secTemp2In = secTemp11;
+                                        secTemp3In = secTemp12;
+                                        isDifferentIn7 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
                                     }
                                 }
-                            }
-                        } else {
-
-                            if ((count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) || (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5 && isEqualsIn6) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isDifferentIn6)) {
-                                isDifferentIn7 = true;
                             } else {
-                                if ((count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isEqualsIn6) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6)) {
-                                    isDifferentIn7 = true;
-                                }
-                            }
-                        }
-                    } else {
-                        if (key != null) {
-
-                            if ((count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) || (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5 && isEqualsIn6) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isDifferentIn6)) {
-                                isDifferentIn7 = true;
-                            } else {
-                                if ((count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isEqualsIn6) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6)) {
+                                if (count == no_nominados.size()) {
+                                    secTemp3In = new Seccion();
+                                    secTemp3In.addAAHParty(party);
+                                    isEqualsIn7 = false;
                                     isDifferentIn7 = true;
                                 }
                             }
                         } else {
+                            if (key != null) {
+                                //secTemp.addAAHParty(party);
+                                secTemp12.addAAHParty(party);
+                                secTemp2In = secTemp11;
+                                secTemp3In = secTemp12;
+                                isDifferentIn7 = true;
 
-                            if ((count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) || (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5 && isEqualsIn6) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isDifferentIn6)) {
-                                isEqualsIn7 = true;
                             } else {
-                                if ((count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isEqualsIn6) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6)) {
+                                //secTemp.addAAHParty(party);
+                                secTemp11.addAAHParty(party);
+                                secTemp2In = secTemp11;
+                                if (count == no_nominados.size()) {
                                     isEqualsIn7 = true;
                                 }
                             }
                         }
-                    }
-                } else if (conteoIteratorIn == 8) {
-                    if (currentEventStartDate != null) {
-                        if (key != null) {
-                            if (currentEventStartDate.equals(key.toLowerCase())) {
+                    } else if (conteoIteratorIn == 8) {
+                        if (currentEventStartDate != null) {
+                            if (key != null) {
+                                if (currentEventStartDate.equals(key.toLowerCase())) {
+                                    secTemp13.addAAHParty(party);
 
-                                if ((count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) || (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7)) {
-                                    isEqualsIn8 = true;
-                                } else {
-                                    if ((count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isDifferentIn6 && isEqualsIn7) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isDifferentIn7) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7)) {
+                                    //CASO1: Activity =!
+                                    if (count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) {
                                         isEqualsIn8 = true;
-                                    } else {
-                                        if ((count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isEqualsIn7) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7)) {
-                                            isEqualsIn8 = true;
-                                        }
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
                                     }
-                                }
 
-                            } else {
-
-                                if ((count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) || (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7)) {
-                                    isDifferentIn8 = true;
-                                } else {
-                                    if ((count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isDifferentIn6 && isEqualsIn7) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isDifferentIn7) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7)) {
-                                        isDifferentIn8 = true;
-                                    } else {
-                                        if ((count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isEqualsIn7) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7)) {
-                                            isDifferentIn8 = true;
-                                        }
-                                    }
-                                }
-                            }
-                        } else {
-                            if ((count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) || (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7)) {
-                                isDifferentIn8 = true;
-                            } else {
-                                if ((count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isDifferentIn6 && isEqualsIn7) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isDifferentIn7) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7)) {
-                                    isDifferentIn8 = true;
-                                } else {
-                                    if ((count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isEqualsIn7) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7)) {
-                                        isDifferentIn8 = true;
-                                    }
-                                }
-                            }
-                        }
-                    } else {
-                        if (key != null) {
-
-                            if ((count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) || (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7)) {
-                                isDifferentIn8 = true;
-                            } else {
-                                if ((count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isDifferentIn6 && isEqualsIn7) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isDifferentIn7) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7)) {
-                                    isDifferentIn8 = true;
-                                } else {
-                                    if ((count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isEqualsIn7) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7)) {
-                                        isDifferentIn8 = true;
-                                    }
-                                }
-                            }
-
-                        } else {
-
-                            if ((count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) || (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7)) {
-                                isEqualsIn8 = true;
-                            } else {
-                                if ((count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isDifferentIn6 && isEqualsIn7) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isDifferentIn7) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7)) {
-                                    isEqualsIn8 = true;
-                                } else {
-                                    if ((count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isEqualsIn7) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7)) {
+                                    //CASO2: Clasification !=
+                                    if (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) {
                                         isEqualsIn8 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
                                     }
+
+                                    //CASO3: RiskCategory !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) {
+                                        isEqualsIn8 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO4: InsurableGroup !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) {
+                                        isEqualsIn8 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO5: CoveredEvent !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7) {
+                                        isEqualsIn8 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO6: ContractType !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isDifferentIn6 && isEqualsIn7) {
+                                        isEqualsIn8 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO7: AAHRiskCategory !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isDifferentIn7) {
+                                        isEqualsIn8 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) {
+                                        isEqualsIn8 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) {
+                                        isEqualsIn8 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory != && InsurableGroup !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) {
+                                        isEqualsIn8 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7) {
+                                        isEqualsIn8 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent != && ContractType !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isEqualsIn7) {
+                                        isEqualsIn8 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent != && ContractType != && AAHRiskCategory !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7) {
+                                        isEqualsIn8 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3&& isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) {
+                                        isEqualsIn8 = true;
+                                        //secIn.addSeccion(secTemp5);
+                                    }
+
+                                } else {
+                                    secTemp14.addAAHParty(party);
+
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7) {
+                                        isDifferentIn8 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO8: EventStartDate !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7) {
+                                        secTemp2In = secTemp13;
+                                        secTemp3In = secTemp14;
+                                        isDifferentIn8 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+                                }
+                            } else {
+                                if (count == no_nominados.size()) {
+                                    secTemp3In = new Seccion();
+                                    secTemp3In.addAAHParty(party);
+                                    isEqualsIn8 = false;
+                                    isDifferentIn8 = true;
+                                }
+                            }
+                        } else {
+                            if (key != null) {
+                                //secTemp.addAAHParty(party);
+                                secTemp14.addAAHParty(party);
+                                secTemp2In = secTemp13;
+                                secTemp3In = secTemp14;
+                                isDifferentIn8 = true;
+
+                            } else {
+                                //secTemp.addAAHParty(party);
+                                secTemp13.addAAHParty(party);
+                                secTemp2In = secTemp13;
+                                if (count == no_nominados.size()) {
+                                    isEqualsIn8 = true;
                                 }
                             }
                         }
-                    }
-                } else if (conteoIteratorIn == 9) {
-                    if (currentEventEndDate != null) {
-                        if (key != null) {
-                            if (currentEventEndDate.equals(key.toLowerCase())) {
+                    } else if (conteoIteratorIn == 9) {
+                        //System.out.println("===================================");
+                        //System.out.println("CONTEO 9");
+                        //System.out.println("currentEventEndDate: "+currentEventEndDate);
+                        //System.out.println("key: "+key);
+                        if (currentEventEndDate != null) {
+                            if (key != null) {
+                                if (currentEventEndDate.equals(key.toLowerCase())) {
+                                    secTemp15.addAAHParty(party);
 
-                                if ((count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8)) {
-                                    isEqualsIn9 = true;
-                                } else {
-                                    if ((count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isDifferentIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isDifferentIn7 && isEqualsIn8) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isDifferentIn8) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8)) {
+                                    //CASO1: Activity =!
+                                    if (count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) {
                                         isEqualsIn9 = true;
-                                    } else {
-                                        if ((count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isEqualsIn8) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isDifferentIn8) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8)) {
-                                            isEqualsIn9 = true;
-                                        }
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
                                     }
-                                }
 
-                            } else {
-
-                                if ((count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8)) {
-                                    isDifferentIn9 = true;
-                                } else {
-                                    if ((count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isDifferentIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isDifferentIn7 && isEqualsIn8) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isDifferentIn8) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8)) {
-                                        isDifferentIn9 = true;
-                                    } else {
-                                        if ((count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isEqualsIn8) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isDifferentIn8) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8)) {
-                                            isDifferentIn9 = true;
-                                        }
-                                    }
-                                }
-                            }
-                        } else {
-
-                            if ((count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8)) {
-                                isDifferentIn9 = true;
-                            } else {
-                                if ((count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isDifferentIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isDifferentIn7 && isEqualsIn8) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isDifferentIn8) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8)) {
-                                    isDifferentIn9 = true;
-                                } else {
-                                    if ((count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isEqualsIn8) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isDifferentIn8) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8)) {
-                                        isDifferentIn9 = true;
-                                    }
-                                }
-                            }
-                        }
-                    } else {
-                        if (key != null) {
-
-                            if ((count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8)) {
-                                isDifferentIn9 = true;
-                            } else {
-                                if ((count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isDifferentIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isDifferentIn7 && isEqualsIn8) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isDifferentIn8) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8)) {
-                                    isDifferentIn9 = true;
-                                } else {
-                                    if ((count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isEqualsIn8) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isDifferentIn8) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8)) {
-                                        isDifferentIn9 = true;
-                                    }
-                                }
-                            }
-                        } else {
-
-                            if ((count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8)) {
-                                isEqualsIn9 = true;
-                            } else {
-                                if ((count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isDifferentIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isDifferentIn7 && isEqualsIn8) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isDifferentIn8) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8)) {
-                                    isEqualsIn9 = true;
-                                } else {
-                                    if ((count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isEqualsIn7 && isEqualsIn8) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isEqualsIn8) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isDifferentIn8) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8)) {
+                                    //CASO2: Clasification !=
+                                    if (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) {
                                         isEqualsIn9 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
                                     }
-                                }
-                            }
-                        }
-                    }
-                } else if (conteoIteratorIn == 10) {
-                    if (currentLocalEvent != null) {
-                        if (key != null) {
-                            if (currentLocalEvent.equals(key.toLowerCase())) {
 
-                                if ((count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9)) {
-                                    isEqualsIn10 = true;
-                                    if ((isDifferentIn == true) || (isDifferentIn2 == true) || (isDifferentIn3 == true) || (isDifferentIn4 == true) || (isDifferentIn5 == true) || (isDifferentIn6 == true) || (isDifferentIn7 == true) || (isDifferentIn8 == true) || (isDifferentIn9 == true)) {
-                                        secCoverageIn = new Seccion();
-                                        secCoverageIn.addAAHParty(party);
-                                        secIn.addSeccion(secCoverageIn);
+                                    //CASO3: RiskCategory !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) {
+                                        isEqualsIn9 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
                                     }
+
+                                    //CASO4: InsurableGroup !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) {
+                                        isEqualsIn9 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO5: CoveredEvent !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) {
+                                        isEqualsIn9 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO6: ContractType !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isDifferentIn6 && isEqualsIn7 && isEqualsIn8) {
+                                        isEqualsIn9 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO7: AAHRiskCategory !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isDifferentIn7 && isEqualsIn8) {
+                                        isEqualsIn9 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO8: EventStartDate !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isDifferentIn8) {
+                                        isEqualsIn9 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) {
+                                        isEqualsIn9 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) {
+                                        isEqualsIn9 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory != && InsurableGroup !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) {
+                                        isEqualsIn9 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) {
+                                        isEqualsIn9 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent != && ContractType !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isEqualsIn7 && isEqualsIn8) {
+                                        isEqualsIn9 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent != && ContractType != && AAHRiskCategory !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isEqualsIn8) {
+                                        isEqualsIn9 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent != && ContractType != && AAHRiskCategory != && EventStartDate !=
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isDifferentIn8) {
+                                        isEqualsIn9 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3&& isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) {
+                                        isEqualsIn9 = true;
+                                        //secIn.addSeccion(secTemp5);
+                                    }
+
                                 } else {
-                                    if ((count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isDifferentIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isDifferentIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isDifferentIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isDifferentIn9) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9)) {
-                                        isEqualsIn10 = true;
-                                        if ((isDifferentIn == true) || (isDifferentIn2 == true) || (isDifferentIn3 == true) || (isDifferentIn4 == true) || (isDifferentIn5 == true) || (isDifferentIn6 == true) || (isDifferentIn7 == true) || (isDifferentIn8 == true) || (isDifferentIn9 == true)) {
-                                            secCoverageIn = new Seccion();
-                                            secCoverageIn.addAAHParty(party);
-                                            secIn.addSeccion(secCoverageIn);
-                                        }
-                                    } else {
-                                        if ((count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isEqualsIn8 && isEqualsIn9)) {
-                                            isEqualsIn10 = true;
-                                            if ((isDifferentIn == true) || (isDifferentIn2 == true) || (isDifferentIn3 == true) || (isDifferentIn4 == true) || (isDifferentIn5 == true) || (isDifferentIn6 == true) || (isDifferentIn7 == true) || (isDifferentIn8 == true) || (isDifferentIn9 == true)) {
-                                                secCoverageIn = new Seccion();
-                                                secCoverageIn.addAAHParty(party);
-                                                secIn.addSeccion(secCoverageIn);
-                                            }
-                                        } else {
-                                            if ((count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isDifferentIn8 && isEqualsIn9) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isDifferentIn8 && isDifferentIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9)) {
-                                                isEqualsIn10 = true;
-                                                if ((isDifferentIn == true) || (isDifferentIn2 == true) || (isDifferentIn3 == true) || (isDifferentIn4 == true) || (isDifferentIn5 == true) || (isDifferentIn6 == true) || (isDifferentIn7 == true) || (isDifferentIn8 == true) || (isDifferentIn9 == true)) {
-                                                    secCoverageIn = new Seccion();
-                                                    secCoverageIn.addAAHParty(party);
-                                                    secIn.addSeccion(secCoverageIn);
-                                                }
-                                            } else {
-                                                secCoverageIn = new Seccion();
-                                                secCoverageIn.addAAHParty(party);
-                                                secIn.addSeccion(secCoverageIn);
-                                            }
-                                        }
+                                    secTemp16.addAAHParty(party);
+
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isDifferentIn8) {
+                                        isDifferentIn9 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
+                                        //secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO9: EventEndDate !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8) {
+                                        secTemp2In = secTemp15;
+                                        secTemp3In = secTemp16;
+                                        isDifferentIn9 = true;
+                                        //secIn.addSeccion(secTemp2In);
+                                        //secIn.addSeccion(secTemp3In);
                                     }
                                 }
-
                             } else {
-
-                                if ((count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9)) {
-                                    isDifferentIn10 = true;
-                                    secCoverageIn = new Seccion();
-                                    secCoverageIn.addAAHParty(party);
-                                    secIn.addSeccion(secCoverageIn);
-                                } else {
-                                    if ((count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isDifferentIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isDifferentIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isDifferentIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isDifferentIn9) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9)) {
-                                        isDifferentIn10 = true;
-                                        secCoverageIn = new Seccion();
-                                        secCoverageIn.addAAHParty(party);
-                                        secIn.addSeccion(secCoverageIn);
-                                    } else {
-                                        if ((count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isEqualsIn8 && isEqualsIn9)) {
-                                            isDifferentIn10 = true;
-                                            secCoverageIn = new Seccion();
-                                            secCoverageIn.addAAHParty(party);
-                                            secIn.addSeccion(secCoverageIn);
-                                        } else {
-                                            if ((count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isDifferentIn8 && isEqualsIn9) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isDifferentIn8 && isDifferentIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9)) {
-                                                isDifferentIn10 = true;
-                                                secCoverageIn = new Seccion();
-                                                secCoverageIn.addAAHParty(party);
-                                                secIn.addSeccion(secCoverageIn);
-                                            }
-                                        }
-                                    }
+                                if (count == no_nominados.size()) {
+                                    secTemp3In = new Seccion();
+                                    secTemp3In.addAAHParty(party);
+                                    isEqualsIn9 = false;
+                                    isDifferentIn9 = true;
                                 }
                             }
                         } else {
+                            if (key != null) {
+                                //secTemp.addAAHParty(party);
+                                secTemp16.addAAHParty(party);
+                                secTemp2In = secTemp15;
+                                secTemp3In = secTemp16;
+                                isDifferentIn9 = true;
 
-                            if ((count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9)) {
-                                isDifferentIn10 = true;
-                                secCoverageIn = new Seccion();
-                                secCoverageIn.addAAHParty(party);
-                                secIn.addSeccion(secCoverageIn);
                             } else {
-                                if ((count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isDifferentIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isDifferentIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isDifferentIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isDifferentIn9) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9)) {
-                                    isDifferentIn10 = true;
-                                    secCoverageIn = new Seccion();
-                                    secCoverageIn.addAAHParty(party);
-                                    secIn.addSeccion(secCoverageIn);
-                                } else {
-                                    if ((count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isEqualsIn8 && isEqualsIn9)) {
-                                        isDifferentIn10 = true;
-                                        secCoverageIn = new Seccion();
-                                        secCoverageIn.addAAHParty(party);
-                                        secIn.addSeccion(secCoverageIn);
-                                    } else {
-                                        if ((count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isDifferentIn8 && isEqualsIn9) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isDifferentIn8 && isDifferentIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9)) {
-                                            isDifferentIn10 = true;
-                                            secCoverageIn = new Seccion();
-                                            secCoverageIn.addAAHParty(party);
-                                            secIn.addSeccion(secCoverageIn);
-                                        }
-                                    }
+                                //secTemp.addAAHParty(party);
+                                secTemp15.addAAHParty(party);
+                                secTemp2In = secTemp15;
+                                if (count == no_nominados.size()) {
+                                    isEqualsIn9 = true;
                                 }
                             }
                         }
-                    } else {
-                        if (key != null) {
+                    } else if (conteoIteratorIn == 10) {
+                       if (currentLocalEvent != null) {
+                            if (key != null) {
+                                if (currentLocalEvent.equals(key.toLowerCase())) {
+                                    if (isTrue) {
+                                   //  if (coverages.equals(currentCoverage1)){
+                                        secTemp17.addAAHParty(party);
 
-                            if ((count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9)) {
-                                isDifferentIn10 = true;
-                                secCoverageIn = new Seccion();
-                                secCoverageIn.addAAHParty(party);
-                                secIn.addSeccion(secCoverageIn);
-                            } else {
-                                if ((count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isDifferentIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isDifferentIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isDifferentIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isDifferentIn9) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9)) {
-                                    isDifferentIn10 = true;
-                                    secCoverageIn = new Seccion();
-                                    secCoverageIn.addAAHParty(party);
-                                    secIn.addSeccion(secCoverageIn);
-                                } else {
-                                    if ((count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isEqualsIn8 && isEqualsIn9)) {
-                                        isDifferentIn10 = true;
-                                        secCoverageIn = new Seccion();
-                                        secCoverageIn.addAAHParty(party);
-                                        secIn.addSeccion(secCoverageIn);
+                                        //CASO1: Activity =!
+                                        if (count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) {
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp2In);
+                                            secIn.addSeccion(secTemp3In);
+                                        }
+
+                                        //CASO2: Clasification !=
+                                        if (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) {
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp2In);
+                                            secIn.addSeccion(secTemp3In);
+                                        }
+
+                                        //CASO3: RiskCategory !=
+                                        if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) {
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp2In);
+                                            secIn.addSeccion(secTemp3In);
+                                        }
+
+                                        //CASO4: InsurableGroup !=
+                                        if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) {
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp2In);
+                                            secIn.addSeccion(secTemp3In);
+                                        }
+
+                                        //CASO5: CoveredEvent !=
+                                        if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) {
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp2In);
+                                            secIn.addSeccion(secTemp3In);
+                                        }
+
+                                        //CASO6: ContractType !=
+                                        if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isDifferentIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) {
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp2In);
+                                            secIn.addSeccion(secTemp3In);
+                                        }
+
+                                        //CASO7: AAHRiskCategory !=
+                                        if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isDifferentIn7 && isEqualsIn8 && isEqualsIn9) {
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp2In);
+                                            secIn.addSeccion(secTemp3In);
+                                        }
+
+                                        //CASO8: EventStartDate !=
+                                        if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isDifferentIn8 && isEqualsIn9) {
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp2In);
+                                            secIn.addSeccion(secTemp3In);
+                                        }
+
+                                        //CASO9: EventEndDate !=
+                                        if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isDifferentIn9) {
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp2In);
+                                            secIn.addSeccion(secTemp3In);
+                                        }
+
+                                        //Activity != && Clasification !=
+                                        if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) {
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp2In);
+                                            secIn.addSeccion(secTemp3In);
+                                        }
+
+                                        //Activity != && Clasification != && RiskCategory !=
+                                        if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) {
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp2In);
+                                            secIn.addSeccion(secTemp3In);
+                                        }
+
+                                        //Activity != && Clasification != && RiskCategory != && InsurableGroup !=
+                                        if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) {
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp2In);
+                                            secIn.addSeccion(secTemp3In);
+                                        }
+
+                                        //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent !=
+                                        if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) {
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp2In);
+                                            secIn.addSeccion(secTemp3In);
+                                        }
+
+                                        //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent != && ContractType !=
+                                        if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) {
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp2In);
+                                            secIn.addSeccion(secTemp3In);
+                                        }
+
+                                        //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent != && ContractType != && AAHRiskCategory !=
+                                        if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isEqualsIn8 && isEqualsIn9) {
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp2In);
+                                            secIn.addSeccion(secTemp3In);
+                                        }
+
+                                        //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent != && ContractType != && AAHRiskCategory != && EventStartDate !=
+                                        if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isDifferentIn8 && isEqualsIn9) {
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp2In);
+                                            secIn.addSeccion(secTemp3In);
+                                        }
+
+                                        //Activity != && Clasification != && RiskCategory != && InsurableGroup != && CoveredEvent != && ContractType != && AAHRiskCategory != && EventStartDate != && EventEndDate !=
+                                        if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isDifferentIn8 && isDifferentIn9) {
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp2In);
+                                            secIn.addSeccion(secTemp3In);
+                                        }
+
+                                        if(count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3&& isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) {
+                                           if(!(coverages.equals(currentCoverage1))){
+                                               secTemp18.addAAHParty(party);
+                                               secTemp2In = secTemp17;
+                                               secTemp3In = secTemp18;
+                                             //  isDifferentIn10 = true;
+                                               secIn.addSeccion(secTemp2In);
+                                               secIn.addSeccion(secTemp3In);
+                                           }else{
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp17);}
+                                        }
                                     } else {
-                                        if ((count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isDifferentIn8 && isEqualsIn9) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isDifferentIn8 && isDifferentIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9)) {
-                                            isDifferentIn10 = true;
+
+                                        if (count != no_nominados.size() || count == no_nominados.size()) {
                                             secCoverageIn = new Seccion();
                                             secCoverageIn.addAAHParty(party);
                                             secIn.addSeccion(secCoverageIn);
                                         }
                                     }
+
+
+                                } else {
+                                    secTemp18.addAAHParty(party);
+
+                                    if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isDifferentIn8 && isDifferentIn9) {
+                                        isDifferentIn10 = true;
+                                        secIn.addSeccion(secTemp2In);
+                                        secIn.addSeccion(secTemp3In);
+                                    }
+
+                                    //CASO10: LocalEvent !=
+                                    if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) {
+                                        secTemp2In = secTemp17;
+                                        secTemp3In = secTemp18;
+                                        isDifferentIn10 = true;
+                                        secIn.addSeccion(secTemp2In);
+                                        secIn.addSeccion(secTemp3In);
+                                    }
+                                }
+                            } else {
+                                if (count == no_nominados.size()) {
+                                    secTemp3In = new Seccion();
+                                    secTemp3In.addAAHParty(party);
+                                    isEqualsIn10 = false;
+                                    isDifferentIn10 = true;
+                                }
+                                if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9 && isDifferentIn10) {
+                                    secIn.addSeccion(secTemp2In);
+                                    secIn.addSeccion(secTemp3In);
+                                }
+                                if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isDifferentIn8 && isDifferentIn9 && isDifferentIn10) {
+                                    secIn.addSeccion(secTemp2In);
+                                    secIn.addSeccion(secTemp3In);
                                 }
                             }
                         } else {
-
-                            if ((count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9)) {
-                                isEqualsIn10 = true;
+                            if (key != null) {
+                                //secTemp.addAAHParty(party);
+                                secTemp18.addAAHParty(party);
+                                secTemp2In = secTemp17;
+                                secTemp3In = secTemp18;
+                                isDifferentIn10 = true;
 
                             } else {
-                                if ((count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isDifferentIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isDifferentIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isDifferentIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isDifferentIn9) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9)) {
-                                    isEqualsIn10 = true;
-
-                                } else {
-                                    if ((count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isEqualsIn8 && isEqualsIn9)) {
+                                if (isTrue) {
+                               // if(coverages.equals(currentCoverage1)){
+                                    //secTemp.addAAHParty(party);
+                                    secTemp17.addAAHParty(party);
+                                    secTemp2In = secTemp17;
+                                    if (count == no_nominados.size()) {
                                         isEqualsIn10 = true;
-
-                                    } else {
-                                        if ((count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isDifferentIn8 && isEqualsIn9) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isDifferentIn8 && isDifferentIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9)) {
-                                            isEqualsIn10 = true;
-
-                                        }
+                                    }
+                                } else {
+                                    if (count != no_nominados.size() || count == no_nominados.size()) {
+                                        secCoverageIn = new Seccion();
+                                        secCoverageIn.addAAHParty(party);
+                                        secIn.addSeccion(secCoverageIn);
                                     }
                                 }
+
                             }
 
+                            if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9 && isEqualsIn10) {
+                                secIn.addSeccion(secTemp2In);
+                            }
+
+                            if (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9 && isDifferentIn10) {
+                                secIn.addSeccion(secTemp2In);
+                                secIn.addSeccion(secTemp3In);
+                            }
+
+                            if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isDifferentIn8 && isDifferentIn9 && isDifferentIn10) {
+                                secIn.addSeccion(secTemp2In);
+                                secIn.addSeccion(secTemp3In);
+                            }
                         }
 
                     }
-
-                    if ((!coverages.equals(currentCoverage1)&& isEquals10==true)) {
-                        System.out.println(coverages + " ----");
-                        System.out.println(currentCoverage1 + " .........");
-                        secCoverageIn = new Seccion();
-                        secCoverageIn.addAAHParty(party);
-                        secIn.addSeccion(secCoverageIn);
-                    }
-                }
-
-                XmlMapper xmlMapper = new XmlMapper();
-                // Eliminando Secciones vacias
-                int sizeASecciones = secIn.getSeccion().size();
-                for (int i = 0; i < sizeASecciones; i++) {
-                    if (secIn.getSeccion().get(i).getSize() == 0) {
-
-                    }
-                }
             }
+
             XmlMapper xmlMapper = new XmlMapper();
             //System.out.println("seccionNominados");
-            System.out.println("------------------------------------------------------------------------------------------");
-            System.out.println(xmlMapper.valueToTree(secNo));
-            System.out.println(xmlMapper.valueToTree(secIn));
-            //seccionNominados.getSeccion().get(0).getaAHParty().get(0).getActivity().getDisplayName();
-            this.seccionNominados = secNo;
-            this.seccionInnominados = secIn;
+            //System.out.println(xmlMapper.valueToTree(secIn));
+            // Eliminando Secciones vacias
+           int sizeASecciones = secIn.getSeccion().size();
+           cantSeccion=sizeASecciones;
+            System.out.println(sizeASecciones + " ----");
+            //System.out.println(sizeASecciones);
+            for (int i = 0; i < sizeASecciones; i++) {
+                //System.out.println(secIn.getSeccion().get(i).getSize());
+                if (secIn.getSeccion().get(i).getSize() == 0) {
+                    //secIn.getSeccion().remove(0);
+                }
+            }
         }
+
+
+
+        XmlMapper xmlMapper = new XmlMapper();
+        //System.out.println("seccionNominados");
+        System.out.println("------------------------------------------------------------------------------------------");
+        System.out.println(xmlMapper.valueToTree(secNo));
+        System.out.println(xmlMapper.valueToTree(secIn));
+        //seccionNominados.getSeccion().get(0).getaAHParty().get(0).getActivity().getDisplayName();
+        this.seccionNominados = secNo;
+        this.seccionInnominados = secIn;
     }
+
     public void descartarOfficialID() {
         for (AAHParty party : this.aahpartys) {
             if(!party.getCoveredPersonExistence()) {
@@ -3160,51 +3164,8 @@ public class AAHPartys {
             }
         }
     }
-	/*
-	public void calcularTipoDocum() {
-		System.out.println("IMPRIMIENDO CALCULARTipoDocum");
-		for (AAHParty party : this.aahpartys) {
-			for (PartyCoverage partyCov : party.getPartyCoverages().getPartyCoverage()) {
-				partyCov.calculateTipoDocum();
-			}
-		}
-	}
-	*/
+
 }
-/*
-	public void calculateTipoDocum() {
 
-		for (AAHParty party : this.aahpartys) {
-			for (OfficialID partyCov : party.getCoveredPerson().getOfficialIDs().getOfficialID()) {
-				//partyCov.getPrimary();
-				if (partyCov.getPrimary().equalsIgnoreCase("true")) {
-					System.out.println(1);
-					this.tipoDocum = officialID.getType().getUnlocalizedName();
-				} else {
-					System.out.println(2);
-					this.tipoDocum = "";
-				}
-			}
-			;
 
-		}
 
-	//	document.getContent().getPolicyPeriod().getaAHLine().getaAHPartys().getAahpartys()
-	/*
-	for (CoverageTerm coTerm : coverageTerms.getCoverageTerm()) {
-			if (coTerm.getModelType().getCode().equalsIgnoreCase("Limit") && coTerm.getValueType().getCode().equalsIgnoreCase("percent") && !coTerm.getCodeIdentifier().equalsIgnoreCase("AAHAdditionalOfDeathDueTrafficAccidentRateLim") && !coTerm.getCodeIdentifier().equalsIgnoreCase("AAHDeathOfTheSpouseByAccidentRateLim")) {
-				this.subExcl = coTerm.getAggregationModelList().getAggregationModel().getCode();
-			} else if (code.equalsIgnoreCase("AAHPharmaceuticalMedicalAssistanceCov")) {
-				if (coTerm.getDisplayValue().equalsIgnoreCase("") || coTerm.getDisplayValue().equalsIgnoreCase("0%")) {
-					this.subModelo = "";
-					this.subValor = "";
-					this.subExcl = "se excluyen";
-				}
-			} else if (code.equalsIgnoreCase("AHRefundExpensesPharmaceuticalMedicalAssistanceCov")) {
-				if (coTerm.getDisplayValue().equalsIgnoreCase("") || coTerm.getDisplayValue().equalsIgnoreCase("0%") || coTerm.getDisplayValue().equalsIgnoreCase("100%") ) {
-					this.subExcl = "";
-				}
-			}
-		}
-
-	 */
