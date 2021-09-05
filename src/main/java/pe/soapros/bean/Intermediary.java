@@ -14,6 +14,19 @@ public class Intermediary {
 	private String code;
 	@JsonProperty("ProducerCodeID")
 	private ProducerCodeID producerCodeID;
+
+	/*      PC 11
+	@JsonProperty("CommissionPercentage")
+	private String commissionPercentage;
+
+	@JsonProperty("IntermediaryPercentage")
+	private String intermediaryPercentage;
+
+	//ELIMINAR CODE Y PRODUCERCODEROLE
+
+	* */
+
+
 	/*
 	public ProducerCodeRole getProducerCodeRole() {
 		return producerCodeRole;

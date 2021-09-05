@@ -5,6 +5,8 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
 @JacksonXmlRootElement(localName="State")
 public class State {
+	@JsonProperty("Code")
+	private String code;
 	@JsonProperty("DisplayName")
 	private String displayName;
 
@@ -15,5 +17,11 @@ public class State {
 	public void setDisplayName(String displayName) {
 		this.displayName = displayName;
 	}
-	
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
 }

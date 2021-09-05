@@ -1,0 +1,4128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Document>
+	<Header>
+		<EventIDGLOBAL>00200010000000024-0</EventIDGLOBAL>
+		<EventName>CreatePeriod</EventName>
+		<ThemeID>ARG_GW_PC_TarjetaAzul</ThemeID>
+		<SourceSystem>PC</SourceSystem>
+		<Environment>PC_DEV</Environment>
+		<MultDownID>CreatePeriod-PC_DEV-00200010000000024-0</MultDownID>
+		<UserName>su</UserName>
+		<OcurrenceDate>2021-09-01T13:12:06</OcurrenceDate>
+		<BusinessID>00200010000000024-0</BusinessID>
+		<ForPrint>false</ForPrint>
+		<ExternalChannel/>
+		<FlowID>A1</FlowID>
+		<GroupQuantity>9</GroupQuantity>
+		<FormCode>ca7_blue_card_GSS</FormCode>
+		<GeneralEnvironment>DEV\PC</GeneralEnvironment>
+	</Header>
+	<Metadata>
+		<Document>
+			<UserApplication>2</UserApplication>
+			<ContentTypeDef>Persona GSS</ContentTypeDef>
+			<ContentTypeDef>Documentos Polizas</ContentTypeDef>
+			<ContentTypeDef>Documentos Polizas Emision</ContentTypeDef>
+			<ContentTypeDef>Documentos Polizas Cotizacion</ContentTypeDef>
+			<EntityID>2</EntityID>
+			<EntityName>Poliza</EntityName>
+			<BusinessBranch>Seguros Patrimoniales</BusinessBranch>
+			<ProcessName>Emision</ProcessName>
+			<CreateBy>User Super</CreateBy>
+			<Name>Tarjeta_Azul_00200010000000024_0.pdf</Name>
+			<DocumentCode>914</DocumentCode>
+			<DocumentTypes>Tarjeta Azul</DocumentTypes>
+			<CreateDate>2021-09-01T13:12:06</CreateDate>
+			<AgrupationData>BupID</AgrupationData>
+			<BupID>21491930</BupID>
+			<PersonType>Person</PersonType>
+			<FantasyName>ECHAZARRETA ADRIAN</FantasyName>
+			<TaxIdentificationType>CUIL</TaxIdentificationType>
+			<TaxIdentificationNumber>20307893216</TaxIdentificationNumber>
+			<IdentificationType>DNI</IdentificationType>
+			<IdentificationNumber>30789321</IdentificationNumber>
+			<UploadMetadata>
+				<Seguros>
+					<Poliza>
+						<ProductCode>CA7CommAuto</ProductCode>
+						<ProductName>Automotores / Motovehículos</ProductName>
+						<BranchCode>1</BranchCode>
+						<BranchName>Versión N.º 1</BranchName>
+						<ReferenceNumber>002000000000019</ReferenceNumber>
+						<CertificateNumber>2</CertificateNumber>
+						<OfferingName>Flota</OfferingName>
+						<ProducerCode>215489</ProducerCode>
+						<AccountNumber>2304653497</AccountNumber>
+						<IntermediaryCode>215489</IntermediaryCode>
+					</Poliza>
+					<EmisionPoliza>
+						<EmissionDate>2021-09-01T12:00:00</EmissionDate>
+						<PrintingDate>No</PrintingDate>
+						<EndorsementType>Emision</EndorsementType>
+						<EndorsementNumber>0</EndorsementNumber>
+						<ProposalNumber>0000874635</ProposalNumber>
+						<Quotas>0000874635</Quotas>
+						<LicensePlate>AE334FB</LicensePlate>
+						<LicensePlate>AA490XW</LicensePlate>
+						<SectionDocument>Identificatorio, Impositivo, Normativo</SectionDocument>
+						<EndorsementConcept>Emision</EndorsementConcept>
+						<PolicyDescription/>
+					</EmisionPoliza>
+					<CotizacionPoliza>
+						<Quota>0000874635</Quota>
+						<PolicyHolderName>ECHAZARRETA ADRIAN</PolicyHolderName>
+						<ProducerFantasyName>215489 CERRA FRANCO</ProducerFantasyName>
+						<RequestStatus/>
+					</CotizacionPoliza>
+				</Seguros>
+			</UploadMetadata>
+			<SourceSystem>PC-CCM</SourceSystem>
+			<Environment>PC_DEV</Environment>
+			<File>
+				<DocumentMimeType>application/pdf</DocumentMimeType>
+				<DocumentName>Tarjeta_Azul_00200010000000024_0.pdf</DocumentName>
+				<FileName>Tarjeta_Azul_00200010000000024_0.pdf</FileName>
+			</File>
+		</Document>
+	</Metadata>
+	<Content>
+		<PolicyPeriod>
+			<SystemDate>1 de Septiembre de 2021</SystemDate>
+			<Policy>
+				<CreateTime>2021-09-01T13:00:23</CreateTime>
+				<FormattedCreation>2021-09-01.13.00.23</FormattedCreation>
+				<FormattedCreationTime>2021-09-01.13.00.23</FormattedCreationTime>
+				<IssueDate>2021-09-01T00:00:00</IssueDate>
+				<ProductCode>CA7CommAuto</ProductCode>
+				<ProductName>Automotores / Motovehículos</ProductName>
+				<CreateUser>User Super</CreateUser>
+			</Policy>
+			<PolicyNumber>002000000000019</PolicyNumber>
+			<OfficialPolicyNumber>00200010000000024</OfficialPolicyNumber>
+			<PolicyChangeNumber>0</PolicyChangeNumber>
+			<WrittenDate>1 de Septiembre de 2021</WrittenDate>
+			<selectedDateByDemand>1 de Septiembre de 2021</selectedDateByDemand>
+			<PeriodStart>2021-09-01T12:00:00</PeriodStart>
+			<HourOfPeriodStart>12:00</HourOfPeriodStart>
+			<PeriodEnd>2022-09-01T12:00:00</PeriodEnd>
+			<HourOfPeriodEnd>12:00</HourOfPeriodEnd>
+			<IssueDate>2021-09-01T00:00:00</IssueDate>
+			<EditEffectiveDate>2021-09-01T12:00:00</EditEffectiveDate>
+			<OriginalEffectiveDate>2021-09-01T00:00:00</OriginalEffectiveDate>
+			<Submission>
+				<GenerateActivity>true</GenerateActivity>
+			</Submission>
+			<PolicyTerm>
+				<UpdateTime>2021-09-01T13:11:41</UpdateTime>
+			</PolicyTerm>
+			<OfferCode>CA7Fleet</OfferCode>
+			<OfferName>Flota</OfferName>
+			<OfferCommercialName>Flota</OfferCommercialName>
+			<TotalNumberOfSelectedCertificates>2</TotalNumberOfSelectedCertificates>
+			<Status>
+				<Code>Bound</Code>
+				<DisplayName>Contratada</DisplayName>
+			</Status>
+			<RamoCode>
+				<Code>200</Code>
+				<DisplayName>Automotores</DisplayName>
+			</RamoCode>
+			<TotalNumberOfCertificates>2</TotalNumberOfCertificates>
+			<IncludeSignature>false</IncludeSignature>
+			<PaymentFrequency>Mensual</PaymentFrequency>
+			<TotalPremiumRPT>
+				<Currency>
+					<Code>ars</Code>
+					<DisplayName>ARS</DisplayName>
+					<Description>Pesos argentinos</Description>
+				</Currency>
+				<Amount>164432.10</Amount>
+				<DisplayAmount>$ 164.432,10</DisplayAmount>
+			</TotalPremiumRPT>
+			<TotalCostRPT>
+				<Currency>
+					<Code>ars</Code>
+					<DisplayName>ARS</DisplayName>
+					<Description>Pesos argentinos</Description>
+				</Currency>
+				<Amount>220174.59</Amount>
+				<DisplayAmount>$ 220.174,59</DisplayAmount>
+			</TotalCostRPT>
+			<FinancialSurchargesRPT>
+				<Currency>
+					<Code>ars</Code>
+					<DisplayName>ARS</DisplayName>
+					<Description>Pesos argentinos</Description>
+				</Currency>
+				<Amount>0.00</Amount>
+				<DisplayAmount>$ 0,00</DisplayAmount>
+			</FinancialSurchargesRPT>
+			<TaxAndSurchargesRPT>
+				<Currency>
+					<Code>ars</Code>
+					<DisplayName>ARS</DisplayName>
+					<Description>Pesos argentinos</Description>
+				</Currency>
+				<Amount>40943.59</Amount>
+				<DisplayAmount>$ 40.943,59</DisplayAmount>
+			</TaxAndSurchargesRPT>
+			<SocialCapitalRPT>
+				<Currency>
+					<Code>ars</Code>
+					<DisplayName>ARS</DisplayName>
+					<Description>Pesos argentinos</Description>
+				</Currency>
+				<Amount>14798.90</Amount>
+				<DisplayAmount>$ 14.798,90</DisplayAmount>
+			</SocialCapitalRPT>
+			<PremiumWithOutIVARPT>
+				<Currency>
+					<Code>ars</Code>
+					<DisplayName>ARS</DisplayName>
+					<Description>Pesos argentinos</Description>
+				</Currency>
+				<Amount>185643.85</Amount>
+				<DisplayAmount>$ 185.643,85</DisplayAmount>
+			</PremiumWithOutIVARPT>
+			<Costs>
+				<Cost>
+					<Concept>
+						<Code>TasaSSN</Code>
+						<DisplayName>Tasa Uniforme de S.S.N.</DisplayName>
+					</Concept>
+					<Basis>164432.10</Basis>
+					<Percentage>0.60</Percentage>
+					<ActualCost>
+						<Currency>
+							<Code>ars</Code>
+							<DisplayName>ARS</DisplayName>
+							<Description>Pesos argentinos</Description>
+						</Currency>
+						<Amount>986.59</Amount>
+						<DisplayAmount>$ 986,59</DisplayAmount>
+					</ActualCost>
+				</Cost>
+				<Cost>
+					<Concept>
+						<Code>Interno</Code>
+						<DisplayName>Impuesto Interno</DisplayName>
+					</Concept>
+					<Basis>164432.10</Basis>
+					<Percentage>0.10</Percentage>
+					<ActualCost>
+						<Currency>
+							<Code>ars</Code>
+							<DisplayName>ARS</DisplayName>
+							<Description>Pesos argentinos</Description>
+						</Currency>
+						<Amount>164.43</Amount>
+						<DisplayAmount>$ 164,43</DisplayAmount>
+					</ActualCost>
+				</Cost>
+				<Cost>
+					<Concept>
+						<Code>IVA</Code>
+						<DisplayName>IVA</DisplayName>
+					</Concept>
+					<Basis>164432.10</Basis>
+					<Percentage>21.00</Percentage>
+					<ActualCost>
+						<Currency>
+							<Code>ars</Code>
+							<DisplayName>ARS</DisplayName>
+							<Description>Pesos argentinos</Description>
+						</Currency>
+						<Amount>34530.74</Amount>
+						<DisplayAmount>$ 34.530,74</DisplayAmount>
+					</ActualCost>
+				</Cost>
+				<Cost>
+					<Concept>
+						<Code>SegVial</Code>
+						<DisplayName>Ley de Seguridad Vial</DisplayName>
+					</Concept>
+					<Basis>164432.10</Basis>
+					<Percentage>1.00</Percentage>
+					<ActualCost>
+						<Currency>
+							<Code>ars</Code>
+							<DisplayName>ARS</DisplayName>
+							<Description>Pesos argentinos</Description>
+						</Currency>
+						<Amount>1644.32</Amount>
+						<DisplayAmount>$ 1.644,32</DisplayAmount>
+					</ActualCost>
+				</Cost>
+				<Cost>
+					<Concept>
+						<Code>ServSoc</Code>
+						<DisplayName>Aporte Obra social del Seguro</DisplayName>
+					</Concept>
+					<Basis>164432.10</Basis>
+					<Percentage>0.50</Percentage>
+					<ActualCost>
+						<Currency>
+							<Code>ars</Code>
+							<DisplayName>ARS</DisplayName>
+							<Description>Pesos argentinos</Description>
+						</Currency>
+						<Amount>822.16</Amount>
+						<DisplayAmount>$ 822,16</DisplayAmount>
+					</ActualCost>
+				</Cost>
+				<Cost>
+					<Concept>
+						<Code>Sellado</Code>
+						<DisplayName>Sellados</DisplayName>
+					</Concept>
+					<Basis>164432.10</Basis>
+					<Percentage>1.70</Percentage>
+					<ActualCost>
+						<Currency>
+							<Code>ars</Code>
+							<DisplayName>ARS</DisplayName>
+							<Description>Pesos argentinos</Description>
+						</Currency>
+						<Amount>2795.35</Amount>
+						<DisplayAmount>$ 2.795,35</DisplayAmount>
+					</ActualCost>
+				</Cost>
+			</Costs>
+			<PrimaryNamedInsured>
+				<Contact>
+					<PublicID>pc:505</PublicID>
+					<DisplayName>ECHAZARRETA ADRIAN</DisplayName>
+					<FirstName>ADRIAN</FirstName>
+					<LastName>ECHAZARRETA</LastName>
+					<Age>37</Age>
+					<TaxID>30789321</TaxID>
+					<AssociatedNumber>123456789</AssociatedNumber>
+					<OfficialIDs>
+						<OfficialID>
+							<Type>
+								<Code>dni_GSS</Code>
+								<DisplayName>Documento Nacional de Identidad</DisplayName>
+								<UnlocalizedName>DNI</UnlocalizedName>
+							</Type>
+							<Value>30789321</Value>
+							<Primary>true</Primary>
+						</OfficialID>
+						<OfficialID>
+							<Type>
+								<Code>cuit_cuil_GSS</Code>
+								<DisplayName>CUIT/CUIL</DisplayName>
+								<UnlocalizedName>CUIT/CUIL</UnlocalizedName>
+							</Type>
+							<Value>20307893216</Value>
+							<Primary>false</Primary>
+						</OfficialID>
+					</OfficialIDs>
+					<TaxCondition>
+						<Code>cf</Code>
+						<DisplayName>Consumidor Final</DisplayName>
+					</TaxCondition>
+					<Gender>
+						<Code>M</Code>
+						<DisplayName>Masculino</DisplayName>
+					</Gender>
+					<PrimaryAddressConcatenated>Avenida Belgrano 646 12 B</PrimaryAddressConcatenated>
+					<PrimaryAddress>
+						<AddressLine1>Avenida Belgrano</AddressLine1>
+						<AddressLine2>646</AddressLine2>
+						<AddressLine3>12</AddressLine3>
+						<Department>B</Department>
+						<AddressType>
+							<Code>home</Code>
+							<DisplayName>Particular</DisplayName>
+						</AddressType>
+						<City>Sunchales</City>
+						<Country>
+							<Code>AR</Code>
+							<DisplayName>Argentina</DisplayName>
+						</Country>
+						<PostalCode>2322</PostalCode>
+						<State>
+							<Code>AR-S</Code>
+							<DisplayName>Santa Fe</DisplayName>
+						</State>
+						<Neighborhood>Sancor</Neighborhood>
+						<BetweenStreet1>Salta</BetweenStreet1>
+						<BetweenStreet2>Mitri</BetweenStreet2>
+					</PrimaryAddress>
+					<PrimaryPhoneType>
+						<Code>home</Code>
+						<DisplayName>Casa</DisplayName>
+					</PrimaryPhoneType>
+					<PrimaryPhoneValue>03493 45-8798</PrimaryPhoneValue>
+					<CellPhone>03493562563</CellPhone>
+					<HomePhone>03493458798</HomePhone>
+					<IsHomePhoneLandLine>true</IsHomePhoneLandLine>
+					<WorkPhone>03493458799</WorkPhone>
+					<IsWorkPhoneLandLine>true</IsWorkPhoneLandLine>
+					<AlternativePhone>03493 45-8798</AlternativePhone>
+					<DateOfBirth>1984-06-25T00:00:00</DateOfBirth>
+					<Subtype>
+						<Code>Person</Code>
+						<DisplayName>Persona</DisplayName>
+					</Subtype>
+				</Contact>
+			</PrimaryNamedInsured>
+			<SecondaryNamedInsured>
+				<Contact>
+					<PublicID>pc:505</PublicID>
+					<DisplayName>ECHAZARRETA ADRIAN</DisplayName>
+					<FirstName>ADRIAN</FirstName>
+					<LastName>ECHAZARRETA</LastName>
+					<Age>37</Age>
+					<TaxID>30789321</TaxID>
+					<AssociatedNumber>123456789</AssociatedNumber>
+					<OfficialIDs>
+						<OfficialID>
+							<Type>
+								<Code>dni_GSS</Code>
+								<DisplayName>Documento Nacional de Identidad</DisplayName>
+								<UnlocalizedName>DNI</UnlocalizedName>
+							</Type>
+							<Value>30789321</Value>
+							<Primary>true</Primary>
+						</OfficialID>
+						<OfficialID>
+							<Type>
+								<Code>cuit_cuil_GSS</Code>
+								<DisplayName>CUIT/CUIL</DisplayName>
+								<UnlocalizedName>CUIT/CUIL</UnlocalizedName>
+							</Type>
+							<Value>20307893216</Value>
+							<Primary>false</Primary>
+						</OfficialID>
+					</OfficialIDs>
+					<TaxCondition>
+						<Code>cf</Code>
+						<DisplayName>Consumidor Final</DisplayName>
+					</TaxCondition>
+					<Gender>
+						<Code>M</Code>
+						<DisplayName>Masculino</DisplayName>
+					</Gender>
+					<PrimaryAddressConcatenated>Avenida Belgrano 646 12 B</PrimaryAddressConcatenated>
+					<PrimaryAddress>
+						<AddressLine1>Avenida Belgrano</AddressLine1>
+						<AddressLine2>646</AddressLine2>
+						<AddressLine3>12</AddressLine3>
+						<Department>B</Department>
+						<AddressType>
+							<Code>home</Code>
+							<DisplayName>Particular</DisplayName>
+						</AddressType>
+						<City>Sunchales</City>
+						<Country>
+							<Code>AR</Code>
+							<DisplayName>Argentina</DisplayName>
+						</Country>
+						<PostalCode>2322</PostalCode>
+						<State>
+							<Code>AR-S</Code>
+							<DisplayName>Santa Fe</DisplayName>
+						</State>
+						<Neighborhood>Sancor</Neighborhood>
+						<BetweenStreet1>Salta</BetweenStreet1>
+						<BetweenStreet2>Mitri</BetweenStreet2>
+					</PrimaryAddress>
+					<PrimaryPhoneType>
+						<Code>home</Code>
+						<DisplayName>Casa</DisplayName>
+					</PrimaryPhoneType>
+					<PrimaryPhoneValue>03493 45-8798</PrimaryPhoneValue>
+					<CellPhone>03493562563</CellPhone>
+					<HomePhone>03493458798</HomePhone>
+					<IsHomePhoneLandLine>true</IsHomePhoneLandLine>
+					<WorkPhone>03493458799</WorkPhone>
+					<IsWorkPhoneLandLine>true</IsWorkPhoneLandLine>
+					<AlternativePhone>03493 45-8798</AlternativePhone>
+					<DateOfBirth>1984-06-25T00:00:00</DateOfBirth>
+					<Subtype>
+						<Code>Person</Code>
+						<DisplayName>Persona</DisplayName>
+					</Subtype>
+				</Contact>
+			</SecondaryNamedInsured>
+			<DocumentDelivery>
+				<Code>digital</Code>
+				<DisplayName>Digital</DisplayName>
+			</DocumentDelivery>
+			<EmailAddresses>
+				<EmailAddress>
+					<Email>neorecepciones@gmail.com</Email>
+					<EmailType>
+						<Code>principal</Code>
+						<DisplayName>Principal</DisplayName>
+					</EmailType>
+				</EmailAddress>
+			</EmailAddresses>
+			<Email>neorecepciones@gmail.com</Email>
+			<DeliveryEmail>neorecepciones@gmail.com</DeliveryEmail>
+			<PolicyAddress>
+				<AddressLine1>Avenida Belgrano</AddressLine1>
+				<AddressLine2>646</AddressLine2>
+				<AddressLine3>12</AddressLine3>
+				<Department>B</Department>
+				<AddressType>
+					<Code>home</Code>
+					<DisplayName>Particular</DisplayName>
+				</AddressType>
+				<City>Sunchales</City>
+				<Country>
+					<Code>AR</Code>
+					<DisplayName>Argentina</DisplayName>
+				</Country>
+				<PostalCode>2322</PostalCode>
+				<State>
+					<Code>AR-S</Code>
+					<DisplayName>Santa Fe</DisplayName>
+				</State>
+				<Neighborhood>Sancor</Neighborhood>
+				<BetweenStreet1>Salta</BetweenStreet1>
+				<BetweenStreet2>Mitri</BetweenStreet2>
+			</PolicyAddress>
+			<Locations>
+				<Location>
+					<AddressLine1>Avenida Belgrano</AddressLine1>
+					<AddressLine2>646</AddressLine2>
+					<AddressLine3>12</AddressLine3>
+					<AddressType>
+						<Code>home</Code>
+						<DisplayName>Particular</DisplayName>
+					</AddressType>
+					<City>Sunchales</City>
+					<Country>
+						<Code>AR</Code>
+						<DisplayName>Argentina</DisplayName>
+					</Country>
+					<PostalCode>2322</PostalCode>
+					<State>
+						<Code>AR-S</Code>
+						<DisplayName>Santa Fe</DisplayName>
+					</State>
+				</Location>
+			</Locations>
+			<PublicID>pc:509</PublicID>
+			<BusinessUnit>
+				<Code>201</Code>
+				<DisplayName>201 - UN - Bahia Blanca</DisplayName>
+			</BusinessUnit>
+			<CA7Line>
+				<PolicyType>
+					<Code>BusinessAutoCoverageForm</Code>
+					<DisplayName>Formulario de cobertura de auto comercial</DisplayName>
+				</PolicyType>
+				<Drivers/>
+				<LegalEntity>
+					<Code>Corporation</Code>
+					<DisplayName>Sociedad</DisplayName>
+				</LegalEntity>
+				<PrivatePassengers>
+					<PrivatePassenger>
+						<AutosFurnishedForRegularUse>false</AutosFurnishedForRegularUse>
+						<ClassCode>truck_GSS</ClassCode>
+						<ClassName>truck_GSS</ClassName>
+						<VehicleClass>
+							<Code>truck_GSS</Code>
+							<DisplayName>Camión</DisplayName>
+						</VehicleClass>
+						<Module>
+							<Code>max_1</Code>
+							<DisplayName>Max 1</DisplayName>
+						</Module>
+						<Fleet>
+							<Code>Yes</Code>
+							<DisplayName>Yes</DisplayName>
+						</Fleet>
+						<ChassisNumber>4BGND4GY7HG516511</ChassisNumber>
+						<EngineNumber>52EJHF1262433</EngineNumber>
+						<Use>
+							<Code>commercial_GSS</Code>
+							<DisplayName>Comercial</DisplayName>
+						</Use>
+						<CargoType>
+							<Code>general</Code>
+							<DisplayName>Cargas Generales</DisplayName>
+						</CargoType>
+						<VehicleType>
+							<Code>truck_GSS</Code>
+							<DisplayName>Camión</DisplayName>
+						</VehicleType>
+						<LeaseOrRent>false</LeaseOrRent>
+						<LessorAnEmployee>false</LessorAnEmployee>
+						<LicensePlate>AA490XW</LicensePlate>
+						<Make>66</Make>
+						<MakeName>VOLKSWAGEN CAM.</MakeName>
+						<Model>93</Model>
+						<ModelName>11.180 NEW DELIVERY TRENDLINE</ModelName>
+						<OriginalCostNew>0.00</OriginalCostNew>
+						<InsuredValue>
+							<Currency>
+								<Code>ars</Code>
+								<DisplayName>ARS</DisplayName>
+								<Description>Pesos argentinos</Description>
+							</Currency>
+							<Amount>4410000.00</Amount>
+							<DisplayAmount>$ 4.410.000,00</DisplayAmount>
+						</InsuredValue>
+						<SuggestedValue>
+							<Currency>
+								<Code>ars</Code>
+								<DisplayName>ARS</DisplayName>
+								<Description>Pesos argentinos</Description>
+							</Currency>
+							<Amount>4410000.00</Amount>
+							<DisplayAmount>$ 4.410.000,00</DisplayAmount>
+						</SuggestedValue>
+						<TotalValue>
+							<Currency>
+								<Code>ars</Code>
+								<DisplayName>ARS</DisplayName>
+								<Description>Pesos argentinos</Description>
+							</Currency>
+							<Amount>4410000.00</Amount>
+							<DisplayAmount>$ 4.410.000,00</DisplayAmount>
+						</TotalValue>
+						<ZeroKM>false</ZeroKM>
+						<ManufactureOrigin>
+							<Code>national</Code>
+							<DisplayName>Nacional</DisplayName>
+						</ManufactureOrigin>
+						<PercentOfMilesDrivenInGreen>
+							<Code>NotApplicable</Code>
+							<DisplayName>Not Applicable</DisplayName>
+						</PercentOfMilesDrivenInGreen>
+						<SafetyScoreDiscountApplies>false</SafetyScoreDiscountApplies>
+						<StatedAmount>0.00</StatedAmount>
+						<VehicleNumber>1</VehicleNumber>
+						<VehicleCode>660093</VehicleCode>
+						<VehicleDescription>11.180 NEW DELIVERY TRENDLINE</VehicleDescription>
+						<ManufacturingYear>2020</ManufacturingYear>
+						<ModelYear>2020</ModelYear>
+						<CurrencyCode>ars</CurrencyCode>
+						<CurrencyName>ARS</CurrencyName>
+						<Costs>
+							<Cost>
+								<Premium>
+									<Currency>
+										<Code>ars</Code>
+										<DisplayName>ARS</DisplayName>
+										<Description>Pesos argentinos</Description>
+									</Currency>
+									<Amount>0.00</Amount>
+									<DisplayAmount>$ 0,00</DisplayAmount>
+								</Premium>
+							</Cost>
+							<Cost>
+								<Premium>
+									<Currency>
+										<Code>ars</Code>
+										<DisplayName>ARS</DisplayName>
+										<Description>Pesos argentinos</Description>
+									</Currency>
+									<Amount>0.00</Amount>
+									<DisplayAmount>$ 0,00</DisplayAmount>
+								</Premium>
+							</Cost>
+							<Cost>
+								<Premium>
+									<Currency>
+										<Code>ars</Code>
+										<DisplayName>ARS</DisplayName>
+										<Description>Pesos argentinos</Description>
+									</Currency>
+									<Amount>0.00</Amount>
+									<DisplayAmount>$ 0,00</DisplayAmount>
+								</Premium>
+							</Cost>
+						</Costs>
+						<Coverages>
+							<Coverage>
+								<Code>CA7CivilLiabilityDamageToThingsNotTransportedByThirdPartiesCov</Code>
+								<DisplayName>Resp. Civil: Daños a cosas no transportadas de terceras personas</DisplayName>
+								<Abbreviation>RC - </Abbreviation>
+								<Priority>3770</Priority>
+								<Subtype>
+									<Code>CA7PrivatePassengerCov</Code>
+									<DisplayName>CA7PrivatePassengerCov</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CoverageGroup>Por Responsabilidad Civil (Incluye Seguro Obligatorio)</CoverageGroup>
+								<CoverageType>
+									<Code>not_applicable</Code>
+									<DisplayName>No Aplicable</DisplayName>
+								</CoverageType>
+								<CovTerms>
+									<CovTerm>
+										<CodeIdentifier>LimitRC1</CodeIdentifier>
+										<Priority>100</Priority>
+										<ValueTypeName>Option</ValueTypeName>
+										<ValueType>
+											<Code>money</Code>
+											<DisplayName>Dinero</DisplayName>
+										</ValueType>
+										<DisplayName>Límite</DisplayName>
+										<DisplayValue>38.500.000</DisplayValue>
+										<DisplayAmount>$ 38.500.000,00</DisplayAmount>
+										<ModelType>
+											<Code>Limit</Code>
+											<DisplayName>Límite</DisplayName>
+										</ModelType>
+									</CovTerm>
+								</CovTerms>
+								<CoverageCodeForPrinting>
+									<CoverageCode>CA7CivilLiabilityDamageToThingsNotTransportedByThirdPartiesCov</CoverageCode>
+									<CoverageGroup>Por Responsabilidad Civil (Incluye Seguro Obligatorio)</CoverageGroup>
+									<Abbreviation>RC</Abbreviation>
+								</CoverageCodeForPrinting>
+								<Category>CA7PrivatePassengerStdGrp</Category>
+							</Coverage>
+							<Coverage>
+								<Code>CA7CivilLiabilityInjuriesAndOrDeathOfThirdPartiesNotTranspCov</Code>
+								<DisplayName>Resp. Civil: Lesiones y/o muerte de terceras personas no transportadas</DisplayName>
+								<Abbreviation>RC - </Abbreviation>
+								<Priority>3870</Priority>
+								<Subtype>
+									<Code>CA7PrivatePassengerCov</Code>
+									<DisplayName>CA7PrivatePassengerCov</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CoverageGroup>Por Responsabilidad Civil (Incluye Seguro Obligatorio)</CoverageGroup>
+								<CoverageType>
+									<Code>not_applicable</Code>
+									<DisplayName>No Aplicable</DisplayName>
+								</CoverageType>
+								<CovTerms>
+									<CovTerm>
+										<CodeIdentifier>LimitRC2</CodeIdentifier>
+										<Priority>100</Priority>
+										<ValueTypeName>Option</ValueTypeName>
+										<ValueType>
+											<Code>money</Code>
+											<DisplayName>Dinero</DisplayName>
+										</ValueType>
+										<DisplayName>Límite</DisplayName>
+										<DisplayValue>38.500.000</DisplayValue>
+										<DisplayAmount>$ 38.500.000,00</DisplayAmount>
+										<ModelType>
+											<Code>Limit</Code>
+											<DisplayName>Límite</DisplayName>
+										</ModelType>
+									</CovTerm>
+								</CovTerms>
+								<CoverageCodeForPrinting>
+									<CoverageCode>CA7CivilLiabilityInjuriesAndOrDeathOfThirdPartiesNotTranspCov</CoverageCode>
+									<CoverageGroup>Por Responsabilidad Civil (Incluye Seguro Obligatorio)</CoverageGroup>
+									<Abbreviation>RC</Abbreviation>
+								</CoverageCodeForPrinting>
+								<Category>CA7PrivatePassengerStdGrp</Category>
+							</Coverage>
+							<Coverage>
+								<Code>CA7CivilLiabilityInjuriesAndOrDeathOfThirdPartiesTransportedCov</Code>
+								<DisplayName>Resp. Civil: Lesiones y/o muerte de terceras personas transportadas</DisplayName>
+								<Abbreviation>RC - </Abbreviation>
+								<Priority>3871</Priority>
+								<Subtype>
+									<Code>CA7PrivatePassengerCov</Code>
+									<DisplayName>CA7PrivatePassengerCov</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CoverageGroup>Por Responsabilidad Civil (Incluye Seguro Obligatorio)</CoverageGroup>
+								<CoverageType>
+									<Code>not_applicable</Code>
+									<DisplayName>No Aplicable</DisplayName>
+								</CoverageType>
+								<CovTerms>
+									<CovTerm>
+										<CodeIdentifier>LimitRC3</CodeIdentifier>
+										<Priority>100</Priority>
+										<ValueTypeName>Option</ValueTypeName>
+										<ValueType>
+											<Code>money</Code>
+											<DisplayName>Dinero</DisplayName>
+										</ValueType>
+										<DisplayName>Límite</DisplayName>
+										<DisplayValue>38.500.000</DisplayValue>
+										<DisplayAmount>$ 38.500.000,00</DisplayAmount>
+										<ModelType>
+											<Code>Limit</Code>
+											<DisplayName>Límite</DisplayName>
+										</ModelType>
+									</CovTerm>
+								</CovTerms>
+								<CoverageCodeForPrinting>
+									<CoverageCode>CA7CivilLiabilityInjuriesAndOrDeathOfThirdPartiesTransportedCov</CoverageCode>
+									<CoverageGroup>Por Responsabilidad Civil (Incluye Seguro Obligatorio)</CoverageGroup>
+									<Abbreviation>RC</Abbreviation>
+								</CoverageCodeForPrinting>
+								<Category>CA7PrivatePassengerStdGrp</Category>
+							</Coverage>
+							<Coverage>
+								<Code>CA7LegalAssistanceCov</Code>
+								<DisplayName>Asistencia Legal</DisplayName>
+								<Abbreviation>AL - </Abbreviation>
+								<Priority>5084</Priority>
+								<Subtype>
+									<Code>CA7PrivatePassengerCov</Code>
+									<DisplayName>CA7PrivatePassengerCov</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CoverageType>
+									<Code>not_applicable</Code>
+									<DisplayName>No Aplicable</DisplayName>
+								</CoverageType>
+								<CovTerms/>
+								<CoverageCodeForPrinting>
+									<CoverageCode>CA7LegalAssistanceCov</CoverageCode>
+									<Abbreviation>AL</Abbreviation>
+								</CoverageCodeForPrinting>
+								<Category>CA7PrivatePassengerAddlGrp</Category>
+							</Coverage>
+						</Coverages>
+						<Conditions>
+							<Condition>
+								<Code>CA7CACC09_1Cond</Code>
+								<Priority>10705</Priority>
+								<DisplayName>CA-CC 9.1 Aplicación de Tasas Diferenciales por Lugar de Residencia del Asegurado. Zona de Bajo riesgo. Cambio de Domicilio</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CACO01_1Cond</Code>
+								<Priority>12382</Priority>
+								<DisplayName>CA-CO 1.1 Titularidad del dominio</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CACO04_1Cond</Code>
+								<Priority>12580</Priority>
+								<DisplayName>CA-CO 4.1 Renovación Automática</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CACO07_1Cond</Code>
+								<Priority>12780</Priority>
+								<DisplayName>CA-CO 7.1 Prórroga Automática</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CACO08_1Cond</Code>
+								<Priority>12781</Priority>
+								<DisplayName>CA-CO 8.1 Sistema CLEAS</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CACO14_1Cond</Code>
+								<Priority>13032</Priority>
+								<DisplayName>CA-CO 14.1 Prevención de lavado de activo y financiamiento del terrorismo</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CARC02_1Cond</Code>
+								<Priority>13145</Priority>
+								<DisplayName>CA-RC 2.1 Unidades Tractoras y/o Remolcadas (Excluidos los vehículos de auxilio)</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGCO02_2Cond</Code>
+								<Priority>13160</Priority>
+								<DisplayName>CG-CO 2.2 Vehículos entrados al país con franquicias aduaneras</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGCO04_1Cond</Code>
+								<Priority>13162</Priority>
+								<DisplayName>CG-CO 4.1 Gastos de traslado y estadía</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGCO05_1Cond</Code>
+								<Priority>13163</Priority>
+								<DisplayName>CG-CO 5.1 Cargas especiales del asegurado</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGCO06_2Cond</Code>
+								<Priority>13164</Priority>
+								<DisplayName>CG-CO 6.2 Medida de la prestación</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGCO07_1Cond</Code>
+								<Priority>13165</Priority>
+								<DisplayName>CG-CO 7.1 Dolo o Culpa Grave</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGCO08_1Cond</Code>
+								<Priority>13166</Priority>
+								<DisplayName>CG-CO 8.1 Privación de uso</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGCO09_1Cond</Code>
+								<Priority>13167</Priority>
+								<DisplayName>CG-CO 9.1 Rescisión unilateral</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGCO10_1Cond</Code>
+								<Priority>13168</Priority>
+								<DisplayName>CG-CO 10.1 Pago de la prima</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGCO11_1Cond</Code>
+								<Priority>13169</Priority>
+								<DisplayName>CG-CO 11.1 Caducidad por incumplimiento de obligaciones y cargas</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGCO12_1Cond</Code>
+								<Priority>13170</Priority>
+								<DisplayName>CG-CO 12.1 Verificación del siniestro</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGCO13_1Cond</Code>
+								<Priority>13171</Priority>
+								<DisplayName>CG-CO 13.1 Domicilio para denuncias y declaraciones</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGCO14_1Cond</Code>
+								<Priority>13172</Priority>
+								<DisplayName>CG-CO 14.1 Cómputos de los plazos</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGCO15_1Cond</Code>
+								<Priority>13173</Priority>
+								<DisplayName>CG-CO 15.1 Prórroga de jurisdicción</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGCO16_1Cond</Code>
+								<Priority>13174</Priority>
+								<DisplayName>CG-CO 16.1 Importante Advertencias al Asegurado</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGCO17_1Cond</Code>
+								<Priority>13175</Priority>
+								<DisplayName>CG-CO 17.1 Cláusula de Interpretación</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGCO18_1Cond</Code>
+								<Priority>13176</Priority>
+								<DisplayName>CG-CO 18.1 Preeminencia normativa</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGRC01_1Cond</Code>
+								<Priority>13186</Priority>
+								<DisplayName>CG-RC 1.1 Riesgo Cubierto</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGRC02_1Cond</Code>
+								<Priority>13187</Priority>
+								<DisplayName>CG-RC 2.1 Exclusiones a la cobertura para Responsabilidad Civil</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGRC03_1Cond</Code>
+								<Priority>13188</Priority>
+								<DisplayName>CG-RC 3.1 Defensa en juicio civil</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGRC04_1Cond</Code>
+								<Priority>13189</Priority>
+								<DisplayName>CG-RC 4.1 Costas y Gastos</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGRC05_1Cond</Code>
+								<Priority>13190</Priority>
+								<DisplayName>CG-RC 5.1 Proceso Penal</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7COEX01_1Cond</Code>
+								<Priority>13330</Priority>
+								<DisplayName>CO-EX 1.1 Seguro de Resp. Civil del Transportador Carretero de Viaje Internacional por los Territorios de los Países del Cono Sur (Argentina, Bolivia, Brasil, Chile, Paraguay, Perú y Uruguay) - Daños Causados a Personas o Cosas Transportadas o no.</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7COEX11_1Cond</Code>
+								<Priority>13831</Priority>
+								<DisplayName>CO-EX 11.1 Extensión de la Cobertura de Responsabilidad Civil a Países del Cono Sur</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7SORC01Cond</Code>
+								<Priority>13832</Priority>
+								<DisplayName>SO-RC 1 Cláusula 1- Responsabilidad Civil hacia terceros. Riesgo cubierto</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7SORC02Cond</Code>
+								<Priority>13833</Priority>
+								<DisplayName>SO-RC 2 Cláusula 2- Límite de responsabilidad</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7SORC03Cond</Code>
+								<Priority>13834</Priority>
+								<DisplayName>SO-RC 3 Cláusula 3- Defensa en juicio civil</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7SORC04Cond</Code>
+								<Priority>13835</Priority>
+								<DisplayName>SO-RC 4 Cláusula 4- Proceso penal</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7SORC05Cond</Code>
+								<Priority>13836</Priority>
+								<DisplayName>SO-RC 5 Cláusula 5- Dolo o culpa grave</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7SORC06Cond</Code>
+								<Priority>13837</Priority>
+								<DisplayName>SO-RC 6 Cláusula 6- Exclusiones de la cobertura</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7SORC07Cond</Code>
+								<Priority>13838</Priority>
+								<DisplayName>SO-RC 7 Cláusula 7- Caducidad por incumplimiento de obligaciones y cargas</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7SORC08Cond</Code>
+								<Priority>13839</Priority>
+								<DisplayName>SO-RC 8 Cláusula 8- Verificación del siniestro</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7SORC09Cond</Code>
+								<Priority>13959</Priority>
+								<DisplayName>SO-RC 9 Cláusula 9- Baremo</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7ResolutionNumberCond</Code>
+								<Priority>17180</Priority>
+								<DisplayName>Número de Resolución</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CoverAPCond</Code>
+								<Priority>17280</Priority>
+								<DisplayName>Carátula</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+						</Conditions>
+						<Exclusions/>
+						<RouteCategory>
+							<Code>bulk_cargo</Code>
+							<DisplayName>Transportista de Carga Masiva o a Granel</DisplayName>
+						</RouteCategory>
+						<InternationalCovType>
+							<Code>international_road_transport</Code>
+							<DisplayName>Transporte carretero internacional</DisplayName>
+						</InternationalCovType>
+						<AdditionalInterestDetails>
+							<AdditionalInterestDetail>
+								<AdditionalInterestType>
+									<Code>additional_insured_GSS</Code>
+									<DisplayName>Asegurado Adicional</DisplayName>
+								</AdditionalInterestType>
+								<Contact>
+									<PublicID>pc:505</PublicID>
+									<DisplayName>ECHAZARRETA ADRIAN</DisplayName>
+									<FirstName>ADRIAN</FirstName>
+									<LastName>ECHAZARRETA</LastName>
+									<Age>37</Age>
+									<TaxID>30789321</TaxID>
+									<AssociatedNumber>123456789</AssociatedNumber>
+									<OfficialIDs>
+										<OfficialID>
+											<Type>
+												<Code>dni_GSS</Code>
+												<DisplayName>Documento Nacional de Identidad</DisplayName>
+												<UnlocalizedName>DNI</UnlocalizedName>
+											</Type>
+											<Value>30789321</Value>
+											<Primary>true</Primary>
+										</OfficialID>
+										<OfficialID>
+											<Type>
+												<Code>cuit_cuil_GSS</Code>
+												<DisplayName>CUIT/CUIL</DisplayName>
+												<UnlocalizedName>CUIT/CUIL</UnlocalizedName>
+											</Type>
+											<Value>20307893216</Value>
+											<Primary>false</Primary>
+										</OfficialID>
+									</OfficialIDs>
+									<TaxCondition>
+										<Code>cf</Code>
+										<DisplayName>Consumidor Final</DisplayName>
+									</TaxCondition>
+									<Gender>
+										<Code>M</Code>
+										<DisplayName>Masculino</DisplayName>
+									</Gender>
+									<PrimaryAddressConcatenated>Avenida Belgrano 646 12 B</PrimaryAddressConcatenated>
+									<PrimaryAddress>
+										<AddressLine1>Avenida Belgrano</AddressLine1>
+										<AddressLine2>646</AddressLine2>
+										<AddressLine3>12</AddressLine3>
+										<Department>B</Department>
+										<AddressType>
+											<Code>home</Code>
+											<DisplayName>Particular</DisplayName>
+										</AddressType>
+										<City>Sunchales</City>
+										<Country>
+											<Code>AR</Code>
+											<DisplayName>Argentina</DisplayName>
+										</Country>
+										<PostalCode>2322</PostalCode>
+										<State>
+											<Code>AR-S</Code>
+											<DisplayName>Santa Fe</DisplayName>
+										</State>
+										<Neighborhood>Sancor</Neighborhood>
+										<BetweenStreet1>Salta</BetweenStreet1>
+										<BetweenStreet2>Mitri</BetweenStreet2>
+									</PrimaryAddress>
+									<PrimaryPhoneType>
+										<Code>home</Code>
+										<DisplayName>Casa</DisplayName>
+									</PrimaryPhoneType>
+									<PrimaryPhoneValue>03493 45-8798</PrimaryPhoneValue>
+									<CellPhone>03493562563</CellPhone>
+									<HomePhone>03493458798</HomePhone>
+									<IsHomePhoneLandLine>true</IsHomePhoneLandLine>
+									<WorkPhone>03493458799</WorkPhone>
+									<IsWorkPhoneLandLine>true</IsWorkPhoneLandLine>
+									<AlternativePhone>03493 45-8798</AlternativePhone>
+									<DateOfBirth>1984-06-25T00:00:00</DateOfBirth>
+									<Subtype>
+										<Code>Person</Code>
+										<DisplayName>Persona</DisplayName>
+									</Subtype>
+								</Contact>
+								<Subtype>
+									<Code>CA7PrivatePassengerAddlInterest</Code>
+									<DisplayName>CA7PrivatePassengerAddlInterest</DisplayName>
+								</Subtype>
+							</AdditionalInterestDetail>
+							<AdditionalInterestDetail>
+								<AdditionalInterestType>
+									<Code>additional_insured_GSS</Code>
+									<DisplayName>Asegurado Adicional</DisplayName>
+								</AdditionalInterestType>
+								<Contact>
+									<PublicID>pc:506</PublicID>
+									<DisplayName>BRANCA LUCILA AYELEN</DisplayName>
+									<FirstName>LUCILA AYELEN</FirstName>
+									<LastName>BRANCA</LastName>
+									<Age>30</Age>
+									<TaxID>36294472</TaxID>
+									<OfficialIDs>
+										<OfficialID>
+											<Type>
+												<Code>dni_GSS</Code>
+												<DisplayName>Documento Nacional de Identidad</DisplayName>
+												<UnlocalizedName>DNI</UnlocalizedName>
+											</Type>
+											<Value>36294472</Value>
+											<Primary>true</Primary>
+										</OfficialID>
+										<OfficialID>
+											<Type>
+												<Code>cuit_cuil_GSS</Code>
+												<DisplayName>CUIT/CUIL</DisplayName>
+												<UnlocalizedName>CUIT/CUIL</UnlocalizedName>
+											</Type>
+											<Value>23362944724</Value>
+											<Primary>false</Primary>
+										</OfficialID>
+									</OfficialIDs>
+									<Gender>
+										<Code>F</Code>
+										<DisplayName>Femenino</DisplayName>
+									</Gender>
+									<PrimaryAddressConcatenated>Avenida Belgrano 646 11 V</PrimaryAddressConcatenated>
+									<PrimaryAddress>
+										<AddressLine1>Avenida Belgrano</AddressLine1>
+										<AddressLine2>646</AddressLine2>
+										<AddressLine3>11</AddressLine3>
+										<Department>V</Department>
+										<AddressType>
+											<Code>business</Code>
+											<DisplayName>Comercial</DisplayName>
+										</AddressType>
+										<City>Sunchales</City>
+										<Country>
+											<Code>AR</Code>
+											<DisplayName>Argentina</DisplayName>
+										</Country>
+										<PostalCode>2322</PostalCode>
+										<State>
+											<Code>AR-S</Code>
+											<DisplayName>Santa Fe</DisplayName>
+										</State>
+										<Neighborhood>Sancor</Neighborhood>
+										<BetweenStreet1>Salta</BetweenStreet1>
+										<BetweenStreet2>Mitri</BetweenStreet2>
+									</PrimaryAddress>
+									<PrimaryPhoneType>
+										<Code>home</Code>
+										<DisplayName>Casa</DisplayName>
+									</PrimaryPhoneType>
+									<PrimaryPhoneValue>03436 42-5874</PrimaryPhoneValue>
+									<CellPhone>03493524874</CellPhone>
+									<HomePhone>03436425874</HomePhone>
+									<IsHomePhoneLandLine>true</IsHomePhoneLandLine>
+									<DateOfBirth>1991-08-29T00:00:00</DateOfBirth>
+									<Subtype>
+										<Code>Person</Code>
+										<DisplayName>Persona</DisplayName>
+									</Subtype>
+								</Contact>
+								<Subtype>
+									<Code>CA7PrivatePassengerAddlInterest</Code>
+									<DisplayName>CA7PrivatePassengerAddlInterest</DisplayName>
+								</Subtype>
+							</AdditionalInterestDetail>
+						</AdditionalInterestDetails>
+						<Location>
+							<AddressLine1>Avenida Belgrano</AddressLine1>
+							<AddressLine2>646</AddressLine2>
+							<AddressLine3>12</AddressLine3>
+							<AddressType>
+								<Code>home</Code>
+								<DisplayName>Particular</DisplayName>
+							</AddressType>
+							<City>Sunchales</City>
+							<Country>
+								<Code>AR</Code>
+								<DisplayName>Argentina</DisplayName>
+							</Country>
+							<PostalCode>2322</PostalCode>
+							<State>
+								<Code>AR-S</Code>
+								<DisplayName>Santa Fe</DisplayName>
+							</State>
+						</Location>
+						<VehicleAccessories/>
+						<PreviousInspection>false</PreviousInspection>
+						<ParkedInGarage>true</ParkedInGarage>
+						<AnnualKm>
+							<Code>up_to_25000</Code>
+							<DisplayName>Hasta 25.000</DisplayName>
+						</AnnualKm>
+						<Less25>false</Less25>
+						<TrackingKit>false</TrackingKit>
+						<VehiclesAuthorizedToDrive/>
+					</PrivatePassenger>
+					<PrivatePassenger>
+						<AutosFurnishedForRegularUse>false</AutosFurnishedForRegularUse>
+						<ClassCode>truck_GSS</ClassCode>
+						<ClassName>truck_GSS</ClassName>
+						<VehicleClass>
+							<Code>truck_GSS</Code>
+							<DisplayName>Camión</DisplayName>
+						</VehicleClass>
+						<Module>
+							<Code>max_totals</Code>
+							<DisplayName>Max Totales</DisplayName>
+						</Module>
+						<Fleet>
+							<Code>Yes</Code>
+							<DisplayName>Yes</DisplayName>
+						</Fleet>
+						<ChassisNumber>4BGND4GY7HG516512</ChassisNumber>
+						<EngineNumber>62EJHF1262433</EngineNumber>
+						<Use>
+							<Code>commercial_GSS</Code>
+							<DisplayName>Comercial</DisplayName>
+						</Use>
+						<CargoType>
+							<Code>general</Code>
+							<DisplayName>Cargas Generales</DisplayName>
+						</CargoType>
+						<VehicleType>
+							<Code>truck_GSS</Code>
+							<DisplayName>Camión</DisplayName>
+						</VehicleType>
+						<LeaseOrRent>false</LeaseOrRent>
+						<LessorAnEmployee>false</LessorAnEmployee>
+						<LicensePlate>AE334FB</LicensePlate>
+						<Make>70</Make>
+						<MakeName>RENAULT CAM.</MakeName>
+						<Model>78</Model>
+						<ModelName>RENAULT CAMION D19 320 4X2 T AUTHENTIC</ModelName>
+						<OriginalCostNew>0.00</OriginalCostNew>
+						<InsuredValue>
+							<Currency>
+								<Code>ars</Code>
+								<DisplayName>ARS</DisplayName>
+								<Description>Pesos argentinos</Description>
+							</Currency>
+							<Amount>3978000.00</Amount>
+							<DisplayAmount>$ 3.978.000,00</DisplayAmount>
+						</InsuredValue>
+						<SuggestedValue>
+							<Currency>
+								<Code>ars</Code>
+								<DisplayName>ARS</DisplayName>
+								<Description>Pesos argentinos</Description>
+							</Currency>
+							<Amount>3978000.00</Amount>
+							<DisplayAmount>$ 3.978.000,00</DisplayAmount>
+						</SuggestedValue>
+						<TotalValue>
+							<Currency>
+								<Code>ars</Code>
+								<DisplayName>ARS</DisplayName>
+								<Description>Pesos argentinos</Description>
+							</Currency>
+							<Amount>3978000.00</Amount>
+							<DisplayAmount>$ 3.978.000,00</DisplayAmount>
+						</TotalValue>
+						<ZeroKM>false</ZeroKM>
+						<ManufactureOrigin>
+							<Code>national</Code>
+							<DisplayName>Nacional</DisplayName>
+						</ManufactureOrigin>
+						<PercentOfMilesDrivenInGreen>
+							<Code>NotApplicable</Code>
+							<DisplayName>Not Applicable</DisplayName>
+						</PercentOfMilesDrivenInGreen>
+						<SafetyScoreDiscountApplies>false</SafetyScoreDiscountApplies>
+						<StatedAmount>0.00</StatedAmount>
+						<VehicleNumber>2</VehicleNumber>
+						<VehicleCode>700078</VehicleCode>
+						<VehicleDescription>RENAULT CAMION D19 320 4X2 T AUTHENTIC</VehicleDescription>
+						<ManufacturingYear>2015</ManufacturingYear>
+						<ModelYear>2015</ModelYear>
+						<CurrencyCode>ars</CurrencyCode>
+						<CurrencyName>ARS</CurrencyName>
+						<Costs>
+							<Cost>
+								<Premium>
+									<Currency>
+										<Code>ars</Code>
+										<DisplayName>ARS</DisplayName>
+										<Description>Pesos argentinos</Description>
+									</Currency>
+									<Amount>164.76</Amount>
+									<DisplayAmount>$ 164,76</DisplayAmount>
+								</Premium>
+							</Cost>
+							<Cost>
+								<Premium>
+									<Currency>
+										<Code>ars</Code>
+										<DisplayName>ARS</DisplayName>
+										<Description>Pesos argentinos</Description>
+									</Currency>
+									<Amount>737.03</Amount>
+									<DisplayAmount>$ 737,03</DisplayAmount>
+								</Premium>
+							</Cost>
+							<Cost>
+								<Premium>
+									<Currency>
+										<Code>ars</Code>
+										<DisplayName>ARS</DisplayName>
+										<Description>Pesos argentinos</Description>
+									</Currency>
+									<Amount>60921.97</Amount>
+									<DisplayAmount>$ 60.921,97</DisplayAmount>
+								</Premium>
+							</Cost>
+							<Cost>
+								<Premium>
+									<Currency>
+										<Code>ars</Code>
+										<DisplayName>ARS</DisplayName>
+										<Description>Pesos argentinos</Description>
+									</Currency>
+									<Amount>13.73</Amount>
+									<DisplayAmount>$ 13,73</DisplayAmount>
+								</Premium>
+							</Cost>
+							<Cost>
+								<Premium>
+									<Currency>
+										<Code>ars</Code>
+										<DisplayName>ARS</DisplayName>
+										<Description>Pesos argentinos</Description>
+									</Currency>
+									<Amount>22.88</Amount>
+									<DisplayAmount>$ 22,88</DisplayAmount>
+								</Premium>
+							</Cost>
+							<Cost>
+								<Premium>
+									<Currency>
+										<Code>ars</Code>
+										<DisplayName>ARS</DisplayName>
+										<Description>Pesos argentinos</Description>
+									</Currency>
+									<Amount>310.78</Amount>
+									<DisplayAmount>$ 310,78</DisplayAmount>
+								</Premium>
+							</Cost>
+							<Cost>
+								<Premium>
+									<Currency>
+										<Code>ars</Code>
+										<DisplayName>ARS</DisplayName>
+										<Description>Pesos argentinos</Description>
+									</Currency>
+									<Amount>213.89</Amount>
+									<DisplayAmount>$ 213,89</DisplayAmount>
+								</Premium>
+							</Cost>
+							<Cost>
+								<Premium>
+									<Currency>
+										<Code>ars</Code>
+										<DisplayName>ARS</DisplayName>
+										<Description>Pesos argentinos</Description>
+									</Currency>
+									<Amount>274.60</Amount>
+									<DisplayAmount>$ 274,60</DisplayAmount>
+								</Premium>
+							</Cost>
+							<Cost>
+								<Premium>
+									<Currency>
+										<Code>ars</Code>
+										<DisplayName>ARS</DisplayName>
+										<Description>Pesos argentinos</Description>
+									</Currency>
+									<Amount>128.34</Amount>
+									<DisplayAmount>$ 128,34</DisplayAmount>
+								</Premium>
+							</Cost>
+							<Cost>
+								<Premium>
+									<Currency>
+										<Code>ars</Code>
+										<DisplayName>ARS</DisplayName>
+										<Description>Pesos argentinos</Description>
+									</Currency>
+									<Amount>507.26</Amount>
+									<DisplayAmount>$ 507,26</DisplayAmount>
+								</Premium>
+							</Cost>
+							<Cost>
+								<Premium>
+									<Currency>
+										<Code>ars</Code>
+										<DisplayName>ARS</DisplayName>
+										<Description>Pesos argentinos</Description>
+									</Currency>
+									<Amount>53829.83</Amount>
+									<DisplayAmount>$ 53.829,83</DisplayAmount>
+								</Premium>
+							</Cost>
+							<Cost>
+								<Premium>
+									<Currency>
+										<Code>ars</Code>
+										<DisplayName>ARS</DisplayName>
+										<Description>Pesos argentinos</Description>
+									</Currency>
+									<Amount>0.00</Amount>
+									<DisplayAmount>$ 0,00</DisplayAmount>
+								</Premium>
+							</Cost>
+							<Cost>
+								<Premium>
+									<Currency>
+										<Code>ars</Code>
+										<DisplayName>ARS</DisplayName>
+										<Description>Pesos argentinos</Description>
+									</Currency>
+									<Amount>54.27</Amount>
+									<DisplayAmount>$ 54,27</DisplayAmount>
+								</Premium>
+							</Cost>
+							<Cost>
+								<Premium>
+									<Currency>
+										<Code>ars</Code>
+										<DisplayName>ARS</DisplayName>
+										<Description>Pesos argentinos</Description>
+									</Currency>
+									<Amount>4485.82</Amount>
+									<DisplayAmount>$ 4.485,82</DisplayAmount>
+								</Premium>
+							</Cost>
+							<Cost>
+								<Premium>
+									<Currency>
+										<Code>ars</Code>
+										<DisplayName>ARS</DisplayName>
+										<Description>Pesos argentinos</Description>
+									</Currency>
+									<Amount>0.00</Amount>
+									<DisplayAmount>$ 0,00</DisplayAmount>
+								</Premium>
+							</Cost>
+							<Cost>
+								<Premium>
+									<Currency>
+										<Code>ars</Code>
+										<DisplayName>ARS</DisplayName>
+										<Description>Pesos argentinos</Description>
+									</Currency>
+									<Amount>651.23</Amount>
+									<DisplayAmount>$ 651,23</DisplayAmount>
+								</Premium>
+							</Cost>
+							<Cost>
+								<Premium>
+									<Currency>
+										<Code>ars</Code>
+										<DisplayName>ARS</DisplayName>
+										<Description>Pesos argentinos</Description>
+									</Currency>
+									<Amount>186.47</Amount>
+									<DisplayAmount>$ 186,47</DisplayAmount>
+								</Premium>
+							</Cost>
+							<Cost>
+								<Premium>
+									<Currency>
+										<Code>ars</Code>
+										<DisplayName>ARS</DisplayName>
+										<Description>Pesos argentinos</Description>
+									</Currency>
+									<Amount>0.00</Amount>
+									<DisplayAmount>$ 0,00</DisplayAmount>
+								</Premium>
+							</Cost>
+							<Cost>
+								<Premium>
+									<Currency>
+										<Code>ars</Code>
+										<DisplayName>ARS</DisplayName>
+										<Description>Pesos argentinos</Description>
+									</Currency>
+									<Amount>41929.24</Amount>
+									<DisplayAmount>$ 41.929,24</DisplayAmount>
+								</Premium>
+							</Cost>
+						</Costs>
+						<Coverages>
+							<Coverage>
+								<Code>CA7CivilLiabilityDamageToThingsNotTransportedByThirdPartiesCov</Code>
+								<DisplayName>Resp. Civil: Daños a cosas no transportadas de terceras personas</DisplayName>
+								<Abbreviation>RC - </Abbreviation>
+								<Priority>3770</Priority>
+								<Subtype>
+									<Code>CA7PrivatePassengerCov</Code>
+									<DisplayName>CA7PrivatePassengerCov</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CoverageGroup>Por Responsabilidad Civil (Incluye Seguro Obligatorio)</CoverageGroup>
+								<CoverageType>
+									<Code>not_applicable</Code>
+									<DisplayName>No Aplicable</DisplayName>
+								</CoverageType>
+								<CovTerms>
+									<CovTerm>
+										<CodeIdentifier>LimitRC1</CodeIdentifier>
+										<Priority>100</Priority>
+										<ValueTypeName>Option</ValueTypeName>
+										<ValueType>
+											<Code>money</Code>
+											<DisplayName>Dinero</DisplayName>
+										</ValueType>
+										<DisplayName>Límite</DisplayName>
+										<DisplayValue>38.500.000</DisplayValue>
+										<DisplayAmount>$ 38.500.000,00</DisplayAmount>
+										<ModelType>
+											<Code>Limit</Code>
+											<DisplayName>Límite</DisplayName>
+										</ModelType>
+									</CovTerm>
+								</CovTerms>
+								<CoverageCodeForPrinting>
+									<CoverageCode>CA7CivilLiabilityDamageToThingsNotTransportedByThirdPartiesCov</CoverageCode>
+									<CoverageGroup>Por Responsabilidad Civil (Incluye Seguro Obligatorio)</CoverageGroup>
+									<Abbreviation>RC</Abbreviation>
+								</CoverageCodeForPrinting>
+								<Category>CA7PrivatePassengerStdGrp</Category>
+							</Coverage>
+							<Coverage>
+								<Code>CA7CivilLiabilityInjuriesAndOrDeathOfThirdPartiesNotTranspCov</Code>
+								<DisplayName>Resp. Civil: Lesiones y/o muerte de terceras personas no transportadas</DisplayName>
+								<Abbreviation>RC - </Abbreviation>
+								<Priority>3870</Priority>
+								<Subtype>
+									<Code>CA7PrivatePassengerCov</Code>
+									<DisplayName>CA7PrivatePassengerCov</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CoverageGroup>Por Responsabilidad Civil (Incluye Seguro Obligatorio)</CoverageGroup>
+								<CoverageType>
+									<Code>not_applicable</Code>
+									<DisplayName>No Aplicable</DisplayName>
+								</CoverageType>
+								<CovTerms>
+									<CovTerm>
+										<CodeIdentifier>LimitRC2</CodeIdentifier>
+										<Priority>100</Priority>
+										<ValueTypeName>Option</ValueTypeName>
+										<ValueType>
+											<Code>money</Code>
+											<DisplayName>Dinero</DisplayName>
+										</ValueType>
+										<DisplayName>Límite</DisplayName>
+										<DisplayValue>38.500.000</DisplayValue>
+										<DisplayAmount>$ 38.500.000,00</DisplayAmount>
+										<ModelType>
+											<Code>Limit</Code>
+											<DisplayName>Límite</DisplayName>
+										</ModelType>
+									</CovTerm>
+								</CovTerms>
+								<CoverageCodeForPrinting>
+									<CoverageCode>CA7CivilLiabilityInjuriesAndOrDeathOfThirdPartiesNotTranspCov</CoverageCode>
+									<CoverageGroup>Por Responsabilidad Civil (Incluye Seguro Obligatorio)</CoverageGroup>
+									<Abbreviation>RC</Abbreviation>
+								</CoverageCodeForPrinting>
+								<Category>CA7PrivatePassengerStdGrp</Category>
+							</Coverage>
+							<Coverage>
+								<Code>CA7CivilLiabilityInjuriesAndOrDeathOfThirdPartiesTransportedCov</Code>
+								<DisplayName>Resp. Civil: Lesiones y/o muerte de terceras personas transportadas</DisplayName>
+								<Abbreviation>RC - </Abbreviation>
+								<Priority>3871</Priority>
+								<Subtype>
+									<Code>CA7PrivatePassengerCov</Code>
+									<DisplayName>CA7PrivatePassengerCov</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CoverageGroup>Por Responsabilidad Civil (Incluye Seguro Obligatorio)</CoverageGroup>
+								<CoverageType>
+									<Code>not_applicable</Code>
+									<DisplayName>No Aplicable</DisplayName>
+								</CoverageType>
+								<CovTerms>
+									<CovTerm>
+										<CodeIdentifier>LimitRC3</CodeIdentifier>
+										<Priority>100</Priority>
+										<ValueTypeName>Option</ValueTypeName>
+										<ValueType>
+											<Code>money</Code>
+											<DisplayName>Dinero</DisplayName>
+										</ValueType>
+										<DisplayName>Límite</DisplayName>
+										<DisplayValue>38.500.000</DisplayValue>
+										<DisplayAmount>$ 38.500.000,00</DisplayAmount>
+										<ModelType>
+											<Code>Limit</Code>
+											<DisplayName>Límite</DisplayName>
+										</ModelType>
+									</CovTerm>
+								</CovTerms>
+								<CoverageCodeForPrinting>
+									<CoverageCode>CA7CivilLiabilityInjuriesAndOrDeathOfThirdPartiesTransportedCov</CoverageCode>
+									<CoverageGroup>Por Responsabilidad Civil (Incluye Seguro Obligatorio)</CoverageGroup>
+									<Abbreviation>RC</Abbreviation>
+								</CoverageCodeForPrinting>
+								<Category>CA7PrivatePassengerStdGrp</Category>
+							</Coverage>
+							<Coverage>
+								<Code>CA7TotalAccidentCov</Code>
+								<DisplayName>Accidente Total</DisplayName>
+								<Abbreviation>AT - </Abbreviation>
+								<Priority>3872</Priority>
+								<Subtype>
+									<Code>CA7PrivatePassengerCov</Code>
+									<DisplayName>CA7PrivatePassengerCov</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CoverageGroup>Daño Total</CoverageGroup>
+								<CoverageType>
+									<Code>not_applicable</Code>
+									<DisplayName>No Aplicable</DisplayName>
+								</CoverageType>
+								<CovTerms>
+									<CovTerm>
+										<CodeIdentifier>LimitTotalAccident</CodeIdentifier>
+										<Priority>100</Priority>
+										<ValueTypeName>Direct</ValueTypeName>
+										<ValueType>
+											<Code>money</Code>
+											<DisplayName>Dinero</DisplayName>
+										</ValueType>
+										<DisplayName>Límite</DisplayName>
+										<DisplayValue>3.978.000</DisplayValue>
+										<DisplayAmount>$ 3.978.000,00</DisplayAmount>
+										<ModelType>
+											<Code>Limit</Code>
+											<DisplayName>Límite</DisplayName>
+										</ModelType>
+									</CovTerm>
+								</CovTerms>
+								<CoverageCodeForPrinting>
+									<CoverageCode>CA7TotalAccidentCov</CoverageCode>
+									<CoverageGroup>Daño Total</CoverageGroup>
+									<Abbreviation>AT</Abbreviation>
+								</CoverageCodeForPrinting>
+								<Category>CA7PrivatePassengerStdGrp</Category>
+							</Coverage>
+							<Coverage>
+								<Code>CA7TotalFireCov</Code>
+								<DisplayName>Incendio Total</DisplayName>
+								<Abbreviation>IT - </Abbreviation>
+								<Priority>3873</Priority>
+								<Subtype>
+									<Code>CA7PrivatePassengerCov</Code>
+									<DisplayName>CA7PrivatePassengerCov</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CoverageGroup>Incendio Total</CoverageGroup>
+								<CoverageType>
+									<Code>not_applicable</Code>
+									<DisplayName>No Aplicable</DisplayName>
+								</CoverageType>
+								<CovTerms>
+									<CovTerm>
+										<CodeIdentifier>LimitTotalFire</CodeIdentifier>
+										<Priority>100</Priority>
+										<ValueTypeName>Direct</ValueTypeName>
+										<ValueType>
+											<Code>money</Code>
+											<DisplayName>Dinero</DisplayName>
+										</ValueType>
+										<DisplayName>Límite</DisplayName>
+										<DisplayValue>3.978.000</DisplayValue>
+										<DisplayAmount>$ 3.978.000,00</DisplayAmount>
+										<ModelType>
+											<Code>Limit</Code>
+											<DisplayName>Límite</DisplayName>
+										</ModelType>
+									</CovTerm>
+								</CovTerms>
+								<CoverageCodeForPrinting>
+									<CoverageCode>CA7TotalFireCov</CoverageCode>
+									<CoverageGroup>Incendio Total</CoverageGroup>
+									<Abbreviation>IT</Abbreviation>
+								</CoverageCodeForPrinting>
+								<Category>CA7PrivatePassengerStdGrp</Category>
+							</Coverage>
+							<Coverage>
+								<Code>CA7TotalTheftAndOrLarcenyCov</Code>
+								<DisplayName>Robo y/o Hurto Total</DisplayName>
+								<Abbreviation>RT - </Abbreviation>
+								<Priority>4870</Priority>
+								<Subtype>
+									<Code>CA7PrivatePassengerCov</Code>
+									<DisplayName>CA7PrivatePassengerCov</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CoverageGroup>Robo/Hurto Total</CoverageGroup>
+								<CoverageType>
+									<Code>not_applicable</Code>
+									<DisplayName>No Aplicable</DisplayName>
+								</CoverageType>
+								<CovTerms>
+									<CovTerm>
+										<CodeIdentifier>LimitTotalTheft</CodeIdentifier>
+										<Priority>100</Priority>
+										<ValueTypeName>Direct</ValueTypeName>
+										<ValueType>
+											<Code>money</Code>
+											<DisplayName>Dinero</DisplayName>
+										</ValueType>
+										<DisplayName>Límite</DisplayName>
+										<DisplayValue>3.978.000</DisplayValue>
+										<DisplayAmount>$ 3.978.000,00</DisplayAmount>
+										<ModelType>
+											<Code>Limit</Code>
+											<DisplayName>Límite</DisplayName>
+										</ModelType>
+									</CovTerm>
+								</CovTerms>
+								<CoverageCodeForPrinting>
+									<CoverageCode>CA7TotalTheftAndOrLarcenyCov</CoverageCode>
+									<CoverageGroup>Robo/Hurto Total</CoverageGroup>
+									<Abbreviation>RT</Abbreviation>
+								</CoverageCodeForPrinting>
+								<Category>CA7PrivatePassengerStdGrp</Category>
+							</Coverage>
+							<Coverage>
+								<Code>CA7LegalAssistanceCov</Code>
+								<DisplayName>Asistencia Legal</DisplayName>
+								<Abbreviation>AL - </Abbreviation>
+								<Priority>5084</Priority>
+								<Subtype>
+									<Code>CA7PrivatePassengerCov</Code>
+									<DisplayName>CA7PrivatePassengerCov</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CoverageType>
+									<Code>not_applicable</Code>
+									<DisplayName>No Aplicable</DisplayName>
+								</CoverageType>
+								<CovTerms/>
+								<CoverageCodeForPrinting>
+									<CoverageCode>CA7LegalAssistanceCov</CoverageCode>
+									<Abbreviation>AL</Abbreviation>
+								</CoverageCodeForPrinting>
+								<Category>CA7PrivatePassengerAddlGrp</Category>
+							</Coverage>
+							<Coverage>
+								<Code>CA7TrackingKitCov</Code>
+								<DisplayName>Equipo de Rastreo</DisplayName>
+								<Abbreviation>ER - </Abbreviation>
+								<Priority>5491</Priority>
+								<Subtype>
+									<Code>CA7PrivatePassengerCov</Code>
+									<DisplayName>CA7PrivatePassengerCov</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CoverageType>
+									<Code>not_applicable</Code>
+									<DisplayName>No Aplicable</DisplayName>
+								</CoverageType>
+								<CovTerms/>
+								<CoverageCodeForPrinting>
+									<CoverageCode>CA7TrackingKitCov</CoverageCode>
+									<Abbreviation>ER</Abbreviation>
+								</CoverageCodeForPrinting>
+								<Category>CA7PrivatePassengerAddlNonVisibleGrp</Category>
+							</Coverage>
+						</Coverages>
+						<Conditions>
+							<Condition>
+								<Code>CA7CACC09_1Cond</Code>
+								<Priority>10705</Priority>
+								<DisplayName>CA-CC 9.1 Aplicación de Tasas Diferenciales por Lugar de Residencia del Asegurado. Zona de Bajo riesgo. Cambio de Domicilio</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CACO01_1Cond</Code>
+								<Priority>12382</Priority>
+								<DisplayName>CA-CO 1.1 Titularidad del dominio</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CACO04_1Cond</Code>
+								<Priority>12580</Priority>
+								<DisplayName>CA-CO 4.1 Renovación Automática</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CACO07_1Cond</Code>
+								<Priority>12780</Priority>
+								<DisplayName>CA-CO 7.1 Prórroga Automática</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CACO08_1Cond</Code>
+								<Priority>12781</Priority>
+								<DisplayName>CA-CO 8.1 Sistema CLEAS</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CACO14_1Cond</Code>
+								<Priority>13032</Priority>
+								<DisplayName>CA-CO 14.1 Prevención de lavado de activo y financiamiento del terrorismo</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CARC02_1Cond</Code>
+								<Priority>13145</Priority>
+								<DisplayName>CA-RC 2.1 Unidades Tractoras y/o Remolcadas (Excluidos los vehículos de auxilio)</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CARH03_1Cond</Code>
+								<Priority>13158</Priority>
+								<DisplayName>CA-RH 3.1 Sistema de rastreo provisto por el Asegurador</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGCO01_1Cond</Code>
+								<Priority>13159</Priority>
+								<DisplayName>CG-CO 1.1 Siniestro total por concurrencia de Daño y/o Incendio y/o Robo o Hurto</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGCO02_2Cond</Code>
+								<Priority>13160</Priority>
+								<DisplayName>CG-CO 2.2 Vehículos entrados al país con franquicias aduaneras</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGCO03_1Cond</Code>
+								<Priority>13161</Priority>
+								<DisplayName>CG-CO 3.1 Prueba instrumental y pago de la indemnización</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGCO04_1Cond</Code>
+								<Priority>13162</Priority>
+								<DisplayName>CG-CO 4.1 Gastos de traslado y estadía</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGCO05_1Cond</Code>
+								<Priority>13163</Priority>
+								<DisplayName>CG-CO 5.1 Cargas especiales del asegurado</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGCO06_2Cond</Code>
+								<Priority>13164</Priority>
+								<DisplayName>CG-CO 6.2 Medida de la prestación</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGCO07_1Cond</Code>
+								<Priority>13165</Priority>
+								<DisplayName>CG-CO 7.1 Dolo o Culpa Grave</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGCO08_1Cond</Code>
+								<Priority>13166</Priority>
+								<DisplayName>CG-CO 8.1 Privación de uso</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGCO09_1Cond</Code>
+								<Priority>13167</Priority>
+								<DisplayName>CG-CO 9.1 Rescisión unilateral</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGCO10_1Cond</Code>
+								<Priority>13168</Priority>
+								<DisplayName>CG-CO 10.1 Pago de la prima</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGCO11_1Cond</Code>
+								<Priority>13169</Priority>
+								<DisplayName>CG-CO 11.1 Caducidad por incumplimiento de obligaciones y cargas</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGCO12_1Cond</Code>
+								<Priority>13170</Priority>
+								<DisplayName>CG-CO 12.1 Verificación del siniestro</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGCO13_1Cond</Code>
+								<Priority>13171</Priority>
+								<DisplayName>CG-CO 13.1 Domicilio para denuncias y declaraciones</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGCO14_1Cond</Code>
+								<Priority>13172</Priority>
+								<DisplayName>CG-CO 14.1 Cómputos de los plazos</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGCO15_1Cond</Code>
+								<Priority>13173</Priority>
+								<DisplayName>CG-CO 15.1 Prórroga de jurisdicción</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGCO16_1Cond</Code>
+								<Priority>13174</Priority>
+								<DisplayName>CG-CO 16.1 Importante Advertencias al Asegurado</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGCO17_1Cond</Code>
+								<Priority>13175</Priority>
+								<DisplayName>CG-CO 17.1 Cláusula de Interpretación</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGCO18_1Cond</Code>
+								<Priority>13176</Priority>
+								<DisplayName>CG-CO 18.1 Preeminencia normativa</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGDA01_1Cond</Code>
+								<Priority>13177</Priority>
+								<DisplayName>CG-DA 1.1 Riesgo Cubierto</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGDA02_1Cond</Code>
+								<Priority>13178</Priority>
+								<DisplayName>CG-DA 2.1 Exclusiones a la cobertura para Daños</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGDA04_2Cond</Code>
+								<Priority>13180</Priority>
+								<DisplayName>CG-DA 4.2 Daño Total</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGIN01_1Cond</Code>
+								<Priority>13181</Priority>
+								<DisplayName>CG-IN 1.1 Riesgo Cubierto</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGIN02_1Cond</Code>
+								<Priority>13182</Priority>
+								<DisplayName>CG-IN 2.1 Exclusiones a la cobertura para Incendio</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGIN04_2Cond</Code>
+								<Priority>13185</Priority>
+								<DisplayName>CG-IN 4.2 Incendio Total</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGRC01_1Cond</Code>
+								<Priority>13186</Priority>
+								<DisplayName>CG-RC 1.1 Riesgo Cubierto</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGRC02_1Cond</Code>
+								<Priority>13187</Priority>
+								<DisplayName>CG-RC 2.1 Exclusiones a la cobertura para Responsabilidad Civil</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGRC03_1Cond</Code>
+								<Priority>13188</Priority>
+								<DisplayName>CG-RC 3.1 Defensa en juicio civil</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGRC04_1Cond</Code>
+								<Priority>13189</Priority>
+								<DisplayName>CG-RC 4.1 Costas y Gastos</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGRC05_1Cond</Code>
+								<Priority>13190</Priority>
+								<DisplayName>CG-RC 5.1 Proceso Penal</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGRH01_1Cond</Code>
+								<Priority>13191</Priority>
+								<DisplayName>CG-RH 1.1 Riesgo Cubierto</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGRH02_1Cond</Code>
+								<Priority>13192</Priority>
+								<DisplayName>CG-RH 2.1 Exclusiones a la cobertura para Robo o Hurto</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CGRH04_2Cond</Code>
+								<Priority>13262</Priority>
+								<DisplayName>CG-RH 4.2 Robo o Hurto total</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7SORC01Cond</Code>
+								<Priority>13832</Priority>
+								<DisplayName>SO-RC 1 Cláusula 1- Responsabilidad Civil hacia terceros. Riesgo cubierto</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7SORC02Cond</Code>
+								<Priority>13833</Priority>
+								<DisplayName>SO-RC 2 Cláusula 2- Límite de responsabilidad</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7SORC03Cond</Code>
+								<Priority>13834</Priority>
+								<DisplayName>SO-RC 3 Cláusula 3- Defensa en juicio civil</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7SORC04Cond</Code>
+								<Priority>13835</Priority>
+								<DisplayName>SO-RC 4 Cláusula 4- Proceso penal</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7SORC05Cond</Code>
+								<Priority>13836</Priority>
+								<DisplayName>SO-RC 5 Cláusula 5- Dolo o culpa grave</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7SORC06Cond</Code>
+								<Priority>13837</Priority>
+								<DisplayName>SO-RC 6 Cláusula 6- Exclusiones de la cobertura</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7SORC07Cond</Code>
+								<Priority>13838</Priority>
+								<DisplayName>SO-RC 7 Cláusula 7- Caducidad por incumplimiento de obligaciones y cargas</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7SORC08Cond</Code>
+								<Priority>13839</Priority>
+								<DisplayName>SO-RC 8 Cláusula 8- Verificación del siniestro</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7SORC09Cond</Code>
+								<Priority>13959</Priority>
+								<DisplayName>SO-RC 9 Cláusula 9- Baremo</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7ResolutionNumberCond</Code>
+								<Priority>17180</Priority>
+								<DisplayName>Número de Resolución</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+							<Condition>
+								<Code>CA7CoverAPCond</Code>
+								<Priority>17280</Priority>
+								<DisplayName>Carátula</DisplayName>
+								<Subtype>
+									<Code>CA7PrivatePassengerCond</Code>
+									<DisplayName>CA7PrivatePassengerCond</DisplayName>
+								</Subtype>
+								<Currency>
+									<Code>ars</Code>
+									<DisplayName>ARS</DisplayName>
+								</Currency>
+								<CovTerms/>
+								<Version>1</Version>
+							</Condition>
+						</Conditions>
+						<Exclusions/>
+						<RouteCategory>
+							<Code>bulk_cargo</Code>
+							<DisplayName>Transportista de Carga Masiva o a Granel</DisplayName>
+						</RouteCategory>
+						<InternationalCovType>
+							<Code>international_road_transport</Code>
+							<DisplayName>Transporte carretero internacional</DisplayName>
+						</InternationalCovType>
+						<AdditionalInterestDetails>
+							<AdditionalInterestDetail>
+								<PRUEBA>DATO_01</PRUEBA>
+							</AdditionalInterestDetail>
+						</AdditionalInterestDetails>
+						<Location>
+							<AddressLine1>Avenida Belgrano</AddressLine1>
+							<AddressLine2>646</AddressLine2>
+							<AddressLine3>12</AddressLine3>
+							<AddressType>
+								<Code>home</Code>
+								<DisplayName>Particular</DisplayName>
+							</AddressType>
+							<City>Sunchales</City>
+							<Country>
+								<Code>AR</Code>
+								<DisplayName>Argentina</DisplayName>
+							</Country>
+							<PostalCode>2322</PostalCode>
+							<State>
+								<Code>AR-S</Code>
+								<DisplayName>Santa Fe</DisplayName>
+							</State>
+						</Location>
+						<VehicleAccessories/>
+						<PreviousInspection>false</PreviousInspection>
+						<ParkedInGarage>true</ParkedInGarage>
+						<AnnualKm>
+							<Code>up_to_25000</Code>
+							<DisplayName>Hasta 25.000</DisplayName>
+						</AnnualKm>
+						<Less25>false</Less25>
+						<TrackingKit>true</TrackingKit>
+						<TrackingKitLender>
+							<Code>lojack</Code>
+							<DisplayName>Lojack</DisplayName>
+						</TrackingKitLender>
+						<VehiclesAuthorizedToDrive/>
+					</PrivatePassenger>
+				</PrivatePassengers>
+			</CA7Line>
+			<PaymentPlan>
+				<PublicID>pc:412</PublicID>
+				<Name>Mensual</Name>
+				<PaymentPlanType>
+					<Code>Installments</Code>
+					<DisplayName>Plan de cuotas</DisplayName>
+				</PaymentPlanType>
+				<NumberOfPayments>1</NumberOfPayments>
+				<InvoiceFrequency>
+					<Code>monthly</Code>
+					<DisplayName>Mensual</DisplayName>
+				</InvoiceFrequency>
+			</PaymentPlan>
+			<BillingMethod>
+				<Code>DirectBill</Code>
+				<DisplayName>Factura directa</DisplayName>
+			</BillingMethod>
+			<BillingAccountNumber>2304653497</BillingAccountNumber>
+			<BillImmediatelyPercentage>0.00</BillImmediatelyPercentage>
+			<PaymentInstrument>
+				<Description>Cobranza directa - Cobranza directa</Description>
+				<PaymentMethodType>
+					<Code>responsive</Code>
+					<DisplayName>Cobranza directa</DisplayName>
+				</PaymentMethodType>
+				<PaymentMethod>
+					<Code>responsive_GSS</Code>
+					<DisplayName>Cobranza directa</DisplayName>
+				</PaymentMethod>
+			</PaymentInstrument>
+			<PaymentInstrumentSelected>Cobranza directa - Cobranza directa</PaymentInstrumentSelected>
+			<TaxCondition>
+				<Code>cf</Code>
+				<DisplayName>Consumidor Final</DisplayName>
+			</TaxCondition>
+			<PreferredCoverageCurrency>
+				<Code>ars</Code>
+				<DisplayName>ARS</DisplayName>
+				<Description>Pesos argentinos</Description>
+			</PreferredCoverageCurrency>
+			<PreferredSettlementCurrency>
+				<Code>ars</Code>
+				<DisplayName>ARS</DisplayName>
+				<Description>Pesos argentinos</Description>
+			</PreferredSettlementCurrency>
+			<Job>
+				<PublicID>pc:509</PublicID>
+				<Subtype>
+					<Code>Submission</Code>
+					<DisplayName>Cotización</DisplayName>
+				</Subtype>
+				<JobNumber>0000874635</JobNumber>
+			</Job>
+			<PolicyContactRoles>
+				<PolicyContactRole>
+					<Subtype>
+						<Code>PolicyPriNamedInsured</Code>
+						<DisplayName>PolicyPriNamedInsured</DisplayName>
+					</Subtype>
+					<Contact>
+						<PublicID>pc:505</PublicID>
+						<DisplayName>ECHAZARRETA ADRIAN</DisplayName>
+						<FirstName>ADRIAN</FirstName>
+						<LastName>ECHAZARRETA</LastName>
+						<Age>37</Age>
+						<AssociatedNumber>123456789</AssociatedNumber>
+						<OfficialIDs>
+							<OfficialID>
+								<Type>
+									<Code>dni_GSS</Code>
+									<DisplayName>Documento Nacional de Identidad</DisplayName>
+									<UnlocalizedName>DNI</UnlocalizedName>
+								</Type>
+								<Value>30789321</Value>
+								<Primary>true</Primary>
+							</OfficialID>
+							<OfficialID>
+								<Type>
+									<Code>cuit_cuil_GSS</Code>
+									<DisplayName>CUIT/CUIL</DisplayName>
+									<UnlocalizedName>CUIT/CUIL</UnlocalizedName>
+								</Type>
+								<Value>20307893216</Value>
+								<Primary>false</Primary>
+							</OfficialID>
+						</OfficialIDs>
+						<TaxCondition>
+							<Code>cf</Code>
+							<DisplayName>Consumidor Final</DisplayName>
+						</TaxCondition>
+						<PrimaryAddressConcatenated>Avenida Belgrano 646 12 B</PrimaryAddressConcatenated>
+						<PrimaryAddress/>
+						<PrimaryPhoneType>
+							<Code>home</Code>
+							<DisplayName>Casa</DisplayName>
+						</PrimaryPhoneType>
+						<PrimaryPhoneValue>03493 45-8798</PrimaryPhoneValue>
+						<DateOfBirth>1984-06-25T00:00:00</DateOfBirth>
+					</Contact>
+				</PolicyContactRole>
+				<PolicyContactRole>
+					<Subtype>
+						<Code>PolicySecNamedInsured</Code>
+						<DisplayName>PolicySecNamedInsured</DisplayName>
+					</Subtype>
+					<Contact>
+						<PublicID>pc:505</PublicID>
+						<DisplayName>ECHAZARRETA ADRIAN</DisplayName>
+						<FirstName>ADRIAN</FirstName>
+						<LastName>ECHAZARRETA</LastName>
+						<Age>37</Age>
+						<AssociatedNumber>123456789</AssociatedNumber>
+						<OfficialIDs>
+							<OfficialID>
+								<Type>
+									<Code>dni_GSS</Code>
+									<DisplayName>Documento Nacional de Identidad</DisplayName>
+									<UnlocalizedName>DNI</UnlocalizedName>
+								</Type>
+								<Value>30789321</Value>
+								<Primary>true</Primary>
+							</OfficialID>
+							<OfficialID>
+								<Type>
+									<Code>cuit_cuil_GSS</Code>
+									<DisplayName>CUIT/CUIL</DisplayName>
+									<UnlocalizedName>CUIT/CUIL</UnlocalizedName>
+								</Type>
+								<Value>20307893216</Value>
+								<Primary>false</Primary>
+							</OfficialID>
+						</OfficialIDs>
+						<TaxCondition>
+							<Code>cf</Code>
+							<DisplayName>Consumidor Final</DisplayName>
+						</TaxCondition>
+						<PrimaryAddressConcatenated>Avenida Belgrano 646 12 B</PrimaryAddressConcatenated>
+						<PrimaryAddress/>
+						<PrimaryPhoneType>
+							<Code>home</Code>
+							<DisplayName>Casa</DisplayName>
+						</PrimaryPhoneType>
+						<PrimaryPhoneValue>03493 45-8798</PrimaryPhoneValue>
+						<DateOfBirth>1984-06-25T00:00:00</DateOfBirth>
+					</Contact>
+				</PolicyContactRole>
+				<PolicyContactRole>
+					<Subtype>
+						<Code>PolicyAddlInterest</Code>
+						<DisplayName>PolicyAddlInterest</DisplayName>
+					</Subtype>
+					<Contact>
+						<PublicID>pc:505</PublicID>
+						<DisplayName>ECHAZARRETA ADRIAN</DisplayName>
+						<FirstName>ADRIAN</FirstName>
+						<LastName>ECHAZARRETA</LastName>
+						<Age>37</Age>
+						<AssociatedNumber>123456789</AssociatedNumber>
+						<OfficialIDs>
+							<OfficialID>
+								<Type>
+									<Code>dni_GSS</Code>
+									<DisplayName>Documento Nacional de Identidad</DisplayName>
+									<UnlocalizedName>DNI</UnlocalizedName>
+								</Type>
+								<Value>30789321</Value>
+								<Primary>true</Primary>
+							</OfficialID>
+							<OfficialID>
+								<Type>
+									<Code>cuit_cuil_GSS</Code>
+									<DisplayName>CUIT/CUIL</DisplayName>
+									<UnlocalizedName>CUIT/CUIL</UnlocalizedName>
+								</Type>
+								<Value>20307893216</Value>
+								<Primary>false</Primary>
+							</OfficialID>
+						</OfficialIDs>
+						<TaxCondition>
+							<Code>cf</Code>
+							<DisplayName>Consumidor Final</DisplayName>
+						</TaxCondition>
+						<PrimaryAddressConcatenated>Avenida Belgrano 646 12 B</PrimaryAddressConcatenated>
+						<PrimaryAddress/>
+						<PrimaryPhoneType>
+							<Code>home</Code>
+							<DisplayName>Casa</DisplayName>
+						</PrimaryPhoneType>
+						<PrimaryPhoneValue>03493 45-8798</PrimaryPhoneValue>
+						<DateOfBirth>1984-06-25T00:00:00</DateOfBirth>
+					</Contact>
+					<AdditionalInterestDetails>
+						<AdditionalInterestDetail>
+							<AdditionalInterestType>
+								<Code>additional_insured_GSS</Code>
+								<DisplayName>Asegurado Adicional</DisplayName>
+							</AdditionalInterestType>
+							<Subtype>
+								<Code>CA7PrivatePassengerAddlInterest</Code>
+								<DisplayName>CA7PrivatePassengerAddlInterest</DisplayName>
+							</Subtype>
+						</AdditionalInterestDetail>
+					</AdditionalInterestDetails>
+				</PolicyContactRole>
+				<PolicyContactRole>
+					<Subtype>
+						<Code>PolicyAddlInterest</Code>
+						<DisplayName>PolicyAddlInterest</DisplayName>
+					</Subtype>
+					<Contact>
+						<PublicID>pc:506</PublicID>
+						<DisplayName>BRANCA LUCILA AYELEN</DisplayName>
+						<FirstName>LUCILA AYELEN</FirstName>
+						<LastName>BRANCA</LastName>
+						<Age>30</Age>
+						<OfficialIDs>
+							<OfficialID>
+								<Type>
+									<Code>dni_GSS</Code>
+									<DisplayName>Documento Nacional de Identidad</DisplayName>
+									<UnlocalizedName>DNI</UnlocalizedName>
+								</Type>
+								<Value>36294472</Value>
+								<Primary>true</Primary>
+							</OfficialID>
+							<OfficialID>
+								<Type>
+									<Code>cuit_cuil_GSS</Code>
+									<DisplayName>CUIT/CUIL</DisplayName>
+									<UnlocalizedName>CUIT/CUIL</UnlocalizedName>
+								</Type>
+								<Value>23362944724</Value>
+								<Primary>false</Primary>
+							</OfficialID>
+						</OfficialIDs>
+						<PrimaryAddressConcatenated>Avenida Belgrano 646 11 V</PrimaryAddressConcatenated>
+						<PrimaryAddress/>
+						<PrimaryPhoneType>
+							<Code>home</Code>
+							<DisplayName>Casa</DisplayName>
+						</PrimaryPhoneType>
+						<PrimaryPhoneValue>03436 42-5874</PrimaryPhoneValue>
+						<DateOfBirth>1991-08-29T00:00:00</DateOfBirth>
+					</Contact>
+					<AdditionalInterestDetails>
+						<AdditionalInterestDetail>
+							<AdditionalInterestType>
+								<Code>additional_insured_GSS</Code>
+								<DisplayName>Asegurado Adicional</DisplayName>
+							</AdditionalInterestType>
+							<Subtype>
+								<Code>CA7PrivatePassengerAddlInterest</Code>
+								<DisplayName>CA7PrivatePassengerAddlInterest</DisplayName>
+							</Subtype>
+						</AdditionalInterestDetail>
+					</AdditionalInterestDetails>
+				</PolicyContactRole>
+				<PolicyContactRole>
+					<Subtype>
+						<Code>PolicyBillingContact</Code>
+						<DisplayName>PolicyBillingContact</DisplayName>
+					</Subtype>
+					<Contact>
+						<PublicID>pc:505</PublicID>
+						<DisplayName>ECHAZARRETA ADRIAN</DisplayName>
+						<FirstName>ADRIAN</FirstName>
+						<LastName>ECHAZARRETA</LastName>
+						<Age>37</Age>
+						<AssociatedNumber>123456789</AssociatedNumber>
+						<OfficialIDs>
+							<OfficialID>
+								<Type>
+									<Code>dni_GSS</Code>
+									<DisplayName>Documento Nacional de Identidad</DisplayName>
+									<UnlocalizedName>DNI</UnlocalizedName>
+								</Type>
+								<Value>30789321</Value>
+								<Primary>true</Primary>
+							</OfficialID>
+							<OfficialID>
+								<Type>
+									<Code>cuit_cuil_GSS</Code>
+									<DisplayName>CUIT/CUIL</DisplayName>
+									<UnlocalizedName>CUIT/CUIL</UnlocalizedName>
+								</Type>
+								<Value>20307893216</Value>
+								<Primary>false</Primary>
+							</OfficialID>
+						</OfficialIDs>
+						<TaxCondition>
+							<Code>cf</Code>
+							<DisplayName>Consumidor Final</DisplayName>
+						</TaxCondition>
+						<PrimaryAddressConcatenated>Avenida Belgrano 646 12 B</PrimaryAddressConcatenated>
+						<PrimaryAddress/>
+						<PrimaryPhoneType>
+							<Code>home</Code>
+							<DisplayName>Casa</DisplayName>
+						</PrimaryPhoneType>
+						<PrimaryPhoneValue>03493 45-8798</PrimaryPhoneValue>
+						<DateOfBirth>1984-06-25T00:00:00</DateOfBirth>
+					</Contact>
+				</PolicyContactRole>
+			</PolicyContactRoles>
+			<DocumentDelivery>
+				<Code>digital</Code>
+				<DisplayName>Digital</DisplayName>
+			</DocumentDelivery>
+			<SancorInfo>
+				<Name>Sancor Cooperativa de Seguros Limitada</Name>
+				<PrimaryAddress>
+					<AddressLine1>Ruta Nac. 34 Km 257</AddressLine1>
+					<AddressType>
+						<Code>business</Code>
+						<DisplayName>Comercial</DisplayName>
+					</AddressType>
+					<City>Sunchales</City>
+					<Country>
+						<Code>AR</Code>
+						<DisplayName>Argentina</DisplayName>
+					</Country>
+					<PostalCode>2322</PostalCode>
+				</PrimaryAddress>
+			</SancorInfo>
+			<CIAgreements/>
+			<ReceiptInfo>
+				<PolicyNumber>002000000000019</PolicyNumber>
+				<LastReceiptCoverageEndDate>2021-10-01T00:00:00</LastReceiptCoverageEndDate>
+				<InvoiceDataArray>
+					<InvoiceData>
+						<InstallmentNumber>1</InstallmentNumber>
+						<ReceiptNumber>912</ReceiptNumber>
+						<PaymentAmount>
+							<Currency>
+								<Code>ars</Code>
+								<DisplayName>ARS</DisplayName>
+								<Description>Pesos argentinos</Description>
+							</Currency>
+							<Amount>18348.35</Amount>
+							<DisplayAmount>$ 18.348,35</DisplayAmount>
+						</PaymentAmount>
+						<CoverageStartDate>2021-09-01T00:00:00</CoverageStartDate>
+						<CoverageEndDate>2021-10-01T00:00:00</CoverageEndDate>
+						<DueDate>2021-09-11T00:00:00</DueDate>
+						<Status>Billed</Status>
+					</InvoiceData>
+					<InvoiceData>
+						<InstallmentNumber>2</InstallmentNumber>
+						<ReceiptNumber>913</ReceiptNumber>
+						<PaymentAmount>
+							<Currency>
+								<Code>ars</Code>
+								<DisplayName>ARS</DisplayName>
+								<Description>Pesos argentinos</Description>
+							</Currency>
+							<Amount>18347.84</Amount>
+							<DisplayAmount>$ 18.347,84</DisplayAmount>
+						</PaymentAmount>
+						<CoverageStartDate>2021-10-01T00:00:00</CoverageStartDate>
+						<CoverageEndDate>2021-11-01T00:00:00</CoverageEndDate>
+						<DueDate>2021-10-10T00:00:00</DueDate>
+						<Status>Planned</Status>
+					</InvoiceData>
+					<InvoiceData>
+						<InstallmentNumber>3</InstallmentNumber>
+						<ReceiptNumber>914</ReceiptNumber>
+						<PaymentAmount>
+							<Currency>
+								<Code>ars</Code>
+								<DisplayName>ARS</DisplayName>
+								<Description>Pesos argentinos</Description>
+							</Currency>
+							<Amount>18347.84</Amount>
+							<DisplayAmount>$ 18.347,84</DisplayAmount>
+						</PaymentAmount>
+						<CoverageStartDate>2021-11-01T00:00:00</CoverageStartDate>
+						<CoverageEndDate>2021-12-01T00:00:00</CoverageEndDate>
+						<DueDate>2021-11-10T00:00:00</DueDate>
+						<Status>Planned</Status>
+					</InvoiceData>
+					<InvoiceData>
+						<InstallmentNumber>4</InstallmentNumber>
+						<ReceiptNumber>915</ReceiptNumber>
+						<PaymentAmount>
+							<Currency>
+								<Code>ars</Code>
+								<DisplayName>ARS</DisplayName>
+								<Description>Pesos argentinos</Description>
+							</Currency>
+							<Amount>18347.84</Amount>
+							<DisplayAmount>$ 18.347,84</DisplayAmount>
+						</PaymentAmount>
+						<CoverageStartDate>2021-12-01T00:00:00</CoverageStartDate>
+						<CoverageEndDate>2022-01-01T00:00:00</CoverageEndDate>
+						<DueDate>2021-12-10T00:00:00</DueDate>
+						<Status>Planned</Status>
+					</InvoiceData>
+					<InvoiceData>
+						<InstallmentNumber>5</InstallmentNumber>
+						<ReceiptNumber>916</ReceiptNumber>
+						<PaymentAmount>
+							<Currency>
+								<Code>ars</Code>
+								<DisplayName>ARS</DisplayName>
+								<Description>Pesos argentinos</Description>
+							</Currency>
+							<Amount>18347.84</Amount>
+							<DisplayAmount>$ 18.347,84</DisplayAmount>
+						</PaymentAmount>
+						<CoverageStartDate>2022-01-01T00:00:00</CoverageStartDate>
+						<CoverageEndDate>2022-02-01T00:00:00</CoverageEndDate>
+						<DueDate>2022-01-10T00:00:00</DueDate>
+						<Status>Planned</Status>
+					</InvoiceData>
+					<InvoiceData>
+						<InstallmentNumber>6</InstallmentNumber>
+						<ReceiptNumber>917</ReceiptNumber>
+						<PaymentAmount>
+							<Currency>
+								<Code>ars</Code>
+								<DisplayName>ARS</DisplayName>
+								<Description>Pesos argentinos</Description>
+							</Currency>
+							<Amount>18347.84</Amount>
+							<DisplayAmount>$ 18.347,84</DisplayAmount>
+						</PaymentAmount>
+						<CoverageStartDate>2022-02-01T00:00:00</CoverageStartDate>
+						<CoverageEndDate>2022-03-01T00:00:00</CoverageEndDate>
+						<DueDate>2022-02-10T00:00:00</DueDate>
+						<Status>Planned</Status>
+					</InvoiceData>
+					<InvoiceData>
+						<InstallmentNumber>7</InstallmentNumber>
+						<ReceiptNumber>918</ReceiptNumber>
+						<PaymentAmount>
+							<Currency>
+								<Code>ars</Code>
+								<DisplayName>ARS</DisplayName>
+								<Description>Pesos argentinos</Description>
+							</Currency>
+							<Amount>18347.84</Amount>
+							<DisplayAmount>$ 18.347,84</DisplayAmount>
+						</PaymentAmount>
+						<CoverageStartDate>2022-03-01T00:00:00</CoverageStartDate>
+						<CoverageEndDate>2022-04-01T00:00:00</CoverageEndDate>
+						<DueDate>2022-03-10T00:00:00</DueDate>
+						<Status>Planned</Status>
+					</InvoiceData>
+					<InvoiceData>
+						<InstallmentNumber>8</InstallmentNumber>
+						<ReceiptNumber>919</ReceiptNumber>
+						<PaymentAmount>
+							<Currency>
+								<Code>ars</Code>
+								<DisplayName>ARS</DisplayName>
+								<Description>Pesos argentinos</Description>
+							</Currency>
+							<Amount>18347.84</Amount>
+							<DisplayAmount>$ 18.347,84</DisplayAmount>
+						</PaymentAmount>
+						<CoverageStartDate>2022-04-01T00:00:00</CoverageStartDate>
+						<CoverageEndDate>2022-05-01T00:00:00</CoverageEndDate>
+						<DueDate>2022-04-10T00:00:00</DueDate>
+						<Status>Planned</Status>
+					</InvoiceData>
+					<InvoiceData>
+						<InstallmentNumber>9</InstallmentNumber>
+						<ReceiptNumber>920</ReceiptNumber>
+						<PaymentAmount>
+							<Currency>
+								<Code>ars</Code>
+								<DisplayName>ARS</DisplayName>
+								<Description>Pesos argentinos</Description>
+							</Currency>
+							<Amount>18347.84</Amount>
+							<DisplayAmount>$ 18.347,84</DisplayAmount>
+						</PaymentAmount>
+						<CoverageStartDate>2022-05-01T00:00:00</CoverageStartDate>
+						<CoverageEndDate>2022-06-01T00:00:00</CoverageEndDate>
+						<DueDate>2022-05-10T00:00:00</DueDate>
+						<Status>Planned</Status>
+					</InvoiceData>
+					<InvoiceData>
+						<InstallmentNumber>10</InstallmentNumber>
+						<ReceiptNumber>921</ReceiptNumber>
+						<PaymentAmount>
+							<Currency>
+								<Code>ars</Code>
+								<DisplayName>ARS</DisplayName>
+								<Description>Pesos argentinos</Description>
+							</Currency>
+							<Amount>18347.84</Amount>
+							<DisplayAmount>$ 18.347,84</DisplayAmount>
+						</PaymentAmount>
+						<CoverageStartDate>2022-06-01T00:00:00</CoverageStartDate>
+						<CoverageEndDate>2022-07-01T00:00:00</CoverageEndDate>
+						<DueDate>2022-06-10T00:00:00</DueDate>
+						<Status>Planned</Status>
+					</InvoiceData>
+					<InvoiceData>
+						<InstallmentNumber>11</InstallmentNumber>
+						<ReceiptNumber>922</ReceiptNumber>
+						<PaymentAmount>
+							<Currency>
+								<Code>ars</Code>
+								<DisplayName>ARS</DisplayName>
+								<Description>Pesos argentinos</Description>
+							</Currency>
+							<Amount>18347.84</Amount>
+							<DisplayAmount>$ 18.347,84</DisplayAmount>
+						</PaymentAmount>
+						<CoverageStartDate>2022-07-01T00:00:00</CoverageStartDate>
+						<CoverageEndDate>2022-08-01T00:00:00</CoverageEndDate>
+						<DueDate>2022-07-10T00:00:00</DueDate>
+						<Status>Planned</Status>
+					</InvoiceData>
+					<InvoiceData>
+						<InstallmentNumber>12</InstallmentNumber>
+						<ReceiptNumber>923</ReceiptNumber>
+						<PaymentAmount>
+							<Currency>
+								<Code>ars</Code>
+								<DisplayName>ARS</DisplayName>
+								<Description>Pesos argentinos</Description>
+							</Currency>
+							<Amount>18347.84</Amount>
+							<DisplayAmount>$ 18.347,84</DisplayAmount>
+						</PaymentAmount>
+						<CoverageStartDate>2022-08-01T00:00:00</CoverageStartDate>
+						<CoverageEndDate>2022-09-01T00:00:00</CoverageEndDate>
+						<DueDate>2022-08-10T00:00:00</DueDate>
+						<Status>Planned</Status>
+					</InvoiceData>
+				</InvoiceDataArray>
+				<TotalAmount>
+					<Currency>
+						<Code>ars</Code>
+						<DisplayName>ARS</DisplayName>
+						<Description>Pesos argentinos</Description>
+					</Currency>
+					<Amount>18348.35</Amount>
+					<DisplayAmount>$ 18.348,35</DisplayAmount>
+				</TotalAmount>
+				<Premium>
+					<Currency>
+						<Code>ars</Code>
+						<DisplayName>ARS</DisplayName>
+						<Description>Pesos argentinos</Description>
+					</Currency>
+					<Amount>13430.59</Amount>
+					<DisplayAmount>$ 13.430,59</DisplayAmount>
+				</Premium>
+				<TaxedNetAmount>
+					<Currency>
+						<Code>ars</Code>
+						<DisplayName>ARS</DisplayName>
+						<Description>Pesos argentinos</Description>
+					</Currency>
+					<Amount>13702.84</Amount>
+					<DisplayAmount>$ 13.702,84</DisplayAmount>
+				</TaxedNetAmount>
+				<FinancialCharge>
+					<Currency>
+						<Code>ars</Code>
+						<DisplayName>ARS</DisplayName>
+						<Description>Pesos argentinos</Description>
+					</Currency>
+					<Amount>0</Amount>
+					<DisplayAmount>$ 0,00</DisplayAmount>
+				</FinancialCharge>
+				<IVA>
+					<Currency>
+						<Code>ars</Code>
+						<DisplayName>ARS</DisplayName>
+						<Description>Pesos argentinos</Description>
+					</Currency>
+					<Amount>2877.58</Amount>
+					<DisplayAmount>$ 2.877,58</DisplayAmount>
+				</IVA>
+				<IVAPercep>
+					<Currency>
+						<Code>ars</Code>
+						<DisplayName>ARS</DisplayName>
+						<Description>Pesos argentinos</Description>
+					</Currency>
+					<Amount>0</Amount>
+					<DisplayAmount>$ 0,00</DisplayAmount>
+				</IVAPercep>
+				<IVAPercepNoCat>
+					<Currency>
+						<Code>ars</Code>
+						<DisplayName>ARS</DisplayName>
+						<Description>Pesos argentinos</Description>
+					</Currency>
+					<Amount>0</Amount>
+					<DisplayAmount>$ 0,00</DisplayAmount>
+				</IVAPercepNoCat>
+				<TaxesAndRates>
+					<Currency>
+						<Code>ars</Code>
+						<DisplayName>ARS</DisplayName>
+						<Description>Pesos argentinos</Description>
+					</Currency>
+					<Amount>13702.84</Amount>
+					<DisplayAmount>$ 13.702,84</DisplayAmount>
+				</TaxesAndRates>
+				<IngBrutPer>
+					<Currency>
+						<Code>ars</Code>
+						<DisplayName>ARS</DisplayName>
+						<Description>Pesos argentinos</Description>
+					</Currency>
+					<Amount>0</Amount>
+					<DisplayAmount>$ 0,00</DisplayAmount>
+				</IngBrutPer>
+				<Sealed>
+					<Currency>
+						<Code>ars</Code>
+						<DisplayName>ARS</DisplayName>
+						<Description>Pesos argentinos</Description>
+					</Currency>
+					<Amount>233.01</Amount>
+					<DisplayAmount>$ 233,01</DisplayAmount>
+				</Sealed>
+				<CapitalSocial>
+					<Currency>
+						<Code>ars</Code>
+						<DisplayName>ARS</DisplayName>
+						<Description>Pesos argentinos</Description>
+					</Currency>
+					<Amount>1233.26</Amount>
+					<DisplayAmount>$ 1.233,26</DisplayAmount>
+				</CapitalSocial>
+				<Premio>
+					<Currency>
+						<Code>ars</Code>
+						<DisplayName>ARS</DisplayName>
+						<Description>Pesos argentinos</Description>
+					</Currency>
+					<Amount>18348.35</Amount>
+					<DisplayAmount>$ 18.348,35</DisplayAmount>
+				</Premio>
+				<TasaSSN>
+					<Currency>
+						<Code>ars</Code>
+						<DisplayName>ARS</DisplayName>
+						<Description>Pesos argentinos</Description>
+					</Currency>
+					<Amount>82.28</Amount>
+					<DisplayAmount>$ 82,28</DisplayAmount>
+				</TasaSSN>
+				<AporteOSSEG>
+					<Currency>
+						<Code>ars</Code>
+						<DisplayName>ARS</DisplayName>
+						<Description>Pesos argentinos</Description>
+					</Currency>
+					<Amount>68.55</Amount>
+					<DisplayAmount>$ 68,55</DisplayAmount>
+				</AporteOSSEG>
+				<FAS>
+					<Currency>
+						<Code>ars</Code>
+						<DisplayName>ARS</DisplayName>
+						<Description>Pesos argentinos</Description>
+					</Currency>
+					<Amount>162.51</Amount>
+					<DisplayAmount>$ 162,51</DisplayAmount>
+				</FAS>
+			</ReceiptInfo>
+			<Commissions>
+				<Intermediary>
+					<ProducerCodeID>
+						<Code>150207</Code>
+						<Description>FAGGIANO JORGE ALFREDO</Description>
+						<DisplayName>150207 FAGGIANO JORGE ALFREDO</DisplayName>
+						<Role>
+							<Code>organizer</Code>
+							<DisplayName>Organizador</DisplayName>
+						</Role>
+						<ProducerStatus>
+							<Code>Active</Code>
+							<DisplayName>Activo</DisplayName>
+						</ProducerStatus>
+						<Organization>
+							<DisplayName>FAGGIANO JORGE ALFREDO</DisplayName>
+							<Name>FAGGIANO JORGE ALFREDO</Name>
+							<Type>
+								<Code>agency</Code>
+								<DisplayName>Intermediario</DisplayName>
+							</Type>
+							<RegistryNumber>653675</RegistryNumber>
+							<RegistryScope>
+								<Code>until_200000_person</Code>
+								<DisplayName>Hasta 200.000 habitantes</DisplayName>
+							</RegistryScope>
+							<LegalFigure>
+								<Code>no_instigator</Code>
+								<DisplayName>No institorio</DisplayName>
+							</LegalFigure>
+							<ProducerCategory>
+								<Code>category_a</Code>
+								<DisplayName>Categoría A</DisplayName>
+							</ProducerCategory>
+							<OSSEGContributor>false</OSSEGContributor>
+							<OSSEGContributionPerc>0.00</OSSEGContributionPerc>
+							<Contact>
+								<PublicID>pc_cont:4940</PublicID>
+								<DisplayName>FAGGIANO JORGE ALFREDO</DisplayName>
+								<FirstName>JORGE ALFREDO</FirstName>
+								<LastName>FAGGIANO</LastName>
+								<Age>60</Age>
+								<TaxID>13946595</TaxID>
+								<OfficialIDs>
+									<OfficialID>
+										<Type>
+											<Code>dni_GSS</Code>
+											<DisplayName>Documento Nacional de Identidad</DisplayName>
+											<UnlocalizedName>DNI</UnlocalizedName>
+										</Type>
+										<Value>13946595</Value>
+										<Primary>true</Primary>
+									</OfficialID>
+									<OfficialID>
+										<Type>
+											<Code>cuit_cuil_GSS</Code>
+											<DisplayName>CUIT/CUIL</DisplayName>
+											<UnlocalizedName>CUIT/CUIL</UnlocalizedName>
+										</Type>
+										<Value>20139465955</Value>
+										<Primary>false</Primary>
+									</OfficialID>
+								</OfficialIDs>
+								<Gender>
+									<Code>M</Code>
+									<DisplayName>Masculino</DisplayName>
+								</Gender>
+								<MaritalStatus>
+									<Code>unknown</Code>
+									<DisplayName>Otros</DisplayName>
+								</MaritalStatus>
+								<PrimaryAddressConcatenated>Independencia 333</PrimaryAddressConcatenated>
+								<PrimaryAddress>
+									<AddressLine1>Independencia</AddressLine1>
+									<AddressLine2>333</AddressLine2>
+									<AddressType>
+										<Code>business</Code>
+										<DisplayName>Comercial</DisplayName>
+									</AddressType>
+									<City>Sunchales</City>
+									<Country>
+										<Code>AR</Code>
+										<DisplayName>Argentina</DisplayName>
+									</Country>
+									<PostalCode>2322</PostalCode>
+									<State>
+										<Code>AR-S</Code>
+										<DisplayName>Santa Fe</DisplayName>
+									</State>
+									<Neighborhood>Mock Neighborhood</Neighborhood>
+									<BetweenStreet1>Mock BetweenStreet1</BetweenStreet1>
+									<BetweenStreet2>Mock BetweenStreet2</BetweenStreet2>
+								</PrimaryAddress>
+								<DateOfBirth>1961-03-24T12:00:00</DateOfBirth>
+								<Subtype>
+									<Code>Person</Code>
+									<DisplayName>Persona</DisplayName>
+								</Subtype>
+							</Contact>
+						</Organization>
+						<BusinessUnit>
+							<Code>201</Code>
+							<DisplayName>201 - UN - Bahia Blanca</DisplayName>
+						</BusinessUnit>
+					</ProducerCodeID>
+					<CommissionPercentage>1.00</CommissionPercentage>
+					<IntermediaryPercentage>0.00</IntermediaryPercentage>
+				</Intermediary>
+				<Intermediary>
+					<ProducerCodeID>
+						<Code>215489</Code>
+						<Description>CERRA FRANCO</Description>
+						<DisplayName>215489 CERRA FRANCO</DisplayName>
+						<Role>
+							<Code>producer</Code>
+							<DisplayName>Productor</DisplayName>
+						</Role>
+						<ProducerStatus>
+							<Code>Active</Code>
+							<DisplayName>Activo</DisplayName>
+						</ProducerStatus>
+						<Organization>
+							<DisplayName>CERRA FRANCO</DisplayName>
+							<Name>CERRA FRANCO</Name>
+							<Type>
+								<Code>agency</Code>
+								<DisplayName>Intermediario</DisplayName>
+							</Type>
+							<RegistryNumber>9743198</RegistryNumber>
+							<RegistryScope>
+								<Code>until_200000_person</Code>
+								<DisplayName>Hasta 200.000 habitantes</DisplayName>
+							</RegistryScope>
+							<LegalFigure>
+								<Code>no_instigator</Code>
+								<DisplayName>No institorio</DisplayName>
+							</LegalFigure>
+							<ProducerCategory>
+								<Code>category_a</Code>
+								<DisplayName>Categoría A</DisplayName>
+							</ProducerCategory>
+							<OSSEGContributor>false</OSSEGContributor>
+							<OSSEGContributionPerc>0.00</OSSEGContributionPerc>
+							<Contact>
+								<PublicID>pc_cont:4941</PublicID>
+								<DisplayName>CERRA FRANCO</DisplayName>
+								<FirstName>FRANCO</FirstName>
+								<LastName>CERRA</LastName>
+								<Age>33</Age>
+								<TaxID>33799265</TaxID>
+								<AssociatedNumber>123456789</AssociatedNumber>
+								<OfficialIDs>
+									<OfficialID>
+										<Type>
+											<Code>dni_GSS</Code>
+											<DisplayName>Documento Nacional de Identidad</DisplayName>
+											<UnlocalizedName>DNI</UnlocalizedName>
+										</Type>
+										<Value>33799265</Value>
+										<Primary>true</Primary>
+									</OfficialID>
+									<OfficialID>
+										<Type>
+											<Code>cuit_cuil_GSS</Code>
+											<DisplayName>CUIT/CUIL</DisplayName>
+											<UnlocalizedName>CUIT/CUIL</UnlocalizedName>
+										</Type>
+										<Value>20337992650</Value>
+										<Primary>false</Primary>
+									</OfficialID>
+								</OfficialIDs>
+								<Gender>
+									<Code>M</Code>
+									<DisplayName>Masculino</DisplayName>
+								</Gender>
+								<MaritalStatus>
+									<Code>unknown</Code>
+									<DisplayName>Otros</DisplayName>
+								</MaritalStatus>
+								<PrimaryAddressConcatenated>Independencia 333</PrimaryAddressConcatenated>
+								<PrimaryAddress>
+									<AddressLine1>Independencia</AddressLine1>
+									<AddressLine2>333</AddressLine2>
+									<AddressType>
+										<Code>home</Code>
+										<DisplayName>Particular</DisplayName>
+									</AddressType>
+									<City>Sunchales</City>
+									<Country>
+										<Code>AR</Code>
+										<DisplayName>Argentina</DisplayName>
+									</Country>
+									<PostalCode>2322</PostalCode>
+									<State>
+										<Code>AR-S</Code>
+										<DisplayName>Santa Fe</DisplayName>
+									</State>
+									<Neighborhood>Mock Neighborhood</Neighborhood>
+									<BetweenStreet1>Mock BetweenStreet1</BetweenStreet1>
+									<BetweenStreet2>Mock BetweenStreet2</BetweenStreet2>
+								</PrimaryAddress>
+								<DateOfBirth>1988-08-23T12:00:00</DateOfBirth>
+								<Subtype>
+									<Code>Person</Code>
+									<DisplayName>Persona</DisplayName>
+								</Subtype>
+							</Contact>
+						</Organization>
+						<BusinessUnit>
+							<Code>201</Code>
+							<DisplayName>201 - UN - Bahia Blanca</DisplayName>
+						</BusinessUnit>
+					</ProducerCodeID>
+					<CommissionPercentage>13.00</CommissionPercentage>
+					<IntermediaryPercentage>9.00</IntermediaryPercentage>
+				</Intermediary>
+			</Commissions>
+			<VariableTextsCarCoverages>
+				<Coverage>
+					<Code>CA7CivilLiabilityDamageToThingsNotTransportedByThirdPartiesCov</Code>
+					<DisplayName>Resp. Civil: Daños a cosas no transportadas de terceras personas</DisplayName>
+					<Abbreviation>RC - </Abbreviation>
+					<Priority>3770</Priority>
+					<CovTerms>
+						<CovTerm>
+							<ValueTypeName>Option</ValueTypeName>
+							<ValueType>
+								<Code>money</Code>
+								<DisplayName>Dinero</DisplayName>
+							</ValueType>
+							<DisplayName>Límite</DisplayName>
+							<DisplayValue>38.500.000</DisplayValue>
+							<DisplayAmount>$ 38.500.000,00</DisplayAmount>
+							<ModelType>
+								<Code>Limit</Code>
+								<DisplayName>Límite</DisplayName>
+							</ModelType>
+						</CovTerm>
+					</CovTerms>
+					<Category>CA7PrivatePassengerStdGrp</Category>
+				</Coverage>
+				<Coverage>
+					<Code>CA7CivilLiabilityInjuriesAndOrDeathOfThirdPartiesNotTranspCov</Code>
+					<DisplayName>Resp. Civil: Lesiones y/o muerte de terceras personas no transportadas</DisplayName>
+					<Abbreviation>RC - </Abbreviation>
+					<Priority>3870</Priority>
+					<CovTerms>
+						<CovTerm>
+							<ValueTypeName>Option</ValueTypeName>
+							<ValueType>
+								<Code>money</Code>
+								<DisplayName>Dinero</DisplayName>
+							</ValueType>
+							<DisplayName>Límite</DisplayName>
+							<DisplayValue>38.500.000</DisplayValue>
+							<DisplayAmount>$ 38.500.000,00</DisplayAmount>
+							<ModelType>
+								<Code>Limit</Code>
+								<DisplayName>Límite</DisplayName>
+							</ModelType>
+						</CovTerm>
+					</CovTerms>
+					<Category>CA7PrivatePassengerStdGrp</Category>
+				</Coverage>
+				<Coverage>
+					<Code>CA7CivilLiabilityInjuriesAndOrDeathOfThirdPartiesTransportedCov</Code>
+					<DisplayName>Resp. Civil: Lesiones y/o muerte de terceras personas transportadas</DisplayName>
+					<Abbreviation>RC - </Abbreviation>
+					<Priority>3871</Priority>
+					<CovTerms>
+						<CovTerm>
+							<ValueTypeName>Option</ValueTypeName>
+							<ValueType>
+								<Code>money</Code>
+								<DisplayName>Dinero</DisplayName>
+							</ValueType>
+							<DisplayName>Límite</DisplayName>
+							<DisplayValue>38.500.000</DisplayValue>
+							<DisplayAmount>$ 38.500.000,00</DisplayAmount>
+							<ModelType>
+								<Code>Limit</Code>
+								<DisplayName>Límite</DisplayName>
+							</ModelType>
+						</CovTerm>
+					</CovTerms>
+					<Category>CA7PrivatePassengerStdGrp</Category>
+				</Coverage>
+				<Coverage>
+					<Code>CA7TotalAccidentCov</Code>
+					<DisplayName>Accidente Total</DisplayName>
+					<Abbreviation>AT - </Abbreviation>
+					<Priority>3872</Priority>
+					<CovTerms>
+						<CovTerm>
+							<ValueTypeName>Direct</ValueTypeName>
+							<ValueType>
+								<Code>money</Code>
+								<DisplayName>Dinero</DisplayName>
+							</ValueType>
+							<DisplayName>Límite</DisplayName>
+							<DisplayValue>3.978.000</DisplayValue>
+							<DisplayAmount>$ 3.978.000,00</DisplayAmount>
+							<ModelType>
+								<Code>Limit</Code>
+								<DisplayName>Límite</DisplayName>
+							</ModelType>
+						</CovTerm>
+					</CovTerms>
+					<Category>CA7PrivatePassengerStdGrp</Category>
+				</Coverage>
+				<Coverage>
+					<Code>CA7TotalFireCov</Code>
+					<DisplayName>Incendio Total</DisplayName>
+					<Abbreviation>IT - </Abbreviation>
+					<Priority>3873</Priority>
+					<CovTerms>
+						<CovTerm>
+							<ValueTypeName>Direct</ValueTypeName>
+							<ValueType>
+								<Code>money</Code>
+								<DisplayName>Dinero</DisplayName>
+							</ValueType>
+							<DisplayName>Límite</DisplayName>
+							<DisplayValue>3.978.000</DisplayValue>
+							<DisplayAmount>$ 3.978.000,00</DisplayAmount>
+							<ModelType>
+								<Code>Limit</Code>
+								<DisplayName>Límite</DisplayName>
+							</ModelType>
+						</CovTerm>
+					</CovTerms>
+					<Category>CA7PrivatePassengerStdGrp</Category>
+				</Coverage>
+				<Coverage>
+					<Code>CA7TotalTheftAndOrLarcenyCov</Code>
+					<DisplayName>Robo y/o Hurto Total</DisplayName>
+					<Abbreviation>RT - </Abbreviation>
+					<Priority>4870</Priority>
+					<CovTerms>
+						<CovTerm>
+							<ValueTypeName>Direct</ValueTypeName>
+							<ValueType>
+								<Code>money</Code>
+								<DisplayName>Dinero</DisplayName>
+							</ValueType>
+							<DisplayName>Límite</DisplayName>
+							<DisplayValue>3.978.000</DisplayValue>
+							<DisplayAmount>$ 3.978.000,00</DisplayAmount>
+							<ModelType>
+								<Code>Limit</Code>
+								<DisplayName>Límite</DisplayName>
+							</ModelType>
+						</CovTerm>
+					</CovTerms>
+					<Category>CA7PrivatePassengerStdGrp</Category>
+				</Coverage>
+				<Coverage>
+					<Code>CA7LegalAssistanceCov</Code>
+					<DisplayName>Asistencia Legal</DisplayName>
+					<Abbreviation>AL - </Abbreviation>
+					<Priority>5084</Priority>
+					<CovTerms/>
+					<Category>CA7PrivatePassengerAddlGrp</Category>
+				</Coverage>
+				<Coverage>
+					<Code>CA7TrackingKitCov</Code>
+					<DisplayName>Equipo de Rastreo</DisplayName>
+					<Abbreviation>ER - </Abbreviation>
+					<Priority>5491</Priority>
+					<CovTerms/>
+					<Category>CA7PrivatePassengerAddlNonVisibleGrp</Category>
+				</Coverage>
+			</VariableTextsCarCoverages>
+			<VariableTextsAPCoverages>
+				<Coverage>
+					<Code>AAHCallingTheDoctorCov</Code>
+					<Description>Llamando al Doctor</Description>
+					<Priority>3317</Priority>
+					<Category>AandHPartyBenGrp</Category>
+				</Coverage>
+			</VariableTextsAPCoverages>
+			<VariableTextsBenefits>
+				<Benefit>
+					<Code>CA7DTal80</Code>
+					<Abbreviation>DT - </Abbreviation>
+					<Priority>1</Priority>
+				</Benefit>
+				<Benefit>
+					<Code>CA7ExtLimitr</Code>
+					<Abbreviation>PL - </Abbreviation>
+					<Priority>3</Priority>
+				</Benefit>
+				<Benefit>
+					<Code>CA7AsisJur</Code>
+					<Abbreviation>AJ - </Abbreviation>
+					<Priority>4</Priority>
+				</Benefit>
+				<Benefit>
+					<Code>CA7SOMed</Code>
+					<Abbreviation>SOM - </Abbreviation>
+					<Priority>5</Priority>
+				</Benefit>
+				<Benefit>
+					<Code>CA7CLEAS</Code>
+					<Abbreviation>CL - </Abbreviation>
+					<Priority>7</Priority>
+				</Benefit>
+			</VariableTextsBenefits>
+		</PolicyPeriod>
+	</Content>
+	<Delivery>
+		<MailTo/>
+		<MailCC/>
+		<MailCCO/>
+		<SMSTO/>
+		<WhatsAppTO/>
+		<Notification1>envioelectronico@sancorseguros.com</Notification1>
+	</Delivery>
+</Document>

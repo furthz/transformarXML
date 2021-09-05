@@ -9,4 +9,11 @@ import lombok.Data;
 public class Activity {
     @JsonProperty("DisplayName")
     private String displayName;
+
+    public String getDisplayName() {
+        return displayName;
+    }
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
+    }
 }

@@ -488,7 +488,7 @@
 				<InItinereCoverage>true</InItinereCoverage>
 				<AAHPartys>
 					<AAHParty>
-						<PartyNumber>2</PartyNumber>
+						<PartyNumber>1</PartyNumber>
 						<CoveredPerson>
 							<PublicID>pc:452</PublicID>
 							<DisplayName>LONGONI GABRIEL JOSE</DisplayName>
@@ -559,17 +559,16 @@
 						<PhysicalLimit>false</PhysicalLimit>
 						<LeftHanded>false</LeftHanded>
 						<AgeRangeID>0</AgeRangeID>
-						<Activity>
-							<DisplayName>PRUE</DisplayName>
-						</Activity>
 						<AgeOrYearRange>55</AgeOrYearRange>
+						<Clasification>
+							<DisplayName>HOLA</DisplayName>
+						</Clasification>
 						<CoveredEvent>
 							<DisplayName>Agropecuaria</DisplayName>
 						</CoveredEvent>
 						<PartyCoverages>
 							<PartyCoverage>
 								<Code>AAHDeathByAccidentCov</Code>
-								<Description>Muerte por Accidente1</Description>
 								<Priority>1112</Priority>
 								<CoverageType>
 									<Code>basic</Code>
@@ -597,7 +596,7 @@
 										<Priority>100</Priority>
 										<ValueTypeName>Option</ValueTypeName>
 										<ValueType>
-											<Code>money</Code>
+											<Code>percent</Code>
 											<DisplayName>Dinero</DisplayName>
 										</ValueType>
 										<DisplayName>Suma Asegurada</DisplayName>
@@ -605,7 +604,7 @@
 										<DisplayAmount>$ 800.000,00</DisplayAmount>
 										<PatternCodeIdentifier>AAHDeathByAccidentSALim</PatternCodeIdentifier>
 										<ModelType>
-											<Code>amount_limit_GSS</Code>
+											<Code>Deductible</Code>
 											<DisplayName>Límite de Suma</DisplayName>
 										</ModelType>
 										<AggregationModelList>
@@ -620,14 +619,14 @@
 										<Priority>300</Priority>
 										<ValueTypeName>Direct</ValueTypeName>
 										<ValueType>
-											<Code>count</Code>
+											<Code>money</Code>
 											<DisplayName>Count</DisplayName>
 										</ValueType>
 										<DisplayName>Edad máxima de ingreso</DisplayName>
 										<DisplayValue>80</DisplayValue>
 										<PatternCodeIdentifier>AAHDeathByAccidentMaxAgeLim</PatternCodeIdentifier>
 										<ModelType>
-											<Code>max_age_limit_GSS</Code>
+											<Code>Limit</Code>
 											<DisplayName>Límite de Edad Máxima</DisplayName>
 										</ModelType>
 									</CoverageTerm>
@@ -929,7 +928,7 @@
 								<Category>AandHPartyStndGrp</Category>
 							</PartyCoverage>
 							<PartyCoverage>
-								<Code>AAHRefundExpensesPharmaceuticalMedicalAssistanceCov</Code>
+								<Code>AHRefundExpensesPharmaceuticalMedicalAssistanceCov</Code>
 								<Description>Reintegro de Gastos por Asistencia Médico Farmacéutica</Description>
 								<Priority>1914</Priority>
 								<CoverageType>
@@ -1003,15 +1002,15 @@
 										<Priority>350</Priority>
 										<ValueTypeName>Direct</ValueTypeName>
 										<ValueType>
-											<Code>money</Code>
+											<Code>percent</Code>
 											<DisplayName>Dinero</DisplayName>
 										</ValueType>
 										<DisplayName>Deducible Calculado</DisplayName>
-										<DisplayValue>0</DisplayValue>
+										<DisplayValue>10</DisplayValue>
 										<DisplayAmount>$ 0,00</DisplayAmount>
 										<PatternCodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceDedCalc</PatternCodeIdentifier>
 										<ModelType>
-											<Code>Deductible</Code>
+											<Code>Limit</Code>
 											<DisplayName>Deducible</DisplayName>
 										</ModelType>
 										<AggregationModelList>
@@ -1022,194 +1021,140 @@
 										</AggregationModelList>
 									</CoverageTerm>
 									<CoverageTerm>
-										<CodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceTrasLim</CodeIdentifier>
-										<Priority>400</Priority>
-										<ValueTypeName>Option</ValueTypeName>
-										<ValueType>
-											<Code>percent</Code>
-											<DisplayName>Porcentaje</DisplayName>
-										</ValueType>
-										<DisplayName>Traslado</DisplayName>
-										<DisplayValue>0%</DisplayValue>
-										<PatternCodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceTrasLim</PatternCodeIdentifier>
-										<ModelType>
-											<Code>Limit</Code>
-											<DisplayName>Límite</DisplayName>
-										</ModelType>
-										<AggregationModelList>
-											<AggregationModel>
-												<Code>ag</Code>
-												<DisplayName>Agregado anual</DisplayName>
-											</AggregationModel>
-										</AggregationModelList>
-									</CoverageTerm>
-									<CoverageTerm>
-										<CodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceOrteLim</CodeIdentifier>
-										<Priority>402</Priority>
-										<ValueTypeName>Option</ValueTypeName>
-										<ValueType>
-											<Code>percent</Code>
-											<DisplayName>Porcentaje</DisplayName>
-										</ValueType>
-										<DisplayName>Ortesis</DisplayName>
-										<DisplayValue>0%</DisplayValue>
-										<PatternCodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceOrteLim</PatternCodeIdentifier>
-										<ModelType>
-											<Code>Limit</Code>
-											<DisplayName>Límite</DisplayName>
-										</ModelType>
-										<AggregationModelList>
-											<AggregationModel>
-												<Code>pc</Code>
-												<DisplayName>Por reclamación</DisplayName>
-											</AggregationModel>
-										</AggregationModelList>
-									</CoverageTerm>
-									<CoverageTerm>
-										<CodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceOdontLim</CodeIdentifier>
-										<Priority>429</Priority>
-										<ValueTypeName>Option</ValueTypeName>
-										<ValueType>
-											<Code>percent</Code>
-											<DisplayName>Porcentaje</DisplayName>
-										</ValueType>
-										<DisplayName>Tratamientos odontológicos</DisplayName>
-										<DisplayValue>0%</DisplayValue>
-										<PatternCodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceOdontLim</PatternCodeIdentifier>
-										<ModelType>
-											<Code>Limit</Code>
-											<DisplayName>Límite</DisplayName>
-										</ModelType>
-										<AggregationModelList>
-											<AggregationModel>
-												<Code>pc</Code>
-												<DisplayName>Por reclamación</DisplayName>
-											</AggregationModel>
-										</AggregationModelList>
-									</CoverageTerm>
-									<CoverageTerm>
-										<CodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceRehaLim</CodeIdentifier>
-										<Priority>440</Priority>
-										<ValueTypeName>Option</ValueTypeName>
-										<ValueType>
-											<Code>percent</Code>
-											<DisplayName>Porcentaje</DisplayName>
-										</ValueType>
-										<DisplayName>Rehabilitación</DisplayName>
-										<DisplayValue>100%</DisplayValue>
-										<PatternCodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceRehaLim</PatternCodeIdentifier>
-										<ModelType>
-											<Code>Limit</Code>
-											<DisplayName>Límite</DisplayName>
-										</ModelType>
-										<AggregationModelList>
-											<AggregationModel>
-												<Code>pc</Code>
-												<DisplayName>Por reclamación</DisplayName>
-											</AggregationModel>
-										</AggregationModelList>
-									</CoverageTerm>
-									<CoverageTerm>
-										<CodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceProtLim</CodeIdentifier>
-										<Priority>442</Priority>
-										<ValueTypeName>Option</ValueTypeName>
-										<ValueType>
-											<Code>percent</Code>
-											<DisplayName>Porcentaje</DisplayName>
-										</ValueType>
-										<DisplayName>Prótesis</DisplayName>
-										<DisplayValue>100%</DisplayValue>
-										<PatternCodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceProtLim</PatternCodeIdentifier>
-										<ModelType>
-											<Code>Limit</Code>
-											<DisplayName>Límite</DisplayName>
-										</ModelType>
-										<AggregationModelList>
-											<AggregationModel>
-												<Code>pc</Code>
-												<DisplayName>Por reclamación</DisplayName>
-											</AggregationModel>
-										</AggregationModelList>
-									</CoverageTerm>
-									<CoverageTerm>
-										<CodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceMaxAgeLim</CodeIdentifier>
-										<Priority>700</Priority>
+										<CodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceDedCalc</CodeIdentifier>
+										<Priority>350</Priority>
 										<ValueTypeName>Direct</ValueTypeName>
 										<ValueType>
-											<Code>count</Code>
-											<DisplayName>Count</DisplayName>
-										</ValueType>
-										<DisplayName>Edad máxima de ingreso</DisplayName>
-										<DisplayValue>80</DisplayValue>
-										<PatternCodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceMaxAgeLim</PatternCodeIdentifier>
-										<ModelType>
-											<Code>max_age_limit_GSS</Code>
-											<DisplayName>Límite de Edad Máxima</DisplayName>
-										</ModelType>
-									</CoverageTerm>
-									<CoverageTerm>
-										<CodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceMinAgeLim</CodeIdentifier>
-										<Priority>800</Priority>
-										<ValueTypeName>Direct</ValueTypeName>
-										<ValueType>
-											<Code>count</Code>
-											<DisplayName>Count</DisplayName>
-										</ValueType>
-										<DisplayName>Edad mínima de ingreso</DisplayName>
-										<DisplayValue>14</DisplayValue>
-										<PatternCodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceMinAgeLim</PatternCodeIdentifier>
-										<ModelType>
-											<Code>min_age_limit_GSS</Code>
-											<DisplayName>Límite de Edad Mínima</DisplayName>
-										</ModelType>
-									</CoverageTerm>
-									<CoverageTerm>
-										<CodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistancePermAgeLim</CodeIdentifier>
-										<Priority>900</Priority>
-										<ValueTypeName>Direct</ValueTypeName>
-										<ValueType>
-											<Code>count</Code>
-											<DisplayName>Count</DisplayName>
-										</ValueType>
-										<DisplayName>Edad máxima de permanencia</DisplayName>
-										<DisplayValue>81</DisplayValue>
-										<PatternCodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistancePermAgeLim</PatternCodeIdentifier>
-										<ModelType>
-											<Code>max_perm_age_limit_GSS</Code>
-											<DisplayName>Límite de Edad de Permanencia Máxima</DisplayName>
-										</ModelType>
-									</CoverageTerm>
-									<CoverageTerm>
-										<CodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceAgeTypeLim</CodeIdentifier>
-										<Priority>1000</Priority>
-										<ValueTypeName>Typekey</ValueTypeName>
-										<DisplayName>Tipo de edad mínima de ingreso</DisplayName>
-										<DisplayValue>Años</DisplayValue>
-										<PatternCodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceAgeTypeLim</PatternCodeIdentifier>
-										<ModelType>
-											<Code>min_age_type_limit_GSS</Code>
-											<DisplayName>Tipo de Edad Mínima</DisplayName>
-										</ModelType>
-									</CoverageTerm>
-									<CoverageTerm>
-										<CodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceMaxSALim</CodeIdentifier>
-										<Priority>1350</Priority>
-										<ValueTypeName>Option</ValueTypeName>
-										<ValueType>
-											<Code>money</Code>
+											<Code>percent1</Code>
 											<DisplayName>Dinero</DisplayName>
 										</ValueType>
-										<DisplayName>Suma asegurada máxima cubierta</DisplayName>
-										<DisplayValue>Libre</DisplayValue>
-										<PatternCodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceMaxSALim</PatternCodeIdentifier>
+										<DisplayName>Deducible Calculado</DisplayName>
+										<DisplayValue>800</DisplayValue>
+										<DisplayAmount>$ 0,00</DisplayAmount>
+										<PatternCodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceDedCalc</PatternCodeIdentifier>
 										<ModelType>
-											<Code>amount_limit_GSS</Code>
-											<DisplayName>Límite de Suma</DisplayName>
+											<Code>max_perm_age_limit_GSS</Code>
+											<DisplayName>Deducible</DisplayName>
 										</ModelType>
 										<AggregationModelList>
 											<AggregationModel>
-												<Code>ppt_GSS</Code>
-												<DisplayName>Por vigencia por póliza</DisplayName>
+												<Code>pc</Code>
+												<DisplayName>Por reclamación</DisplayName>
+											</AggregationModel>
+										</AggregationModelList>
+									</CoverageTerm>
+									<CoverageTerm>
+										<CodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceDedCalc</CodeIdentifier>
+										<Priority>350</Priority>
+										<ValueTypeName>Direct</ValueTypeName>
+										<ValueType>
+											<Code>percent1</Code>
+											<DisplayName>Dinero</DisplayName>
+										</ValueType>
+										<DisplayName>Deducible Calculado</DisplayName>
+										<DisplayValue>700</DisplayValue>
+										<DisplayAmount>$ 0,00</DisplayAmount>
+										<PatternCodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceDedCalc</PatternCodeIdentifier>
+										<ModelType>
+											<Code>max_age_limit_GSS</Code>
+											<DisplayName>Deducible</DisplayName>
+										</ModelType>
+										<AggregationModelList>
+											<AggregationModel>
+												<Code>pc</Code>
+												<DisplayName>Por reclamación</DisplayName>
+											</AggregationModel>
+										</AggregationModelList>
+									</CoverageTerm>
+									<CoverageTerm>
+										<CodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceDedCalc</CodeIdentifier>
+										<Priority>350</Priority>
+										<ValueTypeName>Direct</ValueTypeName>
+										<ValueType>
+											<Code>percent1</Code>
+											<DisplayName>Dinero</DisplayName>
+										</ValueType>
+										<DisplayName>Deducible Calculado</DisplayName>
+										<DisplayValue>600</DisplayValue>
+										<DisplayAmount>$ 0,00</DisplayAmount>
+										<PatternCodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceDedCalc</PatternCodeIdentifier>
+										<ModelType>
+											<Code>min_age_type_limit_GSS</Code>
+											<DisplayName>Deducible</DisplayName>
+										</ModelType>
+										<AggregationModelList>
+											<AggregationModel>
+												<Code>pc</Code>
+												<DisplayName>Por reclamación</DisplayName>
+											</AggregationModel>
+										</AggregationModelList>
+									</CoverageTerm>
+									<CoverageTerm>
+										<CodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceDedCalc</CodeIdentifier>
+										<Priority>350</Priority>
+										<ValueTypeName>Direct</ValueTypeName>
+										<ValueType>
+											<Code>percent1</Code>
+											<DisplayName>Dinero</DisplayName>
+										</ValueType>
+										<DisplayName>Deducible Calculado</DisplayName>
+										<DisplayValue>500</DisplayValue>
+										<DisplayAmount>$ 0,00</DisplayAmount>
+										<PatternCodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceDedCalc</PatternCodeIdentifier>
+										<ModelType>
+											<Code>min_age_limit_GSS</Code>
+											<DisplayName>Deducible</DisplayName>
+										</ModelType>
+										<AggregationModelList>
+											<AggregationModel>
+												<Code>pc</Code>
+												<DisplayName>Por reclamación</DisplayName>
+											</AggregationModel>
+										</AggregationModelList>
+									</CoverageTerm>
+									<CoverageTerm>
+										<CodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceDedCalc</CodeIdentifier>
+										<Priority>350</Priority>
+										<ValueTypeName>Direct</ValueTypeName>
+										<ValueType>
+											<Code>percent1</Code>
+											<DisplayName>Dinero</DisplayName>
+										</ValueType>
+										<DisplayName>Deducible Calculado</DisplayName>
+										<DisplayValue>800</DisplayValue>
+										<DisplayAmount>$ 0,00</DisplayAmount>
+										<PatternCodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceDedCalc</PatternCodeIdentifier>
+										<ModelType>
+											<Code>Limit</Code>
+											<DisplayName>Deducible</DisplayName>
+										</ModelType>
+										<AggregationModelList>
+											<AggregationModel>
+												<Code>pc</Code>
+												<DisplayName>Por reclamación</DisplayName>
+											</AggregationModel>
+										</AggregationModelList>
+									</CoverageTerm>
+									<CoverageTerm>
+										<CodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceDedCalc</CodeIdentifier>
+										<Priority>350</Priority>
+										<ValueTypeName>Direct</ValueTypeName>
+										<ValueType>
+											<Code>1percent</Code>
+											<DisplayName>Dinero</DisplayName>
+										</ValueType>
+										<DisplayName>Deducible Calculado12</DisplayName>
+										<DisplayValue>100</DisplayValue>
+										<DisplayAmount>$ 0,00</DisplayAmount>
+										<PatternCodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceDedCalc</PatternCodeIdentifier>
+										<ModelType>
+											<Code>Limit</Code>
+											<DisplayName>Deducible</DisplayName>
+										</ModelType>
+										<AggregationModelList>
+											<AggregationModel>
+												<Code>pc</Code>
+												<DisplayName>Por reclamación</DisplayName>
 											</AggregationModel>
 										</AggregationModelList>
 									</CoverageTerm>
@@ -2147,21 +2092,17 @@
 						</CoverageConditionsAndExclusions>
 						<StartDate>2021-01-13T12:00:00</StartDate>
 						<EndDate>2022-01-13T12:00:00</EndDate>		
-						<RiskCategory>5</RiskCategory>
+						<RiskCategory>51</RiskCategory>
 						<ContractType>
 							<DisplayName>prueba</DisplayName>
 						</ContractType>
 						<InsurableGroup>
-							<DisplayName>Admini</DisplayName>
+							<DisplayName>AQUI</DisplayName>
 						</InsurableGroup>
 						<InsuredType>
-							<Code>innominates</Code>
-							<DisplayName>Innominados</DisplayName>
+							<Code>nominates</Code>
+							<DisplayName>Nominados</DisplayName>
 						</InsuredType>
-						<Clasification>
-							<Code>1.1</Code>
-							<DisplayName>Administrativo</DisplayName>
-						</Clasification>
 						<PartyInsuredBeneficiaries/>
 						<PartyAdditionals/>
 						<Locations>
@@ -2170,7 +2111,7 @@
 						<AdditionalInterest>true</AdditionalInterest>
 						<EventStartDate>HolaStartDate5</EventStartDate>
 						<EventEndDate>HolaEndDate</EventEndDate>
-						<LocationEvent>HolaLocationEvent1</LocationEvent>
+						<LocationEvent/>
 						<AAHRiskCategory>
 							<DisplayName>HolaRiskCategory</DisplayName>
 						</AAHRiskCategory>
@@ -2247,17 +2188,16 @@
 						<PhysicalLimit>false</PhysicalLimit>
 						<LeftHanded>false</LeftHanded>
 						<AgeRangeID>0</AgeRangeID>
-						<Activity>
-							<DisplayName>PRUE</DisplayName>
-						</Activity>
 						<AgeOrYearRange>55</AgeOrYearRange>
+						<Clasification>
+							<DisplayName>HOLA</DisplayName>
+						</Clasification>
 						<CoveredEvent>
 							<DisplayName>Agropecuaria</DisplayName>
 						</CoveredEvent>
 						<PartyCoverages>
 							<PartyCoverage>
 								<Code>AAHDeathByAccidentCov</Code>
-								<Description>Muerte por Accidente</Description>
 								<Priority>1112</Priority>
 								<CoverageType>
 									<Code>basic</Code>
@@ -2285,7 +2225,7 @@
 										<Priority>100</Priority>
 										<ValueTypeName>Option</ValueTypeName>
 										<ValueType>
-											<Code>money</Code>
+											<Code>percent</Code>
 											<DisplayName>Dinero</DisplayName>
 										</ValueType>
 										<DisplayName>Suma Asegurada</DisplayName>
@@ -2293,7 +2233,7 @@
 										<DisplayAmount>$ 800.000,00</DisplayAmount>
 										<PatternCodeIdentifier>AAHDeathByAccidentSALim</PatternCodeIdentifier>
 										<ModelType>
-											<Code>amount_limit_GSS</Code>
+											<Code>Deductible</Code>
 											<DisplayName>Límite de Suma</DisplayName>
 										</ModelType>
 										<AggregationModelList>
@@ -2308,14 +2248,14 @@
 										<Priority>300</Priority>
 										<ValueTypeName>Direct</ValueTypeName>
 										<ValueType>
-											<Code>count</Code>
+											<Code>money</Code>
 											<DisplayName>Count</DisplayName>
 										</ValueType>
 										<DisplayName>Edad máxima de ingreso</DisplayName>
 										<DisplayValue>80</DisplayValue>
 										<PatternCodeIdentifier>AAHDeathByAccidentMaxAgeLim</PatternCodeIdentifier>
 										<ModelType>
-											<Code>max_age_limit_GSS</Code>
+											<Code>Limit</Code>
 											<DisplayName>Límite de Edad Máxima</DisplayName>
 										</ModelType>
 									</CoverageTerm>
@@ -2617,7 +2557,7 @@
 								<Category>AandHPartyStndGrp</Category>
 							</PartyCoverage>
 							<PartyCoverage>
-								<Code>AAHRefundExpensesPharmaceuticalMedicalAssistanceCov</Code>
+								<Code>AAHPharmaceuticalMedicalAssistanceCov</Code>
 								<Description>Reintegro de Gastos por Asistencia Médico Farmacéutica</Description>
 								<Priority>1914</Priority>
 								<CoverageType>
@@ -2748,7 +2688,7 @@
 										</ModelType>
 										<AggregationModelList>
 											<AggregationModel>
-												<Code>pc</Code>
+												<Code>pc2</Code>
 												<DisplayName>Por reclamación</DisplayName>
 											</AggregationModel>
 										</AggregationModelList>
@@ -2770,7 +2710,7 @@
 										</ModelType>
 										<AggregationModelList>
 											<AggregationModel>
-												<Code>pc</Code>
+												<Code>pc3</Code>
 												<DisplayName>Por reclamación</DisplayName>
 											</AggregationModel>
 										</AggregationModelList>
@@ -2792,7 +2732,7 @@
 										</ModelType>
 										<AggregationModelList>
 											<AggregationModel>
-												<Code>pc</Code>
+												<Code>pc4</Code>
 												<DisplayName>Por reclamación</DisplayName>
 											</AggregationModel>
 										</AggregationModelList>
@@ -2806,7 +2746,7 @@
 											<DisplayName>Porcentaje</DisplayName>
 										</ValueType>
 										<DisplayName>Prótesis</DisplayName>
-										<DisplayValue>100%</DisplayValue>
+										<DisplayValue>100</DisplayValue>
 										<PatternCodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceProtLim</PatternCodeIdentifier>
 										<ModelType>
 											<Code>Limit</Code>
@@ -2819,88 +2759,7 @@
 											</AggregationModel>
 										</AggregationModelList>
 									</CoverageTerm>
-									<CoverageTerm>
-										<CodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceMaxAgeLim</CodeIdentifier>
-										<Priority>700</Priority>
-										<ValueTypeName>Direct</ValueTypeName>
-										<ValueType>
-											<Code>count</Code>
-											<DisplayName>Count</DisplayName>
-										</ValueType>
-										<DisplayName>Edad máxima de ingreso</DisplayName>
-										<DisplayValue>80</DisplayValue>
-										<PatternCodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceMaxAgeLim</PatternCodeIdentifier>
-										<ModelType>
-											<Code>max_age_limit_GSS</Code>
-											<DisplayName>Límite de Edad Máxima</DisplayName>
-										</ModelType>
-									</CoverageTerm>
-									<CoverageTerm>
-										<CodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceMinAgeLim</CodeIdentifier>
-										<Priority>800</Priority>
-										<ValueTypeName>Direct</ValueTypeName>
-										<ValueType>
-											<Code>count</Code>
-											<DisplayName>Count</DisplayName>
-										</ValueType>
-										<DisplayName>Edad mínima de ingreso</DisplayName>
-										<DisplayValue>14</DisplayValue>
-										<PatternCodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceMinAgeLim</PatternCodeIdentifier>
-										<ModelType>
-											<Code>min_age_limit_GSS</Code>
-											<DisplayName>Límite de Edad Mínima</DisplayName>
-										</ModelType>
-									</CoverageTerm>
-									<CoverageTerm>
-										<CodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistancePermAgeLim</CodeIdentifier>
-										<Priority>900</Priority>
-										<ValueTypeName>Direct</ValueTypeName>
-										<ValueType>
-											<Code>count</Code>
-											<DisplayName>Count</DisplayName>
-										</ValueType>
-										<DisplayName>Edad máxima de permanencia</DisplayName>
-										<DisplayValue>81</DisplayValue>
-										<PatternCodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistancePermAgeLim</PatternCodeIdentifier>
-										<ModelType>
-											<Code>max_perm_age_limit_GSS</Code>
-											<DisplayName>Límite de Edad de Permanencia Máxima</DisplayName>
-										</ModelType>
-									</CoverageTerm>
-									<CoverageTerm>
-										<CodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceAgeTypeLim</CodeIdentifier>
-										<Priority>1000</Priority>
-										<ValueTypeName>Typekey</ValueTypeName>
-										<DisplayName>Tipo de edad mínima de ingreso</DisplayName>
-										<DisplayValue>Años</DisplayValue>
-										<PatternCodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceAgeTypeLim</PatternCodeIdentifier>
-										<ModelType>
-											<Code>min_age_type_limit_GSS</Code>
-											<DisplayName>Tipo de Edad Mínima</DisplayName>
-										</ModelType>
-									</CoverageTerm>
-									<CoverageTerm>
-										<CodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceMaxSALim</CodeIdentifier>
-										<Priority>1350</Priority>
-										<ValueTypeName>Option</ValueTypeName>
-										<ValueType>
-											<Code>money</Code>
-											<DisplayName>Dinero</DisplayName>
-										</ValueType>
-										<DisplayName>Suma asegurada máxima cubierta</DisplayName>
-										<DisplayValue>Libre</DisplayValue>
-										<PatternCodeIdentifier>AAHRefundExpensesPharmaceuticalMedicalAssistanceMaxSALim</PatternCodeIdentifier>
-										<ModelType>
-											<Code>amount_limit_GSS</Code>
-											<DisplayName>Límite de Suma</DisplayName>
-										</ModelType>
-										<AggregationModelList>
-											<AggregationModel>
-												<Code>ppt_GSS</Code>
-												<DisplayName>Por vigencia por póliza</DisplayName>
-											</AggregationModel>
-										</AggregationModelList>
-									</CoverageTerm>
+									
 								</CoverageTerms>
 								<EffectiveDateRangeWMStart>2021-01-13T12:00:00</EffectiveDateRangeWMStart>
 								<EffectiveDateRangeWMEnd>2022-01-13T12:00:00</EffectiveDateRangeWMEnd>
@@ -3840,16 +3699,12 @@
 							<DisplayName>prueba</DisplayName>
 						</ContractType>
 						<InsurableGroup>
-							<DisplayName>Admini</DisplayName>
+							<DisplayName>AQUI</DisplayName>
 						</InsurableGroup>
 						<InsuredType>
-							<Code>innominates</Code>
-							<DisplayName>Innominados</DisplayName>
+							<Code>nominates</Code>
+							<DisplayName>Nominados</DisplayName>
 						</InsuredType>
-						<Clasification>
-							<Code>1.1</Code>
-							<DisplayName>Administrativo</DisplayName>
-						</Clasification>
 						<PartyInsuredBeneficiaries/>
 						<PartyAdditionals/>
 						<Locations>
@@ -3857,8 +3712,8 @@
 						</Locations>
 						<AdditionalInterest>true</AdditionalInterest>
 						<EventStartDate>HolaStartDate5</EventStartDate>
-						<EventEndDate>HolaEndDate</EventEndDate>	
-						<LocationEvent>HolaLocationEvent1</LocationEvent>						
+						<EventEndDate>HolaEndDate</EventEndDate>
+						<LocationEvent/>
 						<AAHRiskCategory>
 							<DisplayName>HolaRiskCategory</DisplayName>
 						</AAHRiskCategory>

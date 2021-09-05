@@ -9,4 +9,12 @@ import lombok.Data;
 public class Clasification {
     @JsonProperty("DisplayName")
     private String displayName;
+/*
+    public String getDisplayName() {
+        return displayName;
+    }
+    public void setDisplayName() {
+        this.displayName = displayName;
+    }*/
 }
+

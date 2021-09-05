@@ -1,0 +1,3158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Document>
+<Header>
+  <EventIDGLOBAL>0001681839</EventIDGLOBAL>
+  <EventName>aah_quotation_colectiva_GSS</EventName>
+  <ThemeID>ARG_GW_PC_CotizacionAP_Colectiva</ThemeID>
+  <SourceSystem>PC</SourceSystem>
+  <Environment>PC_DEV</Environment>
+  <MultDownID/>
+  <UserName>su</UserName>
+  <OcurrenceDate>2021-08-05T17:44:14</OcurrenceDate>
+  <BusinessID>0001681839</BusinessID>
+  <ForPrint>false</ForPrint>
+  <ExternalChannel/>
+  <GroupQuantity>1</GroupQuantity>
+  <FormCode>aah_quotation_colectiva_GSS</FormCode>
+  <GeneralEnvironment>DEV\PC</GeneralEnvironment>
+</Header>
+<Metadata>
+  <Document>
+    <UserApplication>2</UserApplication>
+    <ContentTypeDef>Persona GSS</ContentTypeDef>
+    <ContentTypeDef>Documentos Polizas</ContentTypeDef>
+    <ContentTypeDef>Documentos Polizas Emision</ContentTypeDef>
+    <ContentTypeDef>Documentos Polizas Cotizacion</ContentTypeDef>
+    <EntityID>2</EntityID>
+    <EntityName>Poliza</EntityName>
+    <BusinessBranch>Seguros Personas</BusinessBranch>
+    <ProcessName>Emision</ProcessName>
+    <CreateBy>User Super</CreateBy>
+    <Name>Cotización_AP_0001681839.pdf</Name>
+    <DocumentCode>919</DocumentCode>
+    <DocumentTypes>Cotizacion AP</DocumentTypes>
+    <CreateDate>2021-08-05T17:44:14</CreateDate>
+    <AgrupationData>BupID</AgrupationData>
+    <BupID>70</BupID>
+    <PersonType>Jurídica</PersonType>
+    <FantasyName>CABL Group</FantasyName>
+    <TaxIdentificationType>CUIT</TaxIdentificationType>
+    <TaxIdentificationNumber>30711011478</TaxIdentificationNumber>
+    <UploadMetadata>
+      <Seguros>
+        <Poliza>
+          <ProductCode>AccidentAndHealth</ProductCode>
+          <ProductName>Accidentes Personales</ProductName>
+          <BranchCode>1</BranchCode>
+          <BranchName>Versión N.º 1</BranchName>
+          <ReferenceNumber>0001681839</ReferenceNumber>
+          <CertificateNumber>2</CertificateNumber>
+          <OfferingName>AP 24</OfferingName>
+          <ProducerCode>221107</ProducerCode>
+          <AccountNumber>8177499566</AccountNumber>
+          <IntermediaryCode>221107</IntermediaryCode>
+        </Poliza>
+        <EmisionPoliza>
+          <EmissionDate>2021-08-04T12:00:00</EmissionDate>
+          <PrintingDate>No</PrintingDate>
+          <EndorsementType>Emision</EndorsementType>
+          <EndorsementNumber>0</EndorsementNumber>
+          <ProposalNumber>0001681839</ProposalNumber>
+          <Quotas>0001681839</Quotas>
+          <SectionDocument>Identificatorio, Impositivo, Normativo</SectionDocument>
+          <EndorsementConcept>Emision</EndorsementConcept>
+          <PolicyDescription/>
+        </EmisionPoliza>
+        <CotizacionPoliza>
+          <Quota>0001681839</Quota>
+          <PolicyHolderName>CABL &amp; ASOCIADOS SRL</PolicyHolderName>
+          <Master>300462 CHINELLATO HUGO SANTIAGO</Master>
+          <ProducerFantasyName>221107 SANCHEZ EDUARDO CESAR</ProducerFantasyName>
+          <RequestStatus/>
+        </CotizacionPoliza>
+      </Seguros>
+    </UploadMetadata>
+    <SourceSystem>PC-CCM</SourceSystem>
+    <Environment>PC_DEV</Environment>
+    <File>
+      <DocumentMimeType>application/pdf</DocumentMimeType>
+      <DocumentName>Cotización_AP_0001681839.pdf</DocumentName>
+      <FileName>Cotización_AP_0001681839.pdf</FileName>
+    </File>
+  </Document>
+</Metadata>
+<Content>
+<PolicyPeriod>
+    <SystemDate>5 de Agosto de 2021</SystemDate>
+    <Policy>
+        <CreateTime>2021-08-04T12:51:07</CreateTime>
+        <FormattedCreation>2021-08-04 12.51.07</FormattedCreation>
+        <ProductCode>AccidentAndHealth</ProductCode>
+        <ProductName>Accidentes Personales</ProductName>
+        <CreateUser>User Super</CreateUser>
+    </Policy>
+    <PolicyChangeNumber>0</PolicyChangeNumber>
+    <WrittenDate>4 de Agosto de 2021</WrittenDate>
+    <selectedDateByDemand>4 de Agosto de 2021</selectedDateByDemand>
+    <PeriodStart>2021-08-04T12:00:00</PeriodStart>
+    <HourOfPeriodStart>12:00</HourOfPeriodStart>
+    <PeriodEnd>2022-08-04T12:00:00</PeriodEnd>
+    <HourOfPeriodEnd>12:00</HourOfPeriodEnd>
+    <EditEffectiveDate>2021-08-04T12:00:00</EditEffectiveDate>
+    <Submission>
+        <GenerateActivity>true</GenerateActivity>
+    </Submission>
+    <PolicyTerm>
+        <UpdateTime>2021-08-04T12:51:07</UpdateTime>
+    </PolicyTerm>
+    <OfferCode>AAHAP24</OfferCode>
+    <OfferName>AP 24</OfferName>
+    <OfferCommercialName>AP 24</OfferCommercialName>
+    <TotalNumberOfSelectedCertificates>2</TotalNumberOfSelectedCertificates>
+    <Status>
+        <Code>Quoted</Code>
+        <DisplayName>Cotizado</DisplayName>
+    </Status>
+    <RamoCode>
+        <Code>600</Code>
+        <DisplayName>Accidentes Personales</DisplayName>
+    </RamoCode>
+    <TotalNumberOfCertificates>2</TotalNumberOfCertificates>
+    <IncludeSignature>false</IncludeSignature>
+    <PaymentFrequency>Mensual</PaymentFrequency>
+    <TotalPremiumRPT>
+        <Currency>
+            <Code>ars</Code>
+            <DisplayName>ARS</DisplayName>
+            <Description>Pesos argentinos</Description>
+        </Currency>
+        <Amount>94051.20</Amount>
+        <DisplayAmount>$ 94.051,20</DisplayAmount>
+    </TotalPremiumRPT>
+    <TotalCostRPT>
+        <Currency>
+            <Code>ars</Code>
+            <DisplayName>ARS</DisplayName>
+            <Description>Pesos argentinos</Description>
+        </Currency>
+        <Amount>127958.74</Amount>
+        <DisplayAmount>$ 127.958,74</DisplayAmount>
+    </TotalCostRPT>
+    <FinancialSurchargesRPT>
+        <Currency>
+            <Code>ars</Code>
+            <DisplayName>ARS</DisplayName>
+            <Description>Pesos argentinos</Description>
+        </Currency>
+        <Amount>0.00</Amount>
+        <DisplayAmount>$ 0,00</DisplayAmount>
+    </FinancialSurchargesRPT>
+    <TaxAndSurchargesRPT>
+        <Currency>
+            <Code>ars</Code>
+            <DisplayName>ARS</DisplayName>
+            <Description>Pesos argentinos</Description>
+        </Currency>
+        <Amount>25442.74</Amount>
+        <DisplayAmount>$ 25.442,74</DisplayAmount>
+    </TaxAndSurchargesRPT>
+    <SocialCapitalRPT>
+        <Currency>
+            <Code>ars</Code>
+            <DisplayName>ARS</DisplayName>
+            <Description>Pesos argentinos</Description>
+        </Currency>
+        <Amount>8464.80</Amount>
+        <DisplayAmount>$ 8.464,80</DisplayAmount>
+    </SocialCapitalRPT>
+    <PremiumWithOutIVARPT>
+        <Currency>
+            <Code>ars</Code>
+            <DisplayName>ARS</DisplayName>
+            <Description>Pesos argentinos</Description>
+        </Currency>
+        <Amount>105386.45</Amount>
+        <DisplayAmount>$ 105.386,45</DisplayAmount>
+    </PremiumWithOutIVARPT>
+    <Costs>
+        <Cost>
+            <Concept>
+                <Code>Sellado</Code>
+                <DisplayName>Sellados</DisplayName>
+            </Concept>
+            <Basis>102516.00</Basis>
+            <Percentage>1.70</Percentage>
+            <ActualCost>
+                <Currency>
+                    <Code>ars</Code>
+                    <DisplayName>ARS</DisplayName>
+                    <Description>Pesos argentinos</Description>
+                </Currency>
+                <Amount>1742.77</Amount>
+                <DisplayAmount>$ 1.742,77</DisplayAmount>
+            </ActualCost>
+        </Cost>
+        <Cost>
+            <Concept>
+                <Code>ServSoc</Code>
+                <DisplayName>Aporte Obra social del Seguro</DisplayName>
+            </Concept>
+            <Basis>102516.00</Basis>
+            <Percentage>0.50</Percentage>
+            <ActualCost>
+                <Currency>
+                    <Code>ars</Code>
+                    <DisplayName>ARS</DisplayName>
+                    <Description>Pesos argentinos</Description>
+                </Currency>
+                <Amount>512.58</Amount>
+                <DisplayAmount>$ 512,58</DisplayAmount>
+            </ActualCost>
+        </Cost>
+        <Cost>
+            <Concept>
+                <Code>TasaSSN</Code>
+                <DisplayName>Tasa Uniforme de S.S.N.</DisplayName>
+            </Concept>
+            <Basis>102516.00</Basis>
+            <Percentage>0.60</Percentage>
+            <ActualCost>
+                <Currency>
+                    <Code>ars</Code>
+                    <DisplayName>ARS</DisplayName>
+                    <Description>Pesos argentinos</Description>
+                </Currency>
+                <Amount>615.10</Amount>
+                <DisplayAmount>$ 615,10</DisplayAmount>
+            </ActualCost>
+        </Cost>
+        <Cost>
+            <Concept>
+                <Code>percepcionIVA</Code>
+                <DisplayName>Percepción IVA</DisplayName>
+            </Concept>
+            <Basis>94051.20</Basis>
+            <Percentage>3.00</Percentage>
+            <ActualCost>
+                <Currency>
+                    <Code>ars</Code>
+                    <DisplayName>ARS</DisplayName>
+                    <Description>Pesos argentinos</Description>
+                </Currency>
+                <Amount>2821.54</Amount>
+                <DisplayAmount>$ 2.821,54</DisplayAmount>
+            </ActualCost>
+        </Cost>
+        <Cost>
+            <Concept>
+                <Code>IVA</Code>
+                <DisplayName>IVA</DisplayName>
+            </Concept>
+            <Basis>94051.20</Basis>
+            <Percentage>21.00</Percentage>
+            <ActualCost>
+                <Currency>
+                    <Code>ars</Code>
+                    <DisplayName>ARS</DisplayName>
+                    <Description>Pesos argentinos</Description>
+                </Currency>
+                <Amount>19750.75</Amount>
+                <DisplayAmount>$ 19.750,75</DisplayAmount>
+            </ActualCost>
+        </Cost>
+    </Costs>
+    <PartialCost>
+        <Premiun>
+            <Currency>
+                <Code>ars</Code>
+                <DisplayName>ARS</DisplayName>
+                <Description>Pesos argentinos</Description>
+            </Currency>
+            <Amount>7837.71</Amount>
+            <DisplayAmount>$ 7.837,71</DisplayAmount>
+        </Premiun>
+        <IVA>
+            <Currency>
+                <Code>ars</Code>
+                <DisplayName>ARS</DisplayName>
+                <Description>Pesos argentinos</Description>
+            </Currency>
+            <Amount>1645.96</Amount>
+            <DisplayAmount>$ 1.645,96</DisplayAmount>
+        </IVA>
+        <TaxesAndFees>
+            <Currency>
+                <Code>ars</Code>
+                <DisplayName>ARS</DisplayName>
+                <Description>Pesos argentinos</Description>
+            </Currency>
+            <Amount>94.12</Amount>
+            <DisplayAmount>$ 94,12</DisplayAmount>
+        </TaxesAndFees>
+        <StampTax>
+            <Currency>
+                <Code>ars</Code>
+                <DisplayName>ARS</DisplayName>
+                <Description>Pesos argentinos</Description>
+            </Currency>
+            <Amount>145.24</Amount>
+            <DisplayAmount>$ 145,24</DisplayAmount>
+        </StampTax>
+        <SocialCapital>
+            <Currency>
+                <Code>ars</Code>
+                <DisplayName>ARS</DisplayName>
+                <Description>Pesos argentinos</Description>
+            </Currency>
+            <Amount>705.40</Amount>
+            <DisplayAmount>$ 705,40</DisplayAmount>
+        </SocialCapital>
+        <PercepIva>
+            <Currency>
+                <Code>ars</Code>
+                <DisplayName>ARS</DisplayName>
+                <Description>Pesos argentinos</Description>
+            </Currency>
+            <Amount>235.22</Amount>
+            <DisplayAmount>$ 235,22</DisplayAmount>
+        </PercepIva>
+    </PartialCost>
+    <PrimaryNamedInsured>
+        <Contact>
+            <PublicID>pc:200</PublicID>
+            <DisplayName>CABL amp; ASOCIADOS SRL</DisplayName>
+            <Name>CABL amp; ASOCIADOS SRL</Name>
+            <FantasyName>CABL Group</FantasyName>
+            <TaxID>30711011478</TaxID>
+            <AssociatedNumber>123456789</AssociatedNumber>
+            <OfficialIDs>
+                <OfficialID>
+                    <Type>
+                        <Code>cuit_cuil_GSS</Code>
+                        <DisplayName>CUIT/CUIL</DisplayName>
+                        <UnlocalizedName>CUIT/CUIL</UnlocalizedName>
+                    </Type>
+                    <Value>30711011478</Value>
+                    <Primary>true</Primary>
+                </OfficialID>
+            </OfficialIDs>
+            <TaxCondition>
+                <Code>iva_ri</Code>
+                <DisplayName>Responsable Inscripto</DisplayName>
+            </TaxCondition>
+            <PrimaryAddressConcatenated>Av. Belgrano 555</PrimaryAddressConcatenated>
+            <PrimaryAddress>
+                <AddressLine1>Av. Belgrano</AddressLine1>
+                <AddressLine2>555</AddressLine2>
+                <AddressType>
+                    <Code>business</Code>
+                    <DisplayName>Comercial</DisplayName>
+                </AddressType>
+                <City>Sunchales</City>
+                <Country>
+                    <Code>AR</Code>
+                    <DisplayName>Argentina</DisplayName>
+                </Country>
+                <PostalCode>2322</PostalCode>
+                <State>
+                    <Code>AR-S</Code>
+                    <DisplayName>Santa Fe</DisplayName>
+                </State>
+                <Neighborhood>Mock Neighborhood</Neighborhood>
+                <BetweenStreet1>Mock BetweenStreet1</BetweenStreet1>
+                <BetweenStreet2>Mock BetweenStreet2</BetweenStreet2>
+            </PrimaryAddress>
+            <Subtype>
+                <Code>Company</Code>
+                <DisplayName>Empresa</DisplayName>
+            </Subtype>
+        </Contact>
+    </PrimaryNamedInsured>
+    <DocumentDelivery>
+        <Code>digital</Code>
+        <DisplayName>Digital</DisplayName>
+    </DocumentDelivery>
+    <EmailAddresses>
+        <EmailAddress/>
+    </EmailAddresses>
+    <PolicyAddress>
+        <AddressLine1>Av. Belgrano</AddressLine1>
+        <AddressLine2>555</AddressLine2>
+        <AddressType>
+            <Code>business</Code>
+            <DisplayName>Comercial</DisplayName>
+        </AddressType>
+        <City>Sunchales</City>
+        <Country>
+            <Code>AR</Code>
+            <DisplayName>Argentina</DisplayName>
+        </Country>
+        <PostalCode>2322</PostalCode>
+        <State>
+            <Code>AR-S</Code>
+            <DisplayName>Santa Fe</DisplayName>
+        </State>
+        <Neighborhood>Mock Neighborhood</Neighborhood>
+        <BetweenStreet1>Mock BetweenStreet1</BetweenStreet1>
+        <BetweenStreet2>Mock BetweenStreet2</BetweenStreet2>
+    </PolicyAddress>
+    <Locations>
+        <Location>
+            <AddressLine1>Av. Belgrano</AddressLine1>
+            <AddressLine2>555</AddressLine2>
+            <AddressType>
+                <Code>business</Code>
+                <DisplayName>Comercial</DisplayName>
+            </AddressType>
+            <City>Sunchales</City>
+            <Country>
+                <Code>AR</Code>
+                <DisplayName>Argentina</DisplayName>
+            </Country>
+            <PostalCode>2322</PostalCode>
+            <State>
+                <Code>AR-S</Code>
+                <DisplayName>Santa Fe</DisplayName>
+            </State>
+        </Location>
+    </Locations>
+    <PublicID>pc:1017</PublicID>
+    <BusinessUnit>
+        <Code>101</Code>
+        <DisplayName>101 - UN - Tucuman</DisplayName>
+    </BusinessUnit>
+    <AAHLine>
+        <AAHPartys>
+            <AAHParty>
+                <PartyNumber>1</PartyNumber>
+                <PhysicalLimit>false</PhysicalLimit>
+                <LeftHanded>false</LeftHanded>
+                <AgeRangeID>0</AgeRangeID>
+                <AgeOrYearRange>14 años a 80 años</AgeOrYearRange>
+                <PartyCoverages>
+                    <PartyCoverage>
+                        <Code>AAHDeathByAccidentCov</Code>
+                        <Description>Muerte por Accidente</Description>
+                        <Priority>1112</Priority>
+                        <CoverageType>
+                            <Code>basic</Code>
+                            <DisplayName>Básica</DisplayName>
+                        </CoverageType>
+                        <Costs>
+                            <Cost>
+                                <Proration>1.0</Proration>
+                                <Subtype>
+                                    <Code>AAHPartyCovCostExt</Code>
+                                    <DisplayName>AAHPartyCovCostExt</DisplayName>
+                                </Subtype>
+                            </Cost>
+                            <Cost>
+                                <Proration>1.0</Proration>
+                                <Subtype>
+                                    <Code>AAHPartyCovCostExt</Code>
+                                    <DisplayName>AAHPartyCovCostExt</DisplayName>
+                                </Subtype>
+                            </Cost>
+                        </Costs>
+                        <CoverageTerms>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathByAccidentSALim</CodeIdentifier>
+                                <Priority>100</Priority>
+                                <ValueTypeName>Option</ValueTypeName>
+                                <ValueType>
+                                    <Code>money</Code>
+                                    <DisplayName>Dinero</DisplayName>
+                                </ValueType>
+                                <DisplayName>Suma Asegurada</DisplayName>
+                                <DisplayValue>800.000</DisplayValue>
+                                <DisplayAmount>$ 800.000,00</DisplayAmount>
+                                <PatternCodeIdentifier>AAHDeathByAccidentSALim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>amount_limit_GSS</Code>
+                                    <DisplayName>Límite de Suma</DisplayName>
+                                </ModelType>
+                                <AggregationModelList>
+                                    <AggregationModel>
+                                        <Code>pc</Code>
+                                        <DisplayName>Por reclamación</DisplayName>
+                                    </AggregationModel>
+                                </AggregationModelList>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathByAccidentMaxAgeLim</CodeIdentifier>
+                                <Priority>300</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>count</Code>
+                                    <DisplayName>Count</DisplayName>
+                                </ValueType>
+                                <DisplayName>Edad máxima de ingreso</DisplayName>
+                                <DisplayValue>80</DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathByAccidentMaxAgeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>max_age_limit_GSS</Code>
+                                    <DisplayName>Límite de Edad Máxima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathByAccidentMinAgeLim</CodeIdentifier>
+                                <Priority>400</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>count</Code>
+                                    <DisplayName>Count</DisplayName>
+                                </ValueType>
+                                <DisplayName>Edad mínima de ingreso</DisplayName>
+                                <DisplayValue>14</DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathByAccidentMinAgeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>min_age_limit_GSS</Code>
+                                    <DisplayName>Límite de Edad Mínima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathByAccidentPermAgeLim</CodeIdentifier>
+                                <Priority>500</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>count</Code>
+                                    <DisplayName>Count</DisplayName>
+                                </ValueType>
+                                <DisplayName>Edad máxima de permanencia</DisplayName>
+                                <DisplayValue>81</DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathByAccidentPermAgeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>max_perm_age_limit_GSS</Code>
+                                    <DisplayName>Límite de Edad de Permanencia Máxima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathByAccidentAgeTypeLim</CodeIdentifier>
+                                <Priority>600</Priority>
+                                <ValueTypeName>Typekey</ValueTypeName>
+                                <DisplayName>Tipo de edad mínima de ingreso</DisplayName>
+                                <DisplayValue>Años</DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathByAccidentAgeTypeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>min_age_type_limit_GSS</Code>
+                                    <DisplayName>Tipo de Edad Mínima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                        </CoverageTerms>
+                        <EffectiveDateRangeWMStart>2021-08-04T12:00:00</EffectiveDateRangeWMStart>
+                        <EffectiveDateRangeWMEnd>2022-08-04T12:00:00</EffectiveDateRangeWMEnd>
+                        <Category>AandHPartyStndGrp</Category>
+                    </PartyCoverage>
+                    <PartyCoverage>
+                        <Code>AAHPermanentDisabilityBaremoSSNCov</Code>
+                        <Description>Invalidez Total y/o Parcial Permanente por Accidente (SSN)</Description>
+                        <Priority>1162</Priority>
+                        <CoverageType>
+                            <Code>basic</Code>
+                            <DisplayName>Básica</DisplayName>
+                        </CoverageType>
+                        <Costs>
+                            <Cost>
+                                <Proration>1.0</Proration>
+                                <Subtype>
+                                    <Code>AAHPartyCovCostExt</Code>
+                                    <DisplayName>AAHPartyCovCostExt</DisplayName>
+                                </Subtype>
+                            </Cost>
+                            <Cost>
+                                <Proration>1.0</Proration>
+                                <Subtype>
+                                    <Code>AAHPartyCovCostExt</Code>
+                                    <DisplayName>AAHPartyCovCostExt</DisplayName>
+                                </Subtype>
+                            </Cost>
+                        </Costs>
+                        <CoverageTerms>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHPermanentDisabilityBaremoSSNSALim</CodeIdentifier>
+                                <Priority>100</Priority>
+                                <ValueTypeName>Option</ValueTypeName>
+                                <ValueType>
+                                    <Code>money</Code>
+                                    <DisplayName>Dinero</DisplayName>
+                                </ValueType>
+                                <DisplayName>Suma Asegurada</DisplayName>
+                                <DisplayValue>800.000</DisplayValue>
+                                <DisplayAmount>$ 800.000,00</DisplayAmount>
+                                <PatternCodeIdentifier>AAHPermanentDisabilityBaremoSSNSALim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>amount_limit_GSS</Code>
+                                    <DisplayName>Límite de Suma</DisplayName>
+                                </ModelType>
+                                <AggregationModelList>
+                                    <AggregationModel>
+                                        <Code>ag</Code>
+                                        <DisplayName>Agregado anual</DisplayName>
+                                    </AggregationModel>
+                                </AggregationModelList>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHPermanentDisabilityBaremoSSNMinAgeLim</CodeIdentifier>
+                                <Priority>300</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>count</Code>
+                                    <DisplayName>Count</DisplayName>
+                                </ValueType>
+                                <DisplayName>Edad mínima de ingreso</DisplayName>
+                                <DisplayValue>14</DisplayValue>
+                                <PatternCodeIdentifier>AAHPermanentDisabilityBaremoSSNMinAgeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>min_age_limit_GSS</Code>
+                                    <DisplayName>Límite de Edad Mínima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHPermanentDisabilityBaremoSSNMaxAgeLim</CodeIdentifier>
+                                <Priority>400</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>count</Code>
+                                    <DisplayName>Count</DisplayName>
+                                </ValueType>
+                                <DisplayName>Edad máxima de ingreso</DisplayName>
+                                <DisplayValue>80</DisplayValue>
+                                <PatternCodeIdentifier>AAHPermanentDisabilityBaremoSSNMaxAgeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>max_age_limit_GSS</Code>
+                                    <DisplayName>Límite de Edad Máxima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHPermanentDisabilityBaremoSSNAgeTypeLim</CodeIdentifier>
+                                <Priority>600</Priority>
+                                <ValueTypeName>Typekey</ValueTypeName>
+                                <DisplayName>Tipo de edad mínima de ingreso</DisplayName>
+                                <DisplayValue>Años</DisplayValue>
+                                <PatternCodeIdentifier>AAHPermanentDisabilityBaremoSSNAgeTypeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>min_age_type_limit_GSS</Code>
+                                    <DisplayName>Tipo de Edad Mínima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHPermanentDisabilityBaremoSSNPermAgeLim</CodeIdentifier>
+                                <Priority>700</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>count</Code>
+                                    <DisplayName>Count</DisplayName>
+                                </ValueType>
+                                <DisplayName>Edad máxima de permanencia</DisplayName>
+                                <DisplayValue>81</DisplayValue>
+                                <PatternCodeIdentifier>AAHPermanentDisabilityBaremoSSNPermAgeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>max_perm_age_limit_GSS</Code>
+                                    <DisplayName>Límite de Edad de Permanencia Máxima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                        </CoverageTerms>
+                        <EffectiveDateRangeWMStart>2021-08-04T12:00:00</EffectiveDateRangeWMStart>
+                        <EffectiveDateRangeWMEnd>2022-08-04T12:00:00</EffectiveDateRangeWMEnd>
+                        <Category>AandHPartyStndGrp</Category>
+                    </PartyCoverage>
+                    <PartyCoverage>
+                        <Code>AAHDeathOfTheSpouseByAccidentCov</Code>
+                        <Description>Muerte del Conyuge por Accidente</Description>
+                        <Priority>1387</Priority>
+                        <CoverageType>
+                            <Code>additional</Code>
+                            <DisplayName>Adicional</DisplayName>
+                        </CoverageType>
+                        <Costs>
+                            <Cost>
+                                <Proration>1.0</Proration>
+                                <Subtype>
+                                    <Code>AAHPartyCovCostExt</Code>
+                                    <DisplayName>AAHPartyCovCostExt</DisplayName>
+                                </Subtype>
+                            </Cost>
+                            <Cost>
+                                <Proration>1.0</Proration>
+                                <Subtype>
+                                    <Code>AAHPartyCovCostExt</Code>
+                                    <DisplayName>AAHPartyCovCostExt</DisplayName>
+                                </Subtype>
+                            </Cost>
+                        </Costs>
+                        <CoverageTerms>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathOfTheSpouseByAccidentRateLim</CodeIdentifier>
+                                <Priority>100</Priority>
+                                <ValueTypeName>Option</ValueTypeName>
+                                <ValueType>
+                                    <Code>percent</Code>
+                                    <DisplayName>Porcentaje</DisplayName>
+                                </ValueType>
+                                <DisplayName>% (Basado en Muerte por Accidente)</DisplayName>
+                                <DisplayValue>50%</DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathOfTheSpouseByAccidentRateLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>Limit</Code>
+                                    <DisplayName>Límite</DisplayName>
+                                </ModelType>
+                                <AggregationModelList>
+                                    <AggregationModel>
+                                        <Code>pc</Code>
+                                        <DisplayName>Por reclamación</DisplayName>
+                                    </AggregationModel>
+                                </AggregationModelList>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathOfTheSpouseByAccidentSALim</CodeIdentifier>
+                                <Priority>200</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>money</Code>
+                                    <DisplayName>Dinero</DisplayName>
+                                </ValueType>
+                                <DisplayName>Suma Asegurada</DisplayName>
+                                <DisplayValue>400.000</DisplayValue>
+                                <DisplayAmount>$ 400.000,00</DisplayAmount>
+                                <PatternCodeIdentifier>AAHDeathOfTheSpouseByAccidentSALim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>amount_limit_GSS</Code>
+                                    <DisplayName>Límite de Suma</DisplayName>
+                                </ModelType>
+                                <AggregationModelList>
+                                    <AggregationModel>
+                                        <Code>pc</Code>
+                                        <DisplayName>Por reclamación</DisplayName>
+                                    </AggregationModel>
+                                </AggregationModelList>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathOfTheSpouseByAccidentMaxAgeLim</CodeIdentifier>
+                                <Priority>300</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>count</Code>
+                                    <DisplayName>Count</DisplayName>
+                                </ValueType>
+                                <DisplayName>Edad máxima de ingreso</DisplayName>
+                                <DisplayValue>80</DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathOfTheSpouseByAccidentMaxAgeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>max_age_limit_GSS</Code>
+                                    <DisplayName>Límite de Edad Máxima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathOfTheSpouseByAccidentMinAgeLim</CodeIdentifier>
+                                <Priority>400</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>count</Code>
+                                    <DisplayName>Count</DisplayName>
+                                </ValueType>
+                                <DisplayName>Edad mínima de ingreso</DisplayName>
+                                <DisplayValue>14</DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathOfTheSpouseByAccidentMinAgeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>min_age_limit_GSS</Code>
+                                    <DisplayName>Límite de Edad Mínima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathOfTheSpouseByAccidentPermAgeLim</CodeIdentifier>
+                                <Priority>500</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>count</Code>
+                                    <DisplayName>Count</DisplayName>
+                                </ValueType>
+                                <DisplayName>Edad máxima de permanencia</DisplayName>
+                                <DisplayValue>81</DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathOfTheSpouseByAccidentPermAgeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>max_perm_age_limit_GSS</Code>
+                                    <DisplayName>Límite de Edad de Permanencia Máxima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathOfTheSpouseByAccidentAgeTypeLim</CodeIdentifier>
+                                <Priority>600</Priority>
+                                <ValueTypeName>Typekey</ValueTypeName>
+                                <DisplayName>Tipo de edad mínima de ingreso</DisplayName>
+                                <DisplayValue>Años</DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathOfTheSpouseByAccidentAgeTypeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>min_age_type_limit_GSS</Code>
+                                    <DisplayName>Tipo de Edad Mínima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                        </CoverageTerms>
+                        <EffectiveDateRangeWMStart>2021-08-04T12:00:00</EffectiveDateRangeWMStart>
+                        <EffectiveDateRangeWMEnd>2022-08-04T12:00:00</EffectiveDateRangeWMEnd>
+                        <Category>AandHPartyStndGrp</Category>
+                    </PartyCoverage>
+                </PartyCoverages>
+                <CoverageConditionsAndExclusions>
+                    <CoverageConditionAndExclusion>
+                        <CodeIdentifier>AAHECInsuranceOnThePersonOfAThirdPartyCond</CodeIdentifier>
+                        <DisplayName>C.E. Seguro sobre la Persona de un Tercero</DisplayName>
+                        <Priority>800</Priority>
+                        <CoverageTerms/>
+                        <Category>AAHPartySpecificConditionsCategory_GSS</Category>
+                        <ClauseName>Condición</ClauseName>
+                        <Version>1</Version>
+                    </CoverageConditionAndExclusion>
+                    <CoverageConditionAndExclusion>
+                        <CodeIdentifier>AAHECDeathByAccidentCond</CodeIdentifier>
+                        <DisplayName>C.E. - Muerte por Accidente</DisplayName>
+                        <Priority>1100</Priority>
+                        <CoverageTerms/>
+                        <Category>AAHPartySpecificConditionsCategory_GSS</Category>
+                        <ClauseName>Condición</ClauseName>
+                    </CoverageConditionAndExclusion>
+                    <CoverageConditionAndExclusion>
+                        <CodeIdentifier>AAHDeathByAccidentCov</CodeIdentifier>
+                        <DisplayName>Muerte por Accidente</DisplayName>
+                        <Priority>1112</Priority>
+                        <CoverageTerms>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathByAccidentSALim</CodeIdentifier>
+                                <Priority>100</Priority>
+                                <ValueTypeName>Option</ValueTypeName>
+                                <ValueType>
+                                    <Code>money</Code>
+                                    <DisplayName>Dinero</DisplayName>
+                                </ValueType>
+                                <DisplayName>Suma Asegurada</DisplayName>
+                                <DisplayValue>800.000</DisplayValue>
+                                <DisplayAmount>$ 800.000,00</DisplayAmount>
+                                <PatternCodeIdentifier>AAHDeathByAccidentSALim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>amount_limit_GSS</Code>
+                                    <DisplayName>Límite de Suma</DisplayName>
+                                </ModelType>
+                                <AggregationModelList>
+                                    <AggregationModel>
+                                        <Code>pc</Code>
+                                        <DisplayName>Por reclamación</DisplayName>
+                                    </AggregationModel>
+                                </AggregationModelList>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathByAccidentLibLim</CodeIdentifier>
+                                <Priority>200</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>money</Code>
+                                    <DisplayName>Dinero</DisplayName>
+                                </ValueType>
+                                <DisplayName>Suma Asegurada (Libre)</DisplayName>
+                                <DisplayValue></DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathByAccidentLibLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>amount_limit_GSS</Code>
+                                    <DisplayName>Límite de Suma</DisplayName>
+                                </ModelType>
+                                <AggregationModelList>
+                                    <AggregationModel>
+                                        <Code>pc</Code>
+                                        <DisplayName>Por reclamación</DisplayName>
+                                    </AggregationModel>
+                                </AggregationModelList>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathByAccidentMaxAgeLim</CodeIdentifier>
+                                <Priority>300</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>count</Code>
+                                    <DisplayName>Count</DisplayName>
+                                </ValueType>
+                                <DisplayName>Edad máxima de ingreso</DisplayName>
+                                <DisplayValue>80</DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathByAccidentMaxAgeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>max_age_limit_GSS</Code>
+                                    <DisplayName>Límite de Edad Máxima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathByAccidentMinAgeLim</CodeIdentifier>
+                                <Priority>400</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>count</Code>
+                                    <DisplayName>Count</DisplayName>
+                                </ValueType>
+                                <DisplayName>Edad mínima de ingreso</DisplayName>
+                                <DisplayValue>14</DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathByAccidentMinAgeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>min_age_limit_GSS</Code>
+                                    <DisplayName>Límite de Edad Mínima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathByAccidentPermAgeLim</CodeIdentifier>
+                                <Priority>500</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>count</Code>
+                                    <DisplayName>Count</DisplayName>
+                                </ValueType>
+                                <DisplayName>Edad máxima de permanencia</DisplayName>
+                                <DisplayValue>81</DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathByAccidentPermAgeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>max_perm_age_limit_GSS</Code>
+                                    <DisplayName>Límite de Edad de Permanencia Máxima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathByAccidentAgeTypeLim</CodeIdentifier>
+                                <Priority>600</Priority>
+                                <ValueTypeName>Typekey</ValueTypeName>
+                                <DisplayName>Tipo de edad mínima de ingreso</DisplayName>
+                                <DisplayValue>Años</DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathByAccidentAgeTypeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>min_age_type_limit_GSS</Code>
+                                    <DisplayName>Tipo de Edad Mínima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathByAccidentExtrapremium</CodeIdentifier>
+                                <Priority>700</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>percent</Code>
+                                    <DisplayName>Porcentaje</DisplayName>
+                                </ValueType>
+                                <DisplayName>Extraprima (%)</DisplayName>
+                                <DisplayValue></DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathByAccidentExtrapremium</PatternCodeIdentifier>
+                            </CoverageTerm>
+                        </CoverageTerms>
+                        <Category>AandHPartyStndGrp</Category>
+                        <ClauseName>Cobertura</ClauseName>
+                    </CoverageConditionAndExclusion>
+                    <CoverageConditionAndExclusion>
+                        <CodeIdentifier>AAHPermanentDisabilityBaremoSSNCov</CodeIdentifier>
+                        <DisplayName>Invalidez Total y/o Parcial Permanente por Accidente (SSN)</DisplayName>
+                        <Priority>1162</Priority>
+                        <CoverageTerms>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHPermanentDisabilityBaremoSSNSALim</CodeIdentifier>
+                                <Priority>100</Priority>
+                                <ValueTypeName>Option</ValueTypeName>
+                                <ValueType>
+                                    <Code>money</Code>
+                                    <DisplayName>Dinero</DisplayName>
+                                </ValueType>
+                                <DisplayName>Suma Asegurada</DisplayName>
+                                <DisplayValue>800.000</DisplayValue>
+                                <DisplayAmount>$ 800.000,00</DisplayAmount>
+                                <PatternCodeIdentifier>AAHPermanentDisabilityBaremoSSNSALim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>amount_limit_GSS</Code>
+                                    <DisplayName>Límite de Suma</DisplayName>
+                                </ModelType>
+                                <AggregationModelList>
+                                    <AggregationModel>
+                                        <Code>ag</Code>
+                                        <DisplayName>Agregado anual</DisplayName>
+                                    </AggregationModel>
+                                </AggregationModelList>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHPermanentDisabilityBaremoSSNLibLim</CodeIdentifier>
+                                <Priority>200</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>money</Code>
+                                    <DisplayName>Dinero</DisplayName>
+                                </ValueType>
+                                <DisplayName>Suma Asegurada (Libre)</DisplayName>
+                                <DisplayValue></DisplayValue>
+                                <PatternCodeIdentifier>AAHPermanentDisabilityBaremoSSNLibLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>amount_limit_GSS</Code>
+                                    <DisplayName>Límite de Suma</DisplayName>
+                                </ModelType>
+                                <AggregationModelList>
+                                    <AggregationModel>
+                                        <Code>ag</Code>
+                                        <DisplayName>Agregado anual</DisplayName>
+                                    </AggregationModel>
+                                </AggregationModelList>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHPermanentDisabilityBaremoSSNMinAgeLim</CodeIdentifier>
+                                <Priority>300</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>count</Code>
+                                    <DisplayName>Count</DisplayName>
+                                </ValueType>
+                                <DisplayName>Edad mínima de ingreso</DisplayName>
+                                <DisplayValue>14</DisplayValue>
+                                <PatternCodeIdentifier>AAHPermanentDisabilityBaremoSSNMinAgeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>min_age_limit_GSS</Code>
+                                    <DisplayName>Límite de Edad Mínima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHPermanentDisabilityBaremoSSNMaxAgeLim</CodeIdentifier>
+                                <Priority>400</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>count</Code>
+                                    <DisplayName>Count</DisplayName>
+                                </ValueType>
+                                <DisplayName>Edad máxima de ingreso</DisplayName>
+                                <DisplayValue>80</DisplayValue>
+                                <PatternCodeIdentifier>AAHPermanentDisabilityBaremoSSNMaxAgeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>max_age_limit_GSS</Code>
+                                    <DisplayName>Límite de Edad Máxima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHPermanentDisabilityBaremoSSNAgeTypeLim</CodeIdentifier>
+                                <Priority>600</Priority>
+                                <ValueTypeName>Typekey</ValueTypeName>
+                                <DisplayName>Tipo de edad mínima de ingreso</DisplayName>
+                                <DisplayValue>Años</DisplayValue>
+                                <PatternCodeIdentifier>AAHPermanentDisabilityBaremoSSNAgeTypeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>min_age_type_limit_GSS</Code>
+                                    <DisplayName>Tipo de Edad Mínima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHPermanentDisabilityBaremoSSNPermAgeLim</CodeIdentifier>
+                                <Priority>700</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>count</Code>
+                                    <DisplayName>Count</DisplayName>
+                                </ValueType>
+                                <DisplayName>Edad máxima de permanencia</DisplayName>
+                                <DisplayValue>81</DisplayValue>
+                                <PatternCodeIdentifier>AAHPermanentDisabilityBaremoSSNPermAgeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>max_perm_age_limit_GSS</Code>
+                                    <DisplayName>Límite de Edad de Permanencia Máxima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHPermanentDisabilityBaremoSSNExtrapremium</CodeIdentifier>
+                                <Priority>800</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>percent</Code>
+                                    <DisplayName>Porcentaje</DisplayName>
+                                </ValueType>
+                                <DisplayName>Extraprima (%)</DisplayName>
+                                <DisplayValue></DisplayValue>
+                                <PatternCodeIdentifier>AAHPermanentDisabilityBaremoSSNExtrapremium</PatternCodeIdentifier>
+                            </CoverageTerm>
+                        </CoverageTerms>
+                        <Category>AandHPartyStndGrp</Category>
+                        <ClauseName>Cobertura</ClauseName>
+                    </CoverageConditionAndExclusion>
+                    <CoverageConditionAndExclusion>
+                        <CodeIdentifier>AAHAnnex1RisksNotCoveredDeathSpouseByAccidentExcl</CodeIdentifier>
+                        <DisplayName>Anexo 1: Riesgos No Cubiertos - Muerte del Cónyuge por Accidente</DisplayName>
+                        <Priority>1200</Priority>
+                        <CoverageTerms/>
+                        <Category>AAHAnnexedCategory_GSS</Category>
+                        <ClauseName>Exclusión</ClauseName>
+                        <Version>1</Version>
+                    </CoverageConditionAndExclusion>
+                    <CoverageConditionAndExclusion>
+                        <CodeIdentifier>AAHDeathOfTheSpouseByAccidentCov</CodeIdentifier>
+                        <DisplayName>Muerte del Conyuge por Accidente</DisplayName>
+                        <Priority>1387</Priority>
+                        <CoverageTerms>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathOfTheSpouseByAccidentRateLim</CodeIdentifier>
+                                <Priority>100</Priority>
+                                <ValueTypeName>Option</ValueTypeName>
+                                <ValueType>
+                                    <Code>percent</Code>
+                                    <DisplayName>Porcentaje</DisplayName>
+                                </ValueType>
+                                <DisplayName>% (Basado en Muerte por Accidente)</DisplayName>
+                                <DisplayValue>50%</DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathOfTheSpouseByAccidentRateLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>Limit</Code>
+                                    <DisplayName>Límite</DisplayName>
+                                </ModelType>
+                                <AggregationModelList>
+                                    <AggregationModel>
+                                        <Code>pc</Code>
+                                        <DisplayName>Por reclamación</DisplayName>
+                                    </AggregationModel>
+                                </AggregationModelList>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathOfTheSpouseByAccidentSALim</CodeIdentifier>
+                                <Priority>200</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>money</Code>
+                                    <DisplayName>Dinero</DisplayName>
+                                </ValueType>
+                                <DisplayName>Suma Asegurada</DisplayName>
+                                <DisplayValue>400.000</DisplayValue>
+                                <DisplayAmount>$ 400.000,00</DisplayAmount>
+                                <PatternCodeIdentifier>AAHDeathOfTheSpouseByAccidentSALim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>amount_limit_GSS</Code>
+                                    <DisplayName>Límite de Suma</DisplayName>
+                                </ModelType>
+                                <AggregationModelList>
+                                    <AggregationModel>
+                                        <Code>pc</Code>
+                                        <DisplayName>Por reclamación</DisplayName>
+                                    </AggregationModel>
+                                </AggregationModelList>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathOfTheSpouseByAccidentMaxAgeLim</CodeIdentifier>
+                                <Priority>300</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>count</Code>
+                                    <DisplayName>Count</DisplayName>
+                                </ValueType>
+                                <DisplayName>Edad máxima de ingreso</DisplayName>
+                                <DisplayValue>80</DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathOfTheSpouseByAccidentMaxAgeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>max_age_limit_GSS</Code>
+                                    <DisplayName>Límite de Edad Máxima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathOfTheSpouseByAccidentMinAgeLim</CodeIdentifier>
+                                <Priority>400</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>count</Code>
+                                    <DisplayName>Count</DisplayName>
+                                </ValueType>
+                                <DisplayName>Edad mínima de ingreso</DisplayName>
+                                <DisplayValue>14</DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathOfTheSpouseByAccidentMinAgeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>min_age_limit_GSS</Code>
+                                    <DisplayName>Límite de Edad Mínima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathOfTheSpouseByAccidentPermAgeLim</CodeIdentifier>
+                                <Priority>500</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>count</Code>
+                                    <DisplayName>Count</DisplayName>
+                                </ValueType>
+                                <DisplayName>Edad máxima de permanencia</DisplayName>
+                                <DisplayValue>81</DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathOfTheSpouseByAccidentPermAgeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>max_perm_age_limit_GSS</Code>
+                                    <DisplayName>Límite de Edad de Permanencia Máxima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathOfTheSpouseByAccidentAgeTypeLim</CodeIdentifier>
+                                <Priority>600</Priority>
+                                <ValueTypeName>Typekey</ValueTypeName>
+                                <DisplayName>Tipo de edad mínima de ingreso</DisplayName>
+                                <DisplayValue>Años</DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathOfTheSpouseByAccidentAgeTypeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>min_age_type_limit_GSS</Code>
+                                    <DisplayName>Tipo de Edad Mínima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathOfTheSpouseByAccidentExtrapremium</CodeIdentifier>
+                                <Priority>700</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>percent</Code>
+                                    <DisplayName>Porcentaje</DisplayName>
+                                </ValueType>
+                                <DisplayName>Extraprima (%)</DisplayName>
+                                <DisplayValue></DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathOfTheSpouseByAccidentExtrapremium</PatternCodeIdentifier>
+                            </CoverageTerm>
+                        </CoverageTerms>
+                        <Category>AandHPartyStndGrp</Category>
+                        <ClauseName>Cobertura</ClauseName>
+                    </CoverageConditionAndExclusion>
+                    <CoverageConditionAndExclusion>
+                        <CodeIdentifier>AAHECTotalDisabilityAndOrPermanentPartialAccidentSSNCond</CodeIdentifier>
+                        <DisplayName>C.E. - Invalidez Total y/o Parcial Permanente por Accidente (SSN)</DisplayName>
+                        <Priority>1400</Priority>
+                        <CoverageTerms/>
+                        <Category>AAHPartySpecificConditionsCategory_GSS</Category>
+                        <ClauseName>Condición</ClauseName>
+                        <Version>1</Version>
+                    </CoverageConditionAndExclusion>
+                    <CoverageConditionAndExclusion>
+                        <CodeIdentifier>AAHECDeathSpouseByAccidentCond</CodeIdentifier>
+                        <DisplayName>C.E. - Muerte del Cónyuge por Accidente</DisplayName>
+                        <Priority>2900</Priority>
+                        <CoverageTerms/>
+                        <Category>AAHPartySpecificConditionsCategory_GSS</Category>
+                        <ClauseName>Condición</ClauseName>
+                        <Version>1</Version>
+                    </CoverageConditionAndExclusion>
+                    <CoverageConditionAndExclusion>
+                        <CodeIdentifier>AAHPolicyholderWarningCond</CodeIdentifier>
+                        <DisplayName>Advertencia al Tomador</DisplayName>
+                        <Priority>7200</Priority>
+                        <CoverageTerms/>
+                        <Category>AAHClausesVersionStnGrp</Category>
+                        <ClauseName>Condición</ClauseName>
+                        <Version>1</Version>
+                    </CoverageConditionAndExclusion>
+                    <CoverageConditionAndExclusion>
+                        <CodeIdentifier>AAHProvidedNumberCond</CodeIdentifier>
+                        <DisplayName>Número de Proveído</DisplayName>
+                        <Priority>7300</Priority>
+                        <CoverageTerms/>
+                        <Category>AAHClausesVersionStnGrp</Category>
+                        <ClauseName>Condición</ClauseName>
+                        <Version>1</Version>
+                    </CoverageConditionAndExclusion>
+                    <CoverageConditionAndExclusion>
+                        <CodeIdentifier>AAHCommunicationTheInsuredCond</CodeIdentifier>
+                        <DisplayName>Comunicación al Asegurado</DisplayName>
+                        <Priority>7400</Priority>
+                        <CoverageTerms/>
+                        <Category>AAHClausesVersionStnGrp</Category>
+                        <ClauseName>Condición</ClauseName>
+                        <Version>1</Version>
+                    </CoverageConditionAndExclusion>
+                    <CoverageConditionAndExclusion>
+                        <CodeIdentifier>AAHCoverAPCond</CodeIdentifier>
+                        <DisplayName>Condición Contractual Constancia</DisplayName>
+                        <Priority>7500</Priority>
+                        <CoverageTerms/>
+                        <Category>AAHClausesVersionStnGrp</Category>
+                        <ClauseName>Condición</ClauseName>
+                        <Version>1</Version>
+                    </CoverageConditionAndExclusion>
+                </CoverageConditionsAndExclusions>
+                <StartDate>2021-08-04T12:00:00</StartDate>
+                <EndDate>2022-08-04T12:00:00</EndDate>
+                <Activity>
+                    <Code>1</Code>
+                    <DisplayName>Agropecuaria, Ganadería, Silvicultura</DisplayName>
+                </Activity>
+                <InsuredType>
+                    <Code>innominates</Code>
+                    <DisplayName>Innominados</DisplayName>
+                </InsuredType>
+                <Clasification>
+                    <Code>1.1</Code>
+                    <DisplayName>Administrativo</DisplayName>
+                </Clasification>
+                <PartyInsuredBeneficiaries>
+                    <PartyInsuredBeneficiary>
+                        <Contact>
+                            <PublicID>pc:200</PublicID>
+                            <DisplayName>CABL amp; ASOCIADOS SRL</DisplayName>
+                            <Name>CABL amp; ASOCIADOS SRL</Name>
+                            <FantasyName>CABL Group</FantasyName>
+                            <TaxID>30711011478</TaxID>
+                            <AssociatedNumber>123456789</AssociatedNumber>
+                            <OfficialIDs>
+                                <OfficialID>
+                                    <Type>
+                                        <Code>cuit_cuil_GSS</Code>
+                                        <DisplayName>CUIT/CUIL</DisplayName>
+                                        <UnlocalizedName>CUIT/CUIL</UnlocalizedName>
+                                    </Type>
+                                    <Value>30711011478</Value>
+                                    <Primary>true</Primary>
+                                </OfficialID>
+                            </OfficialIDs>
+                            <TaxCondition>
+                                <Code>iva_ri</Code>
+                                <DisplayName>Responsable Inscripto</DisplayName>
+                            </TaxCondition>
+                            <PrimaryAddressConcatenated>Av. Belgrano 555</PrimaryAddressConcatenated>
+                            <PrimaryAddress>
+                                <AddressLine1>Av. Belgrano</AddressLine1>
+                                <AddressLine2>555</AddressLine2>
+                                <AddressType>
+                                    <Code>business</Code>
+                                    <DisplayName>Comercial</DisplayName>
+                                </AddressType>
+                                <City>Sunchales</City>
+                                <Country>
+                                    <Code>AR</Code>
+                                    <DisplayName>Argentina</DisplayName>
+                                </Country>
+                                <PostalCode>2322</PostalCode>
+                                <State>
+                                    <Code>AR-S</Code>
+                                    <DisplayName>Santa Fe</DisplayName>
+                                </State>
+                                <Neighborhood>Mock Neighborhood</Neighborhood>
+                                <BetweenStreet1>Mock BetweenStreet1</BetweenStreet1>
+                                <BetweenStreet2>Mock BetweenStreet2</BetweenStreet2>
+                            </PrimaryAddress>
+                            <Subtype>
+                                <Code>Company</Code>
+                                <DisplayName>Empresa</DisplayName>
+                            </Subtype>
+                        </Contact>
+                        <BenefitPercentage>0 %</BenefitPercentage>
+                    </PartyInsuredBeneficiary>
+                </PartyInsuredBeneficiaries>
+                <PartyAdditionals/>
+                <NumberOfRelatedPeople>25</NumberOfRelatedPeople>
+                <Locations>
+                    <Location>
+                        <AddressLine1>Av. Belgrano</AddressLine1>
+                        <AddressLine2>555</AddressLine2>
+                        <AddressType>
+                            <Code>business</Code>
+                            <DisplayName>Comercial</DisplayName>
+                        </AddressType>
+                        <City>Sunchales</City>
+                        <Country>
+                            <Code>AR</Code>
+                            <DisplayName>Argentina</DisplayName>
+                        </Country>
+                        <PostalCode>2322</PostalCode>
+                        <State>
+                            <Code>AR-S</Code>
+                            <DisplayName>Santa Fe</DisplayName>
+                        </State>
+                    </Location>
+                </Locations>
+                <RiskCategory>1</RiskCategory>
+                <AdditionalInterest>false</AdditionalInterest>
+            </AAHParty>
+            <AAHParty>
+                <PartyNumber>2</PartyNumber>
+                <PhysicalLimit>false</PhysicalLimit>
+                <LeftHanded>false</LeftHanded>
+                <AgeRangeID>0</AgeRangeID>
+                <AgeOrYearRange>40 años a 70 años</AgeOrYearRange>
+                <PartyCoverages>
+                    <PartyCoverage>
+                        <Code>AAHDeathByAccidentCov</Code>
+                        <Description>Muerte por Accidente</Description>
+                        <Priority>1112</Priority>
+                        <CoverageType>
+                            <Code>basic</Code>
+                            <DisplayName>Básica</DisplayName>
+                        </CoverageType>
+                        <Costs>
+                            <Cost>
+                                <Proration>1.0</Proration>
+                                <Subtype>
+                                    <Code>AAHPartyCovCostExt</Code>
+                                    <DisplayName>AAHPartyCovCostExt</DisplayName>
+                                </Subtype>
+                            </Cost>
+                            <Cost>
+                                <Proration>1.0</Proration>
+                                <Subtype>
+                                    <Code>AAHPartyCovCostExt</Code>
+                                    <DisplayName>AAHPartyCovCostExt</DisplayName>
+                                </Subtype>
+                            </Cost>
+                        </Costs>
+                        <CoverageTerms>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathByAccidentSALim</CodeIdentifier>
+                                <Priority>100</Priority>
+                                <ValueTypeName>Option</ValueTypeName>
+                                <ValueType>
+                                    <Code>money</Code>
+                                    <DisplayName>Dinero</DisplayName>
+                                </ValueType>
+                                <DisplayName>Suma Asegurada</DisplayName>
+                                <DisplayValue>800.000</DisplayValue>
+                                <DisplayAmount>$ 800.000,00</DisplayAmount>
+                                <PatternCodeIdentifier>AAHDeathByAccidentSALim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>amount_limit_GSS</Code>
+                                    <DisplayName>Límite de Suma</DisplayName>
+                                </ModelType>
+                                <AggregationModelList>
+                                    <AggregationModel>
+                                        <Code>pc</Code>
+                                        <DisplayName>Por reclamación</DisplayName>
+                                    </AggregationModel>
+                                </AggregationModelList>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathByAccidentMaxAgeLim</CodeIdentifier>
+                                <Priority>300</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>count</Code>
+                                    <DisplayName>Count</DisplayName>
+                                </ValueType>
+                                <DisplayName>Edad máxima de ingreso</DisplayName>
+                                <DisplayValue>80</DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathByAccidentMaxAgeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>max_age_limit_GSS</Code>
+                                    <DisplayName>Límite de Edad Máxima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathByAccidentMinAgeLim</CodeIdentifier>
+                                <Priority>400</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>count</Code>
+                                    <DisplayName>Count</DisplayName>
+                                </ValueType>
+                                <DisplayName>Edad mínima de ingreso</DisplayName>
+                                <DisplayValue>14</DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathByAccidentMinAgeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>min_age_limit_GSS</Code>
+                                    <DisplayName>Límite de Edad Mínima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathByAccidentPermAgeLim</CodeIdentifier>
+                                <Priority>500</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>count</Code>
+                                    <DisplayName>Count</DisplayName>
+                                </ValueType>
+                                <DisplayName>Edad máxima de permanencia</DisplayName>
+                                <DisplayValue>81</DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathByAccidentPermAgeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>max_perm_age_limit_GSS</Code>
+                                    <DisplayName>Límite de Edad de Permanencia Máxima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathByAccidentAgeTypeLim</CodeIdentifier>
+                                <Priority>600</Priority>
+                                <ValueTypeName>Typekey</ValueTypeName>
+                                <DisplayName>Tipo de edad mínima de ingreso</DisplayName>
+                                <DisplayValue>Años</DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathByAccidentAgeTypeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>min_age_type_limit_GSS</Code>
+                                    <DisplayName>Tipo de Edad Mínima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                        </CoverageTerms>
+                        <EffectiveDateRangeWMStart>2021-08-04T12:00:00</EffectiveDateRangeWMStart>
+                        <EffectiveDateRangeWMEnd>2022-08-04T12:00:00</EffectiveDateRangeWMEnd>
+                        <Category>AandHPartyStndGrp</Category>
+                    </PartyCoverage>
+                    <PartyCoverage>
+                        <Code>AAHPermanentDisabilityBaremoSSNCov</Code>
+                        <Description>Invalidez Total y/o Parcial Permanente por Accidente (SSN)</Description>
+                        <Priority>1162</Priority>
+                        <CoverageType>
+                            <Code>basic</Code>
+                            <DisplayName>Básica</DisplayName>
+                        </CoverageType>
+                        <Costs>
+                            <Cost>
+                                <Proration>1.0</Proration>
+                                <Subtype>
+                                    <Code>AAHPartyCovCostExt</Code>
+                                    <DisplayName>AAHPartyCovCostExt</DisplayName>
+                                </Subtype>
+                            </Cost>
+                            <Cost>
+                                <Proration>1.0</Proration>
+                                <Subtype>
+                                    <Code>AAHPartyCovCostExt</Code>
+                                    <DisplayName>AAHPartyCovCostExt</DisplayName>
+                                </Subtype>
+                            </Cost>
+                        </Costs>
+                        <CoverageTerms>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHPermanentDisabilityBaremoSSNSALim</CodeIdentifier>
+                                <Priority>100</Priority>
+                                <ValueTypeName>Option</ValueTypeName>
+                                <ValueType>
+                                    <Code>money</Code>
+                                    <DisplayName>Dinero</DisplayName>
+                                </ValueType>
+                                <DisplayName>Suma Asegurada</DisplayName>
+                                <DisplayValue>800.000</DisplayValue>
+                                <DisplayAmount>$ 800.000,00</DisplayAmount>
+                                <PatternCodeIdentifier>AAHPermanentDisabilityBaremoSSNSALim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>amount_limit_GSS</Code>
+                                    <DisplayName>Límite de Suma</DisplayName>
+                                </ModelType>
+                                <AggregationModelList>
+                                    <AggregationModel>
+                                        <Code>ag</Code>
+                                        <DisplayName>Agregado anual</DisplayName>
+                                    </AggregationModel>
+                                </AggregationModelList>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHPermanentDisabilityBaremoSSNMinAgeLim</CodeIdentifier>
+                                <Priority>300</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>count</Code>
+                                    <DisplayName>Count</DisplayName>
+                                </ValueType>
+                                <DisplayName>Edad mínima de ingreso</DisplayName>
+                                <DisplayValue>14</DisplayValue>
+                                <PatternCodeIdentifier>AAHPermanentDisabilityBaremoSSNMinAgeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>min_age_limit_GSS</Code>
+                                    <DisplayName>Límite de Edad Mínima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHPermanentDisabilityBaremoSSNMaxAgeLim</CodeIdentifier>
+                                <Priority>400</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>count</Code>
+                                    <DisplayName>Count</DisplayName>
+                                </ValueType>
+                                <DisplayName>Edad máxima de ingreso</DisplayName>
+                                <DisplayValue>80</DisplayValue>
+                                <PatternCodeIdentifier>AAHPermanentDisabilityBaremoSSNMaxAgeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>max_age_limit_GSS</Code>
+                                    <DisplayName>Límite de Edad Máxima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHPermanentDisabilityBaremoSSNAgeTypeLim</CodeIdentifier>
+                                <Priority>600</Priority>
+                                <ValueTypeName>Typekey</ValueTypeName>
+                                <DisplayName>Tipo de edad mínima de ingreso</DisplayName>
+                                <DisplayValue>Años</DisplayValue>
+                                <PatternCodeIdentifier>AAHPermanentDisabilityBaremoSSNAgeTypeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>min_age_type_limit_GSS</Code>
+                                    <DisplayName>Tipo de Edad Mínima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHPermanentDisabilityBaremoSSNPermAgeLim</CodeIdentifier>
+                                <Priority>700</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>count</Code>
+                                    <DisplayName>Count</DisplayName>
+                                </ValueType>
+                                <DisplayName>Edad máxima de permanencia</DisplayName>
+                                <DisplayValue>81</DisplayValue>
+                                <PatternCodeIdentifier>AAHPermanentDisabilityBaremoSSNPermAgeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>max_perm_age_limit_GSS</Code>
+                                    <DisplayName>Límite de Edad de Permanencia Máxima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                        </CoverageTerms>
+                        <EffectiveDateRangeWMStart>2021-08-04T12:00:00</EffectiveDateRangeWMStart>
+                        <EffectiveDateRangeWMEnd>2022-08-04T12:00:00</EffectiveDateRangeWMEnd>
+                        <Category>AandHPartyStndGrp</Category>
+                    </PartyCoverage>
+                    <PartyCoverage>
+                        <Code>AAHDeathOfTheSpouseByAccidentCov</Code>
+                        <Description>Muerte del Conyuge por Accidente</Description>
+                        <Priority>1387</Priority>
+                        <CoverageType>
+                            <Code>additional</Code>
+                            <DisplayName>Adicional</DisplayName>
+                        </CoverageType>
+                        <Costs>
+                            <Cost>
+                                <Proration>1.0</Proration>
+                                <Subtype>
+                                    <Code>AAHPartyCovCostExt</Code>
+                                    <DisplayName>AAHPartyCovCostExt</DisplayName>
+                                </Subtype>
+                            </Cost>
+                            <Cost>
+                                <Proration>1.0</Proration>
+                                <Subtype>
+                                    <Code>AAHPartyCovCostExt</Code>
+                                    <DisplayName>AAHPartyCovCostExt</DisplayName>
+                                </Subtype>
+                            </Cost>
+                        </Costs>
+                        <CoverageTerms>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathOfTheSpouseByAccidentRateLim</CodeIdentifier>
+                                <Priority>100</Priority>
+                                <ValueTypeName>Option</ValueTypeName>
+                                <ValueType>
+                                    <Code>percent</Code>
+                                    <DisplayName>Porcentaje</DisplayName>
+                                </ValueType>
+                                <DisplayName>% (Basado en Muerte por Accidente)</DisplayName>
+                                <DisplayValue>50%</DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathOfTheSpouseByAccidentRateLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>Limit</Code>
+                                    <DisplayName>Límite</DisplayName>
+                                </ModelType>
+                                <AggregationModelList>
+                                    <AggregationModel>
+                                        <Code>pc</Code>
+                                        <DisplayName>Por reclamación</DisplayName>
+                                    </AggregationModel>
+                                </AggregationModelList>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathOfTheSpouseByAccidentSALim</CodeIdentifier>
+                                <Priority>200</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>money</Code>
+                                    <DisplayName>Dinero</DisplayName>
+                                </ValueType>
+                                <DisplayName>Suma Asegurada</DisplayName>
+                                <DisplayValue>400.000</DisplayValue>
+                                <DisplayAmount>$ 400.000,00</DisplayAmount>
+                                <PatternCodeIdentifier>AAHDeathOfTheSpouseByAccidentSALim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>amount_limit_GSS</Code>
+                                    <DisplayName>Límite de Suma</DisplayName>
+                                </ModelType>
+                                <AggregationModelList>
+                                    <AggregationModel>
+                                        <Code>pc</Code>
+                                        <DisplayName>Por reclamación</DisplayName>
+                                    </AggregationModel>
+                                </AggregationModelList>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathOfTheSpouseByAccidentMaxAgeLim</CodeIdentifier>
+                                <Priority>300</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>count</Code>
+                                    <DisplayName>Count</DisplayName>
+                                </ValueType>
+                                <DisplayName>Edad máxima de ingreso</DisplayName>
+                                <DisplayValue>80</DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathOfTheSpouseByAccidentMaxAgeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>max_age_limit_GSS</Code>
+                                    <DisplayName>Límite de Edad Máxima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathOfTheSpouseByAccidentMinAgeLim</CodeIdentifier>
+                                <Priority>400</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>count</Code>
+                                    <DisplayName>Count</DisplayName>
+                                </ValueType>
+                                <DisplayName>Edad mínima de ingreso</DisplayName>
+                                <DisplayValue>14</DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathOfTheSpouseByAccidentMinAgeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>min_age_limit_GSS</Code>
+                                    <DisplayName>Límite de Edad Mínima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathOfTheSpouseByAccidentPermAgeLim</CodeIdentifier>
+                                <Priority>500</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>count</Code>
+                                    <DisplayName>Count</DisplayName>
+                                </ValueType>
+                                <DisplayName>Edad máxima de permanencia</DisplayName>
+                                <DisplayValue>81</DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathOfTheSpouseByAccidentPermAgeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>max_perm_age_limit_GSS</Code>
+                                    <DisplayName>Límite de Edad de Permanencia Máxima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathOfTheSpouseByAccidentAgeTypeLim</CodeIdentifier>
+                                <Priority>600</Priority>
+                                <ValueTypeName>Typekey</ValueTypeName>
+                                <DisplayName>Tipo de edad mínima de ingreso</DisplayName>
+                                <DisplayValue>Años</DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathOfTheSpouseByAccidentAgeTypeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>min_age_type_limit_GSS</Code>
+                                    <DisplayName>Tipo de Edad Mínima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                        </CoverageTerms>
+                        <EffectiveDateRangeWMStart>2021-08-04T12:00:00</EffectiveDateRangeWMStart>
+                        <EffectiveDateRangeWMEnd>2022-08-04T12:00:00</EffectiveDateRangeWMEnd>
+                        <Category>AandHPartyStndGrp</Category>
+                    </PartyCoverage>
+                </PartyCoverages>
+                <CoverageConditionsAndExclusions>
+                    <CoverageConditionAndExclusion>
+                        <CodeIdentifier>AAHECInsuranceOnThePersonOfAThirdPartyCond</CodeIdentifier>
+                        <DisplayName>C.E. Seguro sobre la Persona de un Tercero</DisplayName>
+                        <Priority>800</Priority>
+                        <CoverageTerms/>
+                        <Category>AAHPartySpecificConditionsCategory_GSS</Category>
+                        <ClauseName>Condición</ClauseName>
+                        <Version>1</Version>
+                    </CoverageConditionAndExclusion>
+                    <CoverageConditionAndExclusion>
+                        <CodeIdentifier>AAHECDeathByAccidentCond</CodeIdentifier>
+                        <DisplayName>C.E. - Muerte por Accidente</DisplayName>
+                        <Priority>1100</Priority>
+                        <CoverageTerms/>
+                        <Category>AAHPartySpecificConditionsCategory_GSS</Category>
+                        <ClauseName>Condición</ClauseName>
+                    </CoverageConditionAndExclusion>
+                    <CoverageConditionAndExclusion>
+                        <CodeIdentifier>AAHDeathByAccidentCov</CodeIdentifier>
+                        <DisplayName>Muerte por Accidente</DisplayName>
+                        <Priority>1112</Priority>
+                        <CoverageTerms>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathByAccidentSALim</CodeIdentifier>
+                                <Priority>100</Priority>
+                                <ValueTypeName>Option</ValueTypeName>
+                                <ValueType>
+                                    <Code>money</Code>
+                                    <DisplayName>Dinero</DisplayName>
+                                </ValueType>
+                                <DisplayName>Suma Asegurada</DisplayName>
+                                <DisplayValue>800.000</DisplayValue>
+                                <DisplayAmount>$ 800.000,00</DisplayAmount>
+                                <PatternCodeIdentifier>AAHDeathByAccidentSALim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>amount_limit_GSS</Code>
+                                    <DisplayName>Límite de Suma</DisplayName>
+                                </ModelType>
+                                <AggregationModelList>
+                                    <AggregationModel>
+                                        <Code>pc</Code>
+                                        <DisplayName>Por reclamación</DisplayName>
+                                    </AggregationModel>
+                                </AggregationModelList>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathByAccidentLibLim</CodeIdentifier>
+                                <Priority>200</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>money</Code>
+                                    <DisplayName>Dinero</DisplayName>
+                                </ValueType>
+                                <DisplayName>Suma Asegurada (Libre)</DisplayName>
+                                <DisplayValue></DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathByAccidentLibLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>amount_limit_GSS</Code>
+                                    <DisplayName>Límite de Suma</DisplayName>
+                                </ModelType>
+                                <AggregationModelList>
+                                    <AggregationModel>
+                                        <Code>pc</Code>
+                                        <DisplayName>Por reclamación</DisplayName>
+                                    </AggregationModel>
+                                </AggregationModelList>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathByAccidentMaxAgeLim</CodeIdentifier>
+                                <Priority>300</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>count</Code>
+                                    <DisplayName>Count</DisplayName>
+                                </ValueType>
+                                <DisplayName>Edad máxima de ingreso</DisplayName>
+                                <DisplayValue>80</DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathByAccidentMaxAgeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>max_age_limit_GSS</Code>
+                                    <DisplayName>Límite de Edad Máxima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathByAccidentMinAgeLim</CodeIdentifier>
+                                <Priority>400</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>count</Code>
+                                    <DisplayName>Count</DisplayName>
+                                </ValueType>
+                                <DisplayName>Edad mínima de ingreso</DisplayName>
+                                <DisplayValue>14</DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathByAccidentMinAgeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>min_age_limit_GSS</Code>
+                                    <DisplayName>Límite de Edad Mínima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathByAccidentPermAgeLim</CodeIdentifier>
+                                <Priority>500</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>count</Code>
+                                    <DisplayName>Count</DisplayName>
+                                </ValueType>
+                                <DisplayName>Edad máxima de permanencia</DisplayName>
+                                <DisplayValue>81</DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathByAccidentPermAgeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>max_perm_age_limit_GSS</Code>
+                                    <DisplayName>Límite de Edad de Permanencia Máxima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathByAccidentAgeTypeLim</CodeIdentifier>
+                                <Priority>600</Priority>
+                                <ValueTypeName>Typekey</ValueTypeName>
+                                <DisplayName>Tipo de edad mínima de ingreso</DisplayName>
+                                <DisplayValue>Años</DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathByAccidentAgeTypeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>min_age_type_limit_GSS</Code>
+                                    <DisplayName>Tipo de Edad Mínima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathByAccidentExtrapremium</CodeIdentifier>
+                                <Priority>700</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>percent</Code>
+                                    <DisplayName>Porcentaje</DisplayName>
+                                </ValueType>
+                                <DisplayName>Extraprima (%)</DisplayName>
+                                <DisplayValue></DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathByAccidentExtrapremium</PatternCodeIdentifier>
+                            </CoverageTerm>
+                        </CoverageTerms>
+                        <Category>AandHPartyStndGrp</Category>
+                        <ClauseName>Cobertura</ClauseName>
+                    </CoverageConditionAndExclusion>
+                    <CoverageConditionAndExclusion>
+                        <CodeIdentifier>AAHPermanentDisabilityBaremoSSNCov</CodeIdentifier>
+                        <DisplayName>Invalidez Total y/o Parcial Permanente por Accidente (SSN)</DisplayName>
+                        <Priority>1162</Priority>
+                        <CoverageTerms>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHPermanentDisabilityBaremoSSNSALim</CodeIdentifier>
+                                <Priority>100</Priority>
+                                <ValueTypeName>Option</ValueTypeName>
+                                <ValueType>
+                                    <Code>money</Code>
+                                    <DisplayName>Dinero</DisplayName>
+                                </ValueType>
+                                <DisplayName>Suma Asegurada</DisplayName>
+                                <DisplayValue>800.000</DisplayValue>
+                                <DisplayAmount>$ 800.000,00</DisplayAmount>
+                                <PatternCodeIdentifier>AAHPermanentDisabilityBaremoSSNSALim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>amount_limit_GSS</Code>
+                                    <DisplayName>Límite de Suma</DisplayName>
+                                </ModelType>
+                                <AggregationModelList>
+                                    <AggregationModel>
+                                        <Code>ag</Code>
+                                        <DisplayName>Agregado anual</DisplayName>
+                                    </AggregationModel>
+                                </AggregationModelList>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHPermanentDisabilityBaremoSSNLibLim</CodeIdentifier>
+                                <Priority>200</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>money</Code>
+                                    <DisplayName>Dinero</DisplayName>
+                                </ValueType>
+                                <DisplayName>Suma Asegurada (Libre)</DisplayName>
+                                <DisplayValue></DisplayValue>
+                                <PatternCodeIdentifier>AAHPermanentDisabilityBaremoSSNLibLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>amount_limit_GSS</Code>
+                                    <DisplayName>Límite de Suma</DisplayName>
+                                </ModelType>
+                                <AggregationModelList>
+                                    <AggregationModel>
+                                        <Code>ag</Code>
+                                        <DisplayName>Agregado anual</DisplayName>
+                                    </AggregationModel>
+                                </AggregationModelList>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHPermanentDisabilityBaremoSSNMinAgeLim</CodeIdentifier>
+                                <Priority>300</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>count</Code>
+                                    <DisplayName>Count</DisplayName>
+                                </ValueType>
+                                <DisplayName>Edad mínima de ingreso</DisplayName>
+                                <DisplayValue>14</DisplayValue>
+                                <PatternCodeIdentifier>AAHPermanentDisabilityBaremoSSNMinAgeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>min_age_limit_GSS</Code>
+                                    <DisplayName>Límite de Edad Mínima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHPermanentDisabilityBaremoSSNMaxAgeLim</CodeIdentifier>
+                                <Priority>400</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>count</Code>
+                                    <DisplayName>Count</DisplayName>
+                                </ValueType>
+                                <DisplayName>Edad máxima de ingreso</DisplayName>
+                                <DisplayValue>80</DisplayValue>
+                                <PatternCodeIdentifier>AAHPermanentDisabilityBaremoSSNMaxAgeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>max_age_limit_GSS</Code>
+                                    <DisplayName>Límite de Edad Máxima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHPermanentDisabilityBaremoSSNAgeTypeLim</CodeIdentifier>
+                                <Priority>600</Priority>
+                                <ValueTypeName>Typekey</ValueTypeName>
+                                <DisplayName>Tipo de edad mínima de ingreso</DisplayName>
+                                <DisplayValue>Años</DisplayValue>
+                                <PatternCodeIdentifier>AAHPermanentDisabilityBaremoSSNAgeTypeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>min_age_type_limit_GSS</Code>
+                                    <DisplayName>Tipo de Edad Mínima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHPermanentDisabilityBaremoSSNPermAgeLim</CodeIdentifier>
+                                <Priority>700</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>count</Code>
+                                    <DisplayName>Count</DisplayName>
+                                </ValueType>
+                                <DisplayName>Edad máxima de permanencia</DisplayName>
+                                <DisplayValue>81</DisplayValue>
+                                <PatternCodeIdentifier>AAHPermanentDisabilityBaremoSSNPermAgeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>max_perm_age_limit_GSS</Code>
+                                    <DisplayName>Límite de Edad de Permanencia Máxima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHPermanentDisabilityBaremoSSNExtrapremium</CodeIdentifier>
+                                <Priority>800</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>percent</Code>
+                                    <DisplayName>Porcentaje</DisplayName>
+                                </ValueType>
+                                <DisplayName>Extraprima (%)</DisplayName>
+                                <DisplayValue></DisplayValue>
+                                <PatternCodeIdentifier>AAHPermanentDisabilityBaremoSSNExtrapremium</PatternCodeIdentifier>
+                            </CoverageTerm>
+                        </CoverageTerms>
+                        <Category>AandHPartyStndGrp</Category>
+                        <ClauseName>Cobertura</ClauseName>
+                    </CoverageConditionAndExclusion>
+                    <CoverageConditionAndExclusion>
+                        <CodeIdentifier>AAHAnnex1RisksNotCoveredDeathSpouseByAccidentExcl</CodeIdentifier>
+                        <DisplayName>Anexo 1: Riesgos No Cubiertos - Muerte del Cónyuge por Accidente</DisplayName>
+                        <Priority>1200</Priority>
+                        <CoverageTerms/>
+                        <Category>AAHAnnexedCategory_GSS</Category>
+                        <ClauseName>Exclusión</ClauseName>
+                        <Version>1</Version>
+                    </CoverageConditionAndExclusion>
+                    <CoverageConditionAndExclusion>
+                        <CodeIdentifier>AAHDeathOfTheSpouseByAccidentCov</CodeIdentifier>
+                        <DisplayName>Muerte del Conyuge por Accidente</DisplayName>
+                        <Priority>1387</Priority>
+                        <CoverageTerms>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathOfTheSpouseByAccidentRateLim</CodeIdentifier>
+                                <Priority>100</Priority>
+                                <ValueTypeName>Option</ValueTypeName>
+                                <ValueType>
+                                    <Code>percent</Code>
+                                    <DisplayName>Porcentaje</DisplayName>
+                                </ValueType>
+                                <DisplayName>% (Basado en Muerte por Accidente)</DisplayName>
+                                <DisplayValue>50%</DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathOfTheSpouseByAccidentRateLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>Limit</Code>
+                                    <DisplayName>Límite</DisplayName>
+                                </ModelType>
+                                <AggregationModelList>
+                                    <AggregationModel>
+                                        <Code>pc</Code>
+                                        <DisplayName>Por reclamación</DisplayName>
+                                    </AggregationModel>
+                                </AggregationModelList>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathOfTheSpouseByAccidentSALim</CodeIdentifier>
+                                <Priority>200</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>money</Code>
+                                    <DisplayName>Dinero</DisplayName>
+                                </ValueType>
+                                <DisplayName>Suma Asegurada</DisplayName>
+                                <DisplayValue>400.000</DisplayValue>
+                                <DisplayAmount>$ 400.000,00</DisplayAmount>
+                                <PatternCodeIdentifier>AAHDeathOfTheSpouseByAccidentSALim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>amount_limit_GSS</Code>
+                                    <DisplayName>Límite de Suma</DisplayName>
+                                </ModelType>
+                                <AggregationModelList>
+                                    <AggregationModel>
+                                        <Code>pc</Code>
+                                        <DisplayName>Por reclamación</DisplayName>
+                                    </AggregationModel>
+                                </AggregationModelList>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathOfTheSpouseByAccidentMaxAgeLim</CodeIdentifier>
+                                <Priority>300</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>count</Code>
+                                    <DisplayName>Count</DisplayName>
+                                </ValueType>
+                                <DisplayName>Edad máxima de ingreso</DisplayName>
+                                <DisplayValue>80</DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathOfTheSpouseByAccidentMaxAgeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>max_age_limit_GSS</Code>
+                                    <DisplayName>Límite de Edad Máxima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathOfTheSpouseByAccidentMinAgeLim</CodeIdentifier>
+                                <Priority>400</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>count</Code>
+                                    <DisplayName>Count</DisplayName>
+                                </ValueType>
+                                <DisplayName>Edad mínima de ingreso</DisplayName>
+                                <DisplayValue>14</DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathOfTheSpouseByAccidentMinAgeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>min_age_limit_GSS</Code>
+                                    <DisplayName>Límite de Edad Mínima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathOfTheSpouseByAccidentPermAgeLim</CodeIdentifier>
+                                <Priority>500</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>count</Code>
+                                    <DisplayName>Count</DisplayName>
+                                </ValueType>
+                                <DisplayName>Edad máxima de permanencia</DisplayName>
+                                <DisplayValue>81</DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathOfTheSpouseByAccidentPermAgeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>max_perm_age_limit_GSS</Code>
+                                    <DisplayName>Límite de Edad de Permanencia Máxima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathOfTheSpouseByAccidentAgeTypeLim</CodeIdentifier>
+                                <Priority>600</Priority>
+                                <ValueTypeName>Typekey</ValueTypeName>
+                                <DisplayName>Tipo de edad mínima de ingreso</DisplayName>
+                                <DisplayValue>Años</DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathOfTheSpouseByAccidentAgeTypeLim</PatternCodeIdentifier>
+                                <ModelType>
+                                    <Code>min_age_type_limit_GSS</Code>
+                                    <DisplayName>Tipo de Edad Mínima</DisplayName>
+                                </ModelType>
+                            </CoverageTerm>
+                            <CoverageTerm>
+                                <CodeIdentifier>AAHDeathOfTheSpouseByAccidentExtrapremium</CodeIdentifier>
+                                <Priority>700</Priority>
+                                <ValueTypeName>Direct</ValueTypeName>
+                                <ValueType>
+                                    <Code>percent</Code>
+                                    <DisplayName>Porcentaje</DisplayName>
+                                </ValueType>
+                                <DisplayName>Extraprima (%)</DisplayName>
+                                <DisplayValue></DisplayValue>
+                                <PatternCodeIdentifier>AAHDeathOfTheSpouseByAccidentExtrapremium</PatternCodeIdentifier>
+                            </CoverageTerm>
+                        </CoverageTerms>
+                        <Category>AandHPartyStndGrp</Category>
+                        <ClauseName>Cobertura</ClauseName>
+                    </CoverageConditionAndExclusion>
+                    <CoverageConditionAndExclusion>
+                        <CodeIdentifier>AAHECTotalDisabilityAndOrPermanentPartialAccidentSSNCond</CodeIdentifier>
+                        <DisplayName>C.E. - Invalidez Total y/o Parcial Permanente por Accidente (SSN)</DisplayName>
+                        <Priority>1400</Priority>
+                        <CoverageTerms/>
+                        <Category>AAHPartySpecificConditionsCategory_GSS</Category>
+                        <ClauseName>Condición</ClauseName>
+                        <Version>1</Version>
+                    </CoverageConditionAndExclusion>
+                    <CoverageConditionAndExclusion>
+                        <CodeIdentifier>AAHECDeathSpouseByAccidentCond</CodeIdentifier>
+                        <DisplayName>C.E. - Muerte del Cónyuge por Accidente</DisplayName>
+                        <Priority>2900</Priority>
+                        <CoverageTerms/>
+                        <Category>AAHPartySpecificConditionsCategory_GSS</Category>
+                        <ClauseName>Condición</ClauseName>
+                        <Version>1</Version>
+                    </CoverageConditionAndExclusion>
+                    <CoverageConditionAndExclusion>
+                        <CodeIdentifier>AAHPolicyholderWarningCond</CodeIdentifier>
+                        <DisplayName>Advertencia al Tomador</DisplayName>
+                        <Priority>7200</Priority>
+                        <CoverageTerms/>
+                        <Category>AAHClausesVersionStnGrp</Category>
+                        <ClauseName>Condición</ClauseName>
+                        <Version>1</Version>
+                    </CoverageConditionAndExclusion>
+                    <CoverageConditionAndExclusion>
+                        <CodeIdentifier>AAHProvidedNumberCond</CodeIdentifier>
+                        <DisplayName>Número de Proveído</DisplayName>
+                        <Priority>7300</Priority>
+                        <CoverageTerms/>
+                        <Category>AAHClausesVersionStnGrp</Category>
+                        <ClauseName>Condición</ClauseName>
+                        <Version>1</Version>
+                    </CoverageConditionAndExclusion>
+                    <CoverageConditionAndExclusion>
+                        <CodeIdentifier>AAHCommunicationTheInsuredCond</CodeIdentifier>
+                        <DisplayName>Comunicación al Asegurado</DisplayName>
+                        <Priority>7400</Priority>
+                        <CoverageTerms/>
+                        <Category>AAHClausesVersionStnGrp</Category>
+                        <ClauseName>Condición</ClauseName>
+                        <Version>1</Version>
+                    </CoverageConditionAndExclusion>
+                    <CoverageConditionAndExclusion>
+                        <CodeIdentifier>AAHCoverAPCond</CodeIdentifier>
+                        <DisplayName>Condición Contractual Constancia</DisplayName>
+                        <Priority>7500</Priority>
+                        <CoverageTerms/>
+                        <Category>AAHClausesVersionStnGrp</Category>
+                        <ClauseName>Condición</ClauseName>
+                        <Version>1</Version>
+                    </CoverageConditionAndExclusion>
+                </CoverageConditionsAndExclusions>
+                <StartDate>2021-08-04T12:00:00</StartDate>
+                <EndDate>2022-08-04T12:00:00</EndDate>
+                <Activity>
+                    <Code>1</Code>
+                    <DisplayName>Agropecuaria, Ganadería, Silvicultura</DisplayName>
+                </Activity>
+                <InsuredType>
+                    <Code>innominates</Code>
+                    <DisplayName>Innominados</DisplayName>
+                </InsuredType>
+                <Clasification>
+                    <Code>1.1</Code>
+                    <DisplayName>Administrativo</DisplayName>
+                </Clasification>
+                <PartyInsuredBeneficiaries>
+                    <PartyInsuredBeneficiary>
+                        <Contact>
+                            <PublicID>pc:200</PublicID>
+                            <DisplayName>CABL amp; ASOCIADOS SRL</DisplayName>
+                            <Name>CABL amp; ASOCIADOS SRL</Name>
+                            <FantasyName>CABL Group</FantasyName>
+                            <TaxID>30711011478</TaxID>
+                            <AssociatedNumber>123456789</AssociatedNumber>
+                            <OfficialIDs>
+                                <OfficialID>
+                                    <Type>
+                                        <Code>cuit_cuil_GSS</Code>
+                                        <DisplayName>CUIT/CUIL</DisplayName>
+                                        <UnlocalizedName>CUIT/CUIL</UnlocalizedName>
+                                    </Type>
+                                    <Value>30711011478</Value>
+                                    <Primary>true</Primary>
+                                </OfficialID>
+                            </OfficialIDs>
+                            <TaxCondition>
+                                <Code>iva_ri</Code>
+                                <DisplayName>Responsable Inscripto</DisplayName>
+                            </TaxCondition>
+                            <PrimaryAddressConcatenated>Av. Belgrano 555</PrimaryAddressConcatenated>
+                            <PrimaryAddress>
+                                <AddressLine1>Av. Belgrano</AddressLine1>
+                                <AddressLine2>555</AddressLine2>
+                                <AddressType>
+                                    <Code>business</Code>
+                                    <DisplayName>Comercial</DisplayName>
+                                </AddressType>
+                                <City>Sunchales</City>
+                                <Country>
+                                    <Code>AR</Code>
+                                    <DisplayName>Argentina</DisplayName>
+                                </Country>
+                                <PostalCode>2322</PostalCode>
+                                <State>
+                                    <Code>AR-S</Code>
+                                    <DisplayName>Santa Fe</DisplayName>
+                                </State>
+                                <Neighborhood>Mock Neighborhood</Neighborhood>
+                                <BetweenStreet1>Mock BetweenStreet1</BetweenStreet1>
+                                <BetweenStreet2>Mock BetweenStreet2</BetweenStreet2>
+                            </PrimaryAddress>
+                            <Subtype>
+                                <Code>Company</Code>
+                                <DisplayName>Empresa</DisplayName>
+                            </Subtype>
+                        </Contact>
+                        <BenefitPercentage>0 %</BenefitPercentage>
+                    </PartyInsuredBeneficiary>
+                </PartyInsuredBeneficiaries>
+                <PartyAdditionals/>
+                <NumberOfRelatedPeople>11</NumberOfRelatedPeople>
+                <Locations>
+                    <Location>
+                        <AddressLine1>Av. Belgrano</AddressLine1>
+                        <AddressLine2>555</AddressLine2>
+                        <AddressType>
+                            <Code>business</Code>
+                            <DisplayName>Comercial</DisplayName>
+                        </AddressType>
+                        <City>Sunchales</City>
+                        <Country>
+                            <Code>AR</Code>
+                            <DisplayName>Argentina</DisplayName>
+                        </Country>
+                        <PostalCode>2322</PostalCode>
+                        <State>
+                            <Code>AR-S</Code>
+                            <DisplayName>Santa Fe</DisplayName>
+                        </State>
+                    </Location>
+                </Locations>
+                <RiskCategory>1</RiskCategory>
+                <AdditionalInterest>false</AdditionalInterest>
+            </AAHParty>
+        </AAHPartys>
+        <ContractType>
+            <Code>annual</Code>
+            <DisplayName>Anual</DisplayName>
+        </ContractType>
+        <PolicyType>
+            <Code>collective</Code>
+            <DisplayName>Colectiva</DisplayName>
+        </PolicyType>
+        <LineCoverages/>
+        <CoverageConditionsAndExclusions>
+            <CoverageConditionAndExclusion>
+                <CodeIdentifier>AAHCommonGeneralConditions24hsCond</CodeIdentifier>
+                <DisplayName>Condiciones Generales Comunes 24 hs</DisplayName>
+                <Priority>100</Priority>
+                <CoverageTerms/>
+                <Category>AAHLineGeneralConditionsCategory_GSS</Category>
+                <ClauseName>Condición</ClauseName>
+                <Version>2</Version>
+            </CoverageConditionAndExclusion>
+            <CoverageConditionAndExclusion>
+                <CodeIdentifier>AAHAnnex1UncoveredRisksCGC24hsExcl</CodeIdentifier>
+                <DisplayName>Anexo 1: Riesgos No Cubiertos CGC 24 hs</DisplayName>
+                <Priority>100</Priority>
+                <CoverageTerms/>
+                <Category>AAHLineAnnexGrp_GSS</Category>
+                <ClauseName>Exclusión</ClauseName>
+                <Version>1</Version>
+            </CoverageConditionAndExclusion>
+            <CoverageConditionAndExclusion>
+                <CodeIdentifier>AAHClause24InterpretationOfExclusionsCond</CodeIdentifier>
+                <DisplayName>Cláusula 24 - Interpretación de las Exclusiones</DisplayName>
+                <Priority>500</Priority>
+                <CoverageTerms/>
+                <Category>AAHLineClauseGrp_GSS</Category>
+                <ClauseName>Condición</ClauseName>
+                <Version>1</Version>
+            </CoverageConditionAndExclusion>
+            <CoverageConditionAndExclusion>
+                <CodeIdentifier>AAHGeneralConditionsCollectiveInsuranceCond</CodeIdentifier>
+                <DisplayName>Condiciones Generales - Seguros Colectivos</DisplayName>
+                <Priority>700</Priority>
+                <CoverageTerms/>
+                <Category>AAHLineGeneralConditionsCategory_GSS</Category>
+                <ClauseName>Condición</ClauseName>
+                <Version>1</Version>
+            </CoverageConditionAndExclusion>
+            <CoverageConditionAndExclusion>
+                <CodeIdentifier>AAHDefenderOfInsuredCond</CodeIdentifier>
+                <DisplayName>Defensor del asegurado</DisplayName>
+                <Priority>3000</Priority>
+                <CoverageTerms/>
+                <Category>AAHLineClauseGrp_GSS</Category>
+                <ClauseName>Condición</ClauseName>
+                <Version>1</Version>
+            </CoverageConditionAndExclusion>
+            <CoverageConditionAndExclusion>
+                <CodeIdentifier>AAHClause25PremiumCollectionCond</CodeIdentifier>
+                <DisplayName>Cláusula 25 - Cobranza del premio</DisplayName>
+                <Priority>3300</Priority>
+                <CoverageTerms/>
+                <Category>AAHLineClauseGrp_GSS</Category>
+                <ClauseName>Condición</ClauseName>
+                <Version>1</Version>
+            </CoverageConditionAndExclusion>
+        </CoverageConditionsAndExclusions>
+    </AAHLine>
+    <PaymentPlan>
+        <PublicID>pc:1025</PublicID>
+        <Name>Mensual</Name>
+        <PaymentPlanType>
+            <Code>Installments</Code>
+            <DisplayName>Plan de cuotas</DisplayName>
+        </PaymentPlanType>
+        <NumberOfPayments>1</NumberOfPayments>
+        <InvoiceFrequency>
+            <Code>monthly</Code>
+            <DisplayName>Mensual</DisplayName>
+        </InvoiceFrequency>
+    </PaymentPlan>
+    <BillingMethod>
+        <Code>DirectBill</Code>
+        <DisplayName>Factura directa</DisplayName>
+    </BillingMethod>
+    <BillingAccountNumber>8177499566</BillingAccountNumber>
+    <BillImmediatelyPercentage>0.00</BillImmediatelyPercentage>
+    <TaxCondition>
+        <Code>iva_ri</Code>
+        <DisplayName>Responsable Inscripto</DisplayName>
+    </TaxCondition>
+    <PreferredCoverageCurrency>
+        <Code>ars</Code>
+        <DisplayName>ARS</DisplayName>
+        <Description>Pesos argentinos</Description>
+    </PreferredCoverageCurrency>
+    <PreferredSettlementCurrency>
+        <Code>ars</Code>
+        <DisplayName>ARS</DisplayName>
+        <Description>Pesos argentinos</Description>
+    </PreferredSettlementCurrency>
+    <Job>
+        <PublicID>pc:1017</PublicID>
+        <Subtype>
+            <Code>Submission</Code>
+            <DisplayName>Cotización</DisplayName>
+        </Subtype>
+        <JobNumber>0001681839</JobNumber>
+    </Job>
+    <PolicyContactRoles>
+        <PolicyContactRole>
+            <Subtype>
+                <Code>PolicyPartyBeneficiary_GSS</Code>
+                <DisplayName>PolicyPartyBeneficiary_GSS</DisplayName>
+            </Subtype>
+            <Contact>
+                <PublicID>pc:200</PublicID>
+                <DisplayName>CABL amp; ASOCIADOS SRL</DisplayName>
+                <Name>CABL amp; ASOCIADOS SRL</Name>
+                <FantasyName>CABL Group</FantasyName>
+                <AssociatedNumber>123456789</AssociatedNumber>
+                <OfficialIDs>
+                    <OfficialID>
+                        <Type>
+                            <Code>cuit_cuil_GSS</Code>
+                            <DisplayName>CUIT/CUIL</DisplayName>
+                            <UnlocalizedName>CUIT/CUIL</UnlocalizedName>
+                        </Type>
+                        <Value>30711011478</Value>
+                        <Primary>true</Primary>
+                    </OfficialID>
+                </OfficialIDs>
+                <TaxCondition>
+                    <Code>iva_ri</Code>
+                    <DisplayName>Responsable Inscripto</DisplayName>
+                </TaxCondition>
+                <PrimaryAddressConcatenated>Av. Belgrano 555</PrimaryAddressConcatenated>
+                <PrimaryAddress/>
+            </Contact>
+        </PolicyContactRole>
+        <PolicyContactRole>
+            <Subtype>
+                <Code>PolicyPriNamedInsured</Code>
+                <DisplayName>PolicyPriNamedInsured</DisplayName>
+            </Subtype>
+            <Contact>
+                <PublicID>pc:200</PublicID>
+                <DisplayName>CABL amp; ASOCIADOS SRL</DisplayName>
+                <Name>CABL amp; ASOCIADOS SRL</Name>
+                <FantasyName>CABL Group</FantasyName>
+                <AssociatedNumber>123456789</AssociatedNumber>
+                <OfficialIDs>
+                    <OfficialID>
+                        <Type>
+                            <Code>cuit_cuil_GSS</Code>
+                            <DisplayName>CUIT/CUIL</DisplayName>
+                            <UnlocalizedName>CUIT/CUIL</UnlocalizedName>
+                        </Type>
+                        <Value>30711011478</Value>
+                        <Primary>true</Primary>
+                    </OfficialID>
+                </OfficialIDs>
+                <TaxCondition>
+                    <Code>iva_ri</Code>
+                    <DisplayName>Responsable Inscripto</DisplayName>
+                </TaxCondition>
+                <PrimaryAddressConcatenated>Av. Belgrano 555</PrimaryAddressConcatenated>
+                <PrimaryAddress/>
+            </Contact>
+        </PolicyContactRole>
+        <PolicyContactRole>
+            <Subtype>
+                <Code>PolicyBillingContact</Code>
+                <DisplayName>PolicyBillingContact</DisplayName>
+            </Subtype>
+            <Contact>
+                <PublicID>pc:200</PublicID>
+                <DisplayName>CABL amp; ASOCIADOS SRL</DisplayName>
+                <Name>CABL amp; ASOCIADOS SRL</Name>
+                <FantasyName>CABL Group</FantasyName>
+                <AssociatedNumber>123456789</AssociatedNumber>
+                <OfficialIDs>
+                    <OfficialID>
+                        <Type>
+                            <Code>cuit_cuil_GSS</Code>
+                            <DisplayName>CUIT/CUIL</DisplayName>
+                            <UnlocalizedName>CUIT/CUIL</UnlocalizedName>
+                        </Type>
+                        <Value>30711011478</Value>
+                        <Primary>true</Primary>
+                    </OfficialID>
+                </OfficialIDs>
+                <TaxCondition>
+                    <Code>iva_ri</Code>
+                    <DisplayName>Responsable Inscripto</DisplayName>
+                </TaxCondition>
+                <PrimaryAddressConcatenated>Av. Belgrano 555</PrimaryAddressConcatenated>
+                <PrimaryAddress/>
+            </Contact>
+        </PolicyContactRole>
+    </PolicyContactRoles>
+    <DocumentDelivery>
+        <Code>digital</Code>
+        <DisplayName>Digital</DisplayName>
+    </DocumentDelivery>
+    <SancorInfo>
+        <Name>Sancor Cooperativa de Seguros Limitada</Name>
+        <PrimaryAddress>
+            <AddressLine1>Ruta Nac. 34 Km 257</AddressLine1>
+            <AddressType>
+                <Code>business</Code>
+                <DisplayName>Comercial</DisplayName>
+            </AddressType>
+            <City>Sunchales</City>
+            <Country>
+                <Code>AR</Code>
+                <DisplayName>Argentina</DisplayName>
+            </Country>
+            <PostalCode>2322</PostalCode>
+        </PrimaryAddress>
+    </SancorInfo>
+    <CIAgreements/>
+    <Commissions>
+        <Intermediary>
+            <ProducerCodeID>
+                <Code>300462</Code>
+                <Description>CHINELLATO HUGO SANTIAGO</Description>
+                <DisplayName>300462 CHINELLATO HUGO SANTIAGO</DisplayName>
+                <Role>
+                    <Code>master</Code>
+                    <DisplayName>Master</DisplayName>
+                </Role>
+                <ProducerStatus>
+                    <Code>Active</Code>
+                    <DisplayName>Activo</DisplayName>
+                </ProducerStatus>
+                <Organization>
+                    <DisplayName>CHINELLATO HUGO SANTIAGO</DisplayName>
+                    <Name>CHINELLATO HUGO SANTIAGO</Name>
+                    <Type>
+                        <Code>agency</Code>
+                        <DisplayName>Intermediario</DisplayName>
+                    </Type>
+                    <RegistryNumber>1234</RegistryNumber>
+                    <RegistryScope>
+                        <Code>until_200000_person</Code>
+                        <DisplayName>Hasta 200.000 habitantes</DisplayName>
+                    </RegistryScope>
+                    <LegalFigure>
+                        <Code>no_instigator</Code>
+                        <DisplayName>No institorio</DisplayName>
+                    </LegalFigure>
+                    <ProducerCategory>
+                        <Code>category_a</Code>
+                        <DisplayName>Categoría A</DisplayName>
+                    </ProducerCategory>
+                    <OSSEGContributor>false</OSSEGContributor>
+                    <OSSEGContributionPerc>0.00</OSSEGContributionPerc>
+                    <Contact>
+                        <PublicID>pc_cont:4924</PublicID>
+                        <DisplayName>CHINELLATO HUGO SANTIAGO</DisplayName>
+                        <FirstName>HUGO SANTIAGO</FirstName>
+                        <LastName>CHINELLATO</LastName>
+                        <Age>62</Age>
+                        <TaxID>12202267</TaxID>
+                        <OfficialIDs>
+                            <OfficialID>
+                                <Type>
+                                    <Code>dni_GSS</Code>
+                                    <DisplayName>Documento Nacional de Identidad</DisplayName>
+                                    <UnlocalizedName>DNI</UnlocalizedName>
+                                </Type>
+                                <Value>12202267</Value>
+                                <Primary>true</Primary>
+                            </OfficialID>
+                            <OfficialID>
+                                <Type>
+                                    <Code>cuit_cuil_GSS</Code>
+                                    <DisplayName>CUIT/CUIL</DisplayName>
+                                    <UnlocalizedName>CUIT/CUIL</UnlocalizedName>
+                                </Type>
+                                <Value>20122022677</Value>
+                                <Primary>false</Primary>
+                            </OfficialID>
+                        </OfficialIDs>
+                        <Gender>
+                            <Code>M</Code>
+                            <DisplayName>Masculino</DisplayName>
+                        </Gender>
+                        <MaritalStatus>
+                            <Code>unknown</Code>
+                            <DisplayName>Desconocido</DisplayName>
+                        </MaritalStatus>
+                        <PrimaryAddressConcatenated>Independencia 333</PrimaryAddressConcatenated>
+                        <PrimaryAddress>
+                            <AddressLine1>Independencia</AddressLine1>
+                            <AddressLine2>333</AddressLine2>
+                            <AddressType>
+                                <Code>business</Code>
+                                <DisplayName>Comercial</DisplayName>
+                            </AddressType>
+                            <City>Sunchales</City>
+                            <Country>
+                                <Code>AR</Code>
+                                <DisplayName>Argentina</DisplayName>
+                            </Country>
+                            <PostalCode>2322</PostalCode>
+                            <State>
+                                <Code>AR-S</Code>
+                                <DisplayName>Santa Fe</DisplayName>
+                            </State>
+                            <Neighborhood>Mock Neighborhood</Neighborhood>
+                            <BetweenStreet1>Mock BetweenStreet1</BetweenStreet1>
+                            <BetweenStreet2>Mock BetweenStreet2</BetweenStreet2>
+                        </PrimaryAddress>
+                        <DateOfBirth>1958-09-19T12:00:00</DateOfBirth>
+                        <Subtype>
+                            <Code>Person</Code>
+                            <DisplayName>Persona</DisplayName>
+                        </Subtype>
+                    </Contact>
+                </Organization>
+                <BusinessUnit>
+                    <Code>101</Code>
+                    <DisplayName>101 - UN - Tucuman</DisplayName>
+                </BusinessUnit>
+            </ProducerCodeID>
+            <CommissionPercentage>0.00</CommissionPercentage>
+            <IntermediaryPercentage>0.00</IntermediaryPercentage>
+        </Intermediary>
+        <Intermediary>
+            <ProducerCodeID>
+                <Code>101361</Code>
+                <Description>SANCHEZ EDUARDO CESAR</Description>
+                <DisplayName>101361 SANCHEZ EDUARDO CESAR</DisplayName>
+                <Role>
+                    <Code>organizer</Code>
+                    <DisplayName>Organizador</DisplayName>
+                </Role>
+                <ProducerStatus>
+                    <Code>Active</Code>
+                    <DisplayName>Activo</DisplayName>
+                </ProducerStatus>
+                <Organization>
+                    <DisplayName>SANCHEZ EDUARDO CESAR</DisplayName>
+                    <Name>SANCHEZ EDUARDO CESAR</Name>
+                    <Type>
+                        <Code>agency</Code>
+                        <DisplayName>Intermediario</DisplayName>
+                    </Type>
+                    <RegistryNumber>5678</RegistryNumber>
+                    <RegistryScope>
+                        <Code>until_200000_person</Code>
+                        <DisplayName>Hasta 200.000 habitantes</DisplayName>
+                    </RegistryScope>
+                    <LegalFigure>
+                        <Code>no_instigator</Code>
+                        <DisplayName>No institorio</DisplayName>
+                    </LegalFigure>
+                    <ProducerCategory>
+                        <Code>category_a</Code>
+                        <DisplayName>Categoría A</DisplayName>
+                    </ProducerCategory>
+                    <OSSEGContributor>false</OSSEGContributor>
+                    <OSSEGContributionPerc>0.00</OSSEGContributionPerc>
+                    <Contact>
+                        <PublicID>pc_cont:4925</PublicID>
+                        <DisplayName>SANCHEZ EDUARDO CESAR</DisplayName>
+                        <FirstName>EDUARDO CESAR</FirstName>
+                        <LastName>SANCHEZ</LastName>
+                        <Age>61</Age>
+                        <TaxID>13710145</TaxID>
+                        <OfficialIDs>
+                            <OfficialID>
+                                <Type>
+                                    <Code>dni_GSS</Code>
+                                    <DisplayName>Documento Nacional de Identidad</DisplayName>
+                                    <UnlocalizedName>DNI</UnlocalizedName>
+                                </Type>
+                                <Value>13710145</Value>
+                                <Primary>true</Primary>
+                            </OfficialID>
+                            <OfficialID>
+                                <Type>
+                                    <Code>cuit_cuil_GSS</Code>
+                                    <DisplayName>CUIT/CUIL</DisplayName>
+                                    <UnlocalizedName>CUIT/CUIL</UnlocalizedName>
+                                </Type>
+                                <Value>23137101459</Value>
+                                <Primary>false</Primary>
+                            </OfficialID>
+                        </OfficialIDs>
+                        <Gender>
+                            <Code>M</Code>
+                            <DisplayName>Masculino</DisplayName>
+                        </Gender>
+                        <MaritalStatus>
+                            <Code>unknown</Code>
+                            <DisplayName>Desconocido</DisplayName>
+                        </MaritalStatus>
+                        <PrimaryAddressConcatenated>Independencia 333</PrimaryAddressConcatenated>
+                        <PrimaryAddress>
+                            <AddressLine1>Independencia</AddressLine1>
+                            <AddressLine2>333</AddressLine2>
+                            <AddressType>
+                                <Code>home</Code>
+                                <DisplayName>Particular</DisplayName>
+                            </AddressType>
+                            <City>Sunchales</City>
+                            <Country>
+                                <Code>AR</Code>
+                                <DisplayName>Argentina</DisplayName>
+                            </Country>
+                            <PostalCode>2322</PostalCode>
+                            <State>
+                                <Code>AR-S</Code>
+                                <DisplayName>Santa Fe</DisplayName>
+                            </State>
+                            <Neighborhood>Mock Neighborhood</Neighborhood>
+                            <BetweenStreet1>Mock BetweenStreet1</BetweenStreet1>
+                            <BetweenStreet2>Mock BetweenStreet2</BetweenStreet2>
+                        </PrimaryAddress>
+                        <DateOfBirth>1960-01-19T12:00:00</DateOfBirth>
+                        <Subtype>
+                            <Code>Person</Code>
+                            <DisplayName>Persona</DisplayName>
+                        </Subtype>
+                    </Contact>
+                </Organization>
+                <BusinessUnit>
+                    <Code>101</Code>
+                    <DisplayName>101 - UN - Tucuman</DisplayName>
+                </BusinessUnit>
+            </ProducerCodeID>
+            <CommissionPercentage>0.00</CommissionPercentage>
+            <IntermediaryPercentage>0.00</IntermediaryPercentage>
+        </Intermediary>
+        <Intermediary>
+            <ProducerCodeID>
+                <Code>221107</Code>
+                <Description>SANCHEZ EDUARDO CESAR</Description>
+                <DisplayName>221107 SANCHEZ EDUARDO CESAR</DisplayName>
+                <Role>
+                    <Code>producer</Code>
+                    <DisplayName>Productor</DisplayName>
+                </Role>
+                <ProducerStatus>
+                    <Code>Active</Code>
+                    <DisplayName>Activo</DisplayName>
+                </ProducerStatus>
+                <Organization>
+                    <DisplayName>SANCHEZ EDUARDO CESAR</DisplayName>
+                    <Name>SANCHEZ EDUARDO CESAR</Name>
+                    <Type>
+                        <Code>agency</Code>
+                        <DisplayName>Intermediario</DisplayName>
+                    </Type>
+                    <RegistryNumber>5678</RegistryNumber>
+                    <RegistryScope>
+                        <Code>until_200000_person</Code>
+                        <DisplayName>Hasta 200.000 habitantes</DisplayName>
+                    </RegistryScope>
+                    <LegalFigure>
+                        <Code>no_instigator</Code>
+                        <DisplayName>No institorio</DisplayName>
+                    </LegalFigure>
+                    <ProducerCategory>
+                        <Code>category_a</Code>
+                        <DisplayName>Categoría A</DisplayName>
+                    </ProducerCategory>
+                    <OSSEGContributor>false</OSSEGContributor>
+                    <OSSEGContributionPerc>0.00</OSSEGContributionPerc>
+                    <Contact>
+                        <PublicID>pc_cont:4925</PublicID>
+                        <DisplayName>SANCHEZ EDUARDO CESAR</DisplayName>
+                        <FirstName>EDUARDO CESAR</FirstName>
+                        <LastName>SANCHEZ</LastName>
+                        <Age>61</Age>
+                        <TaxID>13710145</TaxID>
+                        <OfficialIDs>
+                            <OfficialID>
+                                <Type>
+                                    <Code>dni_GSS</Code>
+                                    <DisplayName>Documento Nacional de Identidad</DisplayName>
+                                    <UnlocalizedName>DNI</UnlocalizedName>
+                                </Type>
+                                <Value>13710145</Value>
+                                <Primary>true</Primary>
+                            </OfficialID>
+                            <OfficialID>
+                                <Type>
+                                    <Code>cuit_cuil_GSS</Code>
+                                    <DisplayName>CUIT/CUIL</DisplayName>
+                                    <UnlocalizedName>CUIT/CUIL</UnlocalizedName>
+                                </Type>
+                                <Value>23137101459</Value>
+                                <Primary>false</Primary>
+                            </OfficialID>
+                        </OfficialIDs>
+                        <Gender>
+                            <Code>M</Code>
+                            <DisplayName>Masculino</DisplayName>
+                        </Gender>
+                        <MaritalStatus>
+                            <Code>unknown</Code>
+                            <DisplayName>Desconocido</DisplayName>
+                        </MaritalStatus>
+                        <PrimaryAddressConcatenated>Independencia 333</PrimaryAddressConcatenated>
+                        <PrimaryAddress>
+                            <AddressLine1>Independencia</AddressLine1>
+                            <AddressLine2>333</AddressLine2>
+                            <AddressType>
+                                <Code>home</Code>
+                                <DisplayName>Particular</DisplayName>
+                            </AddressType>
+                            <City>Sunchales</City>
+                            <Country>
+                                <Code>AR</Code>
+                                <DisplayName>Argentina</DisplayName>
+                            </Country>
+                            <PostalCode>2322</PostalCode>
+                            <State>
+                                <Code>AR-S</Code>
+                                <DisplayName>Santa Fe</DisplayName>
+                            </State>
+                            <Neighborhood>Mock Neighborhood</Neighborhood>
+                            <BetweenStreet1>Mock BetweenStreet1</BetweenStreet1>
+                            <BetweenStreet2>Mock BetweenStreet2</BetweenStreet2>
+                        </PrimaryAddress>
+                        <DateOfBirth>1960-01-19T12:00:00</DateOfBirth>
+                        <Subtype>
+                            <Code>Person</Code>
+                            <DisplayName>Persona</DisplayName>
+                        </Subtype>
+                    </Contact>
+                </Organization>
+                <BusinessUnit>
+                    <Code>101</Code>
+                    <DisplayName>101 - UN - Tucuman</DisplayName>
+                </BusinessUnit>
+            </ProducerCodeID>
+            <CommissionPercentage>0.00</CommissionPercentage>
+            <IntermediaryPercentage>0.00</IntermediaryPercentage>
+        </Intermediary>
+    </Commissions>
+    <VariableTextsCarCoverages>
+        <Coverage>
+            <Code>CA7CivilLiabilityDamageToThingsNotTransportedByThirdPartiesCov</Code>
+            <DisplayName>Resp. Civil: Daños a cosas no transportadas de terceras personas</DisplayName>
+            <Abbreviation>RC - </Abbreviation>
+            <Priority>3770</Priority>
+            <CovTerms>
+                <CovTerm>
+                    <ValueTypeName>Option</ValueTypeName>
+                    <ValueType>
+                        <Code>money</Code>
+                        <DisplayName>Dinero</DisplayName>
+                    </ValueType>
+                    <DisplayName>Límite</DisplayName>
+                    <DisplayValue>17.500.000</DisplayValue>
+                    <DisplayAmount>$ 17.500.000,00</DisplayAmount>
+                    <ModelType>
+                        <Code>Limit</Code>
+                        <DisplayName>Límite</DisplayName>
+                    </ModelType>
+                </CovTerm>
+            </CovTerms>
+            <Category>CA7PrivatePassengerStdGrp</Category>
+        </Coverage>
+        <Coverage>
+            <Code>CA7CivilLiabilityInjuriesAndOrDeathOfThirdPartiesNotTranspCov</Code>
+            <DisplayName>Resp. Civil: Lesiones y/o muerte de terceras personas no transportadas</DisplayName>
+            <Abbreviation>RC - </Abbreviation>
+            <Priority>3870</Priority>
+            <CovTerms>
+                <CovTerm>
+                    <ValueTypeName>Option</ValueTypeName>
+                    <ValueType>
+                        <Code>money</Code>
+                        <DisplayName>Dinero</DisplayName>
+                    </ValueType>
+                    <DisplayName>Límite</DisplayName>
+                    <DisplayValue>17.500.000</DisplayValue>
+                    <DisplayAmount>$ 17.500.000,00</DisplayAmount>
+                    <ModelType>
+                        <Code>Limit</Code>
+                        <DisplayName>Límite</DisplayName>
+                    </ModelType>
+                </CovTerm>
+            </CovTerms>
+            <Category>CA7PrivatePassengerStdGrp</Category>
+        </Coverage>
+        <Coverage>
+            <Code>CA7CivilLiabilityInjuriesAndOrDeathOfThirdPartiesTransportedCov</Code>
+            <DisplayName>Resp. Civil: Lesiones y/o muerte de terceras personas transportadas</DisplayName>
+            <Abbreviation>RC - </Abbreviation>
+            <Priority>3871</Priority>
+            <CovTerms>
+                <CovTerm>
+                    <ValueTypeName>Option</ValueTypeName>
+                    <ValueType>
+                        <Code>money</Code>
+                        <DisplayName>Dinero</DisplayName>
+                    </ValueType>
+                    <DisplayName>Límite</DisplayName>
+                    <DisplayValue>17.500.000</DisplayValue>
+                    <DisplayAmount>$ 17.500.000,00</DisplayAmount>
+                    <ModelType>
+                        <Code>Limit</Code>
+                        <DisplayName>Límite</DisplayName>
+                    </ModelType>
+                </CovTerm>
+            </CovTerms>
+            <Category>CA7PrivatePassengerStdGrp</Category>
+        </Coverage>
+        <Coverage>
+            <Code>CA7TotalFireCov</Code>
+            <DisplayName>Incendio Total</DisplayName>
+            <Abbreviation>IT - </Abbreviation>
+            <Priority>3873</Priority>
+            <CovTerms>
+                <CovTerm>
+                    <ValueTypeName>Direct</ValueTypeName>
+                    <ValueType>
+                        <Code>money</Code>
+                        <DisplayName>Dinero</DisplayName>
+                    </ValueType>
+                    <DisplayName>Límite</DisplayName>
+                    <DisplayValue>2.500.000</DisplayValue>
+                    <DisplayAmount>$ 2.500.000,00</DisplayAmount>
+                    <ModelType>
+                        <Code>Limit</Code>
+                        <DisplayName>Límite</DisplayName>
+                    </ModelType>
+                </CovTerm>
+            </CovTerms>
+            <Category>CA7PrivatePassengerStdGrp</Category>
+        </Coverage>
+        <Coverage>
+            <Code>CA7PartialFireCov</Code>
+            <DisplayName>Incendio Parcial</DisplayName>
+            <Abbreviation>IP - </Abbreviation>
+            <Priority>4371</Priority>
+            <CovTerms>
+                <CovTerm>
+                    <ValueTypeName>Direct</ValueTypeName>
+                    <ValueType>
+                        <Code>money</Code>
+                        <DisplayName>Dinero</DisplayName>
+                    </ValueType>
+                    <DisplayName>Límite</DisplayName>
+                    <DisplayValue>2.500.000</DisplayValue>
+                    <DisplayAmount>$ 2.500.000,00</DisplayAmount>
+                    <ModelType>
+                        <Code>Limit</Code>
+                        <DisplayName>Límite</DisplayName>
+                    </ModelType>
+                </CovTerm>
+            </CovTerms>
+            <Category>CA7PrivatePassengerStdGrp</Category>
+        </Coverage>
+        <Coverage>
+            <Code>CA7TotalTheftAndOrLarcenyCov</Code>
+            <DisplayName>Robo y/o Hurto Total</DisplayName>
+            <Abbreviation>RT - </Abbreviation>
+            <Priority>4870</Priority>
+            <CovTerms>
+                <CovTerm>
+                    <ValueTypeName>Direct</ValueTypeName>
+                    <ValueType>
+                        <Code>money</Code>
+                        <DisplayName>Dinero</DisplayName>
+                    </ValueType>
+                    <DisplayName>Límite</DisplayName>
+                    <DisplayValue>2.500.000</DisplayValue>
+                    <DisplayAmount>$ 2.500.000,00</DisplayAmount>
+                    <ModelType>
+                        <Code>Limit</Code>
+                        <DisplayName>Límite</DisplayName>
+                    </ModelType>
+                </CovTerm>
+            </CovTerms>
+            <Category>CA7PrivatePassengerStdGrp</Category>
+        </Coverage>
+        <Coverage>
+            <Code>CA7PartialTheftAndOrLarcenyCov</Code>
+            <DisplayName>Robo y/o Hurto Parcial</DisplayName>
+            <Abbreviation>RP - </Abbreviation>
+            <Priority>4871</Priority>
+            <CovTerms>
+                <CovTerm>
+                    <ValueTypeName>Direct</ValueTypeName>
+                    <ValueType>
+                        <Code>money</Code>
+                        <DisplayName>Dinero</DisplayName>
+                    </ValueType>
+                    <DisplayName>Límite</DisplayName>
+                    <DisplayValue>2.500.000</DisplayValue>
+                    <DisplayAmount>$ 2.500.000,00</DisplayAmount>
+                    <ModelType>
+                        <Code>Limit</Code>
+                        <DisplayName>Límite</DisplayName>
+                    </ModelType>
+                </CovTerm>
+            </CovTerms>
+            <Category>CA7PrivatePassengerStdGrp</Category>
+        </Coverage>
+        <Coverage>
+            <Code>CA7VehicleAndPeopleAssistanceCov</Code>
+            <DisplayName>Asistencia al Vehículo y Personas</DisplayName>
+            <Abbreviation>AVP - </Abbreviation>
+            <Priority>5071</Priority>
+            <CovTerms/>
+            <Category>CA7PrivatePassengerAddlGrp</Category>
+        </Coverage>
+        <Coverage>
+            <Code>CA7DamageCov</Code>
+            <DisplayName>Daño Ambiental</DisplayName>
+            <Abbreviation>DA - </Abbreviation>
+            <Priority>5080</Priority>
+            <CovTerms>
+                <CovTerm>
+                    <ValueTypeName>Option</ValueTypeName>
+                    <ValueType>
+                        <Code>money</Code>
+                        <DisplayName>Dinero</DisplayName>
+                    </ValueType>
+                    <DisplayName>Límite</DisplayName>
+                    <DisplayValue>500.000</DisplayValue>
+                    <DisplayAmount>$ 500.000,00</DisplayAmount>
+                    <ModelType>
+                        <Code>Limit</Code>
+                        <DisplayName>Límite</DisplayName>
+                    </ModelType>
+                </CovTerm>
+            </CovTerms>
+            <Category>CA7PrivatePassengerStdGrp</Category>
+        </Coverage>
+        <Coverage>
+            <Code>CA7RemediationExpensesCov</Code>
+            <DisplayName>Gastos de Remediación Ambiental</DisplayName>
+            <Abbreviation>GRA - </Abbreviation>
+            <Priority>5081</Priority>
+            <CovTerms>
+                <CovTerm>
+                    <ValueTypeName>Option</ValueTypeName>
+                    <ValueType>
+                        <Code>money</Code>
+                        <DisplayName>Dinero</DisplayName>
+                    </ValueType>
+                    <DisplayName>Límite</DisplayName>
+                    <DisplayValue>500.000</DisplayValue>
+                    <DisplayAmount>$ 500.000,00</DisplayAmount>
+                    <ModelType>
+                        <Code>Limit</Code>
+                        <DisplayName>Límite</DisplayName>
+                    </ModelType>
+                </CovTerm>
+            </CovTerms>
+            <Category>CA7PrivatePassengerStdGrp</Category>
+        </Coverage>
+        <Coverage>
+            <Code>CA7LegalAssistanceCov</Code>
+            <DisplayName>Asistencia Legal</DisplayName>
+            <Abbreviation>AL - </Abbreviation>
+            <Priority>5084</Priority>
+            <CovTerms/>
+            <Category>CA7PrivatePassengerAddlGrp</Category>
+        </Coverage>
+        <Coverage>
+            <Code>CA7AccidentalDeceaseCov</Code>
+            <DisplayName>Muerte Accidental</DisplayName>
+            <Abbreviation>MA - </Abbreviation>
+            <Priority>5388</Priority>
+            <CovTerms>
+                <CovTerm>
+                    <ValueTypeName>Option</ValueTypeName>
+                    <ValueType>
+                        <Code>money</Code>
+                        <DisplayName>Dinero</DisplayName>
+                    </ValueType>
+                    <DisplayName>Límite</DisplayName>
+                    <DisplayValue>350.000</DisplayValue>
+                    <DisplayAmount>$ 350.000,00</DisplayAmount>
+                    <ModelType>
+                        <Code>Limit</Code>
+                        <DisplayName>Límite</DisplayName>
+                    </ModelType>
+                </CovTerm>
+            </CovTerms>
+            <Category>CA7PrivatePassengerStdGrp</Category>
+        </Coverage>
+        <Coverage>
+            <Code>CA7TotalDisabilityAndOrPermanentPartialByAccidentCov</Code>
+            <DisplayName>Invalidez Total y/o Parcial Permanente por Accidente</DisplayName>
+            <Abbreviation>ITPA - </Abbreviation>
+            <Priority>5488</Priority>
+            <CovTerms>
+                <CovTerm>
+                    <ValueTypeName>Option</ValueTypeName>
+                    <ValueType>
+                        <Code>money</Code>
+                        <DisplayName>Dinero</DisplayName>
+                    </ValueType>
+                    <DisplayName>Límite</DisplayName>
+                    <DisplayValue>350.000</DisplayValue>
+                    <DisplayAmount>$ 350.000,00</DisplayAmount>
+                    <ModelType>
+                        <Code>Limit</Code>
+                        <DisplayName>Límite</DisplayName>
+                    </ModelType>
+                </CovTerm>
+            </CovTerms>
+            <Category>CA7PrivatePassengerStdGrp</Category>
+        </Coverage>
+        <Coverage>
+            <Code>CA7MedicalPharmaceuticalAssistanceCov</Code>
+            <DisplayName>Asistencia Médico Farmacéutica</DisplayName>
+            <Abbreviation>AMF - </Abbreviation>
+            <Priority>5489</Priority>
+            <CovTerms>
+                <CovTerm>
+                    <ValueTypeName>Option</ValueTypeName>
+                    <ValueType>
+                        <Code>money</Code>
+                        <DisplayName>Dinero</DisplayName>
+                    </ValueType>
+                    <DisplayName>Límite</DisplayName>
+                    <DisplayValue>350.000</DisplayValue>
+                    <DisplayAmount>$ 350.000,00</DisplayAmount>
+                    <ModelType>
+                        <Code>Limit</Code>
+                        <DisplayName>Límite</DisplayName>
+                    </ModelType>
+                </CovTerm>
+            </CovTerms>
+            <Category>CA7PrivatePassengerStdGrp</Category>
+        </Coverage>
+        <Coverage>
+            <Code>CA7TrackingKitCov</Code>
+            <DisplayName>Equipo de Rastreo</DisplayName>
+            <Abbreviation>ER - </Abbreviation>
+            <Priority>5491</Priority>
+            <CovTerms/>
+            <Category>CA7PrivatePassengerAddlNonVisibleGrp</Category>
+        </Coverage>
+    </VariableTextsCarCoverages>
+    <VariableTextsAPCoverages/>
+    <VariableTextsBenefits>
+        <Benefit>
+            <Code>CA7DTal80</Code>
+            <Abbreviation>DT - </Abbreviation>
+            <Priority>1</Priority>
+        </Benefit>
+        <Benefit>
+            <Code>CA7ExtLimitr</Code>
+            <Abbreviation>PL - </Abbreviation>
+            <Priority>3</Priority>
+        </Benefit>
+        <Benefit>
+            <Code>CA7AsisJur</Code>
+            <Abbreviation>AJ - </Abbreviation>
+            <Priority>4</Priority>
+        </Benefit>
+        <Benefit>
+            <Code>CA7SOMed</Code>
+            <Abbreviation>SOM - </Abbreviation>
+            <Priority>5</Priority>
+        </Benefit>
+        <Benefit>
+            <Code>CA7AsisVyP</Code>
+            <Abbreviation>AVP - </Abbreviation>
+            <Priority>6</Priority>
+        </Benefit>
+        <Benefit>
+            <Code>CA7CLEAS</Code>
+            <Abbreviation>CL - </Abbreviation>
+            <Priority>7</Priority>
+        </Benefit>
+    </VariableTextsBenefits>
+</PolicyPeriod>
+</Content>
+<Delivery>
+  <MailTo/>
+  <MailCC/>
+  <MailCCO/>
+  <SMSTO/>
+  <WhatsAppTO/>
+</Delivery>
+</Document>

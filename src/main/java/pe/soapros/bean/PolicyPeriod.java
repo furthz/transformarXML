@@ -3,79 +3,118 @@ package pe.soapros.bean;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import lombok.Data;
+import pe.soapros.services.impl.TransformImpl;
 
 @Data
 @JacksonXmlRootElement(localName="PolicyPeriod")
 public class PolicyPeriod {
-	
+
+	@JsonProperty("OfferCode")
+	private String offerCode;
+	// PC 11
 	@JsonProperty("OfferName")
 	private String offerName;
-	
+	// PC 11
 	@JsonProperty("PolicyNumber")
 	private String policyNumber;
-	
+	// PC 11
 	@JsonProperty("OfficialPolicyNumber")
 	private String officialPolicyNumber;
-	
+	// PC 11
 	@JsonProperty("PolicyChangeNumber")
 	private String policyChangeNumber;
-	
+	// PC 11
 	@JsonProperty("PeriodStart")
 	private String periodStart;
-	
+	// BORRAR PARA 11
 	@JsonProperty("CancellationDate")
 	private String cancellationDate;
-	
+	// PC 11
 	@JsonProperty("PeriodEnd")
 	private String periodEnd;
-	
+	// PC 11
 	@JsonProperty("PaymentFrequency")
 	private String paymentFrequency;
-	
+	// PC 11
 	@JsonProperty("SystemDate")
 	private String systemDate;
-
+	// PC 11
 	@JsonProperty("RamoCode")
 	private RamoCode ramoCode;
-	
+	// PC 11
 	@JsonProperty("Policy")
 	private Policy policy;
-	
-	@JsonProperty("Job")
-	private Job job;
-	
-	@JsonProperty("ReceiptInfo")
-	private ReceiptInfo receiptInfo;
-	
-	@JsonProperty("AAHLine")
-	private AAHLine aAHLine;
-	
+	// PC 11
 	@JsonProperty("PrimaryNamedInsured")
 	private PrimaryNamedInsured primaryNamedInsured;
-	
+	@JsonProperty("SecondaryNamedInsured")
+	private SecondaryNamedInsured secondaryNamedInsured;
+	// PC 11
+	@JsonProperty("Job")
+	private Job job;
+	// PC 11
+	@JsonProperty("ReceiptInfo")
+	private ReceiptInfo receiptInfo;
+	// PC BORRAR 11
+	@JsonProperty("AAHLine")
+	private AAHLine aAHLine;
+	@JsonProperty("CA7Line")
+	private CA7Line cA7Line;
+	// PC 11
+	/*@JsonProperty("PrimaryNamedInsured")
+	private PrimaryNamedInsured primaryNamedInsured;
+	@JsonProperty("SecondaryNamedInsured")
+	private SecondaryNamedInsured secondaryNamedInsured;*/
+	// PC 11
 	@JsonProperty("SancorInfo")
 	private SancorInfo sancorInfo;
-	
+	//  BORRAR PC 11
 	@JsonProperty("ProducerCode")
 	private ProducerCode producerCode;
-	
+	//  BORRAR PC 11
 	@JsonProperty("TotalParties")
 	private String totalParties;
-
+	//  PC 11
 	@JsonProperty("OfferCommercialName")
 	private String offerCommercialName;
-
+	// PC 11
 	@JsonProperty("EditEffectiveDate")
 	private String editEffectiveDate;
-
+	// PC 11
 	@JsonProperty("Commissions")
 	private Commissions commissions;
 
+	// PC 11
 	@JsonProperty("BusinessUnit")
 	private BusinessUnit businessUnit;
-
+	// PC 11
 	@JsonProperty("BranchOffice")
 	private BranchOffice branchOffice;
+	//   PC 11
+	@JsonProperty("TotalCostRPT")
+	private TotalCostRPT totalCostRPT;
+	//  BORRAR PC 11
+	@JsonProperty("PartialCost")
+	private PartialCost partialCost;
+
+	/*@JsonProperty("CA7Line")
+	private CA7Line cA7Line;*/
+	/*  PC 11
+
+    @JsonProperty("OfferCode")
+	private String offerCode;
+
+	@JsonProperty("CA7Line")
+	private CA7Line cA7Line;
+
+	@JsonProperty("SecondaryNamedInsured")
+	private SecondaryNamedInsured secondaryNamedInsured;
+
+
+	 */
+
+
+
 
 	/*
 	public String getOfferName() {
@@ -232,5 +271,20 @@ public class PolicyPeriod {
 		//System.out.println(cantidadNominados);
 		this.totalParties = String.valueOf(cantidadNominados + cantidadInnominados);
 	}
-	
+
+	public void deletePro(){
+		TransformImpl obj = new TransformImpl();
+		String theme_id=String.valueOf(obj.ThemeVar);
+
+	if(theme_id.equals("ARG_GW_PC_TarjetaAzul")) {
+	/*	Properties p = new Properties();
+		p.remove("BusinessUnit");
+		System.out.println(p.propertyNames());*/
+
+		PolicyPeriod p = PolicyPeriod.this;
+		//commissions.finalize();
+	}
+
+	}
+
 }

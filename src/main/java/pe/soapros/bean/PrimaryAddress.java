@@ -5,8 +5,7 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
 @JacksonXmlRootElement(localName="PrimaryAddress")
 public class PrimaryAddress {
-	@JsonProperty("State")
-	private State state;
+
 	@JsonProperty("AddressLine1")
 	private String addressLine1;
 	@JsonProperty("AddressLine2")
@@ -15,11 +14,64 @@ public class PrimaryAddress {
 	private String addressLine3;
 	@JsonProperty("Department")
 	private String department;
-	@JsonProperty("PostalCode")
-	private String postalCode;
 	@JsonProperty("City")
 	private String city;
-	
+	@JsonProperty("Country")
+	private Country country;
+	@JsonProperty("PostalCode")
+	private String postalCode;
+	@JsonProperty("State")
+	private State state;
+	@JsonProperty("Neighborhood")
+	private String neighborhood;
+
+	@JsonProperty("BetweenStreet1")
+	private String betweenStreet1;
+
+	@JsonProperty("BetweenStreet2")
+	private String betweenStreet2;
+
+	// ******** PC 11 ***********
+
+	/*@JsonProperty("Country")
+	private Country country;
+
+	@JsonProperty("Neighborhood")
+	private String neighborhood;
+
+	@JsonProperty("BetweenStreet1")
+	private String betweenStreet1;
+
+	@JsonProperty("BetweenStreet2")
+	private String betweenStreet2;*/
+
+
+	public Country getCountry() {
+		return country;
+	}
+	public void setCountry(Country country) {
+		this.country = country;
+	}
+	public String getNeighborhood() {
+		return neighborhood;
+	}
+	public void setNeighborhood(String neighborhood) {
+		this.neighborhood = neighborhood;
+	}
+	public String getBetweenStreet1() {
+		return betweenStreet1;
+	}
+	public void setBetweenStreet1(String betweenStreet1) {
+		this.betweenStreet1 = betweenStreet1;
+	}
+	public String getBetweenStreet2() {
+		return betweenStreet2;
+	}
+	public void setBetweenStreet2(String betweenStreet2) {
+		this.betweenStreet2 = betweenStreet2;
+	}
+
+    // **************************
 	public State getState() {
 		return state;
 	}
@@ -62,6 +114,6 @@ public class PrimaryAddress {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	
-	
+
+
 }

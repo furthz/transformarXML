@@ -10,6 +10,8 @@ public class Content {
 
 	@JsonProperty("PolicyPeriod")
 	private PolicyPeriod policyPeriod;
+
+
 /*
 	public PolicyPeriod getPolicyPeriod() {
 		return policyPeriod;

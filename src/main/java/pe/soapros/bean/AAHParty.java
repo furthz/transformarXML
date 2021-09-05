@@ -16,7 +16,10 @@ public class AAHParty {
 	
 	@JsonProperty("AgeOrYearRange")
 	private String ageOrYearRange;
-	
+
+	@JsonProperty("AgeRangeDisplayName")
+	private String ageRangeDisplayName;
+
 	@JsonProperty("InsuredType")
 	private InsuredType insuredType;
 	

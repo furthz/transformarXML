@@ -13,13 +13,13 @@ public class Job {
 
 	@JsonProperty("JobNumber")
 	private String jobNumber;
-/*
-	public Subtype getSubtype() {
+
+	/*public Subtype getSubtype() {
 		return subtype;
 	}
 
 	public void setSubtype(Subtype subtype) {
 		this.subtype = subtype;
-	}
- */
+	}*/
+
 }

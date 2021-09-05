@@ -25,6 +25,8 @@ public class AAHPartys {
     @JsonProperty("AAHParty")
     private List<AAHParty> aahpartys;
 
+    @JsonProperty("CoverageTerms")
+    private CoverageTerms coverageTerms;
 
     public void calculateTipoDocum() {
         //System.out.println("calculateTipoDocum");
@@ -87,16 +89,19 @@ public class AAHPartys {
         }
 
         // ordenar parties concatenarlos y meterlos en un diccionario
-        HashMap<String, String> hmap = new HashMap<String, String>();
+        //HashMap<String, String> hmap = new HashMap<String, String>();
+        LinkedHashMap<String, String> hmap = new LinkedHashMap<String, String>();
         for (AAHParty party : nominados) {
             String covertura = party.getPartyCoverages().getCoverages();    // Valor concatenado de los Atributos <Code> de cada <PartyCoverage> por cada <AAHParty>
             hmap.put(covertura, "");                                        // Valores concatenados creados lo metemos dentro de un {}, si hay 2 properties con el mismo nombre creará uno
         }
 
-        HashMap<String, String> hmapNO = new HashMap<String, String>();
+        //HashMap<String, String> hmapNO = new HashMap<String, String>();
+        LinkedHashMap<String, String> hmapNO = new LinkedHashMap<String, String>();
         for (AAHParty party : no_nominados) {
             String covertura = party.getPartyCoverages().getCoverages();
             hmapNO.put(covertura, "");  // { covertura : ""}
+            System.out.println("KEY: "+ covertura);
         }
 
         SeccionNominados secNo = new SeccionNominados();
@@ -113,16 +118,31 @@ public class AAHPartys {
 
             // Recorriendo Arreglo de <AAHParty> nominados
             for (AAHParty party : nominados) {
+
                 // Si el Valor concatenado de los Atributos <Code> de cada <PartyCoverage> por cada <AAHParty> es igual al "key" agregamos a la <Seccion>
                 if (party.getPartyCoverages().getCoverages().toLowerCase().equals(key.toLowerCase())) {
-                    elementosSeccion++;
+                 //  elementosSeccion++;
                     //Según necesidad se coloca la descripcion vacia a partir del segundo elemento de cada seccion
                   /* if(elementosSeccion > 1) {
                         for (PartyCoverage coverage : party.getPartyCoverages().getPartyCoverage()) {
                             coverage.setDescription("");
                         }
                     }*/
-                    secTemp.addAAHParty(party);
+                 //  secTemp.addAAHParty(party);
+                   if(elementosSeccion==0){
+                        secTemp.addAAHParty(party);
+                        elementosSeccion++;
+                    }else{
+
+                        XmlMapper xmlMapper = new XmlMapper();
+                        System.out.println("************"+xmlMapper.valueToTree(party));
+                        int tam = party.getPartyCoverages().getPartyCoverage().size();
+                        System.out.println(tam + " ------------------");
+                        for (int i=0 ; i<tam; i++){
+                            party.getPartyCoverages().getPartyCoverage().remove(0);
+                        }
+                        secTemp.addAAHParty(party);
+                    }
                 }
             }
 
@@ -139,18 +159,34 @@ public class AAHPartys {
             String key = mentry.getKey().toString();
             Seccion secTemp = new Seccion();
             int elementosSeccion = 0;
-
+            int elementosSeccion1 = 0;
             for (AAHParty party : no_nominados) {
                 //System.out.println("NO NOMINADOS");
+                //System.out.println("CONCATENADO: "+party.getPartyCoverages().getCoverages());
                 if (party.getPartyCoverages().getCoverages().toLowerCase().equals(key.toLowerCase())) {
-                    elementosSeccion++;
+                //    elementosSeccion++;
+                 //   System.out.println("entro : "+ party.getPartyCoverages().getCoverages());
                     //Según necesidad se coloca la descripcion vacia a partir del segundo elemento de cada seccion
                   /*  if(elementosSeccion > 1) {
                         for (PartyCoverage coverage : party.getPartyCoverages().getPartyCoverage()) {
                             coverage.setDescription("");
                         }
                     }*/
-                    secTemp.addAAHParty(party);
+                   // secTemp.addAAHParty(party);
+                    if(elementosSeccion==0){
+                        secTemp.addAAHParty(party);
+                        elementosSeccion++;
+                    }else{
+
+                        XmlMapper xmlMapper = new XmlMapper();
+                        System.out.println("************"+xmlMapper.valueToTree(party));
+                        int tam = party.getPartyCoverages().getPartyCoverage().size();
+                        System.out.println(tam + " ------------------");
+                        for (int i=0 ; i<tam; i++){
+                            party.getPartyCoverages().getPartyCoverage().remove(0);
+                        }
+                        secTemp.addAAHParty(party);
+                    }
                 }
             }
 
@@ -163,6 +199,646 @@ public class AAHPartys {
         //System.out.println("hola");
 
     }
+//               **********************************************************
+
+   public void Comp70() {
+
+        List<AAHParty> nominados = new ArrayList<AAHParty>();
+        List<AAHParty> no_nominados = new ArrayList<AAHParty>();
+
+        // separado los nominados y los no nominados
+        for (AAHParty party : this.aahpartys) {
+            if (party.getInsuredType().getCode().equals(Constants.NOMINADOS)) {
+                nominados.add(party);
+            } else if (party.getInsuredType().getCode().equals(Constants.NO_NOMINADOS)) {
+                no_nominados.add(party);
+            } else {
+                log.error("No se reconoce tipo: " + party.getInsuredType().getCode());
+            }
+
+        }
+
+        // ordenar parties concatenarlos y meterlos en un diccionario
+       // HashMap<String, String> hmap = new HashMap<String, String>();
+       LinkedHashMap<String, String> hmap = new LinkedHashMap<String, String>();
+        for (AAHParty party : nominados) {
+            String cove = party.getPartyCoverages().getCoverages();
+            String concatenado = "";
+            String activity = "";
+            String activity1 = "";
+            String clasification = "";
+            String clasification1 = "";
+            String insurableGroup = "";
+            String insurableGroup1 = "";
+            String coveredEvent = "";
+            String coveredEvent1 = "";
+            String contractType = "";
+            String contractType1 = "";
+            String aAHRiskCategory = "";
+            String aAHRiskCategory1 = "";
+            String riskCategory = "";
+            String eventStartDate = "";
+            String eventEndDate = "";
+            String locationEvent = "";
+
+            //Try-Catch: Activity
+            try{
+                party.getActivity().getDisplayName();
+                System.out.println(party.getActivity().getDisplayName().toLowerCase()+ "---");
+            } catch (NullPointerException n) {
+                //System.out.println("Asignando activity: null");
+                activity = null;
+                activity1 = "";
+            }
+
+            if (activity != null) {
+                activity = party.getActivity().getDisplayName().toLowerCase().replaceAll("\\s+","");
+            }else{if(activity1 == null){ activity= party.getActivity().getDisplayName();}}
+
+            //Try-Catch: Clasification
+            try{
+                party.getClasification().getDisplayName();
+                System.out.println("VALCLAS: " +party.getClasification().getDisplayName().toLowerCase()+ "++++");
+            } catch (NullPointerException n) {
+                //System.out.println("Asignando clasification: null");
+                //    System.out.println("ENTRO AL NULL");
+                clasification = null;
+                clasification1 = "";
+            }
+
+            if (clasification != null )  {
+                clasification = party.getClasification().getDisplayName().toLowerCase().replaceAll("\\s+","");
+            }
+
+
+            //Try-Catch: insurableGroup
+            try{
+                party.getInsurableGroup().getDisplayName();
+                System.out.println(party.getInsurableGroup().getDisplayName().toLowerCase()+ "++++");
+            } catch (NullPointerException n) {
+                //System.out.println("Asignando insurableGroup: null");
+                insurableGroup = null;
+                insurableGroup1 = "";
+            }
+            if (insurableGroup != null) {
+                insurableGroup = party.getInsurableGroup().getDisplayName().toLowerCase().replaceAll("\\s+","");
+            }else{if(insurableGroup1==null){ insurableGroup = party.getInsurableGroup().getDisplayName(); }}
+
+            //Try-Catch: coveredEvent
+            try{
+                party.getCoveredEvent().getDisplayName();
+                System.out.println(party.getCoveredEvent().getDisplayName().toLowerCase()+ "++++");
+            } catch (NullPointerException n) {
+                //System.out.println("Asignando coveredEvent: null");
+                coveredEvent = null;
+                coveredEvent1 = "";
+            }
+
+            if (coveredEvent != null) {
+                coveredEvent = party.getCoveredEvent().getDisplayName().toLowerCase().replaceAll("\\s+","");
+            }else{if(coveredEvent1==null){ coveredEvent = party.getCoveredEvent().getDisplayName(); }}
+
+            //Try-Catch: ContractType
+            try{
+                party.getContractType().getDisplayName();
+                System.out.println(party.getContractType().getDisplayName().toLowerCase()+ "++++");
+            } catch (NullPointerException n) {
+                //System.out.println("Asignando contractType: null");
+                contractType = null;
+                contractType1 = "";
+            }
+            if (contractType != null) {
+                contractType = party.getContractType().getDisplayName().toLowerCase().replaceAll("\\s+","");
+            }else{if(contractType1==null){ contractType = party.getContractType().getDisplayName(); }}
+
+
+            //Try-Catch: AAHRiskCategory
+            try{
+                party.getAAHRiskCategory().getDisplayName();
+                System.out.println(party.getAAHRiskCategory().getDisplayName().toLowerCase()+ "++++");
+            } catch (NullPointerException n) {
+                //System.out.println("Asignando contractType: null");
+                aAHRiskCategory = null;
+                aAHRiskCategory1 = "";
+            }
+            if (aAHRiskCategory != null) {
+                aAHRiskCategory = party.getAAHRiskCategory().getDisplayName().toLowerCase().replaceAll("\\s+","");
+            }else{if(aAHRiskCategory1==null){ aAHRiskCategory = party.getAAHRiskCategory().getDisplayName(); }}
+
+            //RiskCategory
+            riskCategory = party.getRiskCategory();
+            if (riskCategory != null) {
+                riskCategory = party.getRiskCategory().toLowerCase().replaceAll("\\s+","");
+            }
+            //EventStartDate
+            eventStartDate = party.getEventStartDate();
+            if (eventStartDate != null) {
+                eventStartDate = party.getEventStartDate().toLowerCase().replaceAll("\\s+","");
+            }
+            //EventEndDate
+            eventEndDate = party.getEventEndDate();
+            if (eventEndDate != null) {
+                eventEndDate = party.getEventEndDate().toLowerCase().replaceAll("\\s+","");
+            }
+            //LocationEvent
+            locationEvent = party.getLocationEvent();
+            if (locationEvent != null) {
+                locationEvent = party.getLocationEvent().toLowerCase().replaceAll("\\s+","");
+            }
+
+            concatenado = concatenado + activity + clasification + insurableGroup+coveredEvent+contractType+aAHRiskCategory+riskCategory+eventStartDate+eventEndDate+locationEvent+ cove;
+
+             String union = concatenado;    // Valor concatenado de los Atributos <Code> de cada <PartyCoverage> por cada <AAHParty>
+            hmap.put(union, "");                                        // Valores concatenados creados lo metemos dentro de un {}, si hay 2 properties con el mismo nombre creará uno
+        }
+
+        //HashMap<String, String> hmapNO = new HashMap<String, String>();
+       LinkedHashMap<String, String> hmapNO = new LinkedHashMap<String, String>();
+        for (AAHParty party : no_nominados) {
+          // *****************************
+            String cove = party.getPartyCoverages().getCoverages();
+            String concatenado = "";
+            String activity = "";
+            String activity1 = "";
+            String clasification = "";
+            String clasification1 = "";
+            String insurableGroup = "";
+            String insurableGroup1 = "";
+            String coveredEvent = "";
+            String coveredEvent1 = "";
+            String contractType = "";
+            String contractType1 = "";
+            String aAHRiskCategory = "";
+            String aAHRiskCategory1 = "";
+            String riskCategory = "";
+            String eventStartDate = "";
+            String eventEndDate = "";
+            String locationEvent = "";
+
+            //Try-Catch: Activity
+            try{
+                party.getActivity().getDisplayName();
+                System.out.println(party.getActivity().getDisplayName().toLowerCase()+ "---");
+            } catch (NullPointerException n) {
+                //System.out.println("Asignando activity: null");
+                activity = null;
+                activity1 = "";
+            }
+
+            if (activity != null) {
+                activity = party.getActivity().getDisplayName().toLowerCase().replaceAll("\\s+","");
+            }else{if(activity1 == null){ activity= party.getActivity().getDisplayName();}}
+
+            //Try-Catch: Clasification
+            try{
+                party.getClasification().getDisplayName();
+                System.out.println("VALCLAS: " +party.getClasification().getDisplayName().toLowerCase()+ "++++");
+            } catch (NullPointerException n) {
+                //System.out.println("Asignando clasification: null");
+                //    System.out.println("ENTRO AL NULL");
+                clasification = null;
+                clasification1 = "";
+            }
+
+            if (clasification != null )  {
+                clasification = party.getClasification().getDisplayName().toLowerCase().replaceAll("\\s+","");
+            }
+
+
+            //Try-Catch: insurableGroup
+            try{
+                party.getInsurableGroup().getDisplayName();
+                System.out.println(party.getInsurableGroup().getDisplayName().toLowerCase()+ "++++");
+            } catch (NullPointerException n) {
+                //System.out.println("Asignando insurableGroup: null");
+                insurableGroup = null;
+                insurableGroup1 = "";
+            }
+            if (insurableGroup != null) {
+                insurableGroup = party.getInsurableGroup().getDisplayName().toLowerCase().replaceAll("\\s+","");
+            }else{if(insurableGroup1==null){ insurableGroup = party.getInsurableGroup().getDisplayName(); }}
+
+            //Try-Catch: coveredEvent
+            try{
+                party.getCoveredEvent().getDisplayName();
+                System.out.println(party.getCoveredEvent().getDisplayName().toLowerCase()+ "++++");
+            } catch (NullPointerException n) {
+                //System.out.println("Asignando coveredEvent: null");
+                coveredEvent = null;
+                coveredEvent1 = "";
+            }
+
+            if (coveredEvent != null) {
+                coveredEvent = party.getCoveredEvent().getDisplayName().toLowerCase().replaceAll("\\s+","");
+            }else{if(coveredEvent1==null){ coveredEvent = party.getCoveredEvent().getDisplayName(); }}
+
+            //Try-Catch: ContractType
+            try{
+                party.getContractType().getDisplayName();
+                System.out.println(party.getContractType().getDisplayName().toLowerCase()+ "++++");
+            } catch (NullPointerException n) {
+                //System.out.println("Asignando contractType: null");
+                contractType = null;
+                contractType1 = "";
+            }
+            if (contractType != null) {
+                contractType = party.getContractType().getDisplayName().toLowerCase().replaceAll("\\s+","");
+            }else{if(contractType1==null){ contractType = party.getContractType().getDisplayName(); }}
+
+
+            //Try-Catch: AAHRiskCategory
+            try{
+                party.getAAHRiskCategory().getDisplayName();
+                System.out.println(party.getAAHRiskCategory().getDisplayName().toLowerCase()+ "++++");
+            } catch (NullPointerException n) {
+                //System.out.println("Asignando contractType: null");
+                aAHRiskCategory = null;
+                aAHRiskCategory1 = "";
+            }
+            if (aAHRiskCategory != null) {
+                aAHRiskCategory = party.getAAHRiskCategory().getDisplayName().toLowerCase().replaceAll("\\s+","");
+            }else{if(aAHRiskCategory1==null){ aAHRiskCategory = party.getAAHRiskCategory().getDisplayName(); }}
+
+            //RiskCategory
+            riskCategory = party.getRiskCategory();
+            if (riskCategory != null) {
+                riskCategory = party.getRiskCategory().toLowerCase().replaceAll("\\s+","");
+            }
+            //EventStartDate
+            eventStartDate = party.getEventStartDate();
+            if (eventStartDate != null) {
+                eventStartDate = party.getEventStartDate().toLowerCase().replaceAll("\\s+","");
+            }
+            //EventEndDate
+            eventEndDate = party.getEventEndDate();
+            if (eventEndDate != null) {
+                eventEndDate = party.getEventEndDate().toLowerCase().replaceAll("\\s+","");
+            }
+            //LocationEvent
+            locationEvent = party.getLocationEvent();
+            if (locationEvent != null) {
+                locationEvent = party.getLocationEvent().toLowerCase().replaceAll("\\s+","");
+            }
+
+            concatenado = concatenado + activity + clasification + insurableGroup+coveredEvent+contractType+aAHRiskCategory+riskCategory+eventStartDate+eventEndDate+locationEvent+ cove;
+
+            // **********************************
+           String union = concatenado;
+            hmapNO.put(union, "");  // { union : ""}
+            System.out.println("KEY: "+ union);
+        }
+
+        SeccionNominados secNo = new SeccionNominados();
+
+        // recorrer el diccionario que diran cuantos grupos hay
+        Set set = hmap.entrySet();      // [ union= ""]
+        Iterator iterator = set.iterator();
+        while (iterator.hasNext()) {
+            Map.Entry mentry = (Map.Entry) iterator.next();
+
+            String key = mentry.getKey().toString();    // key: Valor Concatenado -> covertura
+            Seccion secTemp = new Seccion();
+            int elementosSeccion = 0;
+
+            // Recorriendo Arreglo de <AAHParty> nominados
+            for (AAHParty party : nominados) {
+                String cove = party.getPartyCoverages().getCoverages();
+                String concatenado = "";
+                String activity = "";
+                String activity1 = "";
+                String clasification = "";
+                String clasification1 = "";
+                String insurableGroup = "";
+                String insurableGroup1 = "";
+                String coveredEvent = "";
+                String coveredEvent1 = "";
+                String contractType = "";
+                String contractType1 = "";
+                String aAHRiskCategory = "";
+                String aAHRiskCategory1 = "";
+                String riskCategory = "";
+                String eventStartDate = "";
+                String eventEndDate = "";
+                String locationEvent = "";
+
+                //Try-Catch: Activity
+                try{
+                    party.getActivity().getDisplayName();
+                    System.out.println(party.getActivity().getDisplayName().toLowerCase()+ "---");
+                } catch (NullPointerException n) {
+                    //System.out.println("Asignando activity: null");
+                    activity = null;
+                    activity1 = "";
+                }
+
+                if (activity != null) {
+                    activity = party.getActivity().getDisplayName().toLowerCase().replaceAll("\\s+","");
+                }else{if(activity1 == null){ activity= party.getActivity().getDisplayName();}}
+
+                //Try-Catch: Clasification
+                try{
+                    party.getClasification().getDisplayName();
+                    System.out.println("VALCLAS: " +party.getClasification().getDisplayName().toLowerCase()+ "++++");
+                } catch (NullPointerException n) {
+                    //System.out.println("Asignando clasification: null");
+                    //    System.out.println("ENTRO AL NULL");
+                    clasification = null;
+                    clasification1 = "";
+                }
+
+                if (clasification != null )  {
+                    clasification = party.getClasification().getDisplayName().toLowerCase().replaceAll("\\s+","");
+                }
+
+
+                //Try-Catch: insurableGroup
+                try{
+                    party.getInsurableGroup().getDisplayName();
+                    System.out.println(party.getInsurableGroup().getDisplayName().toLowerCase()+ "++++");
+                } catch (NullPointerException n) {
+                    //System.out.println("Asignando insurableGroup: null");
+                    insurableGroup = null;
+                    insurableGroup1 = "";
+                }
+                if (insurableGroup != null) {
+                    insurableGroup = party.getInsurableGroup().getDisplayName().toLowerCase().replaceAll("\\s+","");
+                }else{if(insurableGroup1==null){ insurableGroup = party.getInsurableGroup().getDisplayName(); }}
+
+                //Try-Catch: coveredEvent
+                try{
+                    party.getCoveredEvent().getDisplayName();
+                    System.out.println(party.getCoveredEvent().getDisplayName().toLowerCase()+ "++++");
+                } catch (NullPointerException n) {
+                    //System.out.println("Asignando coveredEvent: null");
+                    coveredEvent = null;
+                    coveredEvent1 = "";
+                }
+
+                if (coveredEvent != null) {
+                    coveredEvent = party.getCoveredEvent().getDisplayName().toLowerCase().replaceAll("\\s+","");
+                }else{if(coveredEvent1==null){ coveredEvent = party.getCoveredEvent().getDisplayName(); }}
+
+                //Try-Catch: ContractType
+                try{
+                    party.getContractType().getDisplayName();
+                    System.out.println(party.getContractType().getDisplayName().toLowerCase()+ "++++");
+                } catch (NullPointerException n) {
+                    //System.out.println("Asignando contractType: null");
+                    contractType = null;
+                    contractType1 = "";
+                }
+                if (contractType != null) {
+                    contractType = party.getContractType().getDisplayName().toLowerCase().replaceAll("\\s+","");
+                }else{if(contractType1==null){ contractType = party.getContractType().getDisplayName(); }}
+
+
+                //Try-Catch: AAHRiskCategory
+                try{
+                    party.getAAHRiskCategory().getDisplayName();
+                    System.out.println(party.getAAHRiskCategory().getDisplayName().toLowerCase()+ "++++");
+                } catch (NullPointerException n) {
+                    //System.out.println("Asignando contractType: null");
+                    aAHRiskCategory = null;
+                    aAHRiskCategory1 = "";
+                }
+                if (aAHRiskCategory != null) {
+                    aAHRiskCategory = party.getAAHRiskCategory().getDisplayName().toLowerCase().replaceAll("\\s+","");
+                }else{if(aAHRiskCategory1==null){ aAHRiskCategory = party.getAAHRiskCategory().getDisplayName(); }}
+
+                //RiskCategory
+                riskCategory = party.getRiskCategory();
+                if (riskCategory != null) {
+                    riskCategory = party.getRiskCategory().toLowerCase().replaceAll("\\s+","");
+                }
+                //EventStartDate
+                eventStartDate = party.getEventStartDate();
+                if (eventStartDate != null) {
+                    eventStartDate = party.getEventStartDate().toLowerCase().replaceAll("\\s+","");
+                }
+                //EventEndDate
+                eventEndDate = party.getEventEndDate();
+                if (eventEndDate != null) {
+                    eventEndDate = party.getEventEndDate().toLowerCase().replaceAll("\\s+","");
+                }
+                //LocationEvent
+                locationEvent = party.getLocationEvent();
+                if (locationEvent != null) {
+                    locationEvent = party.getLocationEvent().toLowerCase().replaceAll("\\s+","");
+                }
+
+                concatenado = concatenado + activity + clasification + insurableGroup+coveredEvent+contractType+aAHRiskCategory+riskCategory+eventStartDate+eventEndDate+locationEvent+ cove;
+
+
+                // Si el Valor concatenado de los Atributos <Code> de cada <PartyCoverage> por cada <AAHParty> es igual al "key" agregamos a la <Seccion>
+                if (concatenado.toLowerCase().equals(key.toLowerCase())) {
+                //   elementosSeccion++;
+                 //   secTemp.addAAHParty(party);
+                    //Según necesidad se coloca la descripcion vacia a partir del segundo elemento de cada seccion
+                // if(elementosSeccion > 1) {
+                 //       for (PartyCoverage coverage : party.getPartyCoverages().getPartyCoverage()) {
+                 //           coverage.setDescription("");
+                 //       }
+                  //  }
+
+                 //   secTemp.addAAHParty(party);
+                        if(elementosSeccion==0){
+                            secTemp.addAAHParty(party);
+                            elementosSeccion++;
+                        }else{
+
+                            XmlMapper xmlMapper = new XmlMapper();
+                            System.out.println("************"+xmlMapper.valueToTree(party));
+                            int tam = party.getPartyCoverages().getPartyCoverage().size();
+                             System.out.println(tam + " ------------------");
+                              for (int i=0 ; i<tam; i++){
+                                  party.getPartyCoverages().getPartyCoverage().remove(0);
+                              }
+                            //party.getPartyCoverages().getPartyCoverage().remove(tam);
+                            //party.getPartyCoverages().
+                            secTemp.addAAHParty(party);
+                           // System.out.println("--"+party);
+                        }
+                }
+            }
+
+                    secNo.addSeccion(secTemp);
+        }
+
+                    SeccionInnominados secIn = new SeccionInnominados();
+                    // recorrer el diccionario que diran cuantos grupos hay
+                    Set set2 = hmapNO.entrySet();
+                    Iterator iterator2 = set2.iterator();
+                    while (iterator2.hasNext()) {
+                    Map.Entry mentry = (Map.Entry) iterator2.next();
+
+                    String key = mentry.getKey().toString();
+                    Seccion secTemp = new Seccion();
+                    int elementosSeccion1 = 0;
+                    int elementosSeccion = 0;
+                    for (AAHParty party : no_nominados) {
+                    //System.out.println("NO NOMINADOS");
+                        String cove = party.getPartyCoverages().getCoverages();
+                        String concatenado = "";
+                        String activity = "";
+                        String activity1 = "";
+                        String clasification = "";
+                        String clasification1 = "";
+                        String insurableGroup = "";
+                        String insurableGroup1 = "";
+                        String coveredEvent = "";
+                        String coveredEvent1 = "";
+                        String contractType = "";
+                        String contractType1 = "";
+                        String aAHRiskCategory = "";
+                        String aAHRiskCategory1 = "";
+                        String riskCategory = "";
+                        String eventStartDate = "";
+                        String eventEndDate = "";
+                        String locationEvent = "";
+
+                        //Try-Catch: Activity
+                        try{
+                            party.getActivity().getDisplayName();
+                            System.out.println(party.getActivity().getDisplayName().toLowerCase()+ "---");
+                        } catch (NullPointerException n) {
+                            //System.out.println("Asignando activity: null");
+                            activity = null;
+                            activity1 = "";
+                        }
+
+                        if (activity != null) {
+                            activity = party.getActivity().getDisplayName().toLowerCase().replaceAll("\\s+","");
+                        }else{if(activity1 == null){ activity= party.getActivity().getDisplayName();}}
+
+                        //Try-Catch: Clasification
+                        try{
+                            party.getClasification().getDisplayName();
+                            System.out.println("VALCLAS: " +party.getClasification().getDisplayName().toLowerCase()+ "++++");
+                        } catch (NullPointerException n) {
+                            //System.out.println("Asignando clasification: null");
+                            //    System.out.println("ENTRO AL NULL");
+                            clasification = null;
+                            clasification1 = "";
+                        }
+
+                        if (clasification != null )  {
+                            clasification = party.getClasification().getDisplayName().toLowerCase().replaceAll("\\s+","");
+                        }
+
+
+                        //Try-Catch: insurableGroup
+                        try{
+                            party.getInsurableGroup().getDisplayName();
+                            System.out.println(party.getInsurableGroup().getDisplayName().toLowerCase()+ "++++");
+                        } catch (NullPointerException n) {
+                            //System.out.println("Asignando insurableGroup: null");
+                            insurableGroup = null;
+                            insurableGroup1 = "";
+                        }
+                        if (insurableGroup != null) {
+                            insurableGroup = party.getInsurableGroup().getDisplayName().toLowerCase().replaceAll("\\s+","");
+                        }else{if(insurableGroup1==null){ insurableGroup = party.getInsurableGroup().getDisplayName(); }}
+
+                        //Try-Catch: coveredEvent
+                        try{
+                            party.getCoveredEvent().getDisplayName();
+                            System.out.println(party.getCoveredEvent().getDisplayName().toLowerCase()+ "++++");
+                        } catch (NullPointerException n) {
+                            //System.out.println("Asignando coveredEvent: null");
+                            coveredEvent = null;
+                            coveredEvent1 = "";
+                        }
+
+                        if (coveredEvent != null) {
+                            coveredEvent = party.getCoveredEvent().getDisplayName().toLowerCase().replaceAll("\\s+","");
+                        }else{if(coveredEvent1==null){ coveredEvent = party.getCoveredEvent().getDisplayName(); }}
+
+                        //Try-Catch: ContractType
+                        try{
+                            party.getContractType().getDisplayName();
+                            System.out.println(party.getContractType().getDisplayName().toLowerCase()+ "++++");
+                        } catch (NullPointerException n) {
+                            //System.out.println("Asignando contractType: null");
+                            contractType = null;
+                            contractType1 = "";
+                        }
+                        if (contractType != null) {
+                            contractType = party.getContractType().getDisplayName().toLowerCase().replaceAll("\\s+","");
+                        }else{if(contractType1==null){ contractType = party.getContractType().getDisplayName(); }}
+
+
+                        //Try-Catch: AAHRiskCategory
+                        try{
+                            party.getAAHRiskCategory().getDisplayName();
+                            System.out.println(party.getAAHRiskCategory().getDisplayName().toLowerCase()+ "++++");
+                        } catch (NullPointerException n) {
+                            //System.out.println("Asignando contractType: null");
+                            aAHRiskCategory = null;
+                            aAHRiskCategory1 = "";
+                        }
+                        if (aAHRiskCategory != null) {
+                            aAHRiskCategory = party.getAAHRiskCategory().getDisplayName().toLowerCase().replaceAll("\\s+","");
+                        }else{if(aAHRiskCategory1==null){ aAHRiskCategory = party.getAAHRiskCategory().getDisplayName(); }}
+
+                        //RiskCategory
+                        riskCategory = party.getRiskCategory();
+                        if (riskCategory != null) {
+                            riskCategory = party.getRiskCategory().toLowerCase().replaceAll("\\s+","");
+                        }
+                        //EventStartDate
+                        eventStartDate = party.getEventStartDate();
+                        if (eventStartDate != null) {
+                            eventStartDate = party.getEventStartDate().toLowerCase().replaceAll("\\s+","");
+                        }
+                        //EventEndDate
+                        eventEndDate = party.getEventEndDate();
+                        if (eventEndDate != null) {
+                            eventEndDate = party.getEventEndDate().toLowerCase().replaceAll("\\s+","");
+                        }
+                        //LocationEvent
+                        locationEvent = party.getLocationEvent();
+                        if (locationEvent != null) {
+                            locationEvent = party.getLocationEvent().toLowerCase().replaceAll("\\s+","");
+                        }
+
+                        concatenado = concatenado + activity + clasification + insurableGroup+coveredEvent+contractType+aAHRiskCategory+riskCategory+eventStartDate+eventEndDate+locationEvent+ cove;
+                       // concatenado = concatenado +clasification + activity + cove;
+
+                     //   if (ConcatenadoAAHParty().toLowerCase().equals(key.toLowerCase())) {
+                            if (concatenado.toLowerCase().equals(key.toLowerCase())) {
+                             //   elementosSeccion1++;
+                              //  secTemp.addAAHParty(party);
+                                if(elementosSeccion1==0){
+                                    secTemp.addAAHParty(party);
+                                    elementosSeccion1++;
+                                }else{
+
+                                    XmlMapper xmlMapper = new XmlMapper();
+                                    System.out.println("************"+xmlMapper.valueToTree(party));
+                                    int tam = party.getPartyCoverages().getPartyCoverage().size();
+                                    System.out.println(tam + " ------------------");
+                                    for (int i=0 ; i<tam; i++){
+                                        party.getPartyCoverages().getPartyCoverage().remove(0);
+                                    }
+                                    secTemp.addAAHParty(party);
+                                }
+                        }
+                    }
+
+                    secIn.addSeccion(secTemp);
+                    }
+
+                    this.seccionNominados = secNo;
+                    this.seccionInnominados = secIn;
+
+                    //System.out.println("hola");
+
+                    }
+
+
+
+
+ // ***************************************************************************************
 
     public void calculateActiv() {
         List<AAHParty> nominados = new ArrayList<AAHParty>();
@@ -201,12 +877,18 @@ public class AAHPartys {
             }
 
             String activity = "";
+            String activity1 = "";
             String clasification = "";
-            String riskCategory = "";
+            String clasification1 = "";
             String insurableGroup = "";
+            String insurableGroup1 = "";
             String coveredEvent = "";
+            String coveredEvent1 = "";
             String contractType = "";
+            String contractType1 = "";
             String aAHRiskCategory = "";
+            String aAHRiskCategory1 = "";
+            String riskCategory = "";
             String eventStartDate = "";
             String eventEndDate = "";
             String locationEvent = "";
@@ -214,101 +896,104 @@ public class AAHPartys {
             //Try-Catch: Activity
             try{
                 party.getActivity().getDisplayName();
-
+                System.out.println(party.getActivity().getDisplayName().toLowerCase()+ "---");
             } catch (NullPointerException n) {
                 //System.out.println("Asignando activity: null");
                 activity = null;
+                activity1 = "";
             }
+
+            if (activity != null) {
+                activity = party.getActivity().getDisplayName().toLowerCase().replaceAll("\\s+","");
+            }else{if(activity1 == null){ activity= party.getActivity().getDisplayName();}}
 
             //Try-Catch: Clasification
             try{
-                party.getClasification().getDisplayName();
-
+               party.getClasification().getDisplayName();
+                System.out.println(party.getClasification().getDisplayName().toLowerCase()+ "++++");
             } catch (NullPointerException n) {
                 //System.out.println("Asignando clasification: null");
                 clasification = null;
-                //System.out.println(party.getCoveredEvent().getDisplayName());
+                clasification1 = "";
+
             }
 
-            //RiskCategory
-            riskCategory = party.getRiskCategory();
+            if (clasification != null )  {
+                clasification = party.getClasification().getDisplayName().toLowerCase().replaceAll("\\s+","");
+            }else{if(clasification1==null){ clasification = party.getClasification().getDisplayName(); }}
+
 
             //Try-Catch: insurableGroup
             try{
                 party.getInsurableGroup().getDisplayName();
-
+                System.out.println(party.getInsurableGroup().getDisplayName().toLowerCase()+ "++++");
             } catch (NullPointerException n) {
                 //System.out.println("Asignando insurableGroup: null");
                 insurableGroup = null;
-                //System.out.println(party.getCoveredEvent().getDisplayName());
+                insurableGroup1 = "";
             }
+            if (insurableGroup != null) {
+                insurableGroup = party.getInsurableGroup().getDisplayName().toLowerCase().replaceAll("\\s+","");
+            }else{if(insurableGroup1==null){ insurableGroup = party.getInsurableGroup().getDisplayName(); }}
 
             //Try-Catch: coveredEvent
             try{
                 party.getCoveredEvent().getDisplayName();
-
+                System.out.println(party.getCoveredEvent().getDisplayName().toLowerCase()+ "++++");
             } catch (NullPointerException n) {
                 //System.out.println("Asignando coveredEvent: null");
                 coveredEvent = null;
-                //System.out.println(party.getCoveredEvent().getDisplayName());
+                coveredEvent1 = "";
             }
+
+            if (coveredEvent != null) {
+                coveredEvent = party.getCoveredEvent().getDisplayName().toLowerCase().replaceAll("\\s+","");
+            }else{if(coveredEvent1==null){ coveredEvent = party.getCoveredEvent().getDisplayName(); }}
 
             //Try-Catch: ContractType
             try{
                 party.getContractType().getDisplayName();
-
+                System.out.println(party.getContractType().getDisplayName().toLowerCase()+ "++++");
             } catch (NullPointerException n) {
                 //System.out.println("Asignando contractType: null");
                 contractType = null;
-                //System.out.println(party.getContractType().getDisplayName());
+                contractType1 = "";
             }
+            if (contractType != null) {
+                contractType = party.getContractType().getDisplayName().toLowerCase().replaceAll("\\s+","");
+            }else{if(contractType1==null){ contractType = party.getContractType().getDisplayName(); }}
+
 
             //Try-Catch: AAHRiskCategory
             try{
                 party.getAAHRiskCategory().getDisplayName();
-
+                System.out.println(party.getAAHRiskCategory().getDisplayName().toLowerCase()+ "++++");
             } catch (NullPointerException n) {
                 //System.out.println("Asignando contractType: null");
                 aAHRiskCategory = null;
-                //System.out.println(party.getContractType().getDisplayName());
-            }
-
-            //EventStartDate
-            eventStartDate = party.getEventStartDate();
-
-            //EventEndDate
-            eventEndDate = party.getEventEndDate();
-
-            //LocationEvent
-            locationEvent = party.getLocationEvent();
-
-            if (activity != null) {
-                activity = party.getActivity().getDisplayName().toLowerCase().replaceAll("\\s+","");
-            }
-            if (clasification != null) {
-                clasification = party.getClasification().getDisplayName().toLowerCase().replaceAll("\\s+","");
-            }
-            if (riskCategory != null) {
-                riskCategory = party.getRiskCategory().toLowerCase().replaceAll("\\s+","");
-            }
-            if (insurableGroup != null) {
-                insurableGroup = party.getInsurableGroup().getDisplayName().toLowerCase().replaceAll("\\s+","");
-            }
-            if (coveredEvent != null) {
-                coveredEvent = party.getCoveredEvent().getDisplayName().toLowerCase().replaceAll("\\s+","");
-            }
-            if (contractType != null) {
-                contractType = party.getContractType().getDisplayName().toLowerCase().replaceAll("\\s+","");
+                aAHRiskCategory1 = "";
             }
             if (aAHRiskCategory != null) {
                 aAHRiskCategory = party.getAAHRiskCategory().getDisplayName().toLowerCase().replaceAll("\\s+","");
+            }else{if(aAHRiskCategory1==null){ aAHRiskCategory = party.getAAHRiskCategory().getDisplayName(); }}
+
+            //RiskCategory
+            riskCategory = party.getRiskCategory();
+            if (riskCategory != null) {
+                riskCategory = party.getRiskCategory().toLowerCase().replaceAll("\\s+","");
             }
+            //EventStartDate
+            eventStartDate = party.getEventStartDate();
             if (eventStartDate != null) {
                 eventStartDate = party.getEventStartDate().toLowerCase().replaceAll("\\s+","");
             }
+            //EventEndDate
+            eventEndDate = party.getEventEndDate();
             if (eventEndDate != null) {
                 eventEndDate = party.getEventEndDate().toLowerCase().replaceAll("\\s+","");
             }
+            //LocationEvent
+            locationEvent = party.getLocationEvent();
             if (locationEvent != null) {
                 locationEvent = party.getLocationEvent().toLowerCase().replaceAll("\\s+","");
             }
@@ -342,7 +1027,7 @@ public class AAHPartys {
                 isTrue = false;
             }
 
-            String activity = "";
+          /*  String activity = "";
             String clasification = "";
             String riskCategory = "";
             String insurableGroup = "";
@@ -453,8 +1138,127 @@ public class AAHPartys {
             }
             if (locationEvent != null) {
                 locationEvent = party.getLocationEvent().toLowerCase().replaceAll("\\s+","");
+            }*/
+            String activity = "";
+            String activity1 = "";
+            String clasification = "";
+            String clasification1 = "";
+            String insurableGroup = "";
+            String insurableGroup1 = "";
+            String coveredEvent = "";
+            String coveredEvent1 = "";
+            String contractType = "";
+            String contractType1 = "";
+            String aAHRiskCategory = "";
+            String aAHRiskCategory1 = "";
+            String riskCategory = "";
+            String eventStartDate = "";
+            String eventEndDate = "";
+            String locationEvent = "";
+
+            //Try-Catch: Activity
+            try{
+                party.getActivity().getDisplayName();
+                System.out.println(party.getActivity().getDisplayName().toLowerCase()+ "++++");
+            } catch (NullPointerException n) {
+                //System.out.println("Asignando activity: null");
+                activity = null;
+                activity1 = "";
+            }
+            if (activity != null) {
+                activity = party.getActivity().getDisplayName().toLowerCase().replaceAll("\\s+","");
+            }else{if(activity1==null){ activity= party.getActivity().getDisplayName();}}
+
+            //Try-Catch: Clasification
+            try{
+                party.getClasification().getDisplayName();
+                System.out.println(party.getClasification().getDisplayName().toLowerCase()+ "++++");
+            } catch (NullPointerException n) {
+                //System.out.println("Asignando clasification: null");
+                clasification = null;
+                clasification1 = "";
+
             }
 
+            if (clasification != null )  {
+                clasification = party.getClasification().getDisplayName().toLowerCase().replaceAll("\\s+","");
+            }else{if(clasification1==null){ clasification = party.getClasification().getDisplayName(); }}
+
+
+            //Try-Catch: insurableGroup
+            try{
+                party.getInsurableGroup().getDisplayName();
+                System.out.println(party.getInsurableGroup().getDisplayName().toLowerCase()+ "++++");
+            } catch (NullPointerException n) {
+                //System.out.println("Asignando insurableGroup: null");
+                insurableGroup = null;
+                insurableGroup1 = "";
+            }
+            if (insurableGroup != null) {
+                insurableGroup = party.getInsurableGroup().getDisplayName().toLowerCase().replaceAll("\\s+","");
+            }else{if(insurableGroup1==null){ insurableGroup = party.getInsurableGroup().getDisplayName(); }}
+
+            //Try-Catch: coveredEvent
+            try{
+                party.getCoveredEvent().getDisplayName();
+                System.out.println(party.getCoveredEvent().getDisplayName().toLowerCase()+ "++++");
+            } catch (NullPointerException n) {
+                //System.out.println("Asignando coveredEvent: null");
+                coveredEvent = null;
+                coveredEvent1 = "";
+            }
+
+            if (coveredEvent != null) {
+                coveredEvent = party.getCoveredEvent().getDisplayName().toLowerCase().replaceAll("\\s+","");
+            }else{if(coveredEvent1==null){ coveredEvent = party.getCoveredEvent().getDisplayName(); }}
+
+            //Try-Catch: ContractType
+            try{
+                party.getContractType().getDisplayName();
+                System.out.println(party.getContractType().getDisplayName().toLowerCase()+ "++++");
+            } catch (NullPointerException n) {
+                //System.out.println("Asignando contractType: null");
+                contractType = null;
+                contractType1 = "";
+            }
+            if (contractType != null) {
+                contractType = party.getContractType().getDisplayName().toLowerCase().replaceAll("\\s+","");
+            }else{if(contractType1==null){ contractType = party.getContractType().getDisplayName(); }}
+
+
+            //Try-Catch: AAHRiskCategory
+            try{
+                party.getAAHRiskCategory().getDisplayName();
+                System.out.println(party.getAAHRiskCategory().getDisplayName().toLowerCase()+ "++++");
+            } catch (NullPointerException n) {
+                //System.out.println("Asignando contractType: null");
+                aAHRiskCategory = null;
+                aAHRiskCategory1 = "";
+            }
+            if (aAHRiskCategory != null) {
+                aAHRiskCategory = party.getAAHRiskCategory().getDisplayName().toLowerCase().replaceAll("\\s+","");
+            }else{if(aAHRiskCategory1==null){ aAHRiskCategory = party.getAAHRiskCategory().getDisplayName(); }}
+
+            //RiskCategory
+            riskCategory = party.getRiskCategory();
+            if (riskCategory != null) {
+                riskCategory = party.getRiskCategory().toLowerCase().replaceAll("\\s+","");
+            }
+            //EventStartDate
+            eventStartDate = party.getEventStartDate();
+            if (eventStartDate != null) {
+                eventStartDate = party.getEventStartDate().toLowerCase().replaceAll("\\s+","");
+            }
+            //EventEndDate
+            eventEndDate = party.getEventEndDate();
+            if (eventEndDate != null) {
+                eventEndDate = party.getEventEndDate().toLowerCase().replaceAll("\\s+","");
+            }
+            //LocationEvent
+            locationEvent = party.getLocationEvent();
+            if (locationEvent != null) {
+                locationEvent = party.getLocationEvent().toLowerCase().replaceAll("\\s+","");
+            }
             if (conteo == 0) {
                 hmap.put("activity", activity);
                 hmap.put("clasification", clasification);
@@ -531,6 +1335,7 @@ public class AAHPartys {
         Seccion secTemp3 = new Seccion();
         Seccion secTemp2In = new Seccion();
         Seccion secTemp3In = new Seccion();
+        Seccion secTemp4In = new Seccion();
         Seccion secCoverage = new Seccion();
         Seccion secCoverageIn = new Seccion();
         while (iterator.hasNext()) {
@@ -576,6 +1381,7 @@ public class AAHPartys {
                 //System.out.println(nominados.size());
 
                 String currentActivity = "";
+                String currentActivity1 = "";
                 String currentClasification = "";
                 String currentRiskCategory = "";
                 String currentInsurableGroup = "";
@@ -1653,7 +2459,9 @@ public class AAHPartys {
                 //System.out.println(no_nominados.size());
 
                 String currentActivity = "";
+                String currentActivity1 = "";
                 String currentClasification = "";
+                String currentClasification1 = "";
                 String currentRiskCategory = "";
                 String currentInsurableGroup = "";
                 String currentCoveredEvent = "";
@@ -1666,28 +2474,30 @@ public class AAHPartys {
                 //Try-Catch: Activity
                 try{
                     party.getActivity().getDisplayName().toLowerCase().replaceAll("\\s+","");
-
+                    System.out.println(party.getActivity().getDisplayName()+ "///////////");
                 } catch (NullPointerException n) {
                     //System.out.println("Asignando activity: null");
                     currentActivity = null;
+                    currentActivity1 = "";
                     //System.out.println(party.getCoveredEvent().getDisplayName());
                 }
                 if (currentActivity != null) {
                     currentActivity = party.getActivity().getDisplayName().toLowerCase().replaceAll("\\s+","");
-                }
+                }else {if(currentActivity1== null){ currentActivity = party.getActivity().getDisplayName();}}
 
                 //Try-Catch: Clasification
                 try{
                     party.getClasification().getDisplayName().toLowerCase().replaceAll("\\s+","");
-
+                    System.out.println(party.getClasification().getDisplayName()+ "***********");
                 } catch (NullPointerException n) {
                     //System.out.println("Asignando Clasification: null");
                     currentClasification = null;
+                    currentClasification1 = "";
                     //System.out.println(party.getCoveredEvent().getDisplayName());
                 }
                 if (currentClasification != null) {
                     currentClasification = party.getClasification().getDisplayName().toLowerCase().replaceAll("\\s+","");
-                }
+                }else {if(currentClasification1== null){ currentClasification = party.getClasification().getDisplayName();}}
 
                 //RiskCategory
                 currentRiskCategory = party.getRiskCategory();
@@ -1788,7 +2598,8 @@ public class AAHPartys {
                                 isDifferentIn = true;
                             } else {
                                 secTemp2In.addAAHParty(party);
-                                if (count == no_nominados.size()) {
+                                if ((count == no_nominados.size())||(count == no_nominados.size())) {
+                                   // System.out.println("NOOOOOOOOOOO");
                                     isEqualsIn = true;
                                 }
                             }
@@ -1829,11 +2640,14 @@ public class AAHPartys {
                                     //}
                                 }
                             } else {
-                                if (count == no_nominados.size()) {
+                              //  System.out.println("HERE **" + count);
+                              //  if ((count == no_nominados.size())||(count != no_nominados.size())) {
+                                    if (count == no_nominados.size()) {
                                     secTemp3In = new Seccion();
                                     secTemp3In.addAAHParty(party);
                                     isEqualsIn2 = false;
                                     isDifferentIn2 = true;
+                                  //  System.out.println("NO HERE");
                                 }
                             }
                         } else {
@@ -1847,11 +2661,14 @@ public class AAHPartys {
                                 //secTemp.addAAHParty(party);
                                 secTemp.addAAHParty(party);
                                 secTemp2In = secTemp;
-                                if (count == no_nominados.size()) {
+
+                               // if (count == no_nominados.size()) {
+                             if   ((count == no_nominados.size())||(count != no_nominados.size())){
                                     isEqualsIn2 = true;
                                 }
                             }
                         }
+                         System.out.println(count+":"+ isEqualsIn2);
 
                     } else if (conteoIteratorIn == 3) {
                         if (currentRiskCategory != null) {
@@ -2737,9 +3554,10 @@ public class AAHPartys {
                             if (key != null) {
                                 if (currentLocalEvent.equals(key.toLowerCase())) {
                                     if (isTrue) {
+                                 //       System.out.println("YES");
                                    //  if (coverages.equals(currentCoverage1)){
                                         secTemp17.addAAHParty(party);
-
+/*
                                         //CASO1: Activity =!
                                         if (count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) {
                                             isEqualsIn10 = true;
@@ -2752,6 +3570,7 @@ public class AAHPartys {
                                             isEqualsIn10 = true;
                                             secIn.addSeccion(secTemp2In);
                                             secIn.addSeccion(secTemp3In);
+                                            System.out.println("YER");
                                         }
 
                                         //CASO3: RiskCategory !=
@@ -2860,19 +3679,39 @@ public class AAHPartys {
                                         }
 
                                         if(count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3&& isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) {
-                                           if(!(coverages.equals(currentCoverage1))){
-                                               secTemp18.addAAHParty(party);
-                                               secTemp2In = secTemp17;
-                                               secTemp3In = secTemp18;
-                                             //  isDifferentIn10 = true;
-                                               secIn.addSeccion(secTemp2In);
-                                               secIn.addSeccion(secTemp3In);
-                                           }else{
-                                            isEqualsIn10 = true;
-                                            secIn.addSeccion(secTemp17);}
-                                        }
-                                    } else {
 
+                                                System.out.println("elena");
+                                                isEqualsIn10 = true;
+                                                secIn.addSeccion(secTemp17);
+
+
+                                        }*/
+                                        if((count == no_nominados.size() && isDifferentIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9)|| (count == no_nominados.size() && isEqualsIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9)||(count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9)|| (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isDifferentIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9)|| (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isDifferentIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isDifferentIn8 && isEqualsIn9)||(count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isDifferentIn9)){
+                                            isEqualsIn10 = true;
+                                            secTemp4In = new Seccion();
+                                            secTemp4In.addAAHParty(party);
+                                            secIn.addSeccion(secTemp2In);
+                                            secIn.addSeccion(secTemp3In);
+                                            secIn.addSeccion(secTemp4In);
+                                        }else{if((count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isEqualsIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9)||(count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) || (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9)  ||(count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9) ){
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp2In);
+                                            secIn.addSeccion(secTemp3In);
+                                            secCoverageIn = new Seccion();
+                                            secCoverageIn.addAAHParty(party);
+                                            secIn.addSeccion(secCoverageIn);
+                                        }else{if((count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9)||(count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isEqualsIn8 && isEqualsIn9)||(count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isDifferentIn8 && isEqualsIn9)||(count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isDifferentIn8 && isDifferentIn9)){
+                                            isEqualsIn10 = true;
+                                           secIn.addSeccion(secTemp2In);
+                                           secIn.addSeccion(secTemp3In);
+                                        }else{if(count == no_nominados.size() && isEqualsIn && isEqualsIn2 && isEqualsIn3&& isEqualsIn4 && isEqualsIn5 && isEqualsIn6 && isEqualsIn7 && isEqualsIn8 && isEqualsIn9){
+                                            System.out.println("elena");
+                                            isEqualsIn10 = true;
+                                            secIn.addSeccion(secTemp17);
+                                        }}}}
+
+                                    } else {
+                                        System.out.println("pap");
                                         if (count != no_nominados.size() || count == no_nominados.size()) {
                                             secCoverageIn = new Seccion();
                                             secCoverageIn.addAAHParty(party);
@@ -2882,12 +3721,13 @@ public class AAHPartys {
 
 
                                 } else {
+                                    System.out.println("snow");
                                     secTemp18.addAAHParty(party);
 
                                     if (count == no_nominados.size() && isDifferentIn && isDifferentIn2 && isDifferentIn3 && isDifferentIn4 && isDifferentIn5 && isDifferentIn6 && isDifferentIn7 && isDifferentIn8 && isDifferentIn9) {
                                         isDifferentIn10 = true;
-                                        secIn.addSeccion(secTemp2In);
-                                        secIn.addSeccion(secTemp3In);
+                                      //  secIn.addSeccion(secTemp2In);
+                                       // secIn.addSeccion(secTemp3In);
                                     }
 
                                     //CASO10: LocalEvent !=
@@ -2900,6 +3740,7 @@ public class AAHPartys {
                                     }
                                 }
                             } else {
+                                System.out.println("mam");
                                 if (count == no_nominados.size()) {
                                     secTemp3In = new Seccion();
                                     secTemp3In.addAAHParty(party);
@@ -2916,6 +3757,7 @@ public class AAHPartys {
                                 }
                             }
                         } else {
+
                             if (key != null) {
                                 //secTemp.addAAHParty(party);
                                 secTemp18.addAAHParty(party);
@@ -2956,7 +3798,7 @@ public class AAHPartys {
                                 secIn.addSeccion(secTemp3In);
                             }
                         }
-
+                        //  System.out.println(" ++++++++++"+isEqualsIn2+ " :" + currentClasification);
                     }
             }
 
@@ -2988,6 +3830,8 @@ public class AAHPartys {
         this.seccionInnominados = secIn;
     }
 
+
+
     public void descartarOfficialID() {
         for (AAHParty party : this.aahpartys) {
             if(!party.getCoveredPersonExistence()) {
@@ -3012,10 +3856,11 @@ public class AAHPartys {
         }
     }
 
-    public void calcularLimNombre() {
+   public void calcularLimNombre() {
         System.out.println("IMPRIMIENDO CALCULARLIMNOMBRE");
         for (AAHParty party : this.aahpartys) {
             for (PartyCoverage partyCov : party.getPartyCoverages().getPartyCoverage()) {
+          //  partyCov.calculateLimNombre();
                 partyCov.calculateLimNombre();
             }
         }
@@ -3164,6 +4009,148 @@ public class AAHPartys {
             }
         }
     }
+/*
+    public String ConcatenadoAAHParty(){
+
+        String concatenado = "";
+        int contador = 0;
+        for(AAHParty party : this.aahpartys) {
+            String activity = "";
+            String activity1 = "";
+            String clasification = "";
+            String clasification1 = "";
+           String insurableGroup = "";
+            String insurableGroup1 = "";
+            String coveredEvent = "";
+            String coveredEvent1 = "";
+            String contractType = "";
+            String contractType1 = "";
+            String aAHRiskCategory = "";
+            String aAHRiskCategory1 = "";
+            String riskCategory = "";
+            String eventStartDate = "";
+            String eventEndDate = "";
+            String locationEvent = "";
+
+            //Try-Catch: Activity
+            try{
+                party.getActivity().getDisplayName();
+                System.out.println(party.getActivity().getDisplayName().toLowerCase()+ "---");
+            } catch (NullPointerException n) {
+                //System.out.println("Asignando activity: null");
+                activity = null;
+                activity1 = "";
+            }
+
+            if (activity != null) {
+                activity = party.getActivity().getDisplayName().toLowerCase().replaceAll("\\s+","");
+            }else{if(activity1 == null){ activity= party.getActivity().getDisplayName();}}
+
+            //Try-Catch: Clasification
+            try{
+                party.getClasification().getDisplayName();
+                System.out.println("VALCLAS: " +party.getClasification().getDisplayName().toLowerCase()+ "++++");
+            } catch (NullPointerException n) {
+                //System.out.println("Asignando clasification: null");
+            //    System.out.println("ENTRO AL NULL");
+                clasification = null;
+                clasification1 = "";
+            }
+
+            if (clasification != null )  {
+                clasification = party.getClasification().getDisplayName().toLowerCase().replaceAll("\\s+","");
+            }
+
+
+            //Try-Catch: insurableGroup
+            try{
+                party.getInsurableGroup().getDisplayName();
+                System.out.println(party.getInsurableGroup().getDisplayName().toLowerCase()+ "++++");
+            } catch (NullPointerException n) {
+                //System.out.println("Asignando insurableGroup: null");
+                insurableGroup = null;
+                insurableGroup1 = "";
+            }
+            if (insurableGroup != null) {
+                insurableGroup = party.getInsurableGroup().getDisplayName().toLowerCase().replaceAll("\\s+","");
+            }else{if(insurableGroup1==null){ insurableGroup = party.getInsurableGroup().getDisplayName(); }}
+
+            //Try-Catch: coveredEvent
+            try{
+                party.getCoveredEvent().getDisplayName();
+                System.out.println(party.getCoveredEvent().getDisplayName().toLowerCase()+ "++++");
+            } catch (NullPointerException n) {
+                //System.out.println("Asignando coveredEvent: null");
+                coveredEvent = null;
+                coveredEvent1 = "";
+            }
+
+            if (coveredEvent != null) {
+                coveredEvent = party.getCoveredEvent().getDisplayName().toLowerCase().replaceAll("\\s+","");
+            }else{if(coveredEvent1==null){ coveredEvent = party.getCoveredEvent().getDisplayName(); }}
+
+            //Try-Catch: ContractType
+            try{
+                party.getContractType().getDisplayName();
+                System.out.println(party.getContractType().getDisplayName().toLowerCase()+ "++++");
+            } catch (NullPointerException n) {
+                //System.out.println("Asignando contractType: null");
+                contractType = null;
+                contractType1 = "";
+            }
+            if (contractType != null) {
+                contractType = party.getContractType().getDisplayName().toLowerCase().replaceAll("\\s+","");
+            }else{if(contractType1==null){ contractType = party.getContractType().getDisplayName(); }}
+
+
+            //Try-Catch: AAHRiskCategory
+            try{
+                party.getAAHRiskCategory().getDisplayName();
+                System.out.println(party.getAAHRiskCategory().getDisplayName().toLowerCase()+ "++++");
+            } catch (NullPointerException n) {
+                //System.out.println("Asignando contractType: null");
+                aAHRiskCategory = null;
+                aAHRiskCategory1 = "";
+            }
+            if (aAHRiskCategory != null) {
+                aAHRiskCategory = party.getAAHRiskCategory().getDisplayName().toLowerCase().replaceAll("\\s+","");
+            }else{if(aAHRiskCategory1==null){ aAHRiskCategory = party.getAAHRiskCategory().getDisplayName(); }}
+
+            //RiskCategory
+            riskCategory = party.getRiskCategory();
+            if (riskCategory != null) {
+                riskCategory = party.getRiskCategory().toLowerCase().replaceAll("\\s+","");
+            }
+            //EventStartDate
+            eventStartDate = party.getEventStartDate();
+            if (eventStartDate != null) {
+                eventStartDate = party.getEventStartDate().toLowerCase().replaceAll("\\s+","");
+            }
+            //EventEndDate
+            eventEndDate = party.getEventEndDate();
+            if (eventEndDate != null) {
+                eventEndDate = party.getEventEndDate().toLowerCase().replaceAll("\\s+","");
+            }
+            //LocationEvent
+            locationEvent = party.getLocationEvent();
+            if (locationEvent != null) {
+                locationEvent = party.getLocationEvent().toLowerCase().replaceAll("\\s+","");
+            }
+
+          concatenado = concatenado + activity + clasification + insurableGroup+coveredEvent+contractType+aAHRiskCategory+riskCategory+eventStartDate+eventEndDate+locationEvent;
+
+            if(contador==0){
+            concatenado = concatenado +clasification;}
+            //System.out.println("clasificacion: " + clasification);
+            //System.out.println("concanadodo: " + concatenado);
+         contador ++;
+        }
+        //this.coverages = valor;
+      //  System.out.println("concanadodo: " + concatenado);
+        return concatenado;
+    }
+*/
+
 
 }
 
